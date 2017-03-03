@@ -179,6 +179,11 @@ for (var i=0; i<hosts.length; i++) {
 Promise.all(promises).then(() => {
 console.log('ALL PROMISES DONE! :)');
   var rows = hosts.sort(function(a, b) {
+    var delayA = (typeof a.messaging === 'number' ? a.messaging : 1000000);
+    var delayB = (typeof b.messaging === 'number' ? b.messaging : 1000000);
+console.log({ delayA, delayB });
+    if (delayA < delayB) { return -1; }
+    if (delayA > delayB) { return 1; }
     if ((typeof a.messaging === 'number') && (typeof b.messaging !== 'number')) { return -1; }
     if ((typeof a.messaging !== 'number') && (typeof b.messaging === 'number')) { return 1; }
     if ((('' + a.settlements).indexOf('<span style="color:red">') !== -1) && (('' + b.settlements).indexOf('<span style="color:red">') === -1)) { return 1; }
