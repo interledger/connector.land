@@ -103,24 +103,32 @@ function checkLedger(i) {
     1: 'deci',
     2: 'centi',
     3: 'milli',
+    4: '(10^-4)',
+    5: '(10^-5)',
     6: 'micro',
+    7: '(10^-7)',
+    8: '(10^-8)',
     9: 'nano',
+    10: '(10^-10)',
+    11: '(10^-11)',
+    12: '(10^-12)',
   };
   return checkUrl(i, '/ledger').then(result => {
+console.log('result', i, result);
     if (result.error) {
         hosts[i].maxBalance = `<span style="color:red">?</span>`;
         hosts[i].prefix = `<span style="color:red">?</span>`;
     } else if (result.status === 200) {
       var data;
       try {
-        data = JSON.parse(body);
+        data = JSON.parse(result.body);
       } catch(e) {
         hosts[i].maxBalance = `<span style="color:red">?</span>`;
         hosts[i].prefix = `<span style="color:red">?</span>`;
         return;
       }
-      hosts[i].prefix = data.prefix;
-      hosts[i].maxBalance = `10^${data.precision} ${scales[data.scale]}-${data.currency}`;
+      hosts[i].prefix = data.ilp_prefix;
+      hosts[i].maxBalance = `10^${data.precision} ${scales[data.scale]}-${data.currency_code}`;
       return `HTTP <span style="color:red">${result.status}</span> response`;
  
     }
@@ -181,6 +189,7 @@ Promise.all(promises).then(() => {
 //        `<td>${Math.floor(100*line.price)}%</td>` +
         `<td>${line.version}</td>` +
         `<td>${line.prefix}</td>` +
+        `<td>${line.maxBalance}</td>` +
         `<td>${line.owner}</td>` +
         `<td>${line.settlements.slice(0, 50)}</td>` +
         `<td>${line.health.slice(0, 50)}</td>` +
@@ -195,6 +204,7 @@ Promise.all(promises).then(() => {
 //     '<th>Price (commission fee on a 0.01 EUR/USD transaction)</th>',
     '<th>ILP Kit Version</th>',
     '<th>Ledger Prefix</th>',
+    '<th>Max Balance</th>',
     '<th>Owner\'s Connector Account</th>',
     '<th>Settlement Methods</th>',
     '<th>Health</th>',
