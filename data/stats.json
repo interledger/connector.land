@@ -1,0 +1,40 @@
+{
+  "headers": [
+    "<th>ILP Kit URL</th>",
+    "<th>ILP Kit Version</th>",
+    "<th>Ledger Prefix</th>",
+    "<th>Owner's Connector Account</th>",
+    "<th>Settlement Methods</th>",
+    "<th>Health</th>",
+    "<th>Ping</th>"
+  ],
+  "rows": [
+    "<tr><td><a href=\"https://cornelius.sharafian.com\">cornelius.sharafian.com</a></td><td><span style=\"color:green\">Compatible: ilp-kit v1.1.0</span></td><td>undefined</td><td>sharafian</td><td><span style=\"color:green\">Hokuto no Ken</span></td><td>OK</td><td style=\"color:green\">&#x2713;</td></tr>",
+    "<tr><td><a href=\"https://hive.dennisappelt.com\">hive.dennisappelt.com</a></td><td><span style=\"color:green\">Compatible: ilp-kit v1.1.0</span></td><td>undefined</td><td>dennis</td><td><span style=\"color:green\">Cash, Just click here. W</td><td>OK</td><td style=\"color:green\">&#x2713;</td></tr>",
+    "<tr><td><a href=\"https://ilp-kit.michielbdejong.com\">ilp-kit.michielbdejong.com</a></td><td><span style=\"color:green\">Compatible: ilp-kit v1.1.0</span></td><td>undefined</td><td>michiel</td><td><span style=\"color:green\">Cash</span></td><td>OK</td><td style=\"color:green\">&#x2713;</td></tr>",
+    "<tr><td><a href=\"https://pineapplesheep.ilp.rocks\">pineapplesheep.ilp.rocks</a></td><td><span style=\"color:green\">Compatible: ilp-kit v1.1.0</span></td><td>undefined</td><td>pineapplesheep</td><td><span style=\"color:green\">Cash</span></td><td>OK</td><td style=\"color:green\">&#x2713;</td></tr>",
+    "<tr><td><a href=\"https://usd.interledger.network\">usd.interledger.network</a></td><td><span style=\"color:green\">Compatible: ilp-kit v1.1.0</span></td><td>undefined</td><td>winthan</td><td><span style=\"color:green\">Paypal</span></td><td>OK</td><td style=\"color:green\">&#x2713;</td></tr>",
+    "<tr><td><a href=\"https://cygnus.vahehovhannisyan.com\">cygnus.vahehovhannisyan.com</a></td><td><span style=\"color:green\">Compatible: ilp-kit v1.1.0</span></td><td>undefined</td><td>vahe</td><td>None</td><td>OK</td><td style=\"color:green\">&#x2713;</td></tr>",
+    "<tr><td><a href=\"https://ilp.hexdivision.com\">ilp.hexdivision.com</a></td><td><span style=\"color:green\">Compatible: ilp-kit v1.1.0</span></td><td>undefined</td><td>admin</td><td>None</td><td>OK</td><td style=\"color:green\">&#x2713;</td></tr>",
+    "<tr><td><a href=\"https://john.jpvbs.com\">john.jpvbs.com</a></td><td><span style=\"color:green\">Compatible: ilp-kit v1.1.0</span></td><td>undefined</td><td></td><td>None</td><td>OK</td><td style=\"color:green\">&#x2713;</td></tr>",
+    "<tr><td><a href=\"https://mmk.interledger.network\">mmk.interledger.network</a></td><td><span style=\"color:green\">Compatible: ilp-kit v1.1.0</span></td><td>undefined</td><td>nyeinminn</td><td>None</td><td>OK</td><td style=\"color:green\">&#x2713;</td></tr>",
+    "<tr><td><a href=\"https://nexus.justmoon.com\">nexus.justmoon.com</a></td><td><span style=\"color:green\">Compatible: ilp-kit v1.1.0</span></td><td>undefined</td><td>stefan</td><td>None</td><td>OK</td><td style=\"color:green\">&#x2713;</td></tr>",
+    "<tr><td><a href=\"https://royalcrypto.com\">royalcrypto.com</a></td><td>undefined</td><td>undefined</td><td>twarden</td><td>None</td><td>OK</td><td style=\"color:green\">&#x2713;</td></tr>",
+    "<tr><td><a href=\"https://ggizi.herokuapp.com\">ggizi.herokuapp.com</a></td><td>undefined</td><td>undefined</td><td></td><td><span style=\"color:green\"></span></td><td>OK</td><td style=\"color:red\">&#x2716;</td></tr>",
+    "<tr><td><a href=\"https://michiel-is-not-available.herokuapp.com\">michiel-is-not-available.herokuapp.com</a></td><td><span style=\"color:green\">Compatible: ilp-kit v1.1.0</span></td><td>undefined</td><td>admin</td><td><span style=\"color:green\">Cash</span></td><td>OK</td><td style=\"color:red\">&#x2716;</td></tr>",
+    "<tr><td><a href=\"https://red.ilpdemo.org\">red.ilpdemo.org</a></td><td><span style=\"color:green\">Compatible: ilp-kit v1.1.0</span></td><td>undefined</td><td></td><td><span style=\"color:green\"></span></td><td>OK</td><td style=\"color:red\">&#x2716;</td></tr>",
+    "<tr><td><a href=\"https://best-ilp.herokuapp.com\">best-ilp.herokuapp.com</a></td><td>undefined</td><td>undefined</td><td></td><td>None</td><td>OK</td><td style=\"color:red\">&#x2716;</td></tr>",
+    "<tr><td><a href=\"https://blue.ilpdemo.org\">blue.ilpdemo.org</a></td><td><span style=\"color:green\">Compatible: ilp-kit v1.1.0</span></td><td>undefined</td><td></td><td>None</td><td>OK</td><td style=\"color:red\">&#x2716;</td></tr>",
+    "<tr><td><a href=\"https://interledger.kr\">interledger.kr</a></td><td>undefined</td><td>undefined</td><td>mspark</td><td>None</td><td>OK</td><td style=\"color:red\">&#x2716;</td></tr>",
+    "<tr><td><a href=\"https://michiel-eur.herokuapp.com\">michiel-eur.herokuapp.com</a></td><td><span style=\"color:green\">Compatible: ilp-kit v1.1.0</span></td><td>undefined</td><td></td><td>None</td><td>OK</td><td style=\"color:red\">&#x2716;</td></tr>",
+    "<tr><td><a href=\"https://grifiti.web-payments.net\">grifiti.web-payments.net</a></td><td>undefined</td><td>undefined</td><td>pkrey</td><td>HTTP <span style=\"color:red\">404</span> response</td><td>OK</td><td style=\"color:green\">&#x2713;</td></tr>",
+    "<tr><td><a href=\"https://milton.ilp.network\">milton.ilp.network</a></td><td><span style=\"color:red\">WebFinger properties missing</span></td><td>undefined</td><td>javi</td><td>HTTP <span style=\"color:red\">404</span> response</td><td>OK</td><td style=\"color:green\">&#x2713;</td></tr>",
+    "<tr><td><a href=\"https://payment.am\">payment.am</a></td><td><span style=\"color:red\">WebFinger error</span></td><td>undefined</td><td>mesrop</td><td>HTTP <span style=\"color:red\">404</span> response</td><td>OK</td><td style=\"color:green\">&#x2713;</td></tr>",
+    "<tr><td><a href=\"https://coins.paleorbglow.com\">coins.paleorbglow.com</a></td><td><span style=\"color:red\">WebFinger error</span></td><td>undefined</td><td>kanaan</td><td><span style=\"color:red\">Connection error</span></td><td><span style=\"color:red\">Connection error</span></td><td style=\"color:green\">&#x2713;</td></tr>",
+    "<tr><td><a href=\"https://ilp.bigchaindb.com\">ilp.bigchaindb.com</a></td><td><span style=\"color:red\">WebFinger error</span></td><td>undefined</td><td>dimitri</td><td>HTTP <span style=\"color:red\">502</span> response</td><td>HTTP <span style=\"color:red\">502</span> response</td><td style=\"color:green\">&#x2713;</td></tr>",
+    "<tr><td><a href=\"https://kes-ilp.abdishakur.com\">kes-ilp.abdishakur.com</a></td><td><span style=\"color:red\">WebFinger error</span></td><td>undefined</td><td>abdishakur</td><td>HTTP <span style=\"color:red\">301</span> response</td><td>HTTP <span style=\"color:red\">301</span> response</td><td style=\"color:green\">&#x2713;</td></tr>",
+    "<tr><td><a href=\"https://zar-ilp.hopebailie.com\">zar-ilp.hopebailie.com</a></td><td><span style=\"color:red\">WebFinger error</span></td><td>undefined</td><td>adrian</td><td>HTTP <span style=\"color:red\">502</span> response</td><td>HTTP <span style=\"color:red\">502</span> response</td><td style=\"color:green\">&#x2713;</td></tr>",
+    "<tr><td><a href=\"https://gordon.mearnag.org\">gordon.mearnag.org</a></td><td><span style=\"color:red\">WebFinger error</span></td><td>undefined</td><td>connie</td><td><span style=\"color:red\">Connection error</span></td><td><span style=\"color:red\">Connection error</span></td><td style=\"color:red\">&#x2716;</td></tr>",
+    "<tr><td><a href=\"https://someledger.herokuapp.com\">someledger.herokuapp.com</a></td><td><span style=\"color:red\">WebFinger error</span></td><td>undefined</td><td></td><td>HTTP <span style=\"color:red\">503</span> response</td><td>HTTP <span style=\"color:red\">503</span> response</td><td style=\"color:red\">&#x2716;</td></tr>"
+  ]
+}

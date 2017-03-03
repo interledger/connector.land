@@ -1,0 +1,24 @@
+{
+  "name": "connector.land",
+  "version": "1.0.0",
+  "description": "https://connector.land (builds out https://github.com/interledgerjs/ilp-kit/wiki/Known-ILP-Nodes)",
+  "main": "scripts/probe.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/interledger/connector.land.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/interledger/connector.land/issues"
+  },
+  "homepage": "https://github.com/interledger/connector.land#readme",
+  "dependencies": {
+    "ilp-plugin-bells": "^10.2.3",
+    "ping": "^0.2.1",
+    "webfinger.js": "^2.6.2"
+  }
+}
