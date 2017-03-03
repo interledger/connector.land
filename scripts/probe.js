@@ -3,7 +3,7 @@ var ping = require('ping');
 var https = require('https');
 var WebFinger = require('webfinger.js').WebFinger;
 var wf = new WebFinger();
-
+var msgToSelf = require('./msgToSelf');
 var hosts = require('../data/hosts.js').hosts;
 const OUTPUT_FILE = '../data/stats.json';
 
@@ -118,7 +118,9 @@ console.log('result', i, result);
     if (result.error) {
         hosts[i].maxBalance = `<span style="color:red">?</span>`;
         hosts[i].prefix = `<span style="color:red">?</span>`;
-    } else if (result.status === 200) {
+        return;
+    }
+    if (result.status === 200) {
       var data;
       try {
         data = JSON.parse(result.body);
@@ -129,8 +131,17 @@ console.log('result', i, result);
       }
       hosts[i].prefix = data.ilp_prefix;
       hosts[i].maxBalance = `10^${data.precision} ${printScale(data.scale)}-${data.currency_code}`;
-      return `HTTP <span style="color:red">${result.status}</span> response`;
- 
+      return msgToSelf.test(hosts[i].hostname, hosts[i].prefix).then(result => {
+        console.log('msg to self', hosts[i].hostname, hosts[i].prefix, result);
+        // { connectSuccess: true,
+        //   sendSuccess: false,
+        //   connectTime: 277,
+        //   sendTime: 0 }
+
+        hosts[i].messaging = ( result.connectSuccess ?
+          (result.sendSuccess ? connectTime + sendTime : 'cannot send')
+          : 'cannot connect');
+      });
     }
   });
 }
@@ -190,6 +201,7 @@ Promise.all(promises).then(() => {
         `<td>${line.version}</td>` +
         `<td>${line.prefix}</td>` +
         `<td>${line.maxBalance}</td>` +
+        `<td>${line.messaging}</td>` +
         `<td>${line.owner}</td>` +
         `<td>${line.settlements.slice(0, 50)}</td>` +
         `<td>${line.health.slice(0, 50)}</td>` +
@@ -205,6 +217,7 @@ Promise.all(promises).then(() => {
     '<th>ILP Kit Version</th>',
     '<th>Ledger Prefix</th>',
     '<th>Max Balance</th>',
+    '<th>Messaging</th>',
     '<th>Owner\'s Connector Account</th>',
     '<th>Settlement Methods</th>',
     '<th>Health</th>',
