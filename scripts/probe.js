@@ -98,21 +98,21 @@ function checkSettlements(i) {
   });
 }
 
-function checkLedger(i) {
+function printScale(s) {
   const scales = {
     1: 'deci',
     2: 'centi',
     3: 'milli',
-    4: '(10^-4)',
-    5: '(10^-5)',
     6: 'micro',
-    7: '(10^-7)',
-    8: '(10^-8)',
     9: 'nano',
-    10: '(10^-10)',
-    11: '(10^-11)',
-    12: '(10^-12)',
   };
+  if (scales[s]) {
+    return scales[s];
+  }
+  return `(10^-${s})`;
+}
+
+function checkLedger(i) {
   return checkUrl(i, '/ledger').then(result => {
 console.log('result', i, result);
     if (result.error) {
@@ -128,7 +128,7 @@ console.log('result', i, result);
         return;
       }
       hosts[i].prefix = data.ilp_prefix;
-      hosts[i].maxBalance = `10^${data.precision} ${scales[data.scale]}-${data.currency_code}`;
+      hosts[i].maxBalance = `10^${data.precision} ${printScale(data.scale)}-${data.currency_code}`;
       return `HTTP <span style="color:red">${result.status}</span> response`;
  
     }
