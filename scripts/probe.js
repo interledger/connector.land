@@ -6,6 +6,7 @@ var wf = new WebFinger();
 var msgToSelf = require('./msgToSelf');
 var hosts = require('../data/hosts.js').hosts;
 const OUTPUT_FILE = '../data/stats.json';
+const OUTPUT_FILE2 = `../data/stats-${new Date().getTime()}.json`;
 
 function checkUrl(i, path) {
   return new Promise((resolve) => {
@@ -218,7 +219,7 @@ console.log({ delayA, delayB });
         (line.ping?`<td style="color:green">&#x2713;</td>` : `<td style="color:red">&#x2716;</td>`) +
         `</tr>`
   );
-  fs.writeFileSync(OUTPUT_FILE, JSON.stringify({
+  var str = JSON.stringify({
     headers: [
     '<th>ILP Kit URL</th>',
 //     '<th>Reliability (success rate)</th>',
@@ -234,7 +235,9 @@ console.log({ delayA, delayB });
     '<th>Ping</th>',
   ],
     rows: rows
-  }, null, 2));
+  }, null, 2);
+  fs.writeFileSync(OUTPUT_FILE, str);
+  fs.writeFileSync(OUTPUT_FILE2, str);
   process.exit(0);
 }, err => {
   console.log(err);
