@@ -139,10 +139,12 @@ console.log('result', i, result);
         //   sendTime: 0 }
 
         hosts[i].messaging = ( result.connectSuccess ?
-          (result.sendSuccess ? connectTime + sendTime : 'cannot send')
+          (result.sendSuccess ? result.connectTime + result.sendTime : 'cannot send')
           : 'cannot connect');
       });
     }
+  }).then(() => {
+    console.log('done checkLedger', promises.length);
   });
 }
 
@@ -175,6 +177,7 @@ for (var i=0; i<hosts.length; i++) {
 //  } 
 }
 Promise.all(promises).then(() => {
+console.log('ALL PROMISES DONE! :)');
   var rows = hosts.sort(function(a, b) {
     if ((('' + a.settlements).indexOf('<span style="color:red">') !== -1) && (('' + b.settlements).indexOf('<span style="color:red">') === -1)) { return 1; }
     if ((('' + a.settlements).indexOf('<span style="color:red">') === -1) && (('' + b.settlements).indexOf('<span style="color:red">') !== -1)) { return -1; }
@@ -217,7 +220,7 @@ Promise.all(promises).then(() => {
     '<th>ILP Kit Version</th>',
     '<th>Ledger Prefix</th>',
     '<th>Max Balance</th>',
-    '<th>Messaging</th>',
+    '<th>Message Delay</th>',
     '<th>Owner\'s Connector Account</th>',
     '<th>Settlement Methods</th>',
     '<th>Health</th>',
@@ -225,4 +228,7 @@ Promise.all(promises).then(() => {
   ],
     rows: rows
   }, null, 2));
+  process.exit(0);
+}, err => {
+  console.log(err);
 });

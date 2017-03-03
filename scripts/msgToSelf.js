@@ -85,7 +85,10 @@ function testQuote(plugin, conn, from, to) {
   }, 5000);
 }
 
+var pending = {};
+
 module.exports.test = function(host, prefix) {
+  pending[host] = prefix;
 console.log('test', host, prefix);
   var plugin;
   return doWithTimeout(function() {
@@ -100,6 +103,7 @@ console.log('test', host, prefix);
       }, 5000).then(sendTestResult => {
 console.log({ sendTestResult });
         plugin.disconnect();
+console.log('giving bck result');
         return {
           connectSuccess: true,
           sendSuccess: typeof sendTestResult.error === 'undefined',
@@ -109,11 +113,22 @@ console.log({ sendTestResult });
       });
     } else {
       console.log('could not instantiate plugin...');
+console.log('giving bck result');
         return {
           connectSuccess: false,
           sendSuccess: false,
           connectTime: connectTestResult.duration,
         };
     }
+  }).then(result => {
+    console.log('done', host, prefix);
+    delete pending[host];
+    console.log(pending);
+    return result;
+  }, err => {
+    console.log('fail', host, prefix, error);
+    delete pending[host];
+    console.log(pending);
+    return { connectSuccess: false, sendSuccess: false };
   });
 };
