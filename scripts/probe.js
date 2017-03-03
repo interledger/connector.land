@@ -179,6 +179,8 @@ for (var i=0; i<hosts.length; i++) {
 Promise.all(promises).then(() => {
 console.log('ALL PROMISES DONE! :)');
   var rows = hosts.sort(function(a, b) {
+    if ((typeof a.messaging === 'number') && (typeof b.messaging !== 'number')) { return -1; }
+    if ((typeof a.messaging !== 'number') && (typeof b.messaging === 'number')) { return 1; }
     if ((('' + a.settlements).indexOf('<span style="color:red">') !== -1) && (('' + b.settlements).indexOf('<span style="color:red">') === -1)) { return 1; }
     if ((('' + a.settlements).indexOf('<span style="color:red">') === -1) && (('' + b.settlements).indexOf('<span style="color:red">') !== -1)) { return -1; }
 //    if (a.reliability < b.reliability) { return 1; }
