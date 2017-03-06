@@ -1,0 +1,95 @@
+SENDING { ledger: 'lu.eur.michiel.',
+  account: 'lu.eur.michiel.connector',
+  data: 
+   { method: 'quote_request',
+     data: 
+      { source_address: 'lu.eur.michiel.connectorland',
+        destination_address: 'lu.eur.michiel-eur.connectorland',
+        destination_amount: '0.01' },
+     id: '9df6ffa3-f6a1-4b4c-9b1b-141217ad1306' } }
+SEND MESSAGE INTERCEPT { ledger: 'lu.eur.michiel.',
+  account: 'lu.eur.michiel.connector',
+  data: 
+   { method: 'quote_request',
+     data: 
+      { source_address: 'lu.eur.michiel.connectorland',
+        destination_address: 'lu.eur.michiel-eur.connectorland',
+        destination_amount: '0.01' },
+     id: '9df6ffa3-f6a1-4b4c-9b1b-141217ad1306' } }
+INCOMING { ledger: 'lu.eur.michiel.',
+  account: 'lu.eur.michiel.connector',
+  from: 'lu.eur.michiel.connector',
+  to: 'lu.eur.michiel.connectorland',
+  data: 
+   { id: '9df6ffa3-f6a1-4b4c-9b1b-141217ad1306',
+     method: 'quote_response',
+     data: 
+      { source_ledger: 'lu.eur.michiel.',
+        destination_ledger: 'lu.eur.michiel-eur.',
+        source_connector_account: 'lu.eur.michiel.connector',
+        source_amount: '0.020100321',
+        destination_amount: '0.01',
+        source_expiry_duration: '7',
+        destination_expiry_duration: '5',
+        liquidity_curve: [Object] } } }
+{ from: 'ilp-kit.michielbdejong.com',
+  conn: 'connector',
+  to: 'michiel-eur.herokuapp.com' } { sourceAmount: '0.020100321',
+  connectorAccount: 'lu.eur.michiel.connector',
+  destinationAmount: '0.01',
+  destinationAccount: 'lu.eur.michiel-eur.connectorland',
+  destinationMemo: { data: undefined, expires_at: '1017-03-06T13:51:16.638Z' },
+  expiresAt: '1017-03-06T13:51:16.638Z',
+  executionCondition: 'nUMv83WE0o37Oioq8VFi_tiDCqsaCMMPodTyddC5Zm4' }
+returning 0.020100321
+[ '0.020100321' ]
+
+
+
+node getCurves.js 
+test ilp-kit.michielbdejong.com lu.eur.michiel.
+clearing timeout after success
+{ duration: 155 }
+SEND MESSAGE INTERCEPT { ledger: 'lu.eur.michiel.',
+  account: 'lu.eur.michiel.connector',
+  data: 
+   { method: 'quote_request',
+     data: 
+      { source_address: 'lu.eur.michiel.connectorland',
+        destination_address: 'lu.eur.michiel-eur.connectorland',
+        destination_amount: '0.01' },
+     id: '0f44f837-3a83-42e9-a9ed-505f605c1c87' } }
+received msg { ledger: 'lu.eur.michiel.',
+  account: 'lu.eur.michiel.connector',
+  from: 'lu.eur.michiel.connector',
+  to: 'lu.eur.michiel.connectorland',
+  data: 
+   { id: '0f44f837-3a83-42e9-a9ed-505f605c1c87',
+     method: 'quote_response',
+     data: 
+      { source_ledger: 'lu.eur.michiel.',
+        destination_ledger: 'lu.eur.michiel-eur.',
+        source_connector_account: 'lu.eur.michiel.connector',
+        source_amount: '0.020100321',
+        destination_amount: '0.01',
+        source_expiry_duration: '7',
+        destination_expiry_duration: '5',
+        liquidity_curve: [Object] } } }
+clearing timeout after success
+[ [ 0.010060200561443527, 0 ],
+  [ 100000000.00002009, 99600399.99 ],
+  duration: 60 ]
+{ sendTestResult: 
+   [ [ 0.010060200561443527, 0 ],
+     [ 100000000.00002009, 99600399.99 ],
+     duration: 60 ] }
+giving bck result
+done ilp-kit.michielbdejong.com lu.eur.michiel.
+{}
+{ connectSuccess: true,
+  sendSuccess: true,
+  connectTime: 155,
+  sendTime: 60 }
+
+^C
+

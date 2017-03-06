@@ -1,0 +1,52 @@
+{
+  "headers": [
+    "<th>ILP Kit URL</th>",
+    "<th>ILP Kit Version</th>",
+    "<th>Ledger Prefix</th>",
+    "<th>Max Balance</th>",
+    "<th>Message Delay</th>",
+    "<th>Owner's Connector Account</th>",
+    "<th>Settlement Methods</th>",
+    "<th>Health</th>",
+    "<th>Ping</th>"
+  ],
+  "rows": [
+    "<tr><td><a href=\"https://ilp.hexdivision.com\">ilp.hexdivision.com</a></td><td><span style=\"color:green\">Compatible: ilp-kit v1.1.0</span></td><td>us.usd.hexdivision.</td><td>10^10 centi-USD</td><td>cannot send</td><td>admin</td><td>None</td><td>OK</td><td style=\"color:green\">&#x2713;</td></tr>",
+    "<tr><td><a href=\"https://michiel-eur.herokuapp.com\">michiel-eur.herokuapp.com</a></td><td><span style=\"color:green\">Compatible: ilp-kit v1.1.0</span></td><td>lu.eur.michiel-eur.</td><td>10^10 centi-EUR</td><td>cannot send</td><td></td><td>None</td><td>OK</td><td style=\"color:red\">&#x2716;</td></tr>"
+  ],
+  "hosts": {
+    "headers": [
+      "<th>ILP Kit URL</th>",
+      "<th>ILP Kit Version</th>",
+      "<th>Owner's Connector Account</th>",
+      "<th>Settlement Methods</th>",
+      "<th>Health</th>",
+      "<th>Ping</th>",
+      "<th>Ledger</th>"
+    ],
+    "rows": [
+      "<tr><td><a href=\"https://ilp.hexdivision.com\">ilp.hexdivision.com</a></td><td><span style=\"color:green\">Compatible: ilp-kit v1.1.0</span></td><td>admin</td><td>None</td><td>OK</td><td style=\"color:green\">&#x2713;</td><td><strike style=\"color:red\">us.usd.hexdivision.</strike></td></tr>",
+      "<tr><td><a href=\"https://michiel-eur.herokuapp.com\">michiel-eur.herokuapp.com</a></td><td><span style=\"color:green\">Compatible: ilp-kit v1.1.0</span></td><td></td><td>None</td><td>OK</td><td style=\"color:red\">&#x2716;</td><td><strike style=\"color:red\">lu.eur.michiel-eur.</strike></td></tr>"
+    ]
+  },
+  "ledgers": {
+    "headers": [
+      "<th>Ledger Prefix</th>",
+      "<th>Max Balance</th>",
+      "<th>Message Delay</th>",
+      "<th>Host</th>"
+    ],
+    "rows": [
+      "",
+      ""
+    ]
+  },
+  "connectors": {
+    "headers": [
+      "<th>Coming soon ...</th>"
+    ],
+    "rows": [
+      "<th>Coming soon ...</th>"
+    ]
+  }
+}

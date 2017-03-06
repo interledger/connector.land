@@ -11,8 +11,8 @@
     "<th>Ping</th>"
   ],
   "rows": [
-    "<tr><td><a href=\"https://ilp.hexdivision.com\">ilp.hexdivision.com</a></td><td><span style=\"color:green\">Compatible: ilp-kit v1.1.0</span></td><td>us.usd.hexdivision.</td><td>10^10 centi-USD</td><td>146</td><td>admin</td><td>None</td><td>OK</td><td style=\"color:green\">&#x2713;</td></tr>",
-    "<tr><td><a href=\"https://michiel-eur.herokuapp.com\">michiel-eur.herokuapp.com</a></td><td><span style=\"color:green\">Compatible: ilp-kit v1.1.0</span></td><td>lu.eur.michiel-eur.</td><td>10^10 centi-EUR</td><td>836</td><td></td><td>None</td><td>OK</td><td style=\"color:red\">&#x2716;</td></tr>"
+    "<tr><td><a href=\"https://ilp.hexdivision.com\">ilp.hexdivision.com</a></td><td><span style=\"color:green\">Compatible: ilp-kit v1.1.0</span></td><td>us.usd.hexdivision.</td><td>10^10 centi-USD</td><td>132</td><td>admin</td><td>None</td><td>OK</td><td style=\"color:green\">&#x2713;</td></tr>",
+    "<tr><td><a href=\"https://michiel-eur.herokuapp.com\">michiel-eur.herokuapp.com</a></td><td><span style=\"color:green\">Compatible: ilp-kit v1.1.0</span></td><td>lu.eur.michiel-eur.</td><td>10^10 centi-EUR</td><td>582</td><td></td><td>None</td><td>OK</td><td style=\"color:red\">&#x2716;</td></tr>"
   ],
   "hosts": {
     "headers": [
@@ -37,8 +37,8 @@
       "<th>Host</th>"
     ],
     "rows": [
-      "<tr><td>us.usd.hexdivision.</td><td>10^10 centi-USD</td><td>146</td><td><a href=\"https://ilp.hexdivision.com\">ilp.hexdivision.com</a></td></tr>",
-      "<tr><td>lu.eur.michiel-eur.</td><td>10^10 centi-EUR</td><td>836</td><td><a href=\"https://michiel-eur.herokuapp.com\">michiel-eur.herokuapp.com</a></td></tr>"
+      "<tr><td>us.usd.hexdivision.</td><td>10^10 centi-USD</td><td>132</td><td><a href=\"https://ilp.hexdivision.com\">ilp.hexdivision.com</a></td></tr>",
+      "<tr><td>lu.eur.michiel-eur.</td><td>10^10 centi-EUR</td><td>582</td><td><a href=\"https://michiel-eur.herokuapp.com\">michiel-eur.herokuapp.com</a></td></tr>"
     ]
   },
   "connectors": {

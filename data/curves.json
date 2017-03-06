@@ -1,0 +1,98 @@
+[
+  {
+    "route": [
+      "ilp-kit.michielbdejong.com",
+      "lu.eur.michiel.",
+      "micmic",
+      "lu.eur.michiel."
+    ],
+    "curve": {
+      "connectSuccess": true,
+      "sendSuccess": true,
+      "connectTime": 250,
+      "sendTime": 126,
+      "curve": [
+        [
+          0.010060200561443527,
+          0
+        ],
+        [
+          100000000.00002009,
+          99600399.99
+        ]
+      ]
+    }
+  },
+  {
+    "route": [
+      "ilp-kit.michielbdejong.com",
+      "lu.eur.michiel.",
+      "micmic",
+      "lu.eur.michiel-eur."
+    ],
+    "curve": {
+      "connectSuccess": true,
+      "sendSuccess": true,
+      "connectTime": 267,
+      "sendTime": 137,
+      "curve": [
+        [
+          0.010060200561443527,
+          0
+        ],
+        [
+          100000000.00002009,
+          99600399.99
+        ]
+      ]
+    }
+  },
+  {
+    "route": [
+      "ilp-kit.michielbdejong.com",
+      "lu.eur.michiel.",
+      "connector",
+      "lu.eur.michiel."
+    ],
+    "curve": {
+      "connectSuccess": true,
+      "sendSuccess": true,
+      "connectTime": 278,
+      "sendTime": 129,
+      "curve": [
+        [
+          0.010060200561443527,
+          0
+        ],
+        [
+          100000000.00002009,
+          99600399.99
+        ]
+      ]
+    }
+  },
+  {
+    "route": [
+      "ilp-kit.michielbdejong.com",
+      "lu.eur.michiel.",
+      "connector",
+      "lu.eur.michiel-eur."
+    ],
+    "curve": {
+      "connectSuccess": true,
+      "sendSuccess": true,
+      "connectTime": 252,
+      "sendTime": 142,
+      "curve": [
+        [
+          0.010060200561443527,
+          0
+        ],
+        [
+          100000000.00002009,
+          99600399.99
+        ]
+      ]
+    }
+  }
+]

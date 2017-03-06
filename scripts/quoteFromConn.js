@@ -15,65 +15,36 @@ function connect(prefix, account, password) {
   });
 }
 
-function testMsg(plugin, prefix, recipients) {
+function testMsg(plugin, prefix, conn, dest) {
   return new Promise((resolve, reject) => {
-    var failed = false;
-    var pending = {};
     plugin.on('incoming_message', res => {
-      delete pending[res.from];
-console.log('received msg', res, pending, Object.keys(pending).length, failed, prefix, recipients);
-      if ((Object.keys(pending).length === 0) && !failed) {
-console.log('resolving!');
-        resolve({});
-      }
+console.log('received msg', res);
+      resolve(res.data.data.liquidity_curve);
     });
     if (!plugin.ready) {
       throw new Error('Must be connected before sendMessage can be called');
     }
 
-    const fromAddress = plugin.ledgerContext.urls.account.replace(':name', encodeURIComponent(plugin.username));
-    recipients.map(recipient => {
-      const toAddress = plugin.ledgerContext.urls.account.replace(':name', encodeURIComponent(recipient));
-      pending[prefix + recipient] = true;
-      request({
-        auth:  {
-          user: plugin.credentials.username,
-          pass: plugin.credentials.password,
-        },
-        method: 'post',
-        uri: plugin.ledgerContext.urls.message,
-        body: {
-          ledger: plugin.ledgerContext.host,
-          from: fromAddress,
-          to: toAddress,
-          data: {
-            method: 'quote_request',
-            data: {
-              source_address: fromAddress,
-              destination_address: fromAddress,
-              destination_amount: '0.01',
-            },
-            id: `${plugin.prefix}-${recipient}`
-          },
-        },
-        json: true
-      }, (err, sendRes, body) => {
-        if (failed) {
-          return
-        }
-        if (err) {
-          reject(err);
-          failed = true;
-          return; 
-        }
-        if (sendRes.statusCode >= 400) {
-          reject(new Error(body.message));
-          failed = true;
-        }
-      });
+    plugin.sendMessage({ ledger: prefix,
+      account: `${prefix}${conn}`,
+      data: {
+       method: 'quote_request',
+       data: {
+         source_address: `${prefix}connectorland`,
+         destination_address: `${dest}connectorland`,
+         destination_amount: '0.01',
+       },
+       id: `${prefix}-${conn}-${dest}`
+      },
     });
   });
 }
+
+// new test plan:
+// * connect to the plugin
+// * listen to incoming messages using connectorland account
+// * send various quote requests
+// * see what comes back
 
 function doWithTimeout(tryIt, timeoutMs) {
   const startTime = new Date().getTime();
@@ -108,7 +79,8 @@ function testQuote(plugin, conn, from, to) {
 
 var pending = {};
 
-module.exports.test = function(host, prefix) {
+module.exports.test = function(host, prefix, conn, dest) {
+console.log('module.exports.test = function(', { host, prefix, conn, dest });
   pending[host] = prefix;
 console.log('test', host, prefix);
   var plugin;
@@ -120,7 +92,7 @@ console.log('test', host, prefix);
   }, 5000).then(connectTestResult => {
     if (plugin && typeof connectTestResult.error === 'undefined') {
       return doWithTimeout(function() {
-        return testMsg(plugin, prefix, ['connectorland', 'connector']);
+        return testMsg(plugin, prefix, conn, dest);
       }, 5000).then(sendTestResult => {
 console.log({ sendTestResult });
         plugin.disconnect();
@@ -130,6 +102,7 @@ console.log('giving bck result');
           sendSuccess: typeof sendTestResult.error === 'undefined',
           connectTime: connectTestResult.duration,
           sendTime: sendTestResult.duration,
+          curve: sendTestResult,
         };
       });
     } else {
