@@ -204,21 +204,7 @@ console.log({ delayA, delayB });
     if (a.hostname < b.hostname) { return -1; }
     if (a.hostname > b.hostname) { return 1; }
     return 0;
-  }).map(line =>
-    `<tr><td><a href="https://${line.hostname}">${line.hostname}</a></td>` +
-//        `<td>${Math.floor(1000*line.reliability)/10}%</td>` +
-//        `<td>${Math.floor(line.speed)/1000} seconds</td>` +
-//        `<td>${Math.floor(100*line.price)}%</td>` +
-        `<td>${line.version}</td>` +
-        `<td>${line.prefix}</td>` +
-        `<td>${line.maxBalance}</td>` +
-        `<td>${line.messaging}</td>` +
-        `<td>${line.owner}</td>` +
-        `<td>${line.settlements.slice(0, 50)}</td>` +
-        `<td>${line.health.slice(0, 50)}</td>` +
-        (line.ping?`<td style="color:green">&#x2713;</td>` : `<td style="color:red">&#x2716;</td>`) +
-        `</tr>`
-  );
+  });
   var str = JSON.stringify({
     headers: [
     '<th>ILP Kit URL</th>',
@@ -234,7 +220,57 @@ console.log({ delayA, delayB });
     '<th>Health</th>',
     '<th>Ping</th>',
   ],
-    rows: rows
+    rows: rows.map(line =>
+    `<tr><td><a href="https://${line.hostname}">${line.hostname}</a></td>` +
+//        `<td>${Math.floor(1000*line.reliability)/10}%</td>` +
+//        `<td>${Math.floor(line.speed)/1000} seconds</td>` +
+//        `<td>${Math.floor(100*line.price)}%</td>` +
+        `<td>${line.version}</td>` +
+        `<td>${line.prefix}</td>` +
+        `<td>${line.maxBalance}</td>` +
+        `<td>${line.messaging}</td>` +
+        `<td>${line.owner}</td>` +
+        `<td>${line.settlements.slice(0, 50)}</td>` +
+        `<td>${line.health.slice(0, 50)}</td>` +
+        (line.ping?`<td style="color:green">&#x2713;</td>` : `<td style="color:red">&#x2716;</td>`) +
+        `</tr>`
+  ),
+
+    hosts: {
+      headers: [
+        '<th>ILP Kit URL</th>',
+        '<th>ILP Kit Version</th>',
+        '<th>Owner\'s Connector Account</th>',
+        '<th>Settlement Methods</th>',
+        '<th>Health</th>',
+        '<th>Ping</th>',
+      ],
+      rows: rows.map(line =>
+        `<tr><td><a href="https://${line.hostname}">${line.hostname}</a></td>` +
+        `<td>${line.version}</td>` +
+        `<td>${line.owner}</td>` +
+        `<td>${line.settlements.slice(0, 50)}</td>` +
+        `<td>${line.health.slice(0, 50)}</td>` +
+        (line.ping?`<td style="color:green">&#x2713;</td>` : `<td style="color:red">&#x2716;</td>`) +
+        `</tr>`
+      ),
+    },
+    ledgers: {
+      headers: [
+        '<th>Ledger Prefix</th>',
+        '<th>Max Balance</th>',
+        '<th>Message Delay</th>',
+      ],
+      rows: rows.map(line =>
+        `<td>${line.prefix}</td>` +
+        `<td>${line.maxBalance}</td>` +
+        `<td>${line.messaging}</td>`
+      ),
+    },
+    connectors: {
+      headers: [ '<th>Coming soon ...</th>' ],
+      rows: [ '<th>Coming soon ...</th>' ],
+    },
   }, null, 2);
   fs.writeFileSync(OUTPUT_FILE, str);
   fs.writeFileSync(OUTPUT_FILE2, str);
