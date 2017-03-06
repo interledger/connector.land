@@ -244,6 +244,7 @@ console.log({ delayA, delayB });
         '<th>Settlement Methods</th>',
         '<th>Health</th>',
         '<th>Ping</th>',
+        '<th>Ledger</th>',
       ],
       rows: rows.map(line =>
         `<tr><td><a href="https://${line.hostname}">${line.hostname}</a></td>` +
@@ -252,6 +253,7 @@ console.log({ delayA, delayB });
         `<td>${line.settlements.slice(0, 50)}</td>` +
         `<td>${line.health.slice(0, 50)}</td>` +
         (line.ping?`<td style="color:green">&#x2713;</td>` : `<td style="color:red">&#x2716;</td>`) +
+        (typeof line.messaging === 'number' ? `<td>${line.prefix}</td>` : `<td><strike style="color:red">${line.prefix}</strike></td>`) +
         `</tr>`
       ),
     },
@@ -260,12 +262,16 @@ console.log({ delayA, delayB });
         '<th>Ledger Prefix</th>',
         '<th>Max Balance</th>',
         '<th>Message Delay</th>',
+        '<th>Host</th>',
       ],
       rows: rows.map(line =>
-        `<tr><td>${line.prefix}</td>` +
-        `<td>${line.maxBalance}</td>` +
-        `<td>${line.messaging}</td>` +
-        `</tr>`
+        (typeof line.messaging === 'number' ?
+          `<tr><td>${line.prefix}</td>` +
+          `<td>${line.maxBalance}</td>` +
+          `<td>${line.messaging}</td>` +
+          `<td><a href="https://${line.hostname}">${line.hostname}</a></td>` +
+          `</tr>`
+        : '')
       ),
     },
     connectors: {
