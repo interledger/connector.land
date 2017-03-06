@@ -262,9 +262,10 @@ console.log({ delayA, delayB });
         '<th>Message Delay</th>',
       ],
       rows: rows.map(line =>
-        `<td>${line.prefix}</td>` +
+        `<tr><td>${line.prefix}</td>` +
         `<td>${line.maxBalance}</td>` +
-        `<td>${line.messaging}</td>`
+        `<td>${line.messaging}</td>` +
+        `</tr>`
       ),
     },
     connectors: {
