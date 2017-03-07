@@ -15,7 +15,7 @@ function connect(prefix, account, password) {
   });
 }
 
-function send(plugin, prefix, fromAddress, toAddress, destAddress, onerror) {
+function send(plugin, prefix, fromAddress, toAddress, destLedger, onerror) {
   var req = {
     auth:  {
       user: plugin.credentials.username,
@@ -31,10 +31,10 @@ function send(plugin, prefix, fromAddress, toAddress, destAddress, onerror) {
         method: 'quote_request',
         data: {
           source_address: prefix + 'connectorland',
-          destination_address: destAddress,
+          destination_address: destLedger + 'connectorland',
           destination_amount: '0.01',
         },
-        id: destAddress
+        id: destLedger
       },
     },
     json: true
@@ -63,11 +63,12 @@ function testMsg(plugin, prefix, recipients, maxTime = 5000) {
       resolve(results);
     }, maxTime);
     plugin.on('incoming_message', res => {
-console.log('incoming', JSON.stringify(res, null, 2));
       if (typeof pending[res.from] === 'undefined') {
-        handleQoute(res);
+console.log('incoming quote', JSON.stringify(res, null, 2));
+        handleQuote(res);
         return;
       }
+console.log('incoming test', JSON.stringify(res, null, 2));
       delete pending[res.from];
       results[res.from] = new Date().getTime() - startTime;
       if ((Object.keys(pending).length === 0) && !failed) {
@@ -83,7 +84,7 @@ console.log('incoming', JSON.stringify(res, null, 2));
     recipients.map(recipient => {
       const toAddress = plugin.ledgerContext.urls.account.replace(':name', encodeURIComponent(recipient));
       pending[prefix + recipient] = true;
-      send(plugin, prefix, fromAddress, toAddress, fromAddress, () => {
+      send(plugin, prefix, fromAddress, toAddress, prefix, () => {
         delete pending[prefix + recipient];
         results[prefix + recipient] = 'could not send';
       });
@@ -114,31 +115,46 @@ function doWithTimeout(tryIt, timeoutMs) {
 
 var quoteResults = {};
 function handleQuote(res) {
+  var microPrice = Infinity;
+  if (Array.isArray(res.data.data.liquidity_curve)) {
+    res.data.data.liquidity_curve.map(point => {
+      if (point[0] < microPrice) {
+        microPrice = point[0];
+      }
+    });
+  }
+  if (microPrice < Infinity) {
+  quoteResults[res.ledger][res.from][res.data.id] = microPrice;
+  } else {
+    quoteResults[res.ledger][res.from][res.data.id] = '<span style="color:red">fail</span>';
+  }
+  console.log(res, quoteResults);
 }
 
 function requestQuote(plugin, prefix, connector, dest) {
   const fromAddress = plugin.ledgerContext.urls.account.replace(':name', encodeURIComponent(plugin.username));
   const toAddress = plugin.ledgerContext.urls.account.replace(':name', encodeURIComponent(connector.split('.').pop()));
-  send(plugin, prefix, fromAddress, toAddress, dest + 'connectorland', () => {
+  send(plugin, prefix, fromAddress, toAddress, dest, () => {
                //fail lu.eur.michiel. lu.eur.michiel.connector lu.eur.michiel.
     quoteResults[connector][dest] = 'fail';
   });
 }
 
 function testQuote(plugin, prefix, sendTestResults, destinations) {
+  quoteResults[prefix] = {};
   for (var connector in sendTestResults) {
     if (connector !== prefix + 'connectorland' && typeof sendTestResults[connector] === 'number') {
-      quoteResults[connector] = {};
+      quoteResults[prefix][connector] = {};
       destinations.map(dest => {
-        quoteResults[connector][dest] = 'no data';
+        quoteResults[prefix][connector][dest] = 'no data';
         requestQuote(plugin, prefix, connector, dest);
       });
     }
   }
   return new Promise(resolve => {
     var timeout = setTimeout(() => {
-      resolve(quoteResults[connector]);
-    }, 15000);
+      resolve(quoteResults[prefix]);
+    }, 2500);
   });
 }
 
@@ -154,13 +170,13 @@ module.exports.test = function(host, prefix, recipients, destinations) {
   }, 5000).then(connectTestResult => {
     if (plugin && typeof connectTestResult.error === 'undefined') {
       return testMsg(plugin, prefix, recipients, 5000).then(sendTestResult => {
-        return testQuote(plugin, prefix, sendTestResult, destinations).then(quoteResults => {
+        return testQuote(plugin, prefix, sendTestResult, destinations).then(thisPrefixQuoteResults => {
           plugin.disconnect();
           return {
             connectSuccess: true,
             connectTime: connectTestResult.duration,
             sendResults: sendTestResult,
-            quoteResults,
+            quoteResults: thisPrefixQuoteResults,
           };
         });
       });

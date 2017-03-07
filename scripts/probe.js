@@ -179,13 +179,15 @@ function checkLedger(i) {
         //     'kr.krw.interledgerkorea.': 'no data',
         //   ,}
         // }
+console.log('results are in:', hosts[i].hostname, hosts[i].prefix, recipients, destinations, result); 
         hosts[i].messaging = (result.connectSuccess ? result.connectTime : 'fail');
         hosts[i].messageToSelf = result.sendResults[hosts[i].prefix + 'connectorland'];
         for (var addr in result.sendResults) {
           if (addr !== hosts[i].prefix + 'connectorland') {
             connectors[addr] = result.sendResults[addr];
-
-            quotes[addr] = result.quoteResults[addr];
+            if (result.quoteResults) {
+              quotes[addr] = result.quoteResults[addr];
+            }
           }
         }
       });
