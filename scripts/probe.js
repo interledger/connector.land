@@ -5,6 +5,7 @@ var WebFinger = require('webfinger.js').WebFinger;
 var wf = new WebFinger();
 var msgToSelf = require('./msgToSelf');
 var hosts = require('../data/hosts.js').hosts;
+
 const OUTPUT_FILE = '../data/stats.json';
 const OUTPUT_FILE2 = `../data/stats-${new Date().getTime()}.json`;
 
@@ -113,6 +114,20 @@ function printScale(s) {
   return `(10^-${s})`;
 }
 
+var extraConnectors = {}; // per DNS host, list accounts, only the extra ones
+var connectors = {}; // per ILP address, list messaging delay, extra ones as well as defaults
+var named = require('../data/hosts.js').named;
+for (var i=0; i<named.length; i++) {
+  for (var j=0; j<named[i].addresses.length; j++) {
+    var parts = named[i].addresses[j].split('@');
+    if (typeof extraConnectors[parts[1]] === 'undefined') {
+      extraConnectors[parts[1]] = [];
+    } 
+    extraConnectors[parts[1]].push(parts[0]);
+  }
+}
+console.log('added named connectors', extraConnectors);
+
 function checkLedger(i) {
   return checkUrl(i, '/ledger').then(result => {
 console.log('result', i, result);
@@ -132,16 +147,27 @@ console.log('result', i, result);
       }
       hosts[i].prefix = data.ilp_prefix;
       hosts[i].maxBalance = `10^${data.precision} ${printScale(data.scale)}-${data.currency_code}`;
-      return msgToSelf.test(hosts[i].hostname, hosts[i].prefix).then(result => {
+      var recipients = (extraConnectors[hosts[i].hostname] || []).concat(data.connectors.map(obj => obj.name));
+      recipients.push('connectorland');
+      return msgToSelf.test(hosts[i].hostname, hosts[i].prefix, recipients).then(result => {
         console.log('msg to self', hosts[i].hostname, hosts[i].prefix, result);
-        // { connectSuccess: true,
-        //   sendSuccess: false,
-        //   connectTime: 277,
-        //   sendTime: 0 }
+        // {
+        //   connectSuccess: true,
+        //   connectTime: 4255,
+        //   sendResults: 
+        //     'kr.krw.interledgerkorea.connector': 'could not send',
+        //     'kr.krw.interledgerkorea.connectorland': 987,
+        //   },
+        // }
 
-        hosts[i].messaging = ( result.connectSuccess ?
-          (result.sendSuccess ? result.connectTime + result.sendTime : 'cannot send')
-          : 'cannot connect');
+        hosts[i].messaging = (result.connectSuccess ? result.connectTime : 'fail');
+        hosts[i].messageToSelf = result.sendResults[hosts[i].prefix + 'connectorland'];
+        for (var addr in result.sendResults) {
+          if (addr !== hosts[i].prefix + 'connectorland') {
+            connectors[addr] = result.sendResults[addr];
+          }
+        }
+console.log({ connectors });
       });
     }
   }).then(() => {
@@ -275,8 +301,29 @@ console.log({ delayA, delayB });
       ),
     },
     connectors: {
-      headers: [ '<th>Coming soon ...</th>' ],
-      rows: [ '<th>Coming soon ...</th>' ],
+      headers: [ '<th>ILP address</th><th>Quote Delay (ms)</th>' ],
+      rows: Object.keys(connectors).sort((a, b) => {
+        console.log('comparing', a, b, connectors[a], connectors[b]);
+        if (typeof connectors[a] === 'number') {
+console.log('a number')
+          if (typeof connectors[b] === 'number') {
+console.log('b number')
+            console.log('numeric', connectors[a] - connectors[b]);
+            return connectors[a] - connectors[b];
+          } else {
+console.log('b !number')
+            return -1;
+          }
+        } else {
+console.log('a !number')
+          if (typeof connectors[b] === 'number') {
+            return 1;
+          } else {
+console.log('b !number')
+            return 0;
+          }
+        }
+      }).map(addr => `<tr><td>${addr}</td><td>${connectors[addr]}</td></tr>`),
     },
   }, null, 2);
   fs.writeFileSync(OUTPUT_FILE, str);

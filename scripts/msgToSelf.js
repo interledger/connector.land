@@ -15,16 +15,28 @@ function connect(prefix, account, password) {
   });
 }
 
-function testMsg(plugin, prefix, recipients) {
+function testMsg(plugin, prefix, recipients, maxTime = 5000) {
+  var results = {};
+  var startTime = new Date().getTime();
+
   return new Promise((resolve, reject) => {
     var failed = false;
     var pending = {};
+    var timeout = setTimeout(function() {
+      failed = true;
+      for (var i in pending) {
+        results[i] = 'no reply';
+      }
+      resolve(results);
+    }, maxTime);
     plugin.on('incoming_message', res => {
       delete pending[res.from];
+      results[res.from] = new Date().getTime() - startTime;
 console.log('received msg', res, pending, Object.keys(pending).length, failed, prefix, recipients);
       if ((Object.keys(pending).length === 0) && !failed) {
 console.log('resolving!');
-        resolve({});
+        clearTimeout(timeout);
+        resolve(results);
       }
     });
     if (!plugin.ready) {
@@ -58,17 +70,10 @@ console.log('resolving!');
         },
         json: true
       }, (err, sendRes, body) => {
-        if (failed) {
-          return
-        }
-        if (err) {
-          reject(err);
-          failed = true;
+        if (err || sendRes.statusCode >= 400) {
+          delete pending[prefix + recipient];
+          results[prefix + recipient] = 'could not send';
           return; 
-        }
-        if (sendRes.statusCode >= 400) {
-          reject(new Error(body.message));
-          failed = true;
         }
       });
     });
@@ -99,17 +104,10 @@ console.log(result);
   });
 }
 
-function testQuote(plugin, conn, from, to) {
-  return doWithTimeout(function() {
-    console.log('testing quote', { conn, from, to });
-    return getQuote(plugin, conn, from, to);
-  }, 5000);
-}
 
-var pending = {};
-
-module.exports.test = function(host, prefix) {
-  pending[host] = prefix;
+module.exports.test = function(host, prefix, recipients) {
+  var pendingHosts = {};
+  pendingHosts[host] = prefix;
 console.log('test', host, prefix);
   var plugin;
   return doWithTimeout(function() {
@@ -119,17 +117,14 @@ console.log('test', host, prefix);
     });
   }, 5000).then(connectTestResult => {
     if (plugin && typeof connectTestResult.error === 'undefined') {
-      return doWithTimeout(function() {
-        return testMsg(plugin, prefix, ['connectorland', 'connector']);
-      }, 5000).then(sendTestResult => {
+      return testMsg(plugin, prefix, recipients, 5000).then(sendTestResult => {
 console.log({ sendTestResult });
         plugin.disconnect();
 console.log('giving bck result');
         return {
           connectSuccess: true,
-          sendSuccess: typeof sendTestResult.error === 'undefined',
           connectTime: connectTestResult.duration,
-          sendTime: sendTestResult.duration,
+          sendResults: sendTestResult,
         };
       });
     } else {
@@ -137,19 +132,19 @@ console.log('giving bck result');
 console.log('giving bck result');
         return {
           connectSuccess: false,
-          sendSuccess: false,
           connectTime: connectTestResult.duration,
+          sendResults: {},
         };
     }
   }).then(result => {
     console.log('done', host, prefix);
-    delete pending[host];
-    console.log(pending);
+    delete pendingHosts[host];
+    console.log(pendingHosts);
     return result;
   }, err => {
     console.log('fail', host, prefix, error);
-    delete pending[host];
-    console.log(pending);
-    return { connectSuccess: false, sendSuccess: false };
+    delete pendingHosts[host];
+    console.log(pendingHosts);
+    return { connectSuccess: false, sendResults: {} };
   });
 };
