@@ -1,0 +1,69 @@
+{
+  "headers": [
+    "<th>ILP Kit URL</th>",
+    "<th>ILP Kit Version</th>",
+    "<th>Ledger Prefix</th>",
+    "<th>Max Balance</th>",
+    "<th>Message Delay</th>",
+    "<th>Owner's Connector Account</th>",
+    "<th>Settlement Methods</th>",
+    "<th>Health</th>",
+    "<th>Ping</th>"
+  ],
+  "rows": [
+    "<tr><td><a href=\"https://ilp-kit.michielbdejong.com\">ilp-kit.michielbdejong.com</a></td><td><span style=\"color:green\">Compatible: ilp-kit v1.1.0</span></td><td>lu.eur.michiel.</td><td>10^19 nano-EUR</td><td>117</td><td>michiel</td><td><span style=\"color:green\">Cash</span></td><td>OK</td><td style=\"color:green\">&#x2713;</td></tr>",
+    "<tr><td><a href=\"https://michiel-eur.herokuapp.com\">michiel-eur.herokuapp.com</a></td><td><span style=\"color:green\">Compatible: ilp-kit v1.1.0</span></td><td>lu.eur.michiel-eur.</td><td>10^10 centi-EUR</td><td>513</td><td></td><td>None</td><td>OK</td><td style=\"color:red\">&#x2716;</td></tr>"
+  ],
+  "hosts": {
+    "headers": [
+      "<th>ILP Kit URL</th>",
+      "<th>ILP Kit Version</th>",
+      "<th>Owner's Connector Account</th>",
+      "<th>Settlement Methods</th>",
+      "<th>Health</th>",
+      "<th>Ping</th>",
+      "<th>Ledger</th>"
+    ],
+    "rows": [
+      "<tr><td><a href=\"https://ilp-kit.michielbdejong.com\">ilp-kit.michielbdejong.com</a></td><td><span style=\"color:green\">Compatible: ilp-kit v1.1.0</span></td><td>michiel</td><td><span style=\"color:green\">Cash</span></td><td>OK</td><td style=\"color:green\">&#x2713;</td><td>lu.eur.michiel.</td></tr>",
+      "<tr><td><a href=\"https://michiel-eur.herokuapp.com\">michiel-eur.herokuapp.com</a></td><td><span style=\"color:green\">Compatible: ilp-kit v1.1.0</span></td><td></td><td>None</td><td>OK</td><td style=\"color:red\">&#x2716;</td><td>lu.eur.michiel-eur.</td></tr>"
+    ]
+  },
+  "ledgers": {
+    "headers": [
+      "<th>Ledger Prefix</th>",
+      "<th>Max Balance</th>",
+      "<th>Message Delay</th>",
+      "<th>Host</th>"
+    ],
+    "rows": [
+      "<tr><td>lu.eur.michiel.</td><td>10^19 nano-EUR</td><td>117</td><td><a href=\"https://ilp-kit.michielbdejong.com\">ilp-kit.michielbdejong.com</a></td></tr>",
+      "<tr><td>lu.eur.michiel-eur.</td><td>10^10 centi-EUR</td><td>513</td><td><a href=\"https://michiel-eur.herokuapp.com\">michiel-eur.herokuapp.com</a></td></tr>"
+    ]
+  },
+  "connectors": {
+    "headers": [
+      "<th>ILP address</th><th>Quote Delay (ms)</th>",
+      "<th>lu.eur.michiel. fee</th>",
+      "<th>us.usd.hexdivision. fee</th>",
+      "<th>eu.eur.pineapplesheep. fee</th>",
+      "<th>us.usd.michiel-is-not-available. fee</th>",
+      "<th>lu.eur.michiel-eur. fee</th>",
+      "<th>us.usd.cygnus. fee</th>",
+      "<th>us.usd.nexus. fee</th>",
+      "<th>us.usd.cornelius. fee</th>",
+      "<th>us.usd.usd. fee</th>",
+      "<th>us.usd.best-ilp. fee</th>",
+      "<th>us.usd.ggizi. fee</th>",
+      "<th>ca.usd.royalcrypto. fee</th>",
+      "<th>de.eur.blue. fee</th>",
+      "<th>us.usd.red. fee</th>",
+      "<th>mm.mmk.interledger. fee</th>",
+      "<th>kr.krw.interledgerkorea. fee</th>"
+    ],
+    "rows": [
+      "<tr><td>lu.eur.michiel.connector</td><td>80</td><td>This connector does not support the given asset pair</td>,<td>0.00949344206987216</td>,<td>0.010060200561443527</td>,<td>This connector does not support the given asset pair</td>,<td>0.010060200561443527</td>,<td>0.009512467098719595</td>,<td>0.000009504141350540497</td>,<td>0.000010382838301546428</td>,<td>This connector does not support the given asset pair</td>,<td>0.00949792349078883</td>,<td>0.009516957500484475</td>,<td>This connector does not support the given asset pair</td>,<td>This connector does not support the given asset pair</td>,<td>This connector does not support the given asset pair</td>,<td>This connector does not support the given asset pair</td>,<td>This connector does not support the given asset pair</td></tr>",
+      "<tr><td>lu.eur.michiel-eur.micmic</td><td>could not send</td></tr>"
+    ]
+  }
+}
