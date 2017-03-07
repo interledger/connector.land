@@ -1,0 +1,66 @@
+{
+  "headers": [
+    "<th>ILP Kit URL</th>",
+    "<th>ILP Kit Version</th>",
+    "<th>Ledger Prefix</th>",
+    "<th>Max Balance</th>",
+    "<th>Message Delay</th>",
+    "<th>Owner's Connector Account</th>",
+    "<th>Settlement Methods</th>",
+    "<th>Health</th>",
+    "<th>Ping</th>"
+  ],
+  "rows": [
+    "<tr><td><a href=\"https://best-ilp.herokuapp.com\">best-ilp.herokuapp.com</a></td><td>undefined</td><td>us.usd.best-ilp.</td><td>10^10 centi-USD</td><td>1362</td><td></td><td>None</td><td>OK</td><td style=\"color:red\">&#x2716;</td></tr>"
+  ],
+  "hosts": {
+    "headers": [
+      "<th>ILP Kit URL</th>",
+      "<th>ILP Kit Version</th>",
+      "<th>Owner's Connector Account</th>",
+      "<th>Settlement Methods</th>",
+      "<th>Health</th>",
+      "<th>Ping</th>",
+      "<th>Ledger</th>"
+    ],
+    "rows": [
+      "<tr><td><a href=\"https://best-ilp.herokuapp.com\">best-ilp.herokuapp.com</a></td><td>undefined</td><td></td><td>None</td><td>OK</td><td style=\"color:red\">&#x2716;</td><td>us.usd.best-ilp.</td></tr>"
+    ]
+  },
+  "ledgers": {
+    "headers": [
+      "<th>Ledger Prefix</th>",
+      "<th>Max Balance</th>",
+      "<th>Message Delay</th>",
+      "<th>Host</th>"
+    ],
+    "rows": [
+      "<tr><td>us.usd.best-ilp.</td><td>10^10 centi-USD</td><td>1362</td><td><a href=\"https://best-ilp.herokuapp.com\">best-ilp.herokuapp.com</a></td></tr>"
+    ]
+  },
+  "connectors": {
+    "headers": [
+      "<th>ILP address</th><th>Quote Delay (ms)</th>",
+      "<th>lu.eur.michiel. fee</th>",
+      "<th>us.usd.hexdivision. fee</th>",
+      "<th>eu.eur.pineapplesheep. fee</th>",
+      "<th>us.usd.michiel-is-not-available. fee</th>",
+      "<th>lu.eur.michiel-eur. fee</th>",
+      "<th>us.usd.cygnus. fee</th>",
+      "<th>us.usd.nexus. fee</th>",
+      "<th>us.usd.cornelius. fee</th>",
+      "<th>us.usd.usd. fee</th>",
+      "<th>us.usd.best-ilp. fee</th>",
+      "<th>us.usd.ggizi. fee</th>",
+      "<th>ca.usd.royalcrypto. fee</th>",
+      "<th>de.eur.blue. fee</th>",
+      "<th>us.usd.red. fee</th>",
+      "<th>mm.mmk.interledger. fee</th>",
+      "<th>kr.krw.interledgerkorea. fee</th>"
+    ],
+    "rows": [
+      "<tr><td>us.usd.best-ilp.conct</td><td>484</td><td>0.000010635559956787323</td>,<td>0.010075605156960911</td>,<td>0.010677118778476335</td>,<td>0.000010041184833795861</td>,<td>0.010655765499193979</td>,<td>0.010060201625956522</td>,<td>0.00001004123164113641</td>,<td>0.000011019542292822194</td>,<td><span style=\"color:red\">fail</span></td>,<td>n/a</td>,<td>0.010060201625956522</td>,<td><span style=\"color:red\">fail</span></td>,<td>0.010655765499193979</td>,<td>0.010060201625956522</td>,<td><span style=\"color:red\">fail</span></td>,<td><span style=\"color:red\">fail</span></td></tr>",
+      "<tr><td>us.usd.best-ilp.micmic</td><td>no reply</td></tr>"
+    ]
+  }
+}

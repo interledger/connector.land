@@ -16,14 +16,14 @@ var destinations = [
   'us.usd.cygnus.',
   'us.usd.nexus.',
   'us.usd.cornelius.',
-  'us.usd.usd.',
+//  'us.usd.usd.', only connected to mmk?
   'us.usd.best-ilp.',
   'us.usd.ggizi.',
-  'ca.usd.royalcrypto.',
+//  'ca.usd.royalcrypto.', old ilp-kit version?
   'de.eur.blue.',
   'us.usd.red.',
-  'mm.mmk.interledger.',
-  'kr.krw.interledgerkorea.',
+//  'mm.mmk.interledger.', only connected to us.usd.usd?
+//  'kr.krw.interledgerkorea.', old ilp-kit version?
 ];
 
 const OUTPUT_FILE = '../data/stats.json';

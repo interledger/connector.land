@@ -158,7 +158,7 @@ function testQuote(plugin, prefix, sendTestResults, destinations) {
   return new Promise(resolve => {
     var timeout = setTimeout(() => {
       resolve(quoteResults[prefix]);
-    }, 2500);
+    }, 10000);
   });
 }
 
