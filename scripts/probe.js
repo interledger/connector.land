@@ -6,6 +6,26 @@ var wf = new WebFinger();
 var msgToSelf = require('./msgToSelf');
 var hosts = require('../data/hosts.js').hosts;
 
+//TODO: get this from list of ledgers on which msgToSelf works:
+var destinations = [
+  'lu.eur.michiel.',
+  'us.usd.hexdivision.',
+  'eu.eur.pineapplesheep.',
+  'us.usd.michiel-is-not-available.',
+  'lu.eur.michiel-eur.',
+  'us.usd.cygnus.',
+  'us.usd.nexus.',
+  'us.usd.cornelius.',
+  'us.usd.usd.',
+  'us.usd.best-ilp.',
+  'us.usd.ggizi.',
+  'ca.usd.royalcrypto.',
+  'de.eur.blue.',
+  'us.usd.red.',
+  'mm.mmk.interledger.',
+  'kr.krw.interledgerkorea.',
+];
+
 const OUTPUT_FILE = '../data/stats.json';
 const OUTPUT_FILE2 = `../data/stats-${new Date().getTime()}.json`;
 
@@ -116,6 +136,7 @@ function printScale(s) {
 
 var extraConnectors = {}; // per DNS host, list accounts, only the extra ones
 var connectors = {}; // per ILP address, list messaging delay, extra ones as well as defaults
+var quotes = {};
 var named = require('../data/hosts.js').named;
 for (var i=0; i<named.length; i++) {
   for (var j=0; j<named[i].addresses.length; j++) {
@@ -149,22 +170,29 @@ console.log('result', i, result);
       hosts[i].maxBalance = `10^${data.precision} ${printScale(data.scale)}-${data.currency_code}`;
       var recipients = (extraConnectors[hosts[i].hostname] || []).concat(data.connectors.map(obj => obj.name));
       recipients.push('connectorland');
-      return msgToSelf.test(hosts[i].hostname, hosts[i].prefix, recipients).then(result => {
+
+      return msgToSelf.test(hosts[i].hostname, hosts[i].prefix, recipients, destinations).then(result => {
         console.log('msg to self', hosts[i].hostname, hosts[i].prefix, result);
         // {
         //   connectSuccess: true,
         //   connectTime: 4255,
-        //   sendResults: 
+        //   sendResults: {
         //     'kr.krw.interledgerkorea.connector': 'could not send',
         //     'kr.krw.interledgerkorea.connectorland': 987,
         //   },
+        //   quoteResults: {
+        //     'kr.krw.interledgerkorea.': 'no data',
+        //   ,}
         // }
-
         hosts[i].messaging = (result.connectSuccess ? result.connectTime : 'fail');
         hosts[i].messageToSelf = result.sendResults[hosts[i].prefix + 'connectorland'];
         for (var addr in result.sendResults) {
           if (addr !== hosts[i].prefix + 'connectorland') {
             connectors[addr] = result.sendResults[addr];
+console.log('SETTING QUOTES', addr, result.quoteResults)
+//  process.exit(0);
+
+            quotes[addr] = result.quoteResults[addr];
           }
         }
 console.log({ connectors });
@@ -301,7 +329,11 @@ console.log({ delayA, delayB });
       ),
     },
     connectors: {
-      headers: [ '<th>ILP address</th><th>Quote Delay (ms)</th>' ],
+      headers: [ `<th>ILP address</th><th>Quote Delay (ms)</th>`,
+          //`<th colspan="${destinations.length}">Micropayment fee to:</th>`,
+          //`</tr><tr>`, // cheating, to get a second headers row
+          //`<th></th><th></th>` //leave two columns empty on second headers row
+        ].concat(destinations.map(dest => `<th>${dest} fee</th>`)),
       rows: Object.keys(connectors).sort((a, b) => {
         console.log('comparing', a, b, connectors[a], connectors[b]);
         if (typeof connectors[a] === 'number') {
@@ -323,7 +355,15 @@ console.log('b !number')
             return 0;
           }
         }
-      }).map(addr => `<tr><td>${addr}</td><td>${connectors[addr]}</td></tr>`),
+      }).map(addr => {
+console.log('creating row', addr, connectors[addr], quotes);
+        return `<tr><td>${addr}</td><td>${connectors[addr]}</td>` +
+          (typeof quotes[addr] === 'undefined' ?
+            '' :
+            destinations.map(dest => `<td>${quotes[addr][dest]}</td>`)
+          ) +
+          '</tr>';
+      }),
     },
   }, null, 2);
   fs.writeFileSync(OUTPUT_FILE, str);

@@ -30,6 +30,10 @@ function testMsg(plugin, prefix, recipients, maxTime = 5000) {
       resolve(results);
     }, maxTime);
     plugin.on('incoming_message', res => {
+      if (typeof pending[res.from] === 'undefined') {
+        handleQoute(res);
+        return;
+      }
       delete pending[res.from];
       results[res.from] = new Date().getTime() - startTime;
 console.log('received msg', res, pending, Object.keys(pending).length, failed, prefix, recipients);
@@ -73,7 +77,7 @@ console.log('resolving!');
         if (err || sendRes.statusCode >= 400) {
           delete pending[prefix + recipient];
           results[prefix + recipient] = 'could not send';
-          return; 
+          return;
         }
       });
     });
@@ -104,8 +108,37 @@ console.log(result);
   });
 }
 
+function handleQuote(res) {
+  console.log('handleQuote', res);
+}
 
-module.exports.test = function(host, prefix, recipients) {
+function requestQuote(plugin, prefix, connector, dest) {
+  console.log('coming soon: requestQuote(plugin', {prefix, connector, dest});
+}
+
+function testQuote(plugin, prefix, sendTestResults, destinations) {
+  var results = {};
+  var promises = [];
+  for (var connector in sendTestResults) {
+    if (connector !== prefix + 'connectorland' && typeof sendTestResults[connector] === 'number') {
+      results[connector] = {};
+      promises.push(new Promise(resolve => {
+        var timeout = setTimeout(() => {
+          resolve(results);
+        }, 2500);
+        destinations.map(dest => {
+          requestQuote(plugin, prefix, connector, dest);
+          results[connector][dest] = 'no data';
+        });
+      }));
+    }
+  }
+  return Promise.all(promises).then(() => {
+    return results;
+  });
+}
+
+module.exports.test = function(host, prefix, recipients, destinations) {
   var pendingHosts = {};
   pendingHosts[host] = prefix;
 console.log('test', host, prefix);
@@ -118,14 +151,17 @@ console.log('test', host, prefix);
   }, 5000).then(connectTestResult => {
     if (plugin && typeof connectTestResult.error === 'undefined') {
       return testMsg(plugin, prefix, recipients, 5000).then(sendTestResult => {
-console.log({ sendTestResult });
-        plugin.disconnect();
-console.log('giving bck result');
-        return {
-          connectSuccess: true,
-          connectTime: connectTestResult.duration,
-          sendResults: sendTestResult,
-        };
+        return testQuote(plugin, prefix, sendTestResult, destinations).then(quoteResults => {
+  console.log({ sendTestResult });
+          plugin.disconnect();
+  console.log('giving bck result');
+          return {
+            connectSuccess: true,
+            connectTime: connectTestResult.duration,
+            sendResults: sendTestResult,
+            quoteResults,
+          };
+        });
       });
     } else {
       console.log('could not instantiate plugin...');
