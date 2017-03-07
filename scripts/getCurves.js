@@ -3,7 +3,7 @@ var quoteFromConn = require('./quoteFromConn');
 var routes = [];
 
 var ledgers = [
-  [ 'lu.eur.michiel.',                  'ilp-kit.michielbdejong.com',             [ 'micmic', 'connector' ], ],
+  [ 'lu.eur.michiel.',                  'ilp-kit.michielbdejong.com',             [ 'connector' ], ],
 //  [ 'us.usd.hexdivision.',              'ilp.hexdivision.com',                    [ /* 'micmic', 'connector' */], ],
 //  [ 'eu.eur.pineapplesheep.',           'pineapplesheep.ilp.rocks',               [ /* 'micmic', 'connector' */], ],
 //  [ 'us.usd.michiel-is-not-available.', 'michiel-is-not-available.herokuapp.com', [ /* 'micmic', 'connector' */], ],

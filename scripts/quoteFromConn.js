@@ -25,7 +25,7 @@ console.log('received msg', res);
       throw new Error('Must be connected before sendMessage can be called');
     }
 
-    plugin.sendMessage({ ledger: prefix,
+    var req = { ledger: prefix,
       account: `${prefix}${conn}`,
       data: {
        method: 'quote_request',
@@ -36,7 +36,9 @@ console.log('received msg', res);
        },
        id: `${prefix}-${conn}-${dest}`
       },
-    });
+    };
+console.log('THIS IS WHAT WE SEND', req);
+    plugin.sendMessage(req);
   });
 }
 

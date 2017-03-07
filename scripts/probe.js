@@ -66,7 +66,6 @@ function checkApiCall(i, field, path, print) {
       return `HTTP <span style="color:red">${result.status}</span> response`;
     }
   }).then(text => {
-    console.log(`${field} for ${hosts[i].hostname}: ${text}`);
     hosts[i][field] = text;
   });
 }
@@ -98,7 +97,6 @@ function getApiVersion(i) {
       }
     });
   }).then(text => {
-    console.log(`api version for ${hosts[i].hostname}: ${text}`);
     hosts[i].version = text;
   });
 }
@@ -147,11 +145,9 @@ for (var i=0; i<named.length; i++) {
     extraConnectors[parts[1]].push(parts[0]);
   }
 }
-console.log('added named connectors', extraConnectors);
 
 function checkLedger(i) {
   return checkUrl(i, '/ledger').then(result => {
-console.log('result', i, result);
     if (result.error) {
         hosts[i].maxBalance = `<span style="color:red">?</span>`;
         hosts[i].prefix = `<span style="color:red">?</span>`;
@@ -172,7 +168,6 @@ console.log('result', i, result);
       recipients.push('connectorland');
 
       return msgToSelf.test(hosts[i].hostname, hosts[i].prefix, recipients, destinations).then(result => {
-        console.log('msg to self', hosts[i].hostname, hosts[i].prefix, result);
         // {
         //   connectSuccess: true,
         //   connectTime: 4255,
@@ -189,17 +184,13 @@ console.log('result', i, result);
         for (var addr in result.sendResults) {
           if (addr !== hosts[i].prefix + 'connectorland') {
             connectors[addr] = result.sendResults[addr];
-console.log('SETTING QUOTES', addr, result.quoteResults)
-//  process.exit(0);
 
             quotes[addr] = result.quoteResults[addr];
           }
         }
-console.log({ connectors });
       });
     }
   }).then(() => {
-    console.log('done checkLedger', promises.length);
   });
 }
 
@@ -232,11 +223,9 @@ for (var i=0; i<hosts.length; i++) {
 //  } 
 }
 Promise.all(promises).then(() => {
-console.log('ALL PROMISES DONE! :)');
   var rows = hosts.sort(function(a, b) {
     var delayA = (typeof a.messaging === 'number' ? a.messaging : 1000000);
     var delayB = (typeof b.messaging === 'number' ? b.messaging : 1000000);
-console.log({ delayA, delayB });
     if (delayA < delayB) { return -1; }
     if (delayA > delayB) { return 1; }
     if ((typeof a.messaging === 'number') && (typeof b.messaging !== 'number')) { return -1; }
@@ -335,28 +324,20 @@ console.log({ delayA, delayB });
           //`<th></th><th></th>` //leave two columns empty on second headers row
         ].concat(destinations.map(dest => `<th>${dest} fee</th>`)),
       rows: Object.keys(connectors).sort((a, b) => {
-        console.log('comparing', a, b, connectors[a], connectors[b]);
         if (typeof connectors[a] === 'number') {
-console.log('a number')
           if (typeof connectors[b] === 'number') {
-console.log('b number')
-            console.log('numeric', connectors[a] - connectors[b]);
             return connectors[a] - connectors[b];
           } else {
-console.log('b !number')
             return -1;
           }
         } else {
-console.log('a !number')
           if (typeof connectors[b] === 'number') {
             return 1;
           } else {
-console.log('b !number')
             return 0;
           }
         }
       }).map(addr => {
-console.log('creating row', addr, connectors[addr], quotes);
         return `<tr><td>${addr}</td><td>${connectors[addr]}</td>` +
           (typeof quotes[addr] === 'undefined' ?
             '' :

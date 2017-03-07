@@ -15,6 +15,39 @@ function connect(prefix, account, password) {
   });
 }
 
+function send(plugin, prefix, fromAddress, toAddress, destAddress, onerror) {
+  var req = {
+    auth:  {
+      user: plugin.credentials.username,
+      pass: plugin.credentials.password,
+    },
+    method: 'post',
+    uri: plugin.ledgerContext.urls.message,
+    body: {
+      ledger: plugin.ledgerContext.host,
+      from: fromAddress,
+      to: toAddress,
+      data: {
+        method: 'quote_request',
+        data: {
+          source_address: prefix + 'connectorland',
+          destination_address: destAddress,
+          destination_amount: '0.01',
+        },
+        id: destAddress
+      },
+    },
+    json: true
+  };
+console.log('sending', JSON.stringify(req, null, 2));
+  request(req, (err, sendRes, body) => {
+    if (err || sendRes.statusCode >= 400) {
+      onerror();
+      return;
+    }
+  });
+}
+
 function testMsg(plugin, prefix, recipients, maxTime = 5000) {
   var results = {};
   var startTime = new Date().getTime();
@@ -30,15 +63,14 @@ function testMsg(plugin, prefix, recipients, maxTime = 5000) {
       resolve(results);
     }, maxTime);
     plugin.on('incoming_message', res => {
+console.log('incoming', JSON.stringify(res, null, 2));
       if (typeof pending[res.from] === 'undefined') {
         handleQoute(res);
         return;
       }
       delete pending[res.from];
       results[res.from] = new Date().getTime() - startTime;
-console.log('received msg', res, pending, Object.keys(pending).length, failed, prefix, recipients);
       if ((Object.keys(pending).length === 0) && !failed) {
-console.log('resolving!');
         clearTimeout(timeout);
         resolve(results);
       }
@@ -51,34 +83,9 @@ console.log('resolving!');
     recipients.map(recipient => {
       const toAddress = plugin.ledgerContext.urls.account.replace(':name', encodeURIComponent(recipient));
       pending[prefix + recipient] = true;
-      request({
-        auth:  {
-          user: plugin.credentials.username,
-          pass: plugin.credentials.password,
-        },
-        method: 'post',
-        uri: plugin.ledgerContext.urls.message,
-        body: {
-          ledger: plugin.ledgerContext.host,
-          from: fromAddress,
-          to: toAddress,
-          data: {
-            method: 'quote_request',
-            data: {
-              source_address: fromAddress,
-              destination_address: fromAddress,
-              destination_amount: '0.01',
-            },
-            id: `${plugin.prefix}-${recipient}`
-          },
-        },
-        json: true
-      }, (err, sendRes, body) => {
-        if (err || sendRes.statusCode >= 400) {
-          delete pending[prefix + recipient];
-          results[prefix + recipient] = 'could not send';
-          return;
-        }
+      send(plugin, prefix, fromAddress, toAddress, fromAddress, () => {
+        delete pending[prefix + recipient];
+        results[prefix + recipient] = 'could not send';
       });
     });
   });
@@ -93,55 +100,51 @@ function doWithTimeout(tryIt, timeoutMs) {
     Promise.resolve().then(() => {
       return tryIt();
     }).then(result => {
-console.log('clearing timeout after success');
       clearTimeout(timeout);
       resolve(result);
     }, err => {
-console.log('clearing timeout after error');
       clearTimeout(timeout);
       resolve({ 'error': err });
     });
   }).then(result => {
     result.duration = new Date().getTime()-startTime;
-console.log(result);
     return result;
   });
 }
 
+var quoteResults = {};
 function handleQuote(res) {
-  console.log('handleQuote', res);
 }
 
 function requestQuote(plugin, prefix, connector, dest) {
-  console.log('coming soon: requestQuote(plugin', {prefix, connector, dest});
+  const fromAddress = plugin.ledgerContext.urls.account.replace(':name', encodeURIComponent(plugin.username));
+  const toAddress = plugin.ledgerContext.urls.account.replace(':name', encodeURIComponent(connector.split('.').pop()));
+  send(plugin, prefix, fromAddress, toAddress, dest + 'connectorland', () => {
+               //fail lu.eur.michiel. lu.eur.michiel.connector lu.eur.michiel.
+    quoteResults[connector][dest] = 'fail';
+  });
 }
 
 function testQuote(plugin, prefix, sendTestResults, destinations) {
-  var results = {};
-  var promises = [];
   for (var connector in sendTestResults) {
     if (connector !== prefix + 'connectorland' && typeof sendTestResults[connector] === 'number') {
-      results[connector] = {};
-      promises.push(new Promise(resolve => {
-        var timeout = setTimeout(() => {
-          resolve(results);
-        }, 2500);
-        destinations.map(dest => {
-          requestQuote(plugin, prefix, connector, dest);
-          results[connector][dest] = 'no data';
-        });
-      }));
+      quoteResults[connector] = {};
+      destinations.map(dest => {
+        quoteResults[connector][dest] = 'no data';
+        requestQuote(plugin, prefix, connector, dest);
+      });
     }
   }
-  return Promise.all(promises).then(() => {
-    return results;
+  return new Promise(resolve => {
+    var timeout = setTimeout(() => {
+      resolve(quoteResults[connector]);
+    }, 15000);
   });
 }
 
 module.exports.test = function(host, prefix, recipients, destinations) {
   var pendingHosts = {};
   pendingHosts[host] = prefix;
-console.log('test', host, prefix);
   var plugin;
   return doWithTimeout(function() {
     return connect(prefix, `https://${host}/ledger/accounts/connectorland`, passwords[host]).then(setPlugin => {
@@ -152,9 +155,7 @@ console.log('test', host, prefix);
     if (plugin && typeof connectTestResult.error === 'undefined') {
       return testMsg(plugin, prefix, recipients, 5000).then(sendTestResult => {
         return testQuote(plugin, prefix, sendTestResult, destinations).then(quoteResults => {
-  console.log({ sendTestResult });
           plugin.disconnect();
-  console.log('giving bck result');
           return {
             connectSuccess: true,
             connectTime: connectTestResult.duration,
@@ -164,23 +165,17 @@ console.log('test', host, prefix);
         });
       });
     } else {
-      console.log('could not instantiate plugin...');
-console.log('giving bck result');
-        return {
-          connectSuccess: false,
-          connectTime: connectTestResult.duration,
-          sendResults: {},
-        };
+      return {
+        connectSuccess: false,
+        connectTime: connectTestResult.duration,
+        sendResults: {},
+      };
     }
   }).then(result => {
-    console.log('done', host, prefix);
     delete pendingHosts[host];
-    console.log(pendingHosts);
     return result;
   }, err => {
-    console.log('fail', host, prefix, error);
     delete pendingHosts[host];
-    console.log(pendingHosts);
     return { connectSuccess: false, sendResults: {} };
   });
 };
