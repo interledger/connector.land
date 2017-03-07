@@ -146,6 +146,10 @@ function testQuote(plugin, prefix, sendTestResults, destinations) {
     if (connector !== prefix + 'connectorland' && typeof sendTestResults[connector] === 'number') {
       quoteResults[prefix][connector] = {};
       destinations.map(dest => {
+        if (dest === prefix) {
+          quoteResults[prefix][connector][dest] = 'n/a';
+          return;
+        }
         quoteResults[prefix][connector][dest] = 'no data';
         requestQuote(plugin, prefix, connector, dest);
       });
