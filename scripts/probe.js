@@ -134,7 +134,6 @@ function printScale(s) {
 
 var extraConnectors = {}; // per DNS host, list accounts, only the extra ones
 var connectors = {}; // per ILP address, list messaging delay, extra ones as well as defaults
-var quotes = {};
 var named = require('../data/hosts.js').named;
 for (var i=0; i<named.length; i++) {
   for (var j=0; j<named[i].addresses.length; j++) {
@@ -184,10 +183,10 @@ console.log('results are in:', hostsArr[i].hostname, hostsArr[i].prefix, recipie
         hostsArr[i].messageToSelf = result.sendResults[hostsArr[i].prefix + 'connectorland'];
         for (var addr in result.sendResults) {
           if (addr !== hostsArr[i].prefix + 'connectorland') {
-            connectors[addr] = result.sendResults[addr];
-            if (result.quoteResults) {
-              quotes[addr] = result.quoteResults[addr];
-            }
+            connectors[addr] = {
+              sendResults: result.sendResults[addr],
+              quoteResults: result.quoteResults[addr],
+            };
           }
         }
       }, err => {
@@ -262,23 +261,26 @@ function mergeConnector(existingData, newData) {
   // "ca.usd.royalcrypto.micmic": "no reply",
 
   var newObj;
-  if (typeof newData === 'number') {
+  if (typeof newData.sendResults === 'number') {
     newObj = {
       couldSend: 1,
       gotReply: 1,
-      delay: newData,
+      delay: newData.sendResults,
+      quoteResults: newData.quoteResults,
     };
-  } else if (newData === 'no reply') {
+  } else if (newData.sendResults === 'no reply') {
     newObj = {
       couldSend: 1,
       gotReply: 0,
       delay: 5000,
+      // quoteResults: undefined,
     };
   } else {
     newObj = {
       couldSend: 0,
       gotReply: 0,
       delay: 5000,
+      // quoteResults: undefined,
     };
   }
   if (typeof existingData === 'object') {
@@ -337,7 +339,6 @@ Promise.all(promises).then(() => {
     stats.ledgers[hostsArr[i].hostname] = mergeLedger(stats.ledgers[hostsArr[i].hostname], hostsArr[i]);
   }
   for (var i in connectors) {
-    connectors[i].quotes = quotes[i];
     stats.connectors[i] = mergeConnector(stats.connectors[i], connectors[i]);
   }
   fs.writeFileSync(RAW_FILE, JSON.stringify(stats, null, 2));
@@ -450,9 +451,9 @@ Promise.all(promises).then(() => {
         return stats.connectors[a].delay - stats.connectors[b].delay;
       }).map(addr => {
         return `<tr><td>${addr}</td><td>${integer(stats.connectors[addr].delay)}</td>` +
-          (typeof stats.connectors[addr].quotes === 'undefined' ?
+          (typeof stats.connectors[addr].quoteResults === 'undefined' ?
             '' :
-            destinations.map(dest => `<td>${stats.connectors[addr].quotes[dest]}</td>`)
+            destinations.map(dest => `<td>${stats.connectors[addr].quoteResults[dest]}</td>`)
           ) +
           '</tr>';
       }),
