@@ -24,7 +24,27 @@ function getPlugin(host, user, pass) {
 }
 
 function setupPayments() {
+
   var promises = {};
+  function initPlugin(ledger) {
+    if (typeof plugins[ledger] !== 'undefined') {
+      return;
+    }
+    var host = rawStats.ledgers[ledger].hostname;
+    if (typeof host !== 'string') {
+      return;
+    }
+    var password = passwords[host];
+    if (typeof password !== 'string') {
+      return;
+    }
+    plugins[ledger] = 'pending';
+    promises.push(getPlugin(host, 'connectorland', password).then(plugin => {
+      return plugin.connect().then(() => plugin);
+    });
+  }
+  function genCondition(key) {
+    
   for (var i in rawStats.connectors) {
     var parts = i.split('.');  
     for (var j in rawStats.connectors[i].quoteResults) {
@@ -32,10 +52,7 @@ function setupPayments() {
         var from = rawStats.connectors[i].ledger;
         var to = j;
         var key = `${from} ${to}`;
-        [from, to].map(ledger => {
-          if (typeof plugins[ledger] === 'undefined') {
-            plugins[ledger] = 'pending';
-            promises.push(getPlugin(
+        [from, to].map(initPlugin);
         if (typeof routes[key] == 'object' && routes[key].price <= rawStats.connectors[i].quoteResults[j]) {
           console.log('Already have a (cheaper) route', key);
           continue;
@@ -47,6 +64,12 @@ function setupPayments() {
       }
     }
   }
-  console.log(routes);
+  for (var key in routes) {
+    promises.push(genCondition(key));
+  }
   return Promise.all(promises);
 }
+
+
+//...
+setupPayments();
