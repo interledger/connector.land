@@ -206,15 +206,87 @@ function pingHost(i) {
 }
 
 function mergeHost(existingData, newData) {
-  return newData;
+// "red.ilpdemo.org": {
+//      "hostname": "red.ilpdemo.org",
+//      "owner": "",
+//      "prefix": "us.usd.red.",
+//      "maxBalance": "10^10 centi-USD",
+//      "version": "<span style=\"color:green\">Compatible: ilp-kit v1.1.0</span>",
+//      "health": "OK",
+//      "settlements": "<span style=\"color:green\"></span>",
+//      "ping": false,
+//      "messaging": 3228,
+//      "messageToSelf": 504
+//    },
+  // convert booleans to numbers
+  newData.health = (newData.health === 'OK' ? 1 : 0);
+  newData.ping = (newData.ping ? 1 : 0);
+
+
+  if (typeof existingData === 'object') {
+    ['health', 'ping'].map(field => {
+      if (typeof existingData[field] === 'number') {
+        newData[field] = newData[field] * .01 + .99 * existingData[field];
+      }
+    });
+  }
+  // filter out fields we want to track for hosts:
+  var filteredData = {};
+  ['hostname', 'owner', 'prefix', 'version', 'health', 'settlements', 'ping'].map(field => {
+    filteredData[field] = newData[field];
+  });
+  return filteredData;
 }
 
 function mergeLedger(existingData, newData) {
-  return newData;
+  if (typeof existingData === 'object') {
+    ['messaging', 'messageToSelf'].map(field => {
+      if (typeof existingData[field] === 'number') {
+        newData[field] = newData[field] * .01 + .99 * existingData[field];
+      }
+    });
+  }
+  // filter out fields we want to track for ledgers:
+  var filteredData = {};
+  ['hostname', 'prefix', 'maxBalance', 'messaging', 'messageToSelf'].map(field => {
+    filteredData[field] = newData[field];
+  });
+  return filteredData;
 }
 
 function mergeConnector(existingData, newData) {
-  return newData;
+  //   "us.usd.jonhvb.connector": 131,
+  //  "lu.eur.michiel-eur.micmic": "could not send",
+  // "ca.usd.royalcrypto.micmic": "no reply",
+
+  var newObj;
+  if (typeof newData === 'number') {
+    newObj = {
+      couldSend: 1,
+      gotReply: 1,
+      delay: newData,
+    };
+  } else if (newData === 'no reply') {
+    newObj = {
+      couldSend: 1,
+      gotReply: 0,
+      delay: 5000,
+    };
+  } else {
+    newObj = {
+      couldSend: 0,
+      gotReply: 0,
+      delay: 5000,
+    };
+  }
+  if (typeof existingData === 'object') {
+    ['couldSend', 'gotReply', 'delay'].map(field => {
+      if (typeof existingData[field] === 'number') {
+        newObj[field] = .01 * newObj[field] + .99 * existingData[field];
+      }
+    });
+  }   
+  return newObj;
 }
 
 // ...
@@ -252,7 +324,8 @@ Promise.all(promises).then(() => {
   for (var i=0; i < hostsArr.length; i++) {
     stats.ledgers[hostsArr[i].hostname] = mergeLedger(stats.ledgers[hostsArr[i].hostname], hostsArr[i]);
   }
-  for (var i in connectors) { 
+  for (var i in connectors) {
+    connectors[i].quotes = quotes[i];
     stats.connectors[i] = mergeConnector(stats.connectors[i], connectors[i]);
   }
   fs.writeFileSync(RAW_FILE, JSON.stringify(stats, null, 2));
@@ -309,8 +382,8 @@ Promise.all(promises).then(() => {
         `<td>${line.messaging}</td>` +
         `<td>${line.owner}</td>` +
         `<td>${line.settlements.slice(0, 50)}</td>` +
-        `<td>${line.health.slice(0, 50)}</td>` +
-        (line.ping?`<td style="color:green">&#x2713;</td>` : `<td style="color:red">&#x2716;</td>`) +
+        `<td>${percentage(line.health)}</td>` +
+        `<td>${percentage(line.ping)}</td>` +
         `</tr>`
   ),
 
@@ -329,8 +402,8 @@ Promise.all(promises).then(() => {
         `<td>${line.version}</td>` +
         `<td>${line.owner}</td>` +
         `<td>${line.settlements.slice(0, 50)}</td>` +
-        `<td>${line.health.slice(0, 50)}</td>` +
-        (line.ping?`<td style="color:green">&#x2713;</td>` : `<td style="color:red">&#x2716;</td>`) +
+        `<td>${percentage(line.health)}</td>` +
+        `<td>${percentage(line.ping)}</td>` +
         (typeof line.messaging === 'number' ? `<td>${line.prefix}</td>` : `<td><strike style="color:red">${line.prefix}</strike></td>`) +
         `</tr>`
       ),
@@ -360,24 +433,12 @@ Promise.all(promises).then(() => {
           //`<th></th><th></th>` //leave two columns empty on second headers row
         ].concat(destinations.map(dest => `<th>${dest} fee</th>`)),
       rows: Object.keys(stats.connectors).sort((a, b) => {
-        if (typeof stats.connectors[a] === 'number') {
-          if (typeof stats.connectors[b] === 'number') {
-            return stats.connectors[a] - stats.connectors[b];
-          } else {
-            return -1;
-          }
-        } else {
-          if (typeof stats.connectors[b] === 'number') {
-            return 1;
-          } else {
-            return 0;
-          }
-        }
+        return stats.connectors[a].delay - stats.connectors[b].delay;
       }).map(addr => {
-        return `<tr><td>${addr}</td><td>${stats.connectors[addr]}</td>` +
-          (typeof quotes[addr] === 'undefined' ?
+        return `<tr><td>${addr}</td><td>${stats.connectors[addr].delay}</td>` +
+          (typeof stats.connectors[addr].quotes === 'undefined' ?
             '' :
-            destinations.map(dest => `<td>${quotes[addr][dest]}</td>`)
+            destinations.map(dest => `<td>${stats.connectors[addr].quotes[dest]}</td>`)
           ) +
           '</tr>';
       }),
