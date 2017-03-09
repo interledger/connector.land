@@ -115,17 +115,23 @@ function doWithTimeout(tryIt, timeoutMs) {
 
 var quoteResults = {};
 function handleQuote(res) {
-  var microPrice = Infinity;
-  if (Array.isArray(res.data.data.liquidity_curve)) {
-    res.data.data.liquidity_curve.map(point => {
-      if (point[0] < microPrice) {
-        microPrice = point[0];
-      }
-    });
-  }
-  if (microPrice < Infinity) {
-  quoteResults[res.ledger][res.from][res.data.id] = microPrice;
+//  var microPrice = Infinity;
+//  if (Array.isArray(res.data.data.liquidity_curve)) {
+//    res.data.data.liquidity_curve.map(point => {
+//      if (point[0] < microPrice) {
+//        microPrice = point[0];
+//      }
+//    });
+//  }
+//  if (microPrice < Infinity) {
+//    quoteResults[res.ledger][res.from][res.data.id] = microPrice;
+  if (typeof res.data.data.source_amount === 'string') {
+    quoteResults[res.ledger][res.from][res.data.id] = parseFloat(res.data.data.source_amount);
   } else {
+console.log(res);
+if (red.data.method !== 'error') {
+  process.exit(1);
+}
     quoteResults[res.ledger][res.from][res.data.id] = '<span style="color:red">fail</span>';
   }
   console.log(res, quoteResults);

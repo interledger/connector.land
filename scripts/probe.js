@@ -5,6 +5,7 @@ var WebFinger = require('webfinger.js').WebFinger;
 var wf = new WebFinger();
 var msgToSelf = require('./msgToSelf');
 var hostsArr = require('../data/hosts.js').hosts;
+var request = require('request');
 
 //TODO: get this from list of ledgers on which msgToSelf works:
 var destinations = [
@@ -28,6 +29,92 @@ var destinations = [
 
 const RAW_FILE = '../data/stats-raw.json';
 const OUTPUT_FILE = '../data/stats.json';
+
+var rateCache;
+var ledgerCurrency = {};
+
+function getCurrencyRates() {
+  if (typeof rateCache === 'object') {
+    return Promise.resolve(rateCache);
+  }
+  return new Promise(resolve => {
+    request({
+      method: 'get',
+      uri: 'https://api.fixer.io/latest',
+      json: true,
+    }, (err, sendRes, body) => {
+      if (typeof body === 'object' && typeof body.rates === 'object') {
+        body.rates.EUR = 1.0000;
+        resolve(body.rates);
+      } else {
+        resolve({
+          EUR: 1.0000,
+          AUD: 1.3968,
+          BGN: 1.9558,
+          BRL: 3.3151,
+          CAD: 1.4193,
+          CHF: 1.0702,
+          CNY: 7.2953,
+          CZK: 27.021,
+          DKK: 7.4335,
+          GBP: 0.86753,
+          HKD: 8.1982,
+          HRK: 7.4213,
+          HUF: 310.7,
+          IDR: 14145,
+          ILS: 3.8879,
+          INR: 70.496,
+          JPY: 120.65,
+          KRW: 1216.4,
+          MXN: 20.713,
+          MYR: 4.7082,
+          NOK: 8.9513,
+          NZD: 1.5219,
+          PHP: 53.198,
+          PLN: 4.313,
+          RON: 4.5503,
+          RUB: 61.757,
+          SEK: 9.5223,
+          SGD: 1.4947,
+          THB: 37.236,
+          TRY: 3.9434,
+          USD: 1.0556,
+          ZAR: 13.791,
+        });
+      }
+    });
+  }).then(rates => {
+    rateCache = rates;
+    return rates;
+  });
+}
+
+function prefixToCurrency(prefix) {
+  var parts = prefix.split('.');
+  var str = '';
+  for (var i=0; i<parts.length; i++) {
+    str += parts[i] + '.';
+    if (ledgerCurrency[str]) {
+      return ledgerCurrency[str];
+    }
+  }
+  console.warn('WARNING! Currency not found for prefix', prefix);
+  return 'EUR';
+}
+
+function exchangeRate(fromConn, toLedger) {
+  if (typeof rateCache !== 'object') {
+    console.warn('WARNING! Rate cache empty');
+    return 'EUR';
+  }
+  var from = prefixToCurrency(fromConn);
+  var to = prefixToCurrency(toLedger);
+  // if from === EUR and to === USD, this returns:
+  //              1.0000 / 1.0556
+  // so it's the expected source amount if fee is zero.
+  console.log('exchangeRate', fromConn, toLedger, from, to, rateCache[from], rateCache[to], rateCache[from] / rateCache[to]);
+  return rateCache[from] / rateCache[to];
+}
 
 function checkUrl(i, path) {
   return new Promise((resolve) => {
@@ -161,6 +248,9 @@ function checkLedger(i) {
         hostsArr[i].prefix = `<span style="color:red">?</span>`;
         return;
       }
+
+      ledgerCurrency[data.ilp_prefix] = data.currency_code;
+
       hostsArr[i].prefix = data.ilp_prefix;
       hostsArr[i].maxBalance = `10^${data.precision} ${printScale(data.scale)}-${data.currency_code}`;
       var recipients = (extraConnectors[hostsArr[i].hostname] || []).concat(data.connectors.map(obj => obj.name));
@@ -290,6 +380,8 @@ function mergeConnector(existingData, newData) {
       }
     });
   }   
+  // note that unlike couldSend, gotReply, and delay,
+  // quoteResults are always just the latest data, not a rolling average.
   return newObj;
 }
 
@@ -303,8 +395,17 @@ function percentage(num) {
   return `${numDigits / DIGITS_FACTOR}%`;
 }
 
+function fee(price, baseValue) {
+  if (typeof price !== 'number') {
+    return price;
+  }
+  var paidExtra = price - baseValue;
+console.log('fee', price, baseValue, percentage(paidExtra / baseValue));
+  return percentage(paidExtra / baseValue);
+}
+
 // ...
-var promises = [];
+var promises = [ getCurrencyRates() ]; // needed before displaying connector fees
 //for (var i=16; i<17; i++) {
 for (var i=0; i<hostsArr.length; i++) {
   promises.push(getApiVersion(i));
@@ -313,7 +414,7 @@ for (var i=0; i<hostsArr.length; i++) {
   promises.push(checkSettlements(i));
   promises.push(checkLedger(i));
 //  if (typeof perfStats[hostsArr[i].hostname] !== 'undefined') {
-//    hostsArr[i].speed = perfStats[hostsArr[i].hostname].speed;
+//    hostsArr[i].speed = perfStats[hostsArr[i].hostname].speed // needed before displaying connector fees;
 //    hostsArr[i].price = perfStats[hostsArr[i].hostname].price;
 //    hostsArr[i].reliability = perfStats[hostsArr[i].hostname].reliability;
 //  } else {
@@ -446,14 +547,14 @@ Promise.all(promises).then(() => {
           //`<th colspan="${destinations.length}">Micropayment fee to:</th>`,
           //`</tr><tr>`, // cheating, to get a second headers row
           //`<th></th><th></th>` //leave two columns empty on second headers row
-        ].concat(destinations.map(dest => `<th>${dest} fee</th>`)),
+        ].concat(destinations.map(dest => `<th style="white-space:pre">${dest}\n(fee for sending one cent)</th>`)),
       rows: Object.keys(stats.connectors).sort((a, b) => {
         return stats.connectors[a].delay - stats.connectors[b].delay;
       }).map(addr => {
         return `<tr><td>${addr}</td><td>${integer(stats.connectors[addr].delay)}</td>` +
           (typeof stats.connectors[addr].quoteResults === 'undefined' ?
             '' :
-            destinations.map(dest => `<td>${stats.connectors[addr].quoteResults[dest]}</td>`)
+            destinations.map(dest => `<td>${fee(stats.connectors[addr].quoteResults[dest], 0.01 * exchangeRate(addr, dest))}</td>`)
           ) +
           '</tr>';
       }),
