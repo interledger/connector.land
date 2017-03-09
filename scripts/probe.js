@@ -190,6 +190,8 @@ console.log('results are in:', hostsArr[i].hostname, hostsArr[i].prefix, recipie
             }
           }
         }
+      }, err => {
+        hostsArr[i].messaging = 'no data';
       });
     }
   }).then(() => {

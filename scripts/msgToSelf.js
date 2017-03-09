@@ -163,6 +163,9 @@ function testQuote(plugin, prefix, sendTestResults, destinations) {
 }
 
 module.exports.test = function(host, prefix, recipients, destinations) {
+  if (typeof passwords[host] !== 'string') {
+    return Promise.reject(new Error('connectorland has no account at this host'));
+  }
   var pendingHosts = {};
   pendingHosts[host] = prefix;
   var plugin;

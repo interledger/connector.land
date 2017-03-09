@@ -83,8 +83,8 @@
       "owner": "mspark",
       "prefix": "<span style=\"color:red\">?</span>",
       "version": "<span style=\"color:red\">WebFinger error</span>",
-      "health": 0.99,
-      "settlements": "<span style=\"color:red\">Connection error</span>",
+      "health": 0.9801,
+      "settlements": "<span style=\"color:red\">Timed out</span>",
       "ping": 0
     },
     "nexus.justmoon.com": {
@@ -249,15 +249,15 @@
       "hostname": "red.ilpdemo.org",
       "prefix": "us.usd.red.",
       "maxBalance": "10^10 centi-USD",
-      "messaging": 3135.569514816832,
-      "messageToSelf": 669.1544267386487
+      "messaging": 3131.823819668664,
+      "messageToSelf": 669.0928824712622
     },
     "blue.ilpdemo.org": {
       "hostname": "blue.ilpdemo.org",
       "prefix": "de.eur.blue.",
       "maxBalance": "10^10 centi-EUR",
-      "messaging": 3022.5644927966487,
-      "messageToSelf": 513.418104913107
+      "messaging": 3018.228847868682,
+      "messageToSelf": 513.4839238639759
     },
     "kes-ilp.abdishakur.com": {
       "hostname": "kes-ilp.abdishakur.com"
@@ -272,42 +272,40 @@
       "hostname": "milton.ilp.network",
       "prefix": "gb.gbp.milton.",
       "maxBalance": "10^10 centi-GBP",
-      "messaging": "fail"
+      "messaging": "no data"
     },
     "pineapplesheep.ilp.rocks": {
       "hostname": "pineapplesheep.ilp.rocks",
       "prefix": "eu.eur.pineapplesheep.",
       "maxBalance": "10^10 centi-EUR",
-      "messaging": 1163.102101660601,
-      "messageToSelf": 82.81844144815224
+      "messaging": 1155.1110806439951,
+      "messageToSelf": 83.31025703367071
     },
     "usd.interledger.network": {
       "hostname": "usd.interledger.network",
       "prefix": "us.usd.usd.",
       "maxBalance": "10^10 centi-USD",
-      "messaging": 1952.7744848273787,
-      "messageToSelf": 293.73026211690717
+      "messaging": 1947.1167399791048,
+      "messageToSelf": 293.6729594957381
     },
     "mmk.interledger.network": {
       "hostname": "mmk.interledger.network",
       "prefix": "mm.mmk.interledger.",
       "maxBalance": "10^10 centi-MMK",
-      "messaging": 3336.7822297136877,
-      "messageToSelf": 753.4807225746517
+      "messaging": 3335.9844074165508,
+      "messageToSelf": 753.5359153489053
     },
     "interledger.kr": {
       "hostname": "interledger.kr",
       "prefix": "<span style=\"color:red\">?</span>",
-      "maxBalance": "<span style=\"color:red\">?</span>",
-      "messaging": null,
-      "messageToSelf": null
+      "maxBalance": "<span style=\"color:red\">?</span>"
     },
     "nexus.justmoon.com": {
       "hostname": "nexus.justmoon.com",
       "prefix": "us.usd.nexus.",
       "maxBalance": "10^19 nano-USD",
-      "messaging": 1571.0275414606433,
-      "messageToSelf": 440.97119983848216
+      "messaging": 1563.8272660460368,
+      "messageToSelf": 438.06148784009736
     },
     "gordon.mearnag.org": {
       "hostname": "gordon.mearnag.org",
@@ -323,21 +321,21 @@
       "hostname": "cornelius.sharafian.com",
       "prefix": "us.usd.cornelius.",
       "maxBalance": "10^10 micro-USD",
-      "messaging": 1854.6317893286043,
-      "messageToSelf": 426.2401949980203
+      "messaging": 1849.3854714353183,
+      "messageToSelf": 426.2777930480401
     },
     "cygnus.vahehovhannisyan.com": {
       "hostname": "cygnus.vahehovhannisyan.com",
       "prefix": "us.usd.cygnus.",
       "maxBalance": "10^10 centi-USD",
-      "messaging": 1511.8343522640814,
-      "messageToSelf": 153.09552684522885
+      "messaging": 1505.8160087414406,
+      "messageToSelf": 154.34457157677656
     },
     "grifiti.web-payments.net": {
       "hostname": "grifiti.web-payments.net",
       "prefix": "us.usd.grifiti.",
       "maxBalance": "10^10 centi-USD",
-      "messaging": "fail"
+      "messaging": "no data"
     },
     "hive.dennisappelt.com": {
       "hostname": "hive.dennisappelt.com"
@@ -346,28 +344,28 @@
       "hostname": "payment.am",
       "prefix": "am.amd.payment.",
       "maxBalance": "10^10 centi-AMD",
-      "messaging": "fail"
+      "messaging": "no data"
     },
     "ilp-kit.michielbdejong.com": {
       "hostname": "ilp-kit.michielbdejong.com",
       "prefix": "lu.eur.michiel.",
       "maxBalance": "10^19 nano-EUR",
-      "messaging": 989.5649771275679,
-      "messageToSelf": 172.99115922879201
+      "messaging": 983.2493273562923,
+      "messageToSelf": 172.68124763650408
     },
     "john.jpvbs.com": {
       "hostname": "john.jpvbs.com",
       "prefix": "us.usd.jonhvb.",
       "maxBalance": "10^10 centi-USD",
-      "messaging": 1264.515353772484,
-      "messageToSelf": 129.14890840324327
+      "messaging": 1256.6702002347592,
+      "messageToSelf": 129.28741931921084
     },
     "best-ilp.herokuapp.com": {
       "hostname": "best-ilp.herokuapp.com",
       "prefix": "us.usd.best-ilp.",
       "maxBalance": "10^10 centi-USD",
-      "messaging": 2109.6928666243925,
-      "messageToSelf": 330.10491636430623
+      "messaging": 2103.2859379581487,
+      "messageToSelf": 330.09386720066317
     },
     "someledger.herokuapp.com": {
       "hostname": "someledger.herokuapp.com"
@@ -376,74 +374,74 @@
       "hostname": "michiel-is-not-available.herokuapp.com",
       "prefix": "us.usd.michiel-is-not-available.",
       "maxBalance": "10^10 (10^-20)-USD",
-      "messaging": 1487.7864245253832,
-      "messageToSelf": 161.36602795601587
+      "messaging": 1480.5485602801293,
+      "messageToSelf": 161.52236767645573
     },
     "royalcrypto.com": {
       "hostname": "royalcrypto.com",
       "prefix": "ca.usd.royalcrypto.",
       "maxBalance": "10^10 centi-USD",
-      "messaging": 2080.4712732191942,
-      "messageToSelf": 394.6094784838558
+      "messaging": 2075.6465604870023,
+      "messageToSelf": 394.4933836990172
     },
     "ggizi.herokuapp.com": {
       "hostname": "ggizi.herokuapp.com",
       "prefix": "us.usd.ggizi.",
       "maxBalance": "10^10 centi-USD",
-      "messaging": 2089.1627429308433,
-      "messageToSelf": 320.71713701019723
+      "messaging": 2082.841115501535,
+      "messageToSelf": 320.73996564009525
     },
     "michiel-eur.herokuapp.com": {
       "hostname": "michiel-eur.herokuapp.com",
       "prefix": "lu.eur.michiel-eur.",
       "maxBalance": "10^10 centi-EUR",
-      "messaging": 1277.3796820479918,
-      "messageToSelf": 200.9507961378474
+      "messaging": 1270.9258852275118,
+      "messageToSelf": 200.52128817646891
     },
     "ilp.hexdivision.com": {
       "hostname": "ilp.hexdivision.com",
       "prefix": "us.usd.hexdivision.",
       "maxBalance": "10^10 centi-USD",
-      "messaging": 929.2233541889182,
-      "messageToSelf": 66.52422776306796
+      "messaging": 923.0611206470289,
+      "messageToSelf": 66.63898548543727
     },
     "ilpkit-gce.fluid.money": {
       "hostname": "ilpkit-gce.fluid.money",
       "prefix": "us.usd.ilpkit-gce.",
       "maxBalance": "10^10 centi-USD",
-      "messaging": "fail"
+      "messaging": "no data"
     }
   },
   "connectors": {
     "us.usd.hexdivision.connector": {
       "couldSend": 1,
       "gotReply": 1,
-      "delay": 71.45642963565204
+      "delay": 71.72186533929552
     },
     "eu.eur.pineapplesheep.pineapplesheep": {
       "couldSend": 1,
       "gotReply": 1,
-      "delay": 228.9733560175447
+      "delay": 228.25362245736923
     },
     "lu.eur.michiel.micmic": {
       "couldSend": 1,
       "gotReply": 1,
-      "delay": 163.85830731187448
+      "delay": 164.04972423875574
     },
     "lu.eur.michiel.connector": {
       "couldSend": 1,
       "gotReply": 1,
-      "delay": 188.01334482638268
+      "delay": 188.22321137811886
     },
     "us.usd.jonhvb.micmic": {
       "couldSend": 1,
       "gotReply": 1,
-      "delay": 323.7805741896277
+      "delay": 322.5627684477314
     },
     "us.usd.jonhvb.connector": {
       "couldSend": 1,
       "gotReply": 1,
-      "delay": 363.3263165061658
+      "delay": 361.8030533411042
     },
     "lu.eur.michiel-eur.micmic": {
       "couldSend": 0,
@@ -458,7 +456,7 @@
     "us.usd.michiel-is-not-available.connector": {
       "couldSend": 1,
       "gotReply": 1,
-      "delay": 294.01517787584436
+      "delay": 292.92502609708595
     },
     "us.usd.cygnus.micmic": {
       "couldSend": 0,
@@ -468,12 +466,12 @@
     "us.usd.cygnus.vahe": {
       "couldSend": 1,
       "gotReply": 1,
-      "delay": 377.8971894034302
+      "delay": 377.1582175093959
     },
     "us.usd.nexus.stefan": {
       "couldSend": 1,
       "gotReply": 1,
-      "delay": 536.030597679118
+      "delay": 532.6002917023268
     },
     "us.usd.nexus.micmic": {
       "couldSend": 0,
@@ -483,7 +481,7 @@
     "us.usd.usd.connector": {
       "couldSend": 1,
       "gotReply": 1,
-      "delay": 398.7903270027605
+      "delay": 398.48242373273285
     },
     "us.usd.cornelius.micmic": {
       "couldSend": 0,
@@ -503,7 +501,7 @@
     "us.usd.ggizi.connector": {
       "couldSend": 1,
       "gotReply": 1,
-      "delay": 387.20128503211447
+      "delay": 387.0992721817933
     },
     "us.usd.best-ilp.micmic": {
       "couldSend": 0,
@@ -513,37 +511,37 @@
     "us.usd.best-ilp.conct": {
       "couldSend": 1,
       "gotReply": 1,
-      "delay": 402.82370309863575
+      "delay": 403.00546606764937
     },
     "us.usd.red.connie": {
       "couldSend": 1,
       "gotReply": 1,
-      "delay": 645.2192288106182
+      "delay": 645.5170365225121
     },
     "us.usd.red.micmic": {
       "couldSend": 1,
       "gotReply": 1,
-      "delay": 1035.7471498275409
+      "delay": 1035.2896783292656
     },
     "de.eur.blue.connie": {
       "couldSend": 1,
       "gotReply": 1,
-      "delay": 789.9211196108341
+      "delay": 789.2219084147258
     },
     "de.eur.blue.micmic": {
       "couldSend": 1,
       "gotReply": 1,
-      "delay": 1335.3285534091162
+      "delay": 1335.585267875025
     },
     "mm.mmk.interledger.connector": {
       "couldSend": 1,
       "gotReply": 1,
-      "delay": 775.3782917704664
+      "delay": 775.6345088527617
     },
     "ca.usd.royalcrypto.connector": {
       "couldSend": 1,
       "gotReply": 1,
-      "delay": 545.3219561799584
+      "delay": 545.0287366181587
     },
     "ca.usd.royalcrypto.micmic": {
       "couldSend": 1,
