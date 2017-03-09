@@ -295,7 +295,7 @@ function integer(num) {
 
 function percentage(num) {
   const DIGITS_FACTOR = 1000;
-  var numDigits = integer(num * 100 + DIGITS_FACTOR);
+  var numDigits = integer(num * 100 * DIGITS_FACTOR);
   return `${numDigits / DIGITS_FACTOR}%`;
 }
 
@@ -388,8 +388,8 @@ Promise.all(promises).then(() => {
 //        `<td>${Math.floor(100*line.price)}%</td>` +
         `<td>${line.version}</td>` +
         `<td>${line.prefix}</td>` +
-        `<td>${line.maxBalance}</td>` +
-        `<td>${line.messaging}</td>` +
+        `<td>${stats.ledgers[line.hostname].maxBalance}</td>` +
+        `<td>${stats.ledgers[line.hostname].messaging}</td>` +
         `<td>${line.owner}</td>` +
         `<td>${line.settlements.slice(0, 50)}</td>` +
         `<td>${percentage(line.health)}</td>` +
@@ -414,7 +414,7 @@ Promise.all(promises).then(() => {
         `<td>${line.settlements.slice(0, 50)}</td>` +
         `<td>${percentage(line.health)}</td>` +
         `<td>${percentage(line.ping)}</td>` +
-        (typeof line.messaging === 'number' ? `<td>${line.prefix}</td>` : `<td><strike style="color:red">${line.prefix}</strike></td>`) +
+        (typeof stats.ledgers[line.hostname].messaging === 'number' ? `<td>${line.prefix}</td>` : `<td><strike style="color:red">${line.prefix}</strike></td>`) +
         `</tr>`
       ),
     },
