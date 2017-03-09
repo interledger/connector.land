@@ -32,6 +32,7 @@ const OUTPUT_FILE = '../data/stats.json';
 
 var rateCache;
 var ledgerCurrency = {};
+var connectorLedger = {};
 
 function getCurrencyRates() {
   if (typeof rateCache === 'object') {
@@ -253,7 +254,10 @@ function checkLedger(i) {
 
       hostsArr[i].prefix = data.ilp_prefix;
       hostsArr[i].maxBalance = `10^${data.precision} ${printScale(data.scale)}-${data.currency_code}`;
-      var recipients = (extraConnectors[hostsArr[i].hostname] || []).concat(data.connectors.map(obj => obj.name));
+      var recipients = (extraConnectors[hostsArr[i].hostname] || []).concat(data.connectors.map(obj =>  obj.name));
+      recipients.map(name => {
+        connectorLedger[hostsArr[i].prefix + name] = hostsArr[i].prefix;
+      });
       recipients.push('connectorland');
 
       return msgToSelf.test(hostsArr[i].hostname, hostsArr[i].prefix, recipients, destinations).then(result => {
@@ -345,7 +349,7 @@ function mergeLedger(existingData, newData) {
   return filteredData;
 }
 
-function mergeConnector(existingData, newData) {
+function mergeConnector(existingData, newData, ledger) {
   //   "us.usd.jonhvb.connector": 131,
   //  "lu.eur.michiel-eur.micmic": "could not send",
   // "ca.usd.royalcrypto.micmic": "no reply",
@@ -353,6 +357,7 @@ function mergeConnector(existingData, newData) {
   var newObj;
   if (typeof newData.sendResults === 'number') {
     newObj = {
+      ledger,
       couldSend: 1,
       gotReply: 1,
       delay: newData.sendResults,
@@ -360,6 +365,7 @@ function mergeConnector(existingData, newData) {
     };
   } else if (newData.sendResults === 'no reply') {
     newObj = {
+      ledger,
       couldSend: 1,
       gotReply: 0,
       delay: 5000,
@@ -367,6 +373,7 @@ function mergeConnector(existingData, newData) {
     };
   } else {
     newObj = {
+      ledger,
       couldSend: 0,
       gotReply: 0,
       delay: 5000,
@@ -379,7 +386,7 @@ function mergeConnector(existingData, newData) {
         newObj[field] = .01 * newObj[field] + .99 * existingData[field];
       }
     });
-  }   
+  } 
   // note that unlike couldSend, gotReply, and delay,
   // quoteResults are always just the latest data, not a rolling average.
   return newObj;
@@ -440,9 +447,14 @@ Promise.all(promises).then(() => {
     stats.ledgers[hostsArr[i].hostname] = mergeLedger(stats.ledgers[hostsArr[i].hostname], hostsArr[i]);
   }
   for (var i in connectors) {
-    stats.connectors[i] = mergeConnector(stats.connectors[i], connectors[i]);
+    if (typeof connectorLedger[i] !== 'string') {
+      console.log(connectorLedger, i, 'not found!');
+      process.exit(1);
+    }
+    stats.connectors[i] = mergeConnector(stats.connectors[i], connectors[i], connectorLedger[i]);
   }
   fs.writeFileSync(RAW_FILE, JSON.stringify(stats, null, 2));
+
   var hostRows = Object.keys(stats.hosts).sort(function(keyA, keyB) {
     var a = stats.hosts[keyA];
     var b = stats.hosts[keyB];
