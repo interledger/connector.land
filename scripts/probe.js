@@ -444,7 +444,7 @@ Promise.all(promises).then(() => {
     stats.hosts[hostsArr[i].hostname] = mergeHost(stats.hosts[hostsArr[i].hostname], hostsArr[i]);
   }
   for (var i=0; i < hostsArr.length; i++) {
-    stats.ledgers[hostsArr[i].hostname] = mergeLedger(stats.ledgers[hostsArr[i].hostname], hostsArr[i]);
+    stats.ledgers[hostsArr[i].prefix] = mergeLedger(stats.ledgers[hostsArr[i].prefix], hostsArr[i]);
   }
   for (var i in connectors) {
     if (typeof connectorLedger[i] !== 'string') {
@@ -543,8 +543,8 @@ Promise.all(promises).then(() => {
         '<th>Message Delay</th>',
         '<th>Host</th>',
       ],
-      rows: Object.keys(stats.ledgers).map(hostname => {
-        var line = stats.ledgers[hostname];
+      rows: Object.keys(stats.ledgers).map(prefix => {
+        var line = stats.ledgers[prefix];
         return (typeof line.messaging === 'number' ?
           `<tr><td>${line.prefix}</td>` +
           `<td>${line.maxBalance}</td>` +
