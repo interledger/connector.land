@@ -1,0 +1,543 @@
+{
+  "hosts": {
+    "red.ilpdemo.org": {
+      "hostname": "red.ilpdemo.org",
+      "owner": "",
+      "prefix": "us.usd.red.",
+      "version": "<span style=\"color:green\">Compatible: ilp-kit v1.1.0</span>",
+      "health": 1,
+      "settlements": "<span style=\"color:green\"></span>",
+      "ping": 0
+    },
+    "blue.ilpdemo.org": {
+      "hostname": "blue.ilpdemo.org",
+      "owner": "",
+      "prefix": "de.eur.blue.",
+      "version": "<span style=\"color:green\">Compatible: ilp-kit v1.1.0</span>",
+      "health": 1,
+      "settlements": "None",
+      "ping": 0
+    },
+    "kes-ilp.abdishakur.com": {
+      "hostname": "kes-ilp.abdishakur.com",
+      "owner": "abdishakur",
+      "version": "<span style=\"color:red\">WebFinger error</span>",
+      "health": 0,
+      "settlements": "HTTP <span style=\"color:red\">301</span> response",
+      "ping": 1
+    },
+    "ilp.bigchaindb.com": {
+      "hostname": "ilp.bigchaindb.com",
+      "owner": "dimitri",
+      "version": "<span style=\"color:red\">WebFinger error</span>",
+      "health": 0,
+      "settlements": "HTTP <span style=\"color:red\">502</span> response",
+      "ping": 1
+    },
+    "zar-ilp.hopebailie.com": {
+      "hostname": "zar-ilp.hopebailie.com",
+      "owner": "adrian",
+      "version": "<span style=\"color:red\">WebFinger error</span>",
+      "health": 0,
+      "settlements": "HTTP <span style=\"color:red\">502</span> response",
+      "ping": 1
+    },
+    "milton.ilp.network": {
+      "hostname": "milton.ilp.network",
+      "owner": "javi",
+      "prefix": "gb.gbp.milton.",
+      "version": "<span style=\"color:red\">WebFinger properties missing</span>",
+      "health": 1,
+      "settlements": "HTTP <span style=\"color:red\">404</span> response",
+      "ping": 1
+    },
+    "pineapplesheep.ilp.rocks": {
+      "hostname": "pineapplesheep.ilp.rocks",
+      "owner": "pineapplesheep",
+      "prefix": "eu.eur.pineapplesheep.",
+      "version": "<span style=\"color:green\">Compatible: ilp-kit v1.1.0</span>",
+      "health": 1,
+      "settlements": "<span style=\"color:green\">Cash</span>",
+      "ping": 1
+    },
+    "usd.interledger.network": {
+      "hostname": "usd.interledger.network",
+      "owner": "winthan",
+      "prefix": "us.usd.usd.",
+      "version": "<span style=\"color:green\">Compatible: ilp-kit v1.1.0</span>",
+      "health": 1,
+      "settlements": "<span style=\"color:green\">Paypal</span>",
+      "ping": 1
+    },
+    "mmk.interledger.network": {
+      "hostname": "mmk.interledger.network",
+      "owner": "nyeinminn",
+      "prefix": "mm.mmk.interledger.",
+      "version": "<span style=\"color:green\">Compatible: ilp-kit v1.1.0</span>",
+      "health": 1,
+      "settlements": "<span style=\"color:green\">Paypal</span>",
+      "ping": 1
+    },
+    "interledger.kr": {
+      "hostname": "interledger.kr",
+      "owner": "mspark",
+      "prefix": "kr.krw.interledgerkorea.",
+      "health": 1,
+      "settlements": "None",
+      "ping": 0
+    },
+    "nexus.justmoon.com": {
+      "hostname": "nexus.justmoon.com",
+      "owner": "stefan",
+      "prefix": "us.usd.nexus.",
+      "version": "<span style=\"color:green\">Compatible: ilp-kit v1.1.0</span>",
+      "health": 1,
+      "settlements": "None",
+      "ping": 1
+    },
+    "gordon.mearnag.org": {
+      "hostname": "gordon.mearnag.org",
+      "owner": "connie",
+      "prefix": "<span style=\"color:red\">?</span>",
+      "version": "<span style=\"color:red\">WebFinger error</span>",
+      "health": 0,
+      "settlements": "<span style=\"color:red\">Connection error</span>",
+      "ping": 0
+    },
+    "coins.paleorbglow.com": {
+      "hostname": "coins.paleorbglow.com",
+      "owner": "kanaan",
+      "prefix": "<span style=\"color:red\">?</span>",
+      "version": "<span style=\"color:red\">WebFinger error</span>",
+      "health": 0,
+      "settlements": "<span style=\"color:red\">Connection error</span>",
+      "ping": 1
+    },
+    "cornelius.sharafian.com": {
+      "hostname": "cornelius.sharafian.com",
+      "owner": "sharafian",
+      "prefix": "us.usd.cornelius.",
+      "version": "<span style=\"color:green\">Compatible: ilp-kit v1.1.0</span>",
+      "health": 1,
+      "settlements": "<span style=\"color:green\">Hokuto no Ken</span>",
+      "ping": 1
+    },
+    "cygnus.vahehovhannisyan.com": {
+      "hostname": "cygnus.vahehovhannisyan.com",
+      "owner": "vahe",
+      "prefix": "us.usd.cygnus.",
+      "version": "<span style=\"color:green\">Compatible: ilp-kit v1.1.0</span>",
+      "health": 1,
+      "settlements": "None",
+      "ping": 1
+    },
+    "grifiti.web-payments.net": {
+      "hostname": "grifiti.web-payments.net",
+      "owner": "pkrey",
+      "prefix": "us.usd.grifiti.",
+      "health": 1,
+      "settlements": "HTTP <span style=\"color:red\">404</span> response",
+      "ping": 1
+    },
+    "hive.dennisappelt.com": {
+      "hostname": "hive.dennisappelt.com",
+      "owner": "dennis",
+      "version": "<span style=\"color:red\">WebFinger error</span>",
+      "health": 0,
+      "settlements": "HTTP <span style=\"color:red\">502</span> response",
+      "ping": 1
+    },
+    "payment.am": {
+      "hostname": "payment.am",
+      "owner": "mesrop",
+      "prefix": "am.amd.payment.",
+      "version": "<span style=\"color:red\">WebFinger error</span>",
+      "health": 1,
+      "settlements": "HTTP <span style=\"color:red\">404</span> response",
+      "ping": 1
+    },
+    "ilp-kit.michielbdejong.com": {
+      "hostname": "ilp-kit.michielbdejong.com",
+      "owner": "michiel",
+      "prefix": "lu.eur.michiel.",
+      "version": "<span style=\"color:green\">Compatible: ilp-kit v1.1.0</span>",
+      "health": 1,
+      "settlements": "<span style=\"color:green\">Cash</span>",
+      "ping": 1
+    },
+    "john.jpvbs.com": {
+      "hostname": "john.jpvbs.com",
+      "owner": "",
+      "prefix": "us.usd.jonhvb.",
+      "version": "<span style=\"color:green\">Compatible: ilp-kit v1.1.0</span>",
+      "health": 1,
+      "settlements": "<span style=\"color:green\">Orange Juice</span>",
+      "ping": 1
+    },
+    "best-ilp.herokuapp.com": {
+      "hostname": "best-ilp.herokuapp.com",
+      "owner": "",
+      "prefix": "us.usd.best-ilp.",
+      "health": 1,
+      "settlements": "None",
+      "ping": 0
+    },
+    "someledger.herokuapp.com": {
+      "hostname": "someledger.herokuapp.com",
+      "owner": "",
+      "version": "<span style=\"color:red\">WebFinger error</span>",
+      "health": 0,
+      "settlements": "HTTP <span style=\"color:red\">503</span> response",
+      "ping": 0
+    },
+    "michiel-is-not-available.herokuapp.com": {
+      "hostname": "michiel-is-not-available.herokuapp.com",
+      "owner": "admin",
+      "prefix": "us.usd.michiel-is-not-available.",
+      "version": "<span style=\"color:green\">Compatible: ilp-kit v1.1.0</span>",
+      "health": 1,
+      "settlements": "<span style=\"color:green\">Cash</span>",
+      "ping": 0
+    },
+    "royalcrypto.com": {
+      "hostname": "royalcrypto.com",
+      "owner": "twarden",
+      "prefix": "ca.usd.royalcrypto.",
+      "health": 1,
+      "settlements": "None",
+      "ping": 1
+    },
+    "ggizi.herokuapp.com": {
+      "hostname": "ggizi.herokuapp.com",
+      "owner": "",
+      "prefix": "us.usd.ggizi.",
+      "health": 1,
+      "settlements": "<span style=\"color:green\"></span>",
+      "ping": 0
+    },
+    "michiel-eur.herokuapp.com": {
+      "hostname": "michiel-eur.herokuapp.com",
+      "owner": "",
+      "prefix": "lu.eur.michiel-eur.",
+      "version": "<span style=\"color:green\">Compatible: ilp-kit v1.1.0</span>",
+      "health": 1,
+      "settlements": "None",
+      "ping": 0
+    },
+    "ilp.hexdivision.com": {
+      "hostname": "ilp.hexdivision.com",
+      "owner": "admin",
+      "prefix": "us.usd.hexdivision.",
+      "version": "<span style=\"color:green\">Compatible: ilp-kit v1.1.0</span>",
+      "health": 1,
+      "settlements": "None",
+      "ping": 1
+    }
+  },
+  "ledgers": {
+    "red.ilpdemo.org": {
+      "hostname": "red.ilpdemo.org",
+      "prefix": "us.usd.red.",
+      "maxBalance": "10^10 centi-USD",
+      "messaging": 3156.1987343999995,
+      "messageToSelf": 675.7760967999999
+    },
+    "blue.ilpdemo.org": {
+      "hostname": "blue.ilpdemo.org",
+      "prefix": "de.eur.blue.",
+      "maxBalance": "10^10 centi-EUR",
+      "messaging": 3042.1446307,
+      "messageToSelf": 504.69406576
+    },
+    "kes-ilp.abdishakur.com": {
+      "hostname": "kes-ilp.abdishakur.com"
+    },
+    "ilp.bigchaindb.com": {
+      "hostname": "ilp.bigchaindb.com"
+    },
+    "zar-ilp.hopebailie.com": {
+      "hostname": "zar-ilp.hopebailie.com"
+    },
+    "milton.ilp.network": {
+      "hostname": "milton.ilp.network",
+      "prefix": "gb.gbp.milton.",
+      "maxBalance": "10^10 centi-GBP",
+      "messaging": "fail"
+    },
+    "pineapplesheep.ilp.rocks": {
+      "hostname": "pineapplesheep.ilp.rocks",
+      "prefix": "eu.eur.pineapplesheep.",
+      "maxBalance": "10^10 centi-EUR",
+      "messaging": 1202.2705815399995,
+      "messageToSelf": 81.70007863000001
+    },
+    "usd.interledger.network": {
+      "hostname": "usd.interledger.network",
+      "prefix": "us.usd.usd.",
+      "maxBalance": "10^10 centi-USD",
+      "messaging": 1979.4951601899998,
+      "messageToSelf": 294.08821296
+    },
+    "mmk.interledger.network": {
+      "hostname": "mmk.interledger.network",
+      "prefix": "mm.mmk.interledger.",
+      "maxBalance": "10^10 centi-MMK",
+      "messaging": 3334.4829426899996,
+      "messageToSelf": 751.1202558000001
+    },
+    "interledger.kr": {
+      "hostname": "interledger.kr",
+      "prefix": "kr.krw.interledgerkorea.",
+      "maxBalance": "10^10 centi-KRW",
+      "messaging": 4256.10369542,
+      "messageToSelf": 980.9784615399999
+    },
+    "nexus.justmoon.com": {
+      "hostname": "nexus.justmoon.com",
+      "prefix": "us.usd.nexus.",
+      "maxBalance": "10^19 nano-USD",
+      "messaging": 1585.1815312599997,
+      "messageToSelf": 453.4260660899999
+    },
+    "gordon.mearnag.org": {
+      "hostname": "gordon.mearnag.org",
+      "prefix": "<span style=\"color:red\">?</span>",
+      "maxBalance": "<span style=\"color:red\">?</span>"
+    },
+    "coins.paleorbglow.com": {
+      "hostname": "coins.paleorbglow.com",
+      "prefix": "<span style=\"color:red\">?</span>",
+      "maxBalance": "<span style=\"color:red\">?</span>"
+    },
+    "cornelius.sharafian.com": {
+      "hostname": "cornelius.sharafian.com",
+      "prefix": "us.usd.cornelius.",
+      "maxBalance": "10^10 micro-USD",
+      "messaging": 1879.36506178,
+      "messageToSelf": 436.4613233799999
+    },
+    "cygnus.vahehovhannisyan.com": {
+      "hostname": "cygnus.vahehovhannisyan.com",
+      "prefix": "us.usd.cygnus.",
+      "maxBalance": "10^10 centi-USD",
+      "messaging": 1524.87927904,
+      "messageToSelf": 145.08379792000002
+    },
+    "grifiti.web-payments.net": {
+      "hostname": "grifiti.web-payments.net",
+      "prefix": "us.usd.grifiti.",
+      "maxBalance": "10^10 centi-USD",
+      "messaging": "fail"
+    },
+    "hive.dennisappelt.com": {
+      "hostname": "hive.dennisappelt.com"
+    },
+    "payment.am": {
+      "hostname": "payment.am",
+      "prefix": "am.amd.payment.",
+      "maxBalance": "10^10 centi-AMD",
+      "messaging": "fail"
+    },
+    "ilp-kit.michielbdejong.com": {
+      "hostname": "ilp-kit.michielbdejong.com",
+      "prefix": "lu.eur.michiel.",
+      "maxBalance": "10^19 nano-EUR",
+      "messaging": 1016.3005943699999,
+      "messageToSelf": 175.58650321
+    },
+    "john.jpvbs.com": {
+      "hostname": "john.jpvbs.com",
+      "prefix": "us.usd.jonhvb.",
+      "maxBalance": "10^10 centi-USD",
+      "messaging": 1291.4855006,
+      "messageToSelf": 124.21338775000001
+    },
+    "best-ilp.herokuapp.com": {
+      "hostname": "best-ilp.herokuapp.com",
+      "prefix": "us.usd.best-ilp.",
+      "maxBalance": "10^10 centi-USD",
+      "messaging": 2138.0139604599995,
+      "messageToSelf": 329.6330568100001
+    },
+    "someledger.herokuapp.com": {
+      "hostname": "someledger.herokuapp.com"
+    },
+    "michiel-is-not-available.herokuapp.com": {
+      "hostname": "michiel-is-not-available.herokuapp.com",
+      "prefix": "us.usd.michiel-is-not-available.",
+      "maxBalance": "10^10 (10^-20)-USD",
+      "messaging": 1519.9242090199998,
+      "messageToSelf": 155.01719295
+    },
+    "royalcrypto.com": {
+      "hostname": "royalcrypto.com",
+      "prefix": "ca.usd.royalcrypto.",
+      "maxBalance": "10^10 centi-USD",
+      "messaging": 2098.51800641,
+      "messageToSelf": 396.7941689400001
+    },
+    "ggizi.herokuapp.com": {
+      "hostname": "ggizi.herokuapp.com",
+      "prefix": "us.usd.ggizi.",
+      "maxBalance": "10^10 centi-USD",
+      "messaging": 2116.6857645499995,
+      "messageToSelf": 319.81239198000003
+    },
+    "michiel-eur.herokuapp.com": {
+      "hostname": "michiel-eur.herokuapp.com",
+      "prefix": "lu.eur.michiel-eur.",
+      "maxBalance": "10^10 centi-EUR",
+      "messaging": 1297.4726439800002,
+      "messageToSelf": 199.32245751000005
+    },
+    "ilp.hexdivision.com": {
+      "hostname": "ilp.hexdivision.com",
+      "prefix": "us.usd.hexdivision.",
+      "maxBalance": "10^10 centi-USD",
+      "messaging": 951.2813906499998,
+      "messageToSelf": 65.75163603
+    }
+  },
+  "connectors": {
+    "us.usd.hexdivision.connector": {
+      "couldSend": 1,
+      "gotReply": 1,
+      "delay": 69.48394599999999
+    },
+    "eu.eur.pineapplesheep.pineapplesheep": {
+      "couldSend": 1,
+      "gotReply": 1,
+      "delay": 234.11589500000002
+    },
+    "lu.eur.michiel.micmic": {
+      "couldSend": 1,
+      "gotReply": 1,
+      "delay": 161.62755100000004
+    },
+    "lu.eur.michiel.connector": {
+      "couldSend": 1,
+      "gotReply": 1,
+      "delay": 187.15372099999996
+    },
+    "us.usd.jonhvb.micmic": {
+      "couldSend": 1,
+      "gotReply": 1,
+      "delay": 326.83162799999997
+    },
+    "us.usd.jonhvb.connector": {
+      "couldSend": 1,
+      "gotReply": 1,
+      "delay": 371.089865
+    },
+    "lu.eur.michiel-eur.micmic": {
+      "couldSend": 0,
+      "gotReply": 0,
+      "delay": 5000
+    },
+    "us.usd.michiel-is-not-available.micmic": {
+      "couldSend": 0,
+      "gotReply": 0,
+      "delay": 5000
+    },
+    "us.usd.michiel-is-not-available.connector": {
+      "couldSend": 1,
+      "gotReply": 1,
+      "delay": 293.21567500000003
+    },
+    "us.usd.cygnus.micmic": {
+      "couldSend": 0,
+      "gotReply": 0,
+      "delay": 5000
+    },
+    "us.usd.cygnus.vahe": {
+      "couldSend": 1,
+      "gotReply": 1,
+      "delay": 380.712868
+    },
+    "us.usd.nexus.stefan": {
+      "couldSend": 1,
+      "gotReply": 1,
+      "delay": 558.0673560000001
+    },
+    "us.usd.nexus.micmic": {
+      "couldSend": 0,
+      "gotReply": 0,
+      "delay": 5000
+    },
+    "us.usd.usd.connector": {
+      "couldSend": 1,
+      "gotReply": 1,
+      "delay": 406.118009
+    },
+    "us.usd.cornelius.micmic": {
+      "couldSend": 0,
+      "gotReply": 0,
+      "delay": 5000
+    },
+    "us.usd.cornelius.sharafian": {
+      "couldSend": 0,
+      "gotReply": 0,
+      "delay": 5000
+    },
+    "us.usd.ggizi.micmic": {
+      "couldSend": 0,
+      "gotReply": 0,
+      "delay": 5000
+    },
+    "us.usd.ggizi.connector": {
+      "couldSend": 1,
+      "gotReply": 1,
+      "delay": 388.12986299999994
+    },
+    "us.usd.best-ilp.micmic": {
+      "couldSend": 0,
+      "gotReply": 0,
+      "delay": 5000
+    },
+    "us.usd.best-ilp.conct": {
+      "couldSend": 1,
+      "gotReply": 1,
+      "delay": 403.4472869999999
+    },
+    "us.usd.red.connie": {
+      "couldSend": 1,
+      "gotReply": 1,
+      "delay": 635.0753709999999
+    },
+    "us.usd.red.micmic": {
+      "couldSend": 1,
+      "gotReply": 1,
+      "delay": 1018.1296570000001
+    },
+    "de.eur.blue.connie": {
+      "couldSend": 1,
+      "gotReply": 1,
+      "delay": 793.7191819999998
+    },
+    "de.eur.blue.micmic": {
+      "couldSend": 1,
+      "gotReply": 1,
+      "delay": 1348.7039560000003
+    },
+    "mm.mmk.interledger.connector": {
+      "couldSend": 1,
+      "gotReply": 1,
+      "delay": 772.9659959999999
+    },
+    "ca.usd.royalcrypto.connector": {
+      "couldSend": 1,
+      "gotReply": 1,
+      "delay": 556.4707840000001
+    },
+    "ca.usd.royalcrypto.micmic": {
+      "couldSend": 1,
+      "gotReply": 0,
+      "delay": 5000
+    },
+    "kr.krw.interledgerkorea.connector": {
+      "couldSend": 0,
+      "gotReply": 0,
+      "delay": 5000
+    }
+  }
+}

@@ -289,6 +289,16 @@ function mergeConnector(existingData, newData) {
   return newObj;
 }
 
+function integer(num) {
+  return Math.floor(num + .5);
+}
+
+function percentage(num) {
+  const DIGITS_FACTOR = 1000;
+  var numDigits = integer(num * 100 + DIGITS_FACTOR);
+  return `${numDigits / DIGITS_FACTOR}%`;
+}
+
 // ...
 var promises = [];
 //for (var i=16; i<17; i++) {
@@ -420,7 +430,7 @@ Promise.all(promises).then(() => {
         return (typeof line.messaging === 'number' ?
           `<tr><td>${line.prefix}</td>` +
           `<td>${line.maxBalance}</td>` +
-          `<td>${line.messaging}</td>` +
+          `<td>${integer(line.messaging)}</td>` +
           `<td><a href="https://${line.hostname}">${line.hostname}</a></td>` +
           `</tr>`
         : '');
@@ -435,7 +445,7 @@ Promise.all(promises).then(() => {
       rows: Object.keys(stats.connectors).sort((a, b) => {
         return stats.connectors[a].delay - stats.connectors[b].delay;
       }).map(addr => {
-        return `<tr><td>${addr}</td><td>${stats.connectors[addr].delay}</td>` +
+        return `<tr><td>${addr}</td><td>${integer(stats.connectors[addr].delay)}</td>` +
           (typeof stats.connectors[addr].quotes === 'undefined' ?
             '' :
             destinations.map(dest => `<td>${stats.connectors[addr].quotes[dest]}</td>`)
