@@ -406,6 +406,7 @@ Promise.all(promises).then(() => {
         '<th>Health</th>',
         '<th>Ping</th>',
         '<th>Ledger</th>',
+        '<th>Real Money?</th>',
       ],
       rows: hostRows.map(line =>
         `<tr><td><a href="https://${line.hostname}">${line.hostname}</a></td>` +
@@ -415,6 +416,7 @@ Promise.all(promises).then(() => {
         `<td>${percentage(line.health)}</td>` +
         `<td>${percentage(line.ping)}</td>` +
         (typeof stats.ledgers[line.hostname].messaging === 'number' ? `<td>${line.prefix}</td>` : `<td><strike style="color:red">${line.prefix}</strike></td>`) +
+        `<td>${(typeof line.prefix === 'string' && line.prefix.substring(0,2) === 'g.' ? 'YES' : 'NO')}</td>` +
         `</tr>`
       ),
     },
