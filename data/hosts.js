@@ -26,6 +26,7 @@ module.exports.hosts = [
    { hostname: 'ggizi.herokuapp.com',                    owner: ''},
    { hostname: 'michiel-eur.herokuapp.com',              owner: ''},
    { hostname: 'ilp.hexdivision.com',                    owner: 'admin'},
+   { hostname: 'ilpkit-gce.fluid.money',                 owner: 'dfuelling'},
 //  { hostname: '',                                       owner: ''},
 
 // ^^^ Add your ILP host by duplicating, uncommenting, and editing the line above ^^^
