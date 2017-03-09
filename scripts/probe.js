@@ -342,15 +342,16 @@ Promise.all(promises).then(() => {
         '<th>Message Delay</th>',
         '<th>Host</th>',
       ],
-      rows: stats.ledgers.map(line =>
-        (typeof line.messaging === 'number' ?
+      rows: Object.keys(stats.ledgers).map(hostname => {
+        var line = stats.ledgers[hostname];
+        return (typeof line.messaging === 'number' ?
           `<tr><td>${line.prefix}</td>` +
           `<td>${line.maxBalance}</td>` +
           `<td>${line.messaging}</td>` +
           `<td><a href="https://${line.hostname}">${line.hostname}</a></td>` +
           `</tr>`
-        : '')
-      ),
+        : '');
+      }),
     },
     connectors: {
       headers: [ `<th>ILP address</th><th>Quote Delay (ms)</th>`,
