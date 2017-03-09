@@ -4,7 +4,7 @@ var https = require('https');
 var WebFinger = require('webfinger.js').WebFinger;
 var wf = new WebFinger();
 var msgToSelf = require('./msgToSelf');
-var hosts = require('../data/hosts.js').hosts;
+var hostsArr = require('../data/hosts.js').hosts;
 
 //TODO: get this from list of ledgers on which msgToSelf works:
 var destinations = [
@@ -26,13 +26,13 @@ var destinations = [
 //  'kr.krw.interledgerkorea.', old ilp-kit version?
 ];
 
+const RAW_FILE = '../data/stats-raw.json';
 const OUTPUT_FILE = '../data/stats.json';
-const OUTPUT_FILE2 = `../data/stats-${new Date().getTime()}.json`;
 
 function checkUrl(i, path) {
   return new Promise((resolve) => {
     var request = https.request({
-      hostname: hosts[i].hostname,
+      hostname: hostsArr[i].hostname,
       port:443,
       path: path,
       method: 'GET'
@@ -66,7 +66,7 @@ function checkApiCall(i, field, path, print) {
       return `HTTP <span style="color:red">${result.status}</span> response`;
     }
   }).then(text => {
-    hosts[i][field] = text;
+    hostsArr[i][field] = text;
   });
 }
 
@@ -78,7 +78,7 @@ function checkHealth(i) {
 
 function getApiVersion(i) {
   return new Promise((resolve) => {
-    wf.lookup('https://'+hosts[i].hostname, function(err, result) {
+    wf.lookup('https://'+hostsArr[i].hostname, function(err, result) {
       if (err) {
         resolve(`<span style="color:red">WebFinger error</span>`);
         return;
@@ -97,7 +97,7 @@ function getApiVersion(i) {
       }
     });
   }).then(text => {
-    hosts[i].version = text;
+    hostsArr[i].version = text;
   });
 }
 
@@ -149,8 +149,8 @@ for (var i=0; i<named.length; i++) {
 function checkLedger(i) {
   return checkUrl(i, '/ledger').then(result => {
     if (result.error) {
-        hosts[i].maxBalance = `<span style="color:red">?</span>`;
-        hosts[i].prefix = `<span style="color:red">?</span>`;
+        hostsArr[i].maxBalance = `<span style="color:red">?</span>`;
+        hostsArr[i].prefix = `<span style="color:red">?</span>`;
         return;
     }
     if (result.status === 200) {
@@ -158,16 +158,16 @@ function checkLedger(i) {
       try {
         data = JSON.parse(result.body);
       } catch(e) {
-        hosts[i].maxBalance = `<span style="color:red">?</span>`;
-        hosts[i].prefix = `<span style="color:red">?</span>`;
+        hostsArr[i].maxBalance = `<span style="color:red">?</span>`;
+        hostsArr[i].prefix = `<span style="color:red">?</span>`;
         return;
       }
-      hosts[i].prefix = data.ilp_prefix;
-      hosts[i].maxBalance = `10^${data.precision} ${printScale(data.scale)}-${data.currency_code}`;
-      var recipients = (extraConnectors[hosts[i].hostname] || []).concat(data.connectors.map(obj => obj.name));
+      hostsArr[i].prefix = data.ilp_prefix;
+      hostsArr[i].maxBalance = `10^${data.precision} ${printScale(data.scale)}-${data.currency_code}`;
+      var recipients = (extraConnectors[hostsArr[i].hostname] || []).concat(data.connectors.map(obj => obj.name));
       recipients.push('connectorland');
 
-      return msgToSelf.test(hosts[i].hostname, hosts[i].prefix, recipients, destinations).then(result => {
+      return msgToSelf.test(hostsArr[i].hostname, hostsArr[i].prefix, recipients, destinations).then(result => {
         // {
         //   connectSuccess: true,
         //   connectTime: 4255,
@@ -179,11 +179,11 @@ function checkLedger(i) {
         //     'kr.krw.interledgerkorea.': 'no data',
         //   ,}
         // }
-console.log('results are in:', hosts[i].hostname, hosts[i].prefix, recipients, destinations, result); 
-        hosts[i].messaging = (result.connectSuccess ? result.connectTime : 'fail');
-        hosts[i].messageToSelf = result.sendResults[hosts[i].prefix + 'connectorland'];
+console.log('results are in:', hostsArr[i].hostname, hostsArr[i].prefix, recipients, destinations, result); 
+        hostsArr[i].messaging = (result.connectSuccess ? result.connectTime : 'fail');
+        hostsArr[i].messageToSelf = result.sendResults[hostsArr[i].prefix + 'connectorland'];
         for (var addr in result.sendResults) {
-          if (addr !== hosts[i].prefix + 'connectorland') {
+          if (addr !== hostsArr[i].prefix + 'connectorland') {
             connectors[addr] = result.sendResults[addr];
             if (result.quoteResults) {
               quotes[addr] = result.quoteResults[addr];
@@ -198,34 +198,67 @@ console.log('results are in:', hosts[i].hostname, hosts[i].prefix, recipients, d
 
 function pingHost(i) {
   return new Promise((resolve) => {
-    ping.sys.probe(hosts[i].hostname, function(isAlive){
-      hosts[i].ping = isAlive;
+    ping.sys.probe(hostsArr[i].hostname, function(isAlive){
+      hostsArr[i].ping = isAlive;
       resolve();
     });
   });
 }
 
+function mergeHost(existingData, newData) {
+  return newData;
+}
+
+function mergeLedger(existingData, newData) {
+  return newData;
+}
+
+function mergeConnector(existingData, newData) {
+  return newData;
+}
+
 // ...
 var promises = [];
 //for (var i=16; i<17; i++) {
-for (var i=0; i<hosts.length; i++) {
+for (var i=0; i<hostsArr.length; i++) {
   promises.push(getApiVersion(i));
   promises.push(pingHost(i));
   promises.push(checkHealth(i));
   promises.push(checkSettlements(i));
   promises.push(checkLedger(i));
-//  if (typeof perfStats[hosts[i].hostname] !== 'undefined') {
-//    hosts[i].speed = perfStats[hosts[i].hostname].speed;
-//    hosts[i].price = perfStats[hosts[i].hostname].price;
-//    hosts[i].reliability = perfStats[hosts[i].hostname].reliability;
+//  if (typeof perfStats[hostsArr[i].hostname] !== 'undefined') {
+//    hostsArr[i].speed = perfStats[hostsArr[i].hostname].speed;
+//    hostsArr[i].price = perfStats[hostsArr[i].hostname].price;
+//    hostsArr[i].reliability = perfStats[hostsArr[i].hostname].reliability;
 //  } else {
-//    hosts[i].speed = 0;
-//    hosts[i].price = 0;
-//    hosts[i].reliability = 0;
+//    hostsArr[i].speed = 0;
+//    hostsArr[i].price = 0;
+//    hostsArr[i].reliability = 0;
 //  } 
 }
 Promise.all(promises).then(() => {
-  var rows = hosts.sort(function(a, b) {
+  var stats = {
+    hosts: {},
+    ledgers: {},
+    connectors: {},
+  };
+  try {
+   stats = JSON.parse(fs.readFileSync(RAW_FILE));
+  } catch(e) {
+  }
+  for (var i=0; i < hostsArr.length; i++) {
+    stats.hosts[hostsArr[i].hostname] = mergeHost(stats.hosts[hostsArr[i].hostname], hostsArr[i]);
+  }
+  for (var i=0; i < hostsArr.length; i++) {
+    stats.ledgers[hostsArr[i].hostname] = mergeLedger(stats.ledgers[hostsArr[i].hostname], hostsArr[i]);
+  }
+  for (var i in connectors) { 
+    stats.connectors[i] = mergeConnector(stats.connectors[i], connectors[i]);
+  }
+  fs.writeFileSync(RAW_FILE, JSON.stringify(stats, null, 2));
+  var hostRows = Object.keys(stats.hosts).sort(function(keyA, keyB) {
+    var a = stats.hosts[keyA];
+    var b = stats.hosts[keyB];
     var delayA = (typeof a.messaging === 'number' ? a.messaging : 1000000);
     var delayB = (typeof b.messaging === 'number' ? b.messaging : 1000000);
     if (delayA < delayB) { return -1; }
@@ -249,7 +282,7 @@ Promise.all(promises).then(() => {
     if (a.hostname < b.hostname) { return -1; }
     if (a.hostname > b.hostname) { return 1; }
     return 0;
-  });
+  }).map(key => stats.hosts[key]);
   var str = JSON.stringify({
     headers: [
     '<th>ILP Kit URL</th>',
@@ -265,7 +298,7 @@ Promise.all(promises).then(() => {
     '<th>Health</th>',
     '<th>Ping</th>',
   ],
-    rows: rows.map(line =>
+    rows: hostRows.map(line =>
     `<tr><td><a href="https://${line.hostname}">${line.hostname}</a></td>` +
 //        `<td>${Math.floor(1000*line.reliability)/10}%</td>` +
 //        `<td>${Math.floor(line.speed)/1000} seconds</td>` +
@@ -291,7 +324,7 @@ Promise.all(promises).then(() => {
         '<th>Ping</th>',
         '<th>Ledger</th>',
       ],
-      rows: rows.map(line =>
+      rows: hostRows.map(line =>
         `<tr><td><a href="https://${line.hostname}">${line.hostname}</a></td>` +
         `<td>${line.version}</td>` +
         `<td>${line.owner}</td>` +
@@ -309,7 +342,7 @@ Promise.all(promises).then(() => {
         '<th>Message Delay</th>',
         '<th>Host</th>',
       ],
-      rows: rows.map(line =>
+      rows: stats.ledgers.map(line =>
         (typeof line.messaging === 'number' ?
           `<tr><td>${line.prefix}</td>` +
           `<td>${line.maxBalance}</td>` +
@@ -325,22 +358,22 @@ Promise.all(promises).then(() => {
           //`</tr><tr>`, // cheating, to get a second headers row
           //`<th></th><th></th>` //leave two columns empty on second headers row
         ].concat(destinations.map(dest => `<th>${dest} fee</th>`)),
-      rows: Object.keys(connectors).sort((a, b) => {
-        if (typeof connectors[a] === 'number') {
-          if (typeof connectors[b] === 'number') {
-            return connectors[a] - connectors[b];
+      rows: Object.keys(stats.connectors).sort((a, b) => {
+        if (typeof stats.connectors[a] === 'number') {
+          if (typeof stats.connectors[b] === 'number') {
+            return stats.connectors[a] - stats.connectors[b];
           } else {
             return -1;
           }
         } else {
-          if (typeof connectors[b] === 'number') {
+          if (typeof stats.connectors[b] === 'number') {
             return 1;
           } else {
             return 0;
           }
         }
       }).map(addr => {
-        return `<tr><td>${addr}</td><td>${connectors[addr]}</td>` +
+        return `<tr><td>${addr}</td><td>${stats.connectors[addr]}</td>` +
           (typeof quotes[addr] === 'undefined' ?
             '' :
             destinations.map(dest => `<td>${quotes[addr][dest]}</td>`)
@@ -350,7 +383,6 @@ Promise.all(promises).then(() => {
     },
   }, null, 2);
   fs.writeFileSync(OUTPUT_FILE, str);
-  fs.writeFileSync(OUTPUT_FILE2, str);
   process.exit(0);
 }, err => {
   console.log(err);
