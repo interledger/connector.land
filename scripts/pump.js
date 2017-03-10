@@ -1,32 +1,27 @@
 var Plugin = require('ilp-plugin-bells');  // TODO: allow other ledger types
-var ILP = require('ilp-79');
-const uuidV4 = require('uuid/v4');
+var Packet       = require('ilp-79/src/lib/packet');
+var cryptoHelper = require('ilp-79/src/utils/crypto');
+var base64url    = require('ilp-79/src/utils/base64url');
+var cc           = require('ilp-79/src/utils/condition');
+var uuidV4 = require('uuid/v4');
 var crypto = require('crypto');
 var rawStats = require('../data/stats-raw.json');
 var passwords = require('../passwords.js');
 var routes = {};
 var plugins = {};
-
+var fulfillments = {};
 
 // TODO: wrap this into ilp-plugin-bells, see https://github.com/interledgerjs/ilp-plugin-bells/issues/107
 function getPlugin(host, prefix, user, pass) {
-  var ret = new Plugin({
+  return new Plugin({
     prefix,
     account: `https://${host}/ledger/accounts/${user}`,
     password: pass,
   });
-  // TODO: fix this in ilp-plugin-bells
-  ret.sendTransferFixed = (function(transfer) {
-    transfer.account = transfer.to;
-    console.log('Fixed Transfer', JSON.stringify(transfer, null, 2));
-    return this.sendTransfer(transfer);
-  }).bind(ret);
-  return ret;
 }
 
 function gatherRoutes() {
   for (var i in rawStats.connectors) {
-    var parts = i.split('.');  
     for (var j in rawStats.connectors[i].quoteResults) {
       if (typeof rawStats.connectors[i].quoteResults[j] === 'number') {
         var from = rawStats.connectors[i].ledger;
@@ -62,30 +57,54 @@ function setupPlugins() {
     }
     plugins[ledger] = getPlugin(host, ledger, 'connectorland', password);
     console.log(`Connecting to ${host}...`);
-    return plugins[ledger].connect();
+    return plugins[ledger].connect().then(() => {
+      return plugins[ledger].on('incoming_prepare', res => {
+        console.log('incoming_prepare!', ledger, res);
+        // incoming_prepare! de.eur.blue. { id: '7de75a3e-2f02-49ed-8907-5a4f8a243ee1',
+        //   direction: 'incoming',
+        //   account: 'de.eur.blue.micmic',
+        //   from: 'de.eur.blue.micmic',
+        //   to: 'de.eur.blue.connectorland',
+        //   ledger: 'de.eur.blue.',
+        //   amount: '0.01',
+        //   data: 
+        //    { ilp_header: 
+        //       { amount: '0.01',
+        //         account: 'de.eur.blue.connectorland',
+        //         data: [Object] } },
+        //   executionCondition: 'cc:0:3:NM4LgYQos5lXIlT63OzD6zmBAlUroykzrQQCTVxtL14:32',
+        //   expiresAt: '2017-03-10T13:19:50.085Z' }
+        plugins[ledger].fulfillCondition(res.id, 'cf:0:' + fulfillments[res.id]).then(() => {
+          console.log('fulfillCondition success');
+        } , err => {
+          console.log('fulfillCondition fail', ledger, res, res.id, fulfillments[res.id], err);
+        });
+      });
+    });
   }));
 }
 
 function genCondition(key) {
   return new Promise((resolve, reject) => {
-    crypto.randomBytes(64, (err, buf) => { // much more than 32 bytes is not really useful here, I guess?
+    crypto.randomBytes(64, (err, secret) => { // much more than 32 bytes is not really useful here, I guess?
       if (err) {
         reject(err);
-      } else {
-        resolve(buf);
+        return;
       }
+      routes[key].testPaymentId = uuidV4();
+      routes[key].expiresAt = makeDate(30);
+      routes[key].packet = Packet.serialize({
+        destinationAccount: key.split(' ')[1]+ 'connectorland',
+        destinationAmount: '0.01',
+        data: {
+          blob: base64url(cryptoHelper.aesEncryptObject({ expiresAt: routes[key].expiresAt, data: undefined }, secret)),
+        }
+      });
+      routes[key].condition = base64url(cc.toCondition(cryptoHelper.hmacJsonForPskCondition(routes[key].packet, secret)));
+      var preimage = cryptoHelper.hmacJsonForPskCondition(routes[key].packet, secret)
+      fulfillments[routes[key].testPaymentId] = cc.toFulfillment(preimage);
+      resolve();
     });
-  }).then(secret => {
-    routes[key].testPaymentId = uuidV4();
-    var obj = ILP.IPR.createPacketAndCondition({
-      id: routes[key].testPaymentId,
-      destinationAmount: '0.01',
-      destinationAccount: key.split(' ')[1]+ 'connectorland',
-      secret,
-    });
-    routes[key].secret = secret;
-    routes[key].packet = obj.packet;
-    routes[key].condition = obj.condition;
   });
 }
 
@@ -94,6 +113,7 @@ function makeDate(secondsInTheFuture) {
 }
 
 function firstHop(key) {
+  console.log('firstHop', key);
   var parts = key.split(' ');
   var fromLedger = parts[0];
   var toLedger = parts[1];
@@ -125,10 +145,12 @@ function firstHop(key) {
     amount: '' + routes[key].price,
     data: routes[key].packet,
     executionCondition: `cc:0:3:${routes[key].condition}:32`,
-    expiresAt: makeDate(30),
+    expiresAt: routes[key].expiresAt,
   };
   console.log('trying to sendTransfer', JSON.stringify(transfer, null, 2));
-  return plugins[fromLedger].sendTransfer(transfer);
+  return plugins[fromLedger].sendTransfer(transfer).catch(err => {
+    console.log('payment failed', key, err);
+  });
 }
 
 function launchPayments() {
@@ -137,16 +159,11 @@ function launchPayments() {
     console.log(`Connecting to ${Object.keys(plugins).length} plugins..`);
     return setupPlugins();
   }).then(() => {
-    console.log(`Generating conditions...`);
-    return Promise.all(Object.keys(routes).map(key => {
-      return genCondition(key);
-    }));
+    console.log(`Generating ${Object.keys(routes).length} conditions...`);
+    return Promise.all(Object.keys(routes).map(genCondition));
   }).then(() => {
-    console.log(`Sending source payments...`);
-    // return Promise.all(Object.keys(routes).map(key => {
-    //   return firstHop(key);
-    // }));
-    return firstHop(Object.keys(routes)[0]);
+    console.log(`Sending ${Object.keys(routes).length} source payments...`);
+    return Promise.all(Object.keys(routes).map(firstHop));
   }).then(() => {
     console.log(`Waiting for incoming_prepare and outgoing_fulfill messages...`);
   });
