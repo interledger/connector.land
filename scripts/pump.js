@@ -12,6 +12,8 @@ var plugins = {};
 var fulfillments = {};
 var balances = {};
 var numPending = 0;
+var numSuccess = 0;
+var numFail = 0;
 
 // TODO: wrap this into ilp-plugin-bells, see https://github.com/interledgerjs/ilp-plugin-bells/issues/107
 function getPlugin(host, prefix, user, pass) {
@@ -66,7 +68,8 @@ function setupPlugins() {
             routes[key].result = { success: true, delay: new Date().getTime() - routes[key].startTime };
             console.log('ROUNDTRIP SUCCESS', routes[key]);
             numPending--;
-            console.log(`${numPending} still pending...`);
+            numSuccess++;
+            console.log({ numPending, numSuccess, numFail });
             if (numPending === 0) {
               console.log(JSON.stringify(routes, null, 2));
             }
@@ -81,7 +84,8 @@ function setupPlugins() {
             routes[key].result = { success: false, delay: new Date().getTime() - routes[key].startTime };
             console.log('outgoing reject :(', routes[key]);
             numPending--;
-            console.log(`${numPending} still pending...`);
+            numFail++;
+            console.log({ numPending, numSuccess, numFail });
             if (numPending === 0) {
               console.log(JSON.stringify(routes, null, 2));
             }
@@ -96,7 +100,8 @@ function setupPlugins() {
             routes[key].result = { success: false, delay: new Date().getTime() - routes[key].startTime };
             console.log('outgoing cancel :(', routes[key]);
             numPending--;
-            console.log(`${numPending} still pending...`);
+            numFail++;
+            console.log({ numPending, numSuccess, numFail });
             if (numPending === 0) {
               console.log(JSON.stringify(routes, null, 2));
             }
@@ -215,6 +220,9 @@ function firstHop(key) {
   }, err => {
     console.log('payment failed', key, err, transfer, routes[key], balances[fromLedger]);
     routes[key].result = 'could not send';
+    numPending--;
+    numFail++;
+    console.log({ numPending, numSuccess, numFail });
   });
 }
 
