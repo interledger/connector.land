@@ -10,6 +10,8 @@ var passwords = require('../passwords.js');
 var routes = {};
 var plugins = {};
 var fulfillments = {};
+var balances = {};
+var numPending = 0;
 
 // TODO: wrap this into ilp-plugin-bells, see https://github.com/interledgerjs/ilp-plugin-bells/issues/107
 function getPlugin(host, prefix, user, pass) {
@@ -56,9 +58,53 @@ function setupPlugins() {
       throw new Error(`Cannot find password for ${host}`);
     }
     plugins[ledger] = getPlugin(host, ledger, 'connectorland', password);
-    console.log(`Connecting to ${host}...`);
     return plugins[ledger].connect().then(() => {
-      return plugins[ledger].on('incoming_prepare', res => {
+      plugins[ledger].on('outgoing_fulfill', res => {
+        console.log('outgoing_fulfill', ledger, res);
+        for (var key in routes) {
+          if (routes[key].testPaymentId === res.id) {
+            routes[key].result = { success: true, delay: new Date().getTime() - routes[key].startTime };
+            console.log('ROUNDTRIP SUCCESS', routes[key]);
+            numPending--;
+            console.log(`${numPending} still pending...`);
+            if (numPending === 0) {
+              console.log(JSON.stringify(routes, null, 2));
+            }
+            break;
+          }
+        }
+      });
+      plugins[ledger].on('outgoing_reject', res => {
+        console.log('outgoing_reject', ledger, res);
+        for (var key in routes) {
+          if (routes[key].testPaymentId === res.id) {
+            routes[key].result = { success: false, delay: new Date().getTime() - routes[key].startTime };
+            console.log('outgoing reject :(', routes[key]);
+            numPending--;
+            console.log(`${numPending} still pending...`);
+            if (numPending === 0) {
+              console.log(JSON.stringify(routes, null, 2));
+            }
+            break;
+          }
+        }
+      });
+      plugins[ledger].on('outgoing_cancel', res => {
+        console.log('outgoing_cancel', ledger, res);
+        for (var key in routes) {
+          if (routes[key].testPaymentId === res.id) {
+            routes[key].result = { success: false, delay: new Date().getTime() - routes[key].startTime };
+            console.log('outgoing cancel :(', routes[key]);
+            numPending--;
+            console.log(`${numPending} still pending...`);
+            if (numPending === 0) {
+              console.log(JSON.stringify(routes, null, 2));
+            }
+            break;
+          }
+        }
+      });
+      plugins[ledger].on('incoming_prepare', res => {
         console.log('incoming_prepare!', ledger, res);
         // incoming_prepare! de.eur.blue. { id: '7de75a3e-2f02-49ed-8907-5a4f8a243ee1',
         //   direction: 'incoming',
@@ -78,6 +124,21 @@ function setupPlugins() {
           console.log('fulfillCondition success');
         } , err => {
           console.log('fulfillCondition fail', ledger, res, res.id, fulfillments[res.id], err);
+        });
+      });
+      [
+        'incoming_transfer',
+        'incoming_fulfill',
+        'incoming_reject',
+        'incoming_cancel',
+        'incoming_message',
+        'outgoing_transfer',
+        'outgoing_prepare',
+        'outgoing_reject',
+        'info_change',
+      ].map(eventName => {
+        plugins[ledger].on(eventName, res => {
+          console.log('Noting event', ledger, eventName, res);
         });
       });
     });
@@ -148,8 +209,28 @@ function firstHop(key) {
     expiresAt: routes[key].expiresAt,
   };
   console.log('trying to sendTransfer', JSON.stringify(transfer, null, 2));
-  return plugins[fromLedger].sendTransfer(transfer).catch(err => {
-    console.log('payment failed', key, err);
+  routes[key].startTime = new Date().getTime();
+  return plugins[fromLedger].sendTransfer(transfer).then(() => {
+    console.log('source payment success', key, transfer, routes[key], balances[fromLedger]);
+  }, err => {
+    console.log('payment failed', key, err, transfer, routes[key], balances[fromLedger]);
+    routes[key].result = 'could not send';
+  });
+}
+
+function checkFunds(ledger) {
+  return plugins[ledger].getBalance().then(balance => {
+    balances[ledger] = balance;
+    console.log(`Balance for ${ledger} is ${balance}`);
+    if (balance <= 0.05) {
+      for (var key in routes) {
+        var parts = key.split(' ');
+        if (parts[0] === ledger) {
+          console.log(`Cancelling test ${key}`);
+          delete routes[key];
+        }
+      }
+    }
   });
 }
 
@@ -159,13 +240,31 @@ function launchPayments() {
     console.log(`Connecting to ${Object.keys(plugins).length} plugins..`);
     return setupPlugins();
   }).then(() => {
-    console.log(`Generating ${Object.keys(routes).length} conditions...`);
-    return Promise.all(Object.keys(routes).map(genCondition));
+    console.log(`Checking funds...`);
+    return Promise.all(Object.keys(plugins).map(checkFunds));
   }).then(() => {
+  //  console.log(`Generating ${Object.keys(routes).length} conditions...`);
+  //  return Promise.all(Object.keys(routes).map(genCondition));
+  //}).then(() => {
     console.log(`Sending ${Object.keys(routes).length} source payments...`);
-    return Promise.all(Object.keys(routes).map(firstHop));
+    var delay = 0;
+    return Promise.all(Object.keys(routes).map(key => {
+      // if (key !== 'lu.eur.michiel. lu.eur.michiel-eur.') {
+      //   return Promise.resolve();
+      // }
+      return new Promise(resolve => {
+        setTimeout(() => {
+          genCondition(key).then(() => {
+            resolve(firstHop(key));
+          });
+          numPending++;
+        }, delay);
+       delay += 1000;
+     });
+   }));
   }).then(() => {
     console.log(`Waiting for incoming_prepare and outgoing_fulfill messages...`);
+    console.log(`For ${numPending} source payments...`);
   });
 }
 
