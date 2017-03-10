@@ -284,6 +284,12 @@ console.log('results are in:', hostsArr[i].hostname, hostsArr[i].prefix, recipie
           }
         }
       }, err => {
+        console.log('error msgToSelf', i, err);
+        if ([ // hosts on which connectorland has no account:
+          'grifiti.web-payments.net',
+        ].indexOf(hostsArr[i].hostname) === -1) {
+          process.exit(1);
+        }
         hostsArr[i].messaging = 'no data';
       });
     }
@@ -441,9 +447,15 @@ Promise.all(promises).then(() => {
   } catch(e) {
   }
   for (var i=0; i < hostsArr.length; i++) {
+    if (hostsArr[i].hostname === 'ilpkit-gce.fluid.money') {
+      console.log('merging host', stats.hosts['ilpkit-gce.fluid.money'], hostsArr[i]);
+    }
     stats.hosts[hostsArr[i].hostname] = mergeHost(stats.hosts[hostsArr[i].hostname], hostsArr[i]);
   }
   for (var i=0; i < hostsArr.length; i++) {
+    if (hostsArr[i].hostname === 'ilpkit-gce.fluid.money') {
+      console.log('merging ledger', stats.ledgers[hostsArr[i].prefix], hostsArr[i]);
+    }
     stats.ledgers[hostsArr[i].prefix] = mergeLedger(stats.ledgers[hostsArr[i].prefix], hostsArr[i]);
   }
   for (var i in connectors) {
@@ -504,8 +516,8 @@ Promise.all(promises).then(() => {
 //        `<td>${Math.floor(100*line.price)}%</td>` +
         `<td>${line.version}</td>` +
         `<td>${line.prefix}</td>` +
-        `<td>${stats.ledgers[line.hostname].maxBalance}</td>` +
-        `<td>${stats.ledgers[line.hostname].messaging}</td>` +
+        `<td>${(typeof stats.ledgers[line.prefix] === 'object' ? stats.ledgers[line.hosname].maxBalance : '?')}</td>` +
+        `<td>${(typeof stats.ledgers[line.prefix] === 'object' ? stats.ledgers[line.prefix].messaging : '?')}</td>` +
         `<td>${line.owner}</td>` +
         `<td>${line.settlements.slice(0, 50)}</td>` +
         `<td>${percentage(line.health)}</td>` +
@@ -531,7 +543,8 @@ Promise.all(promises).then(() => {
         `<td>${line.settlements.slice(0, 50)}</td>` +
         `<td>${percentage(line.health)}</td>` +
         `<td>${percentage(line.ping)}</td>` +
-        (typeof stats.ledgers[line.hostname].messaging === 'number' ? `<td>${line.prefix}</td>` : `<td><strike style="color:red">${line.prefix}</strike></td>`) +
+        (typeof stats.ledgers[line.prefix] === 'object' && typeof stats.ledgers[line.prefix].messaging === 'number' ?
+            `<td>${line.prefix}</td>` : `<td><strike style="color:red">${line.prefix}</strike></td>`) +
         `<td>${(typeof line.prefix === 'string' && line.prefix.substring(0,2) === 'g.' ? 'YES' : 'NO')}</td>` +
         `</tr>`
       ),
