@@ -516,7 +516,7 @@ Promise.all(promises).then(() => {
 //        `<td>${Math.floor(100*line.price)}%</td>` +
         `<td>${line.version}</td>` +
         `<td>${line.prefix}</td>` +
-        `<td>${(typeof stats.ledgers[line.prefix] === 'object' ? stats.ledgers[line.hosname].maxBalance : '?')}</td>` +
+        `<td>${(typeof stats.ledgers[line.prefix] === 'object' ? stats.ledgers[line.prefix].maxBalance : '?')}</td>` +
         `<td>${(typeof stats.ledgers[line.prefix] === 'object' ? stats.ledgers[line.prefix].messaging : '?')}</td>` +
         `<td>${line.owner}</td>` +
         `<td>${line.settlements.slice(0, 50)}</td>` +
