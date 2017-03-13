@@ -1,4 +1,4 @@
-# Current status of the Interledger (March 2017)
+# Current status of the Interledger
 
 * # of ilp-kit hosts: 28, of which:
   * run a recent version: 14
@@ -17,7 +17,8 @@
   * respond 'no' to all quote requests: 5 -> I will investigate route expiry
   * are down: 17 -> https://github.com/interledgerjs/ilp-kit/pull/249
 
-* # of end-to-end routes: 62, of which:
+* # of end-to-end routes: 73, of which:
   * payments successful: 0
-  * payments failing: 53 -> still investigating this
-  * payments failing silently: 9 -> still investigating this
+  * connector lets source payment timeout: 44
+  * connector rejects source payment: 12
+  * outgoing_prepare event not received: 17
