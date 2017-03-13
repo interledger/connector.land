@@ -28,10 +28,18 @@ function getPlugin(host, prefix, user, pass) {
 function saveResults() {
   fs.writeFileSync('results.json', JSON.stringify(routes, null, 2));
   console.log('results saved', { numPending, numSuccess, numFail });
+  if (numPending === 0) {
+    Object.keys(plugins).map(ledger => plugins[ledger].disconnect());
+    console.log('Over and out');
+    process.exit(0); //TODO: find out why this is necessary
+  }
 }
 
 function gatherRoutes() {
   for (var i in rawStats.connectors) {
+    // if (i !== 'lu.eur.michiel.micmic') {
+    //   continue;
+    // }
     for (var j in rawStats.connectors[i].quoteResults) {
       if (typeof rawStats.connectors[i].quoteResults[j] === 'number') {
         var from = rawStats.connectors[i].ledger;
@@ -48,6 +56,8 @@ function gatherRoutes() {
           connector: i,
           price: rawStats.connectors[i].quoteResults[j],
         };
+// //only test one route:
+// break;
       }
     }
   }
@@ -67,7 +77,7 @@ function setupPlugins() {
     }
     plugins[ledger] = getPlugin(host, ledger, 'connectorland', password);
     return plugins[ledger].connect({ timeout: 10000 }).then(() => {
-      console.log(`... connected to ${host}`);
+      console.log(`... connected to ${ledger} (hosted on ${host})`);
       plugins[ledger].on('outgoing_fulfill', res => {
         console.log('outgoing_fulfill', ledger, res);
         for (var key in routes) {
@@ -88,7 +98,11 @@ function setupPlugins() {
         console.log('outgoing_reject', ledger, res);
         for (var key in routes) {
           if (routes[key].testPaymentId === res.id) {
-            routes[key].result = { success: false, delay: new Date().getTime() - routes[key].startTime };
+            routes[key].result = {
+              success: false,
+              reason: 'rejected by connector',
+              delay: new Date().getTime() - routes[key].startTime
+            };
             console.log('outgoing reject :(', routes[key]);
             numPending--;
             numFail++;
@@ -104,7 +118,11 @@ function setupPlugins() {
         console.log('outgoing_cancel', ledger, res);
         for (var key in routes) {
           if (routes[key].testPaymentId === res.id) {
-            routes[key].result = { success: false, delay: new Date().getTime() - routes[key].startTime };
+            routes[key].result = {
+              success: false,
+              reason: 'cancelled by ledger',
+              delay: new Date().getTime() - routes[key].startTime
+            };
             console.log('outgoing cancel :(', routes[key]);
             numPending--;
             numFail++;
@@ -138,6 +156,11 @@ function setupPlugins() {
           console.log('fulfillCondition fail', ledger, res, res.id, fulfillments[res.id], err);
         });
       });
+      plugins[ledger].on('outgoing_prepare', transfer => {
+        var timeLeft = (new Date(transfer.expiresAt)).getTime() - (new Date().getTime());
+        console.log('outgoing_prepare', { ledger, transfer }, transfer.data, transfer.noteToSelf.key, timeLeft, routes[transfer.noteToSelf.key]);
+        routes[transfer.noteToSelf.key].result = 'outgoing_prepare, time left' + timeLeft;
+      });
       [
         'incoming_transfer',
         'incoming_fulfill',
@@ -145,7 +168,6 @@ function setupPlugins() {
         'incoming_cancel',
         'incoming_message',
         'outgoing_transfer',
-        'outgoing_prepare',
         'outgoing_reject',
         'info_change',
       ].map(eventName => {
@@ -229,7 +251,12 @@ function firstHop(key) {
     console.log('source payment success', key, transfer, routes[key], balances[fromLedger]);
   }, err => {
     console.log('payment failed', key, err, transfer, routes[key], balances[fromLedger]);
-    routes[key].result = 'could not send';
+    if (err.name === 'NotAcceptedError') {
+      routes[key].result = 'NotAcceptedError';
+    } else {
+      routes[key].result = 'could not send';
+      process.exit(0);
+    }
     numPending--;
     numFail++;
     console.log({ numPending, numSuccess, numFail });
@@ -277,14 +304,24 @@ function launchPayments() {
       // if (key !== 'lu.eur.michiel. lu.eur.michiel-eur.') {
       //   return Promise.resolve();
       // }
-      return new Promise(resolve => {
+      return new Promise((resolve, reject) => {
         setTimeout(() => {
+         routes[key].result = 'generating condition';
           genCondition(key).then(() => {
+            routes[key].result = 'sending first hop';
             resolve(firstHop(key));
-          });
+          }, reject);
           numPending++;
         }, delay);
-       delay += 0;
+       delay += 1000;
+       routes[key].result = 'queued to start';
+     }).catch(err => {
+       console.log('Source payment failed', key, err);
+       numPending--;
+       numFail++;
+       routes[key].result = err.message;
+     }).then(() => {
+       routes[key].result = 'first hop sent';
      });
    }));
   }).then(() => {
