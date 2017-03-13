@@ -1,3 +1,4 @@
+var fs = require('fs');
 var Plugin = require('ilp-plugin-bells');  // TODO: allow other ledger types
 var Packet       = require('ilp-79/src/lib/packet');
 var cryptoHelper = require('ilp-79/src/utils/crypto');
@@ -65,7 +66,8 @@ function setupPlugins() {
       throw new Error(`Cannot find password for ${host}`);
     }
     plugins[ledger] = getPlugin(host, ledger, 'connectorland', password);
-    return plugins[ledger].connect().then(() => {
+    return plugins[ledger].connect({ timeout: 10000 }).then(() => {
+      console.log(`... connected to ${host}`);
       plugins[ledger].on('outgoing_fulfill', res => {
         console.log('outgoing_fulfill', ledger, res);
         for (var key in routes) {
@@ -151,6 +153,9 @@ function setupPlugins() {
           console.log('Noting event', ledger, eventName, res);
         });
       });
+    }, err => {
+      console.log('could not connect to', host, ledger, err);
+      cancelRoutesFor(ledger);
     });
   }));
 }
@@ -231,19 +236,26 @@ function firstHop(key) {
   });
 }
 
+function cancelRoutesFor(ledger) {
+  for (var key in routes) {
+    var parts = key.split(' ');
+    if (parts[0] === ledger) {
+      console.log(`Cancelling test ${key}`);
+      delete routes[key];
+    }
+  }
+}
+
 function checkFunds(ledger) {
   return plugins[ledger].getBalance().then(balance => {
     balances[ledger] = balance;
     console.log(`Balance for ${ledger} is ${balance}`);
     if (balance <= 0.05) {
-      for (var key in routes) {
-        var parts = key.split(' ');
-        if (parts[0] === ledger) {
-          console.log(`Cancelling test ${key}`);
-          delete routes[key];
-        }
-      }
+      cancelRoutesFor(ledger);
     }
+  }, err => {
+    console.log('unable to check balance', ledger, err);
+    cancelRoutesFor(ledger);
   });
 }
 
