@@ -24,6 +24,11 @@ function getPlugin(host, prefix, user, pass) {
   });
 }
 
+function saveResults() {
+  fs.writeFileSync('results.json', JSON.stringify(routes, null, 2));
+  console.log('results saved', { numPending, numSuccess, numFail });
+}
+
 function gatherRoutes() {
   for (var i in rawStats.connectors) {
     for (var j in rawStats.connectors[i].quoteResults) {
@@ -267,7 +272,7 @@ function launchPayments() {
           });
           numPending++;
         }, delay);
-       delay += 1000;
+       delay += 0;
      });
    }));
   }).then(() => {
@@ -277,4 +282,5 @@ function launchPayments() {
 }
 
 //...
+setInterval(saveResults, 5000);
 launchPayments();
