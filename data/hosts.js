@@ -3,7 +3,6 @@ module.exports.hosts = [
   { "hostname": "blue.ilpdemo.org",                       "owner": ""},
   { "hostname": "kes-ilp.abdishakur.com",                 "owner": "abdishakur"},
   { "hostname": "ilp.bigchaindb.com",                     "owner": "dimitri"},
-  { "hostname": "zar-ilp.hopebailie.com",                 "owner": "adrian"},
   { "hostname": "milton.ilp.network",                     "owner": "javi"},
   { "hostname": "pineapplesheep.ilp.rocks",               "owner": "pineapplesheep"},
   { "hostname": "usd.interledger.network",                "owner": "winthan"},
@@ -27,7 +26,8 @@ module.exports.hosts = [
   { "hostname": "michiel-eur.herokuapp.com",              "owner": ""},
   { "hostname": "ilp.hexdivision.com",                    "owner": "admin"},
   { "hostname": "ilpkit-gce.fluid.money",                 "owner": "dfuelling"},
-//  { "hostname": "",                                       "owner": ""},
+  { "hostname": "za.zar.ilp.hopebailie.com",              "owner": "admin"},
+//  { "hostname": "",                                        "owner": ""},
 
 // ^^^ Add your ILP host by duplicating, uncommenting, and editing the line above ^^^
 
