@@ -37,9 +37,11 @@ function saveResults() {
 
 function gatherRoutes() {
   for (var i in rawStats.connectors) {
-    // if (i !== 'lu.eur.michiel.micmic') {
-    //   continue;
-    // }
+    if (i !== 'us.usd.red.micmic') {
+      console.log('skipping', i);
+      continue;
+    }
+    console.log('not skipping', i);
     for (var j in rawStats.connectors[i].quoteResults) {
       if (typeof rawStats.connectors[i].quoteResults[j] === 'number') {
         var from = rawStats.connectors[i].ledger;
@@ -190,7 +192,7 @@ function genCondition(key) {
         return;
       }
       routes[key].testPaymentId = uuidV4();
-      routes[key].expiresAt = makeDate(30);
+      routes[key].expiresAt = makeDate(20);
       routes[key].packet = Packet.serialize({
         destinationAccount: key.split(' ')[1]+ 'connectorland',
         destinationAmount: '0.01',
