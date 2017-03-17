@@ -18,6 +18,7 @@
   "homepage": "https://github.com/interledger/connector.land#readme",
   "dependencies": {
     "ilp-plugin-bells": "^10.2.3",
+    "ilp-client": "michielbdejong/ilp-client#b3a9ca77e48c21bb272053a8b778ceb1b0d799cd",
     "ping": "^0.2.1",
     "webfinger.js": "^2.6.2"
   }
