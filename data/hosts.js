@@ -34,8 +34,6 @@ module.exports.hosts = [
 // # hostname
 // This should have the format like 'example.com', so without the 'https://' in front, and the connectorland script
 // will do a WebFinger query for this host to find out which ledger(s) and which connector(s) are announced on there.
-// (if your connector is not represented by a DNS (sub)domain, you can add it in the list of "ILP-addressable
-// connectors" below)
 //
 
 // # owner
