@@ -14,20 +14,44 @@
     <link rel="stylesheet" href="./style.css">
   </head>
   <body>
-    <h1>This site is under construction.</h1>
-    <p>This website aims to replace <a href="https://github.com/interledgerjs/ilp-kit/wiki/Known-ILP-Nodes">https://github.com/interledgerjs/ilp-kit/wiki/Known-ILP-Nodes</a>.</p>
-    <p>We have plans for adding uptime statistics, but for now, it just gives a simple list of known ILP nodes. Diagnostics like 'Ping' are periodically updated by
-    <a href="https://github.com/interledger/connector.land">a script</a>.</p>
+    <h1>Connector.Land Interledger Statistics.</h1>
+    <p>This website lists statistics about connectors, ledgers, and hosts on the Interledger. Interledger Connectors connect two or more ledgers, similar to how Internet Switches link two or more computers.</p>
+    <p>The role of hosts is to announce a ledger's API version, announce settlement methods which the ledger administrator will accept, and presents a human-readable interface where users can create a
+        ledger account.</p>
+    <h2>Compatibility considerations</h2>
+    <p>This website lists hosts, ledgers, and connectors, that together make up the Interledger. The scripts used for diagnostics currently rely on the following npm packages:</p>
+    <ul>
+      <li><a href="https://www.npmjs.com/package/ilp">ilp</a>@8.2.2, which determines:
+        <ul>
+          <li>quote_request message sent to connectors</li>
+          <li>quote_response message expected from connectors</li>
+          <li>ILP-related data attached to source payments</li>
+        </ul>
+      </li>
+      <li><a href="https://www.npmjs.com/package/ilp-plugin-bells">ilp-plugin-bells</a>@10.2.6, which determines:
+        <ul>
+          <li>API requests made to ledgers</li>
+          <li>behavior expected from ledgers</li>
+        </ul>
+      </li>
+    </ul>
+    <p>This pretty much means that ledgers need to behave like <a href="https://github.com/interledgerjs/five-bells-ledger/tree/v19.4.2">FiveBellsLedger, version 19</a>,
+    and connectors need to behave like <a href="https://github.com/interledgerjs/ilp-connector/tree/v13.1.4">ilp-connector, version 13</a>.</p>
+    <p>Apart from interacting with ledgers by sending messages, sending transfers, and fulfilling transfers, and interacting with connectors by requesting quotes and testing if they forward
+       multi-hop payments as expected, the diagnostic scripts will do WebFinger lookups, assuming hosts are compatible with <a href="https://github.com/interledgerjs/ilp-kit">ilp-kit</a> version 1.</p>
+    <p>Support for FiveBellsLedger version 20, and for ilp-connector versions 14, 15, and 16 <a href="">are</a> <a href="">planned</a>.</p>
+    <p>This website and the scripts that generate the data displayed here are <a href="https://github.com/interledger/connector.land">open source</a>.</p>
 
+    <h2>Tips for connector administrators</h2>
     <p>To make your connector score well on connector.land, try to set low fees, high ledger scale, peer with all the other connectors, and ask them to peer with you.
       It will probably also help for your connector to have accounts (preferably funded ones) on other ledgers, instead of just on your own local ledger.</p>
 
     <p>Take into account that most connectors on connector.land are running software that still changes often, and most maintainers will take their connector and/or
       ledger into (extended) maintenance mode without warning and probably without refunds, so it's probably wise to avoid putting more money onto
-      any connectors than you are willing to lose.</p>
+      any ledgers than you are willing to lose.</p>
 
     <h2>Known ILP nodes</h2>
-    <p>This is a list of known nodes as submitted by the people running them. For now, a node is assumed to run a connector as well as a ledger, in the way <a href="https://github.com/interledgerjs/ilp-kit">ilp-kit</a> does.
+    <p>This is a list of known nodes as submitted by the people running them; most people use <a href="https://github.com/interledgerjs/ilp-kit">ilp-kit</a> to power their ledgers and connectors.
       You can add your ILP node by <a href="https://github.com/interledger/connector.land/edit/master/data/hosts.js">opening a pull request</a>.</p>
 
     <ul class="nav nav-tabs nav-justified" id="nav-menu" >
