@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <title>Connector.Land</title>
 
+    <!-- jQuery for bootstrap: -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <!-- bootstrap: -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
@@ -28,6 +30,11 @@
     <p>This is a list of known nodes as submitted by the people running them. For now, a node is assumed to run a connector as well as a ledger, in the way <a href="https://github.com/interledgerjs/ilp-kit">ilp-kit</a> does.
       You can add your ILP node by <a href="https://github.com/interledger/connector.land/edit/master/data/hosts.js">opening a pull request</a>.</p>
 
+    <ul class="nav nav-tabs nav-justified" id="nav-menu" >
+      <li id="nav-hosts" class="active"><a href="#">Hosts</a></li>
+      <li id="nav-ledgers"><a href="#ledgers">Ledgers</a></li>
+      <li id="nav-connectors"><a href="#connectors">Connectors</a></li>
+    </ul>
     <table  class="rwd-table">
       <thead>
         <tr id="header-row">
