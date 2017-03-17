@@ -525,44 +525,37 @@ Promise.all(promises).then(() => {
         `</tr>`
   ),
 
-    hosts: {
-      headers: [
-        '<th>ILP Kit URL</th>',
-        '<th>ILP Kit Version</th>',
-        '<th>Owner\'s Connector Account</th>',
-        '<th>Settlement Methods</th>',
-        '<th>Health</th>',
-        '<th>Ping</th>',
-        '<th>Ledger</th>',
-        '<th>Real Money?</th>',
-      ],
-      rows: hostRows.map(line =>
-        `<tr><td><a href="https://${line.hostname}">${line.hostname}</a></td>` +
-        `<td>${line.version}</td>` +
-        `<td>${line.owner}</td>` +
-        `<td>${line.settlements.slice(0, 50)}</td>` +
-        `<td>${percentage(line.health)}</td>` +
-        `<td>${percentage(line.ping)}</td>` +
-        (typeof stats.ledgers[line.prefix] === 'object' && typeof stats.ledgers[line.prefix].messaging === 'number' ?
-            `<td>${line.prefix}</td>` : `<td><strike style="color:red">${line.prefix}</strike></td>`) +
-        `<td>${(typeof line.prefix === 'string' && line.prefix.substring(0,2) === 'g.' ? 'YES' : 'NO')}</td>` +
-        `</tr>`
-      ),
-    },
     ledgers: {
       headers: [
         '<th>Ledger Prefix</th>',
         '<th>Max Balance</th>',
         '<th>Message Delay</th>',
-        '<th>Host</th>',
+        '<th>Uptime</th>',
+        '<th>Web Interface</th>',
+        '<th>Settlement Methods</th>',
+        '<th>Real Money?</th>',
       ],
       rows: Object.keys(stats.ledgers).map(prefix => {
         var line = stats.ledgers[prefix];
+        var hostLine;
+        for (var i=0; i<hostRows.length; i++) {
+          if (hostRows[i].hostname === line.hostname) {
+            hostLine = hostRows[i];
+            break;
+          }
+        }
+        if (typeof hostLine === 'undefined') {
+          console.error('host not found!', prefix, line, hostRows);
+          throw new Error('host not found!', prefix, hostRows);
+        }
         return (typeof line.messaging === 'number' ?
           `<tr><td>${line.prefix}</td>` +
           `<td>${line.maxBalance}</td>` +
           `<td>${integer(line.messaging)}</td>` +
+          `<td>${percentage(hostLine.health)}</td>` +
           `<td><a href="https://${line.hostname}">${line.hostname}</a></td>` +
+          `<td>${hostLine.settlements.slice(0, 50)}</td>` +
+          `<td>${(typeof line.prefix === 'string' && line.prefix.substring(0,2) === 'g.' ? 'YES' : 'NO')}</td>` +
           `</tr>`
         : '');
       }),
