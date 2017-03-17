@@ -81,9 +81,10 @@
     "interledger.kr": {
       "hostname": "interledger.kr",
       "owner": "mspark",
-      "prefix": "kr.krw.interledgerkorea.",
-      "health": 1,
-      "settlements": "None",
+      "prefix": "<span style=\"color:red\">?</span>",
+      "version": "<span style=\"color:red\">WebFinger error</span>",
+      "health": 0.99,
+      "settlements": "<span style=\"color:red\">Timed out</span>",
       "ping": 0
     },
     "nexus.justmoon.com": {
@@ -142,9 +143,10 @@
     "hive.dennisappelt.com": {
       "hostname": "hive.dennisappelt.com",
       "owner": "dennis",
-      "version": "<span style=\"color:red\">WebFinger error</span>",
-      "health": 0.99,
-      "settlements": "HTTP <span style=\"color:red\">502</span> response",
+      "prefix": "lu.eur.hive.",
+      "version": "<span style=\"color:green\">Compatible: ilp-kit v1.1.0</span>",
+      "health": 0.9901,
+      "settlements": "<span style=\"color:green\">Cash, Just click here. We call it even.</span>",
       "ping": 1
     },
     "payment.am": {
@@ -160,9 +162,9 @@
       "hostname": "ilp-kit.michielbdejong.com",
       "owner": "michiel",
       "prefix": "lu.eur.michiel.",
-      "version": "<span style=\"color:red\">WebFinger error</span>",
-      "health": 0.99,
-      "settlements": "<span style=\"color:red\">Unparseable JSON</span>",
+      "version": "<span style=\"color:green\">Compatible: ilp-kit v1.1.0</span>",
+      "health": 0.9901,
+      "settlements": "<span style=\"color:green\">Cash</span>",
       "ping": 1
     },
     "john.jpvbs.com": {
@@ -193,10 +195,9 @@
     "michiel-is-not-available.herokuapp.com": {
       "hostname": "michiel-is-not-available.herokuapp.com",
       "owner": "admin",
-      "prefix": "us.usd.michiel-is-not-available.",
-      "version": "<span style=\"color:green\">Compatible: ilp-kit v1.1.0</span>",
-      "health": 0.01,
-      "settlements": "<span style=\"color:green\">Cash</span>",
+      "version": "<span style=\"color:red\">WebFinger error</span>",
+      "health": 0.0099,
+      "settlements": "HTTP <span style=\"color:red\">503</span> response",
       "ping": 0
     },
     "royalcrypto.com": {
@@ -241,6 +242,14 @@
       "health": 1,
       "settlements": "<span style=\"color:green\">Cash</span>",
       "ping": 1
+    },
+    "za.zar.ilp.hopebailie.com": {
+      "hostname": "za.zar.ilp.hopebailie.com",
+      "owner": "admin",
+      "version": "<span style=\"color:red\">WebFinger error</span>",
+      "health": 0,
+      "settlements": "HTTP <span style=\"color:red\">502</span> response",
+      "ping": 0
     }
   },
   "ledgers": {
@@ -248,18 +257,18 @@
       "hostname": "red.ilpdemo.org",
       "prefix": "us.usd.red.",
       "maxBalance": "10^10 centi-USD",
-      "messaging": 2808.45,
-      "messageToSelf": 677.5600000000001
+      "messaging": 2824.0355,
+      "messageToSelf": 676.1744
     },
     "de.eur.blue.": {
       "hostname": "blue.ilpdemo.org",
       "prefix": "de.eur.blue.",
       "maxBalance": "10^10 centi-EUR",
-      "messaging": 2728.8900000000003,
-      "messageToSelf": 523.8
+      "messaging": 2744.9111000000003,
+      "messageToSelf": 525.2019999999999
     },
     "undefined": {
-      "hostname": "someledger.herokuapp.com"
+      "hostname": "michiel-is-not-available.herokuapp.com"
     },
     "<span style=\"color:red\">?</span>": {
       "hostname": "coins.paleorbglow.com",
@@ -270,22 +279,22 @@
       "hostname": "pineapplesheep.ilp.rocks",
       "prefix": "eu.eur.pineapplesheep.",
       "maxBalance": "10^10 centi-EUR",
-      "messaging": 483.74,
-      "messageToSelf": 86.34
+      "messaging": 501.5226,
+      "messageToSelf": 86.6666
     },
     "us.usd.usd.": {
       "hostname": "usd.interledger.network",
       "prefix": "us.usd.usd.",
       "maxBalance": "10^10 centi-USD",
-      "messaging": 1316.33,
-      "messageToSelf": 291.84999999999997
+      "messaging": 1333.6567,
+      "messageToSelf": 292.07149999999996
     },
     "mm.mmk.interledger.": {
       "hostname": "mmk.interledger.network",
       "prefix": "mm.mmk.interledger.",
       "maxBalance": "10^10 centi-MMK",
-      "messaging": 3411.31,
-      "messageToSelf": 801.27
+      "messaging": 3419.0369,
+      "messageToSelf": 799.7673
     },
     "kr.krw.interledgerkorea.": {
       "hostname": "interledger.kr",
@@ -298,22 +307,22 @@
       "hostname": "nexus.justmoon.com",
       "prefix": "us.usd.nexus.",
       "maxBalance": "10^19 nano-USD",
-      "messaging": 1129.0800000000002,
-      "messageToSelf": 125.01
+      "messaging": 1145.7392000000002,
+      "messageToSelf": 128.0899
     },
     "us.usd.cornelius.": {
       "hostname": "cornelius.sharafian.com",
       "prefix": "us.usd.cornelius.",
       "maxBalance": "10^10 micro-USD",
-      "messaging": 1174.67,
-      "messageToSelf": 214.70999999999998
+      "messaging": 1195.3433000000002,
+      "messageToSelf": 214.79289999999997
     },
     "us.usd.cygnus.": {
       "hostname": "cygnus.vahehovhannisyan.com",
       "prefix": "us.usd.cygnus.",
       "maxBalance": "10^10 centi-USD",
-      "messaging": 914.85,
-      "messageToSelf": 272.13
+      "messaging": 933.6915,
+      "messageToSelf": 271.0487
     },
     "us.usd.grifiti.": {
       "hostname": "grifiti.web-payments.net",
@@ -325,36 +334,36 @@
       "hostname": "hive.dennisappelt.com",
       "prefix": "lu.eur.hive.",
       "maxBalance": "10^16 (10^-8)-EUR",
-      "messaging": 422,
-      "messageToSelf": 149
+      "messaging": 440.64,
+      "messageToSelf": 149.67999999999998
     },
     "am.amd.payment.": {
       "hostname": "payment.am",
       "prefix": "am.amd.payment.",
       "maxBalance": "10^10 centi-AMD",
-      "messaging": 1345.1399999999999,
-      "messageToSelf": 280.26
+      "messaging": 1361.7985999999999,
+      "messageToSelf": 280.7174
     },
     "lu.eur.michiel.": {
       "hostname": "ilp-kit.michielbdejong.com",
       "prefix": "lu.eur.michiel.",
       "maxBalance": "10^19 nano-EUR",
-      "messaging": 391.12,
-      "messageToSelf": 171.8
+      "messaging": 408.5888,
+      "messageToSelf": 171.472
     },
     "us.usd.jonhvb.": {
       "hostname": "john.jpvbs.com",
       "prefix": "us.usd.jonhvb.",
       "maxBalance": "10^10 centi-USD",
-      "messaging": 707.2199999999999,
-      "messageToSelf": 164.39999999999998
+      "messaging": 726.1877999999999,
+      "messageToSelf": 165.26599999999996
     },
     "us.usd.best-ilp.": {
       "hostname": "best-ilp.herokuapp.com",
       "prefix": "us.usd.best-ilp.",
       "maxBalance": "10^10 centi-USD",
-      "messaging": 1398.16,
-      "messageToSelf": 310.96
+      "messaging": 1414.4584,
+      "messageToSelf": 311.4204
     },
     "us.usd.michiel-is-not-available.": {
       "hostname": "michiel-is-not-available.herokuapp.com",
@@ -367,36 +376,36 @@
       "hostname": "royalcrypto.com",
       "prefix": "ca.usd.royalcrypto.",
       "maxBalance": "10^10 centi-USD",
-      "messaging": 1552.53,
-      "messageToSelf": 392.14
+      "messaging": 1567.2947,
+      "messageToSelf": 392.1886
     },
     "us.usd.ggizi.": {
       "hostname": "ggizi.herokuapp.com",
       "prefix": "us.usd.ggizi.",
       "maxBalance": "10^10 centi-USD",
-      "messaging": 1454.02,
-      "messageToSelf": 325.19
+      "messaging": 1468.4498,
+      "messageToSelf": 325.65810000000005
     },
     "lu.eur.michiel-eur.": {
       "hostname": "michiel-eur.herokuapp.com",
       "prefix": "lu.eur.michiel-eur.",
       "maxBalance": "10^10 centi-EUR",
-      "messaging": 828.27,
-      "messageToSelf": 286.79
+      "messaging": 843.8073,
+      "messageToSelf": 285.0021
     },
     "us.usd.hexdivision.": {
       "hostname": "ilp.hexdivision.com",
       "prefix": "us.usd.hexdivision.",
       "maxBalance": "10^10 centi-USD",
-      "messaging": 234.6,
-      "messageToSelf": 79.38
+      "messaging": 252.554,
+      "messageToSelf": 79.24619999999999
     },
     "us.usd.ilpkit-gce.": {
       "hostname": "ilpkit-gce.fluid.money",
       "prefix": "us.usd.ilpkit-gce.",
       "maxBalance": "10^10 centi-USD",
-      "messaging": 2185.41,
-      "messageToSelf": 484.05999999999995
+      "messaging": 2196.3759,
+      "messageToSelf": 484.40939999999995
     }
   },
   "connectors": {
@@ -404,7 +413,7 @@
       "ledger": "us.usd.hexdivision.",
       "couldSend": 1,
       "gotReply": 1,
-      "delay": 91.49000000000001,
+      "delay": 91.3751,
       "quoteResults": {
         "lu.eur.michiel.": "<span style=\"color:red\">fail</span>",
         "us.usd.hexdivision.": "n/a",
@@ -422,35 +431,35 @@
     },
     "lu.eur.michiel.micmic": {
       "ledger": "lu.eur.michiel.",
-      "couldSend": 1,
-      "gotReply": 1,
-      "delay": 178.38,
-      "quoteResults": {
-        "lu.eur.michiel.": 0.013000001,
-        "us.usd.hexdivision.": "no data",
-        "eu.eur.pineapplesheep.": 0.013000001,
-        "us.usd.michiel-is-not-available.": 0.013000001,
-        "lu.eur.michiel-eur.": 0.013000001,
-        "us.usd.cygnus.": 0.013000001,
-        "us.usd.nexus.": 0.013000001,
-        "us.usd.cornelius.": 0.013000001,
-        "us.usd.best-ilp.": 0.013000001,
-        "us.usd.ggizi.": 0.013000001,
-        "de.eur.blue.": 0.013000001,
-        "us.usd.red.": 0.013000001
-      }
+      "couldSend": 0.99,
+      "gotReply": 0.99,
+      "delay": 226.59619999999998
     },
     "lu.eur.michiel.connector": {
       "ledger": "lu.eur.michiel.",
-      "couldSend": 0.99,
-      "gotReply": 0.99,
-      "delay": 229.19
+      "couldSend": 0.9901,
+      "gotReply": 0.9901,
+      "delay": 228.5481,
+      "quoteResults": {
+        "lu.eur.michiel.": "n/a",
+        "us.usd.hexdivision.": 0.018814996,
+        "eu.eur.pineapplesheep.": 0.020100321,
+        "us.usd.michiel-is-not-available.": "<span style=\"color:red\">fail</span>",
+        "lu.eur.michiel-eur.": 0.020100321,
+        "us.usd.cygnus.": 0.018777366,
+        "us.usd.nexus.": 0.009369907,
+        "us.usd.cornelius.": 0.00946076,
+        "us.usd.best-ilp.": 0.018923293,
+        "us.usd.ggizi.": 0.018777366,
+        "de.eur.blue.": "<span style=\"color:red\">fail</span>",
+        "us.usd.red.": "<span style=\"color:red\">fail</span>"
+      }
     },
     "eu.eur.pineapplesheep.pineapplesheep": {
       "ledger": "eu.eur.pineapplesheep.",
       "couldSend": 1,
       "gotReply": 1,
-      "delay": 148.39000000000001,
+      "delay": 149.3161,
       "quoteResults": {
         "lu.eur.michiel.": "<span style=\"color:red\">fail</span>",
         "us.usd.hexdivision.": "<span style=\"color:red\">fail</span>",
@@ -460,36 +469,50 @@
         "us.usd.cygnus.": "<span style=\"color:red\">fail</span>",
         "us.usd.nexus.": "<span style=\"color:red\">fail</span>",
         "us.usd.cornelius.": "<span style=\"color:red\">fail</span>",
-        "us.usd.best-ilp.": "<span style=\"color:red\">fail</span>",
-        "us.usd.ggizi.": "<span style=\"color:red\">fail</span>",
+        "us.usd.best-ilp.": 0.02,
+        "us.usd.ggizi.": 0.02,
         "de.eur.blue.": "<span style=\"color:red\">fail</span>",
         "us.usd.red.": "<span style=\"color:red\">fail</span>"
       }
     },
     "lu.eur.hive.micmic": {
       "ledger": "lu.eur.hive.",
-      "couldSend": 0,
-      "gotReply": 0,
-      "delay": 5000
+      "couldSend": 0.01,
+      "gotReply": 0.01,
+      "delay": 4952.86,
+      "quoteResults": {
+        "lu.eur.michiel.": 0.01000001,
+        "us.usd.hexdivision.": "no data",
+        "eu.eur.pineapplesheep.": 0.01000001,
+        "us.usd.michiel-is-not-available.": "no data",
+        "lu.eur.michiel-eur.": 0.01000001,
+        "us.usd.cygnus.": 0.01000001,
+        "us.usd.nexus.": 0.01000001,
+        "us.usd.cornelius.": 0.01000001,
+        "us.usd.best-ilp.": 0.01000001,
+        "us.usd.ggizi.": 0.01000001,
+        "de.eur.blue.": 0.01000001,
+        "us.usd.red.": 0.01000001
+      }
     },
     "lu.eur.hive.dennis": {
       "ledger": "lu.eur.hive.",
       "couldSend": 1,
       "gotReply": 1,
-      "delay": 239,
+      "delay": 240.88,
       "quoteResults": {
-        "lu.eur.michiel.": 0.03015049,
+        "lu.eur.michiel.": "<span style=\"color:red\">fail</span>",
         "us.usd.hexdivision.": "<span style=\"color:red\">fail</span>",
         "eu.eur.pineapplesheep.": 0.02010033,
-        "us.usd.michiel-is-not-available.": 0.03015049,
-        "lu.eur.michiel-eur.": 0.03015049,
-        "us.usd.cygnus.": 0.03015049,
-        "us.usd.nexus.": 0.03015049,
-        "us.usd.cornelius.": 0.03015049,
-        "us.usd.best-ilp.": 0.03015049,
-        "us.usd.ggizi.": 0.03015049,
-        "de.eur.blue.": 0.03015049,
-        "us.usd.red.": 0.03015049
+        "us.usd.michiel-is-not-available.": "<span style=\"color:red\">fail</span>",
+        "lu.eur.michiel-eur.": "<span style=\"color:red\">fail</span>",
+        "us.usd.cygnus.": "<span style=\"color:red\">fail</span>",
+        "us.usd.nexus.": "<span style=\"color:red\">fail</span>",
+        "us.usd.cornelius.": "<span style=\"color:red\">fail</span>",
+        "us.usd.best-ilp.": 0.0189233,
+        "us.usd.ggizi.": 0.01877737,
+        "de.eur.blue.": "<span style=\"color:red\">fail</span>",
+        "us.usd.red.": "<span style=\"color:red\">fail</span>"
       }
     },
     "us.usd.michiel-is-not-available.connector": {
@@ -522,12 +545,12 @@
       "ledger": "us.usd.jonhvb.",
       "couldSend": 1,
       "gotReply": 1,
-      "delay": 279.77,
+      "delay": 279.8323,
       "quoteResults": {
         "lu.eur.michiel.": 0.02,
         "us.usd.hexdivision.": "no data",
         "eu.eur.pineapplesheep.": 0.02,
-        "us.usd.michiel-is-not-available.": 0.02,
+        "us.usd.michiel-is-not-available.": "no data",
         "lu.eur.michiel-eur.": 0.02,
         "us.usd.cygnus.": 0.02,
         "us.usd.nexus.": 0.02,
@@ -542,7 +565,159 @@
       "ledger": "us.usd.jonhvb.",
       "couldSend": 1,
       "gotReply": 1,
-      "delay": 345.64000000000004,
+      "delay": 351.28360000000004,
+      "quoteResults": {
+        "lu.eur.michiel.": "<span style=\"color:red\">fail</span>",
+        "us.usd.hexdivision.": "<span style=\"color:red\">fail</span>",
+        "eu.eur.pineapplesheep.": 0.03,
+        "us.usd.michiel-is-not-available.": "<span style=\"color:red\">fail</span>",
+        "lu.eur.michiel-eur.": "<span style=\"color:red\">fail</span>",
+        "us.usd.cygnus.": "<span style=\"color:red\">fail</span>",
+        "us.usd.nexus.": "<span style=\"color:red\">fail</span>",
+        "us.usd.cornelius.": "<span style=\"color:red\">fail</span>",
+        "us.usd.best-ilp.": 0.03,
+        "us.usd.ggizi.": 0.02,
+        "de.eur.blue.": "<span style=\"color:red\">fail</span>",
+        "us.usd.red.": "<span style=\"color:red\">fail</span>"
+      }
+    },
+    "us.usd.cygnus.micmic": {
+      "ledger": "us.usd.cygnus.",
+      "couldSend": 0.01,
+      "gotReply": 0.01,
+      "delay": 4952.87,
+      "quoteResults": {
+        "lu.eur.michiel.": 0.02,
+        "us.usd.hexdivision.": "no data",
+        "eu.eur.pineapplesheep.": 0.02,
+        "us.usd.michiel-is-not-available.": "no data",
+        "lu.eur.michiel-eur.": 0.02,
+        "us.usd.cygnus.": "n/a",
+        "us.usd.nexus.": 0.02,
+        "us.usd.cornelius.": 0.02,
+        "us.usd.best-ilp.": 0.02,
+        "us.usd.ggizi.": 0.02,
+        "de.eur.blue.": 0.02,
+        "us.usd.red.": 0.02
+      }
+    },
+    "us.usd.cygnus.vahe": {
+      "ledger": "us.usd.cygnus.",
+      "couldSend": 0,
+      "gotReply": 0,
+      "delay": 5000
+    },
+    "lu.eur.michiel-eur.micmic": {
+      "ledger": "lu.eur.michiel-eur.",
+      "couldSend": 0.01,
+      "gotReply": 0.01,
+      "delay": 4952.62,
+      "quoteResults": {
+        "lu.eur.michiel.": 0.02,
+        "us.usd.hexdivision.": "no data",
+        "eu.eur.pineapplesheep.": 0.02,
+        "us.usd.michiel-is-not-available.": "no data",
+        "lu.eur.michiel-eur.": 0.02,
+        "us.usd.cygnus.": 0.02,
+        "us.usd.nexus.": 0.02,
+        "us.usd.cornelius.": 0.02,
+        "us.usd.best-ilp.": 0.02,
+        "us.usd.ggizi.": 0.02,
+        "de.eur.blue.": 0.02,
+        "us.usd.red.": 0.02
+      }
+    },
+    "am.amd.payment.payment": {
+      "ledger": "am.amd.payment.",
+      "couldSend": 0,
+      "gotReply": 0,
+      "delay": 5000
+    },
+    "us.usd.best-ilp.micmic": {
+      "ledger": "us.usd.best-ilp.",
+      "couldSend": 0.01,
+      "gotReply": 0.01,
+      "delay": 4957.33,
+      "quoteResults": {
+        "lu.eur.michiel.": 0.02,
+        "us.usd.hexdivision.": "no data",
+        "eu.eur.pineapplesheep.": 0.02,
+        "us.usd.michiel-is-not-available.": "no data",
+        "lu.eur.michiel-eur.": 0.02,
+        "us.usd.cygnus.": 0.02,
+        "us.usd.nexus.": 0.02,
+        "us.usd.cornelius.": 0.02,
+        "us.usd.best-ilp.": "n/a",
+        "us.usd.ggizi.": 0.02,
+        "de.eur.blue.": 0.02,
+        "us.usd.red.": 0.02
+      }
+    },
+    "us.usd.best-ilp.conct": {
+      "ledger": "us.usd.best-ilp.",
+      "couldSend": 1,
+      "gotReply": 1,
+      "delay": 350.56639999999993,
+      "quoteResults": {
+        "lu.eur.michiel.": "<span style=\"color:red\">fail</span>",
+        "us.usd.hexdivision.": "<span style=\"color:red\">fail</span>",
+        "eu.eur.pineapplesheep.": 0.03,
+        "us.usd.michiel-is-not-available.": "<span style=\"color:red\">fail</span>",
+        "lu.eur.michiel-eur.": "<span style=\"color:red\">fail</span>",
+        "us.usd.cygnus.": "<span style=\"color:red\">fail</span>",
+        "us.usd.nexus.": "<span style=\"color:red\">fail</span>",
+        "us.usd.cornelius.": "<span style=\"color:red\">fail</span>",
+        "us.usd.best-ilp.": "n/a",
+        "us.usd.ggizi.": 0.02,
+        "de.eur.blue.": "<span style=\"color:red\">fail</span>",
+        "us.usd.red.": "<span style=\"color:red\">fail</span>"
+      }
+    },
+    "us.usd.ggizi.micmic": {
+      "ledger": "us.usd.ggizi.",
+      "couldSend": 0.01,
+      "gotReply": 0.01,
+      "delay": 4957.23,
+      "quoteResults": {
+        "lu.eur.michiel.": 0.02,
+        "us.usd.hexdivision.": "no data",
+        "eu.eur.pineapplesheep.": 0.02,
+        "us.usd.michiel-is-not-available.": "no data",
+        "lu.eur.michiel-eur.": 0.02,
+        "us.usd.cygnus.": 0.02,
+        "us.usd.nexus.": 0.02,
+        "us.usd.cornelius.": 0.02,
+        "us.usd.best-ilp.": 0.02,
+        "us.usd.ggizi.": "n/a",
+        "de.eur.blue.": 0.02,
+        "us.usd.red.": 0.02
+      }
+    },
+    "us.usd.ggizi.connector": {
+      "ledger": "us.usd.ggizi.",
+      "couldSend": 1,
+      "gotReply": 1,
+      "delay": 391.28430000000003,
+      "quoteResults": {
+        "lu.eur.michiel.": "<span style=\"color:red\">fail</span>",
+        "us.usd.hexdivision.": "<span style=\"color:red\">fail</span>",
+        "eu.eur.pineapplesheep.": 0.03,
+        "us.usd.michiel-is-not-available.": "<span style=\"color:red\">fail</span>",
+        "lu.eur.michiel-eur.": "<span style=\"color:red\">fail</span>",
+        "us.usd.cygnus.": "<span style=\"color:red\">fail</span>",
+        "us.usd.nexus.": "<span style=\"color:red\">fail</span>",
+        "us.usd.cornelius.": "<span style=\"color:red\">fail</span>",
+        "us.usd.best-ilp.": 0.03,
+        "us.usd.ggizi.": "n/a",
+        "de.eur.blue.": "<span style=\"color:red\">fail</span>",
+        "us.usd.red.": "<span style=\"color:red\">fail</span>"
+      }
+    },
+    "de.eur.blue.connie": {
+      "ledger": "de.eur.blue.",
+      "couldSend": 1,
+      "gotReply": 1,
+      "delay": 708.0129999999999,
       "quoteResults": {
         "lu.eur.michiel.": "<span style=\"color:red\">fail</span>",
         "us.usd.hexdivision.": "<span style=\"color:red\">fail</span>",
@@ -554,102 +729,6 @@
         "us.usd.cornelius.": "<span style=\"color:red\">fail</span>",
         "us.usd.best-ilp.": "<span style=\"color:red\">fail</span>",
         "us.usd.ggizi.": "<span style=\"color:red\">fail</span>",
-        "de.eur.blue.": "<span style=\"color:red\">fail</span>",
-        "us.usd.red.": "<span style=\"color:red\">fail</span>"
-      }
-    },
-    "us.usd.cygnus.micmic": {
-      "ledger": "us.usd.cygnus.",
-      "couldSend": 0,
-      "gotReply": 0,
-      "delay": 5000
-    },
-    "us.usd.cygnus.vahe": {
-      "ledger": "us.usd.cygnus.",
-      "couldSend": 0,
-      "gotReply": 0,
-      "delay": 5000
-    },
-    "lu.eur.michiel-eur.micmic": {
-      "ledger": "lu.eur.michiel-eur.",
-      "couldSend": 0,
-      "gotReply": 0,
-      "delay": 5000
-    },
-    "am.amd.payment.payment": {
-      "ledger": "am.amd.payment.",
-      "couldSend": 0,
-      "gotReply": 0,
-      "delay": 5000
-    },
-    "us.usd.best-ilp.micmic": {
-      "ledger": "us.usd.best-ilp.",
-      "couldSend": 0,
-      "gotReply": 0,
-      "delay": 5000
-    },
-    "us.usd.best-ilp.conct": {
-      "ledger": "us.usd.best-ilp.",
-      "couldSend": 1,
-      "gotReply": 1,
-      "delay": 349.35999999999996,
-      "quoteResults": {
-        "lu.eur.michiel.": 0.04,
-        "us.usd.hexdivision.": "<span style=\"color:red\">fail</span>",
-        "eu.eur.pineapplesheep.": 0.04,
-        "us.usd.michiel-is-not-available.": 0.04,
-        "lu.eur.michiel-eur.": 0.04,
-        "us.usd.cygnus.": 0.04,
-        "us.usd.nexus.": 0.04,
-        "us.usd.cornelius.": 0.04,
-        "us.usd.best-ilp.": "n/a",
-        "us.usd.ggizi.": 0.04,
-        "de.eur.blue.": 0.04,
-        "us.usd.red.": 0.04
-      }
-    },
-    "us.usd.ggizi.micmic": {
-      "ledger": "us.usd.ggizi.",
-      "couldSend": 0,
-      "gotReply": 0,
-      "delay": 5000
-    },
-    "us.usd.ggizi.connector": {
-      "ledger": "us.usd.ggizi.",
-      "couldSend": 1,
-      "gotReply": 1,
-      "delay": 390.57000000000005,
-      "quoteResults": {
-        "lu.eur.michiel.": 0.04,
-        "us.usd.hexdivision.": "<span style=\"color:red\">fail</span>",
-        "eu.eur.pineapplesheep.": 0.03,
-        "us.usd.michiel-is-not-available.": 0.04,
-        "lu.eur.michiel-eur.": 0.04,
-        "us.usd.cygnus.": 0.04,
-        "us.usd.nexus.": 0.04,
-        "us.usd.cornelius.": 0.04,
-        "us.usd.best-ilp.": 0.04,
-        "us.usd.ggizi.": "n/a",
-        "de.eur.blue.": 0.04,
-        "us.usd.red.": 0.04
-      }
-    },
-    "de.eur.blue.connie": {
-      "ledger": "de.eur.blue.",
-      "couldSend": 1,
-      "gotReply": 1,
-      "delay": 707.6999999999999,
-      "quoteResults": {
-        "lu.eur.michiel.": 0.03,
-        "us.usd.hexdivision.": "<span style=\"color:red\">fail</span>",
-        "eu.eur.pineapplesheep.": 0.03,
-        "us.usd.michiel-is-not-available.": 0.03,
-        "lu.eur.michiel-eur.": 0.03,
-        "us.usd.cygnus.": 0.03,
-        "us.usd.nexus.": 0.03,
-        "us.usd.cornelius.": 0.03,
-        "us.usd.best-ilp.": 0.03,
-        "us.usd.ggizi.": 0.03,
         "de.eur.blue.": "n/a",
         "us.usd.red.": 0.02
       }
@@ -658,12 +737,12 @@
       "ledger": "de.eur.blue.",
       "couldSend": 1,
       "gotReply": 1,
-      "delay": 1036.62,
+      "delay": 1039.6538,
       "quoteResults": {
         "lu.eur.michiel.": 0.02,
         "us.usd.hexdivision.": "no data",
         "eu.eur.pineapplesheep.": 0.02,
-        "us.usd.michiel-is-not-available.": 0.02,
+        "us.usd.michiel-is-not-available.": "no data",
         "lu.eur.michiel-eur.": 0.02,
         "us.usd.cygnus.": 0.02,
         "us.usd.nexus.": 0.02,
@@ -678,18 +757,18 @@
       "ledger": "us.usd.red.",
       "couldSend": 1,
       "gotReply": 1,
-      "delay": 785.43,
+      "delay": 784.2657,
       "quoteResults": {
-        "lu.eur.michiel.": 0.04,
+        "lu.eur.michiel.": "<span style=\"color:red\">fail</span>",
         "us.usd.hexdivision.": "<span style=\"color:red\">fail</span>",
-        "eu.eur.pineapplesheep.": 0.04,
-        "us.usd.michiel-is-not-available.": 0.04,
-        "lu.eur.michiel-eur.": 0.04,
-        "us.usd.cygnus.": 0.04,
-        "us.usd.nexus.": 0.04,
-        "us.usd.cornelius.": 0.04,
-        "us.usd.best-ilp.": 0.04,
-        "us.usd.ggizi.": 0.04,
+        "eu.eur.pineapplesheep.": "<span style=\"color:red\">fail</span>",
+        "us.usd.michiel-is-not-available.": "<span style=\"color:red\">fail</span>",
+        "lu.eur.michiel-eur.": "<span style=\"color:red\">fail</span>",
+        "us.usd.cygnus.": "<span style=\"color:red\">fail</span>",
+        "us.usd.nexus.": "<span style=\"color:red\">fail</span>",
+        "us.usd.cornelius.": "<span style=\"color:red\">fail</span>",
+        "us.usd.best-ilp.": "<span style=\"color:red\">fail</span>",
+        "us.usd.ggizi.": "<span style=\"color:red\">fail</span>",
         "de.eur.blue.": 0.03,
         "us.usd.red.": "n/a"
       }
@@ -698,12 +777,12 @@
       "ledger": "us.usd.red.",
       "couldSend": 1,
       "gotReply": 1,
-      "delay": 1179.79,
+      "delay": 1179.9221,
       "quoteResults": {
         "lu.eur.michiel.": 0.02,
         "us.usd.hexdivision.": "no data",
         "eu.eur.pineapplesheep.": 0.02,
-        "us.usd.michiel-is-not-available.": 0.02,
+        "us.usd.michiel-is-not-available.": "no data",
         "lu.eur.michiel-eur.": 0.02,
         "us.usd.cygnus.": 0.02,
         "us.usd.nexus.": 0.02,
@@ -718,7 +797,7 @@
       "ledger": "mm.mmk.interledger.",
       "couldSend": 1,
       "gotReply": 1,
-      "delay": 832.38,
+      "delay": 833.3362,
       "quoteResults": {
         "lu.eur.michiel.": "<span style=\"color:red\">fail</span>",
         "us.usd.hexdivision.": "<span style=\"color:red\">fail</span>",
@@ -742,9 +821,23 @@
     },
     "us.usd.cornelius.micmic": {
       "ledger": "us.usd.cornelius.",
-      "couldSend": 0,
-      "gotReply": 0,
-      "delay": 5000
+      "couldSend": 0.01,
+      "gotReply": 0.01,
+      "delay": 4955.74,
+      "quoteResults": {
+        "lu.eur.michiel.": 0.010001,
+        "us.usd.hexdivision.": "no data",
+        "eu.eur.pineapplesheep.": 0.010001,
+        "us.usd.michiel-is-not-available.": "no data",
+        "lu.eur.michiel-eur.": 0.010001,
+        "us.usd.cygnus.": 0.010001,
+        "us.usd.nexus.": 0.010001,
+        "us.usd.cornelius.": "n/a",
+        "us.usd.best-ilp.": 0.010001,
+        "us.usd.ggizi.": 0.010001,
+        "de.eur.blue.": 0.010001,
+        "us.usd.red.": 0.010001
+      }
     },
     "us.usd.nexus.stefan": {
       "ledger": "us.usd.nexus.",
@@ -754,9 +847,23 @@
     },
     "us.usd.nexus.micmic": {
       "ledger": "us.usd.nexus.",
-      "couldSend": 0,
-      "gotReply": 0,
-      "delay": 5000
+      "couldSend": 0.01,
+      "gotReply": 0.01,
+      "delay": 4955.8,
+      "quoteResults": {
+        "lu.eur.michiel.": 0.010000001,
+        "us.usd.hexdivision.": "no data",
+        "eu.eur.pineapplesheep.": 0.010000001,
+        "us.usd.michiel-is-not-available.": "no data",
+        "lu.eur.michiel-eur.": 0.010000001,
+        "us.usd.cygnus.": 0.010000001,
+        "us.usd.nexus.": "n/a",
+        "us.usd.cornelius.": 0.010000001,
+        "us.usd.best-ilp.": 0.010000001,
+        "us.usd.ggizi.": 0.010000001,
+        "de.eur.blue.": 0.010000001,
+        "us.usd.red.": 0.010000001
+      }
     },
     "kr.krw.interledgerkorea.connector": {
       "ledger": "kr.krw.interledgerkorea.",
@@ -767,28 +874,14 @@
     "us.usd.usd.connector": {
       "ledger": "us.usd.usd.",
       "couldSend": 1,
-      "gotReply": 0.01,
-      "delay": 4956.32,
-      "quoteResults": {
-        "lu.eur.michiel.": "<span style=\"color:red\">fail</span>",
-        "us.usd.hexdivision.": "<span style=\"color:red\">fail</span>",
-        "eu.eur.pineapplesheep.": "<span style=\"color:red\">fail</span>",
-        "us.usd.michiel-is-not-available.": "<span style=\"color:red\">fail</span>",
-        "lu.eur.michiel-eur.": "<span style=\"color:red\">fail</span>",
-        "us.usd.cygnus.": "<span style=\"color:red\">fail</span>",
-        "us.usd.nexus.": "<span style=\"color:red\">fail</span>",
-        "us.usd.cornelius.": "<span style=\"color:red\">fail</span>",
-        "us.usd.best-ilp.": "<span style=\"color:red\">fail</span>",
-        "us.usd.ggizi.": "<span style=\"color:red\">fail</span>",
-        "de.eur.blue.": "<span style=\"color:red\">fail</span>",
-        "us.usd.red.": "<span style=\"color:red\">fail</span>"
-      }
+      "gotReply": 0.0199,
+      "delay": 4962.7668
     },
     "ca.usd.royalcrypto.connector": {
       "ledger": "ca.usd.royalcrypto.",
       "couldSend": 1,
       "gotReply": 1,
-      "delay": 416.56,
+      "delay": 418.5944,
       "quoteResults": {
         "lu.eur.michiel.": "<span style=\"color:red\">fail</span>",
         "us.usd.hexdivision.": "<span style=\"color:red\">fail</span>",
@@ -812,9 +905,9 @@
     },
     "us.usd.ilpkit-gce.connector": {
       "ledger": "us.usd.ilpkit-gce.",
-      "couldSend": 0.01,
-      "gotReply": 0.01,
-      "delay": 4955.25,
+      "couldSend": 0.0199,
+      "gotReply": 0.0199,
+      "delay": 4911.717500000001,
       "quoteResults": {
         "lu.eur.michiel.": "<span style=\"color:red\">fail</span>",
         "us.usd.hexdivision.": "<span style=\"color:red\">fail</span>",
