@@ -32,7 +32,9 @@ module.exports.hosts = [
 // ^^^ Add your ILP host by duplicating, uncommenting, and editing the line above ^^^
 
 // # hostname
-// This should have the format like 'example.com', so without the 'https://' in front.
+// This should have the format like 'example.com', so without the 'https://' in front, and the connectorland script
+// will do a WebFinger query for this host to find out which ledger(s) and which connector(s) are announced on there.
+//
 
 // # owner
 // The main user account you use on your ledger. People can use this to, for instance, send test payments to your
@@ -41,4 +43,29 @@ module.exports.hosts = [
 // contact if a node is down. If you haven't created any users yet, and the software you run is ilp-kit, then
 // you can simply fill in 'admin', which is the ledger user that always exists when you first install the ilp-kit
 // software on your server.
+];
+
+module.exports.connectors = [
+  'ca.usd.royalcrypto.micmic',
+  'de.eur.blue.micmic',
+  'eu.eur.pineapplesheep.micmic',
+  'lu.eur.hive.micmic',
+  'lu.eur.michiel.micmic',
+  'lu.eur.michiel-eur.micmic',
+  'us.usd.best-ilp.micmic',
+  'us.usd.cornelius.micmic',
+  'us.usd.cygnus.micmic',
+  'us.usd.ggizi.micmic',
+  'us.usd.ilpkit-gce.micmic',
+  'us.usd.jonhvb.micmic', // sic
+  'us.usd.nexus.micmic',
+  'us.usd.red.micmic',
+  'us.usd.someledger.micmic',
+
+// ^^^ Add your ILP-addressable connectors to the list ^^^
+
+// If you created your connector as part of ilp-kit, it will automatically be set as a recommended connector for the
+// ledger on that host, and you can add it to the `hosts` list above. However, if you created your connector in a
+// different way, it's possible that it doesn't have a DNS (sub)domain associated with it. In this case, you can add
+// it in this list of named connectors, by simply specifying the connector's ILP address instead.
 ];
