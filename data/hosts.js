@@ -3,7 +3,7 @@ module.exports.hosts = [
    { hostname: 'blue.ilpdemo.org',                       owner: ''},
    { hostname: 'kes-ilp.abdishakur.com',                 owner: 'abdishakur'},
    { hostname: 'ilp.bigchaindb.com',                     owner: 'dimitri'},
-   { hostname: 'zar-ilp.hopebailie.com',                 owner: 'adrian'},
+   { hostname: 'za.zar.ilp.hopebailie.com',                 owner: 'admin'},
    { hostname: 'milton.ilp.network',                     owner: 'javi'},
    { hostname: 'pineapplesheep.ilp.rocks',               owner: 'pineapplesheep'},
    { hostname: 'usd.interledger.network',                owner: 'winthan'},
