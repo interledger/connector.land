@@ -267,9 +267,9 @@
       "maxBalance": "10^10 centi-USD",
       "messaging": 2806.5713899841808,
       "messageToSelf": 669.4989225055264,
-      "connectDelay": 2128.7,
+      "connectDelay": 2162.93,
       "connectSuccess": 1,
-      "msgDelay": 536.7360000000001,
+      "msgDelay": 547.25616,
       "msgSuccess": 1
     },
     "de.eur.blue.": {
@@ -278,9 +278,9 @@
       "maxBalance": "10^10 centi-EUR",
       "messaging": 2732.011435105417,
       "messageToSelf": 532.8754798349627,
-      "connectDelay": 2315.8,
+      "connectDelay": 2321.52,
       "connectSuccess": 1,
-      "msgDelay": 512.625,
+      "msgDelay": 526.16625,
       "msgSuccess": 1
     },
     "undefined": {
@@ -297,9 +297,9 @@
       "maxBalance": "10^10 centi-EUR",
       "messaging": 511.96530159116816,
       "messageToSelf": 89.32106278700076,
-      "connectDelay": 195.4,
+      "connectDelay": 188.46,
       "connectSuccess": 1,
-      "msgDelay": 52.21199999999999,
+      "msgDelay": 46.91171999999999,
       "msgSuccess": 1
     },
     "us.usd.usd.": {
@@ -308,9 +308,9 @@
       "maxBalance": "10^10 centi-USD",
       "messaging": 1342.50549504529,
       "messageToSelf": 291.9152568397341,
-      "connectDelay": 1134.2,
+      "connectDelay": 1134.18,
       "connectSuccess": 1,
-      "msgDelay": 269.675,
+      "msgDelay": 269.69675,
       "msgSuccess": 1
     },
     "mm.mmk.interledger.": {
@@ -319,9 +319,9 @@
       "maxBalance": "10^10 centi-MMK",
       "messaging": 3439.4015252000136,
       "messageToSelf": 802.7782742345942,
-      "connectDelay": 3587.4,
+      "connectDelay": 3591.5600000000004,
       "connectSuccess": 1,
-      "msgDelay": 825.0489999999998,
+      "msgDelay": 826.9696899999999,
       "msgSuccess": 1
     },
     "kr.krw.interledgerkorea.": {
@@ -330,9 +330,9 @@
       "maxBalance": "10^10 centi-KRW",
       "messaging": 4246.468671521511,
       "messageToSelf": 989.7998589530154,
-      "connectDelay": 4109.9,
+      "connectDelay": 4111.8099999999995,
       "connectSuccess": 1,
-      "msgDelay": 935.394,
+      "msgDelay": 940.62914,
       "msgSuccess": 1
     },
     "us.usd.nexus.": {
@@ -341,9 +341,9 @@
       "maxBalance": "10^19 nano-USD",
       "messaging": 1149.4853136045208,
       "messageToSelf": 138.23978921148884,
-      "connectDelay": 1183.1,
+      "connectDelay": 1218.8899999999999,
       "connectSuccess": 1,
-      "msgDelay": 155.387,
+      "msgDelay": 193.46347,
       "msgSuccess": 1
     },
     "us.usd.cornelius.": {
@@ -352,9 +352,9 @@
       "maxBalance": "10^10 micro-USD",
       "messaging": 1215.3921343552436,
       "messageToSelf": 222.9497056454423,
-      "connectDelay": 993.6,
+      "connectDelay": 1028.04,
       "connectSuccess": 1,
-      "msgDelay": 224.64800000000005,
+      "msgDelay": 219.80488000000005,
       "msgSuccess": 1
     },
     "us.usd.cygnus.": {
@@ -363,9 +363,9 @@
       "maxBalance": "10^10 centi-USD",
       "messaging": 947.2967520028768,
       "messageToSelf": 268.92073547936826,
-      "connectDelay": 830.8,
+      "connectDelay": 828.22,
       "connectSuccess": 1,
-      "msgDelay": 147.34900000000002,
+      "msgDelay": 153.94269,
       "msgSuccess": 1
     },
     "us.usd.grifiti.": {
@@ -380,9 +380,9 @@
       "maxBalance": "10^16 (10^-8)-EUR",
       "messaging": 453.44399289092365,
       "messageToSelf": 148.20425903405163,
-      "connectDelay": 249.6,
+      "connectDelay": 243.94,
       "connectSuccess": 1,
-      "msgDelay": 40.996,
+      "msgDelay": 39.69676,
       "msgSuccess": 1
     },
     "am.amd.payment.": {
@@ -398,9 +398,9 @@
       "maxBalance": "10^19 nano-EUR",
       "messaging": 417.8232175643375,
       "messageToSelf": 169.4078448586377,
-      "connectDelay": 190.8,
+      "connectDelay": 180.62,
       "connectSuccess": 1,
-      "msgDelay": 37.437,
+      "msgDelay": 34.56397,
       "msgSuccess": 1
     },
     "us.usd.jonhvb.": {
@@ -409,9 +409,9 @@
       "maxBalance": "10^10 centi-USD",
       "messaging": 728.8575218322388,
       "messageToSelf": 165.18076251049885,
-      "connectDelay": 355.1,
+      "connectDelay": 351.29,
       "connectSuccess": 1,
-      "msgDelay": 82.41099999999999,
+      "msgDelay": 79.62290999999998,
       "msgSuccess": 1
     },
     "us.usd.best-ilp.": {
@@ -420,9 +420,9 @@
       "maxBalance": "10^10 centi-USD",
       "messaging": 1424.9607753974178,
       "messageToSelf": 311.22479951667344,
-      "connectDelay": 1304.1,
+      "connectDelay": 1304.19,
       "connectSuccess": 1,
-      "msgDelay": 316.53800000000007,
+      "msgDelay": 314.35578000000004,
       "msgSuccess": 1
     },
     "us.usd.michiel-is-not-available.": {
@@ -438,9 +438,9 @@
       "maxBalance": "10^10 centi-USD",
       "messaging": 1571.536846814104,
       "messageToSelf": 388.88962824651855,
-      "connectDelay": 1406.7,
+      "connectDelay": 1414.93,
       "connectSuccess": 1,
-      "msgDelay": 320.058,
+      "msgDelay": 325.84698,
       "msgSuccess": 1
     },
     "us.usd.ggizi.": {
@@ -449,9 +449,9 @@
       "maxBalance": "10^10 centi-USD",
       "messaging": 1473.189598549483,
       "messageToSelf": 325.3764943177516,
-      "connectDelay": 1321.6,
+      "connectDelay": 1327.84,
       "connectSuccess": 1,
-      "msgDelay": 306.278,
+      "msgDelay": 310.14518000000004,
       "msgSuccess": 1
     },
     "lu.eur.michiel-eur.": {
@@ -460,9 +460,9 @@
       "maxBalance": "10^10 centi-EUR",
       "messaging": 845.7284157136083,
       "messageToSelf": 273.94681074905134,
-      "connectDelay": 452,
+      "connectDelay": 448.2,
       "connectSuccess": 1,
-      "msgDelay": 92.34200000000001,
+      "msgDelay": 93.18702,
       "msgSuccess": 1
     },
     "us.usd.hexdivision.": {
@@ -471,9 +471,9 @@
       "maxBalance": "10^10 centi-USD",
       "messaging": 272.2820560644667,
       "messageToSelf": 78.56866533091738,
-      "connectDelay": 176.1,
+      "connectDelay": 170.29,
       "connectSuccess": 1,
-      "msgDelay": 40.67100000000001,
+      "msgDelay": 38.94351,
       "msgSuccess": 1
     },
     "us.usd.ilpkit-gce.": {
@@ -482,9 +482,9 @@
       "maxBalance": "10^10 centi-USD",
       "messaging": 2196.62096485227,
       "messageToSelf": 485.92000423387873,
-      "connectDelay": 2063.5,
+      "connectDelay": 2062.95,
       "connectSuccess": 1,
-      "msgDelay": 488.39000000000004,
+      "msgDelay": 488.3459000000001,
       "msgSuccess": 1
     }
   },
