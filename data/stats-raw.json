@@ -266,14 +266,22 @@
       "prefix": "us.usd.red.",
       "maxBalance": "10^10 centi-USD",
       "messaging": 2806.5713899841808,
-      "messageToSelf": 669.4989225055264
+      "messageToSelf": 669.4989225055264,
+      "connectDelay": 2086,
+      "connectSuccess": 1,
+      "msgDelay": 540.6,
+      "msgSuccess": 1
     },
     "de.eur.blue.": {
       "hostname": "blue.ilpdemo.org",
       "prefix": "de.eur.blue.",
       "maxBalance": "10^10 centi-EUR",
       "messaging": 2732.011435105417,
-      "messageToSelf": 532.8754798349627
+      "messageToSelf": 532.8754798349627,
+      "connectDelay": 2301,
+      "connectSuccess": 1,
+      "msgDelay": 491.5,
+      "msgSuccess": 1
     },
     "undefined": {
       "hostname": "michiel-is-not-available.herokuapp.com"
@@ -288,49 +296,77 @@
       "prefix": "eu.eur.pineapplesheep.",
       "maxBalance": "10^10 centi-EUR",
       "messaging": 511.96530159116816,
-      "messageToSelf": 89.32106278700076
+      "messageToSelf": 89.32106278700076,
+      "connectDelay": 196,
+      "connectSuccess": 1,
+      "msgDelay": 54.2,
+      "msgSuccess": 1
     },
     "us.usd.usd.": {
       "hostname": "usd.interledger.network",
       "prefix": "us.usd.usd.",
       "maxBalance": "10^10 centi-USD",
       "messaging": 1342.50549504529,
-      "messageToSelf": 291.9152568397341
+      "messageToSelf": 291.9152568397341,
+      "connectDelay": 1133,
+      "connectSuccess": 1,
+      "msgDelay": 270.5,
+      "msgSuccess": 1
     },
     "mm.mmk.interledger.": {
       "hostname": "mmk.interledger.network",
       "prefix": "mm.mmk.interledger.",
       "maxBalance": "10^10 centi-MMK",
       "messaging": 3439.4015252000136,
-      "messageToSelf": 802.7782742345942
+      "messageToSelf": 802.7782742345942,
+      "connectDelay": 3581,
+      "connectSuccess": 1,
+      "msgDelay": 822.9,
+      "msgSuccess": 1
     },
     "kr.krw.interledgerkorea.": {
       "hostname": "interledger.kr",
       "prefix": "kr.krw.interledgerkorea.",
       "maxBalance": "10^10 centi-KRW",
       "messaging": 4246.468671521511,
-      "messageToSelf": 989.7998589530154
+      "messageToSelf": 989.7998589530154,
+      "connectDelay": 4101,
+      "connectSuccess": 1,
+      "msgDelay": 927.4,
+      "msgSuccess": 1
     },
     "us.usd.nexus.": {
       "hostname": "nexus.justmoon.com",
       "prefix": "us.usd.nexus.",
       "maxBalance": "10^19 nano-USD",
       "messaging": 1149.4853136045208,
-      "messageToSelf": 138.23978921148884
+      "messageToSelf": 138.23978921148884,
+      "connectDelay": 1216,
+      "connectSuccess": 1,
+      "msgDelay": 126.7,
+      "msgSuccess": 1
     },
     "us.usd.cornelius.": {
       "hostname": "cornelius.sharafian.com",
       "prefix": "us.usd.cornelius.",
       "maxBalance": "10^10 micro-USD",
       "messaging": 1215.3921343552436,
-      "messageToSelf": 222.9497056454423
+      "messageToSelf": 222.9497056454423,
+      "connectDelay": 960,
+      "connectSuccess": 1,
+      "msgDelay": 231.8,
+      "msgSuccess": 1
     },
     "us.usd.cygnus.": {
       "hostname": "cygnus.vahehovhannisyan.com",
       "prefix": "us.usd.cygnus.",
       "maxBalance": "10^10 centi-USD",
       "messaging": 947.2967520028768,
-      "messageToSelf": 268.92073547936826
+      "messageToSelf": 268.92073547936826,
+      "connectDelay": 828,
+      "connectSuccess": 1,
+      "msgDelay": 135.9,
+      "msgSuccess": 1
     },
     "us.usd.grifiti.": {
       "hostname": "grifiti.web-payments.net",
@@ -343,7 +379,11 @@
       "prefix": "lu.eur.hive.",
       "maxBalance": "10^16 (10^-8)-EUR",
       "messaging": 453.44399289092365,
-      "messageToSelf": 148.20425903405163
+      "messageToSelf": 148.20425903405163,
+      "connectDelay": 252,
+      "connectSuccess": 1,
+      "msgDelay": 41.6,
+      "msgSuccess": 1
     },
     "am.amd.payment.": {
       "hostname": "payment.am",
@@ -357,21 +397,33 @@
       "prefix": "lu.eur.michiel.",
       "maxBalance": "10^19 nano-EUR",
       "messaging": 417.8232175643375,
-      "messageToSelf": 169.4078448586377
+      "messageToSelf": 169.4078448586377,
+      "connectDelay": 192,
+      "connectSuccess": 1,
+      "msgDelay": 38.7,
+      "msgSuccess": 1
     },
     "us.usd.jonhvb.": {
       "hostname": "john.jpvbs.com",
       "prefix": "us.usd.jonhvb.",
       "maxBalance": "10^10 centi-USD",
       "messaging": 728.8575218322388,
-      "messageToSelf": 165.18076251049885
+      "messageToSelf": 165.18076251049885,
+      "connectDelay": 346,
+      "connectSuccess": 1,
+      "msgDelay": 84.1,
+      "msgSuccess": 1
     },
     "us.usd.best-ilp.": {
       "hostname": "best-ilp.herokuapp.com",
       "prefix": "us.usd.best-ilp.",
       "maxBalance": "10^10 centi-USD",
       "messaging": 1424.9607753974178,
-      "messageToSelf": 311.22479951667344
+      "messageToSelf": 311.22479951667344,
+      "connectDelay": 1304,
+      "connectSuccess": 1,
+      "msgDelay": 320.8,
+      "msgSuccess": 1
     },
     "us.usd.michiel-is-not-available.": {
       "hostname": "michiel-is-not-available.herokuapp.com",
@@ -385,35 +437,55 @@
       "prefix": "ca.usd.royalcrypto.",
       "maxBalance": "10^10 centi-USD",
       "messaging": 1571.536846814104,
-      "messageToSelf": 388.88962824651855
+      "messageToSelf": 388.88962824651855,
+      "connectDelay": 1403,
+      "connectSuccess": 1,
+      "msgDelay": 314.8,
+      "msgSuccess": 1
     },
     "us.usd.ggizi.": {
       "hostname": "ggizi.herokuapp.com",
       "prefix": "us.usd.ggizi.",
       "maxBalance": "10^10 centi-USD",
       "messaging": 1473.189598549483,
-      "messageToSelf": 325.3764943177516
+      "messageToSelf": 325.3764943177516,
+      "connectDelay": 1315,
+      "connectSuccess": 1,
+      "msgDelay": 303.8,
+      "msgSuccess": 1
     },
     "lu.eur.michiel-eur.": {
       "hostname": "michiel-eur.herokuapp.com",
       "prefix": "lu.eur.michiel-eur.",
       "maxBalance": "10^10 centi-EUR",
       "messaging": 845.7284157136083,
-      "messageToSelf": 273.94681074905134
+      "messageToSelf": 273.94681074905134,
+      "connectDelay": 453,
+      "connectSuccess": 1,
+      "msgDelay": 92.2,
+      "msgSuccess": 1
     },
     "us.usd.hexdivision.": {
       "hostname": "ilp.hexdivision.com",
       "prefix": "us.usd.hexdivision.",
       "maxBalance": "10^10 centi-USD",
       "messaging": 272.2820560644667,
-      "messageToSelf": 78.56866533091738
+      "messageToSelf": 78.56866533091738,
+      "connectDelay": 178,
+      "connectSuccess": 1,
+      "msgDelay": 41.1,
+      "msgSuccess": 1
     },
     "us.usd.ilpkit-gce.": {
       "hostname": "ilpkit-gce.fluid.money",
       "prefix": "us.usd.ilpkit-gce.",
       "maxBalance": "10^10 centi-USD",
       "messaging": 2196.62096485227,
-      "messageToSelf": 485.92000423387873
+      "messageToSelf": 485.92000423387873,
+      "connectDelay": 2058,
+      "connectSuccess": 1,
+      "msgDelay": 487,
+      "msgSuccess": 1
     }
   },
   "connectors": {
