@@ -48,7 +48,7 @@ client.init().then(() => {
     });
   });
   // deal with https://github.com/interledgerjs/five-bells-ledger/issues/402
-  return oneByOne(testRoute, routes, 500);
+  return oneByOne(testRoute, routes, 1500);
 }).then(() => {
   updatedStats = client.getStats();
   fs.writeFileSync(RAW_STATS_FILE, JSON.stringify(updatedStats, null, 2));
