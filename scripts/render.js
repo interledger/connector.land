@@ -155,30 +155,32 @@ var hostRows = Object.keys(stats.hosts).sort(function(keyA, keyB) {
 
 return getCurrencyRates().then(() => {   
   var str = JSON.stringify({
-    headers: [
-    '<th>ILP Kit URL</th>',
-      '<th>ILP Kit Version</th>',
-      '<th>Ledger Prefix</th>',
-      '<th>Max Balance</th>',
-      '<th>Message Delay</th>',
-      '<th>Owner\'s Connector Account</th>',
-      '<th>Settlement Methods</th>',
-      '<th>Health</th>',
-      '<th>Ping</th>',
-    ],
-    rows: hostRows.map(line =>
-      `<tr><td><a href="https://${line.hostname}">${line.hostname}</a></td>` +
-          `<td>${line.version}</td>` +
-          `<td>${line.prefix}</td>` +
-          `<td>${(typeof stats.ledgers[line.prefix] === 'object' ? stats.ledgers[line.prefix].maxBalance : '?')}</td>` +
-          `<td>${(typeof stats.ledgers[line.prefix] === 'object' ? stats.ledgers[line.prefix].messaging : '?')}</td>` +
-          `<td>${line.owner}</td>` +
-          `<td>${line.settlements.slice(0, 50)}</td>` +
-          `<td>${percentage(line.health)}</td>` +
-          `<td>${percentage(line.ping)}</td>` +
-          `</tr>`
-    ),
-  
+    hosts: {
+      headers: [
+      '<th>ILP Kit URL</th>',
+        '<th>ILP Kit Version</th>',
+        '<th>Ledger Prefix</th>',
+        '<th>Max Balance</th>',
+        '<th>Message Delay</th>',
+        '<th>Owner\'s Connector Account</th>',
+        '<th>Settlement Methods</th>',
+        '<th>Health</th>',
+        '<th>Ping</th>',
+      ],
+      rows: hostRows.map(line =>
+        `<tr><td><a href="https://${line.hostname}">${line.hostname}</a></td>` +
+            `<td>${line.version}</td>` +
+            `<td>${line.prefix}</td>` +
+            `<td>${(typeof stats.ledgers[line.prefix] === 'object' ? stats.ledgers[line.prefix].maxBalance : '?')}</td>` +
+            `<td>${(typeof stats.ledgers[line.prefix] === 'object' ? stats.ledgers[line.prefix].messaging : '?')}</td>` +
+            `<td>${line.owner}</td>` +
+            `<td>${line.settlements.slice(0, 50)}</td>` +
+            `<td>${percentage(line.health)}</td>` +
+            `<td>${percentage(line.ping)}</td>` +
+            `</tr>`
+      ),
+    },
+ 
     ledgers: {
       headers: [
         '<th>Ledger Prefix</th>',
