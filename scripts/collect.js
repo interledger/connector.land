@@ -27,7 +27,7 @@ function oneByOne(func, args, interval) {
         theseArgs = args.shift();
         promises.push(func.call(null, theseArgs));
       }
-    });
+    }, interval);
   }).then(() => {
     console.log('all launched! ...');
     return Promise.all(promises);

@@ -356,9 +356,9 @@
       "maxBalance": "10^10 centi-USD",
       "messaging": 2806.5713899841808,
       "messageToSelf": 669.4989225055264,
-      "connectDelay": 2176.6369999999997,
+      "connectDelay": 2196.8732999999997,
       "connectSuccess": 1,
-      "msgDelay": 536.8074896,
+      "msgDelay": 531.954066576,
       "msgSuccess": 1,
       "connectors": [
         {
@@ -385,7 +385,7 @@
       "precision": 10,
       "scale": 2,
       "balances": {
-        "connectorland": "999.41"
+        "connectorland": "999.38"
       },
       "rate": 1.0737
     },
@@ -395,9 +395,9 @@
       "maxBalance": "10^10 centi-EUR",
       "messaging": 2732.011435105417,
       "messageToSelf": 532.8754798349627,
-      "connectDelay": 2306.068,
+      "connectDelay": 2308.7612,
       "connectSuccess": 1,
-      "msgDelay": 548.0046625,
+      "msgDelay": 571.8637766249999,
       "msgSuccess": 1,
       "connectors": [
         {
@@ -424,7 +424,7 @@
       "precision": 10,
       "scale": 2,
       "balances": {
-        "connectorland": "999.54"
+        "connectorland": "999.51"
       },
       "rate": 1
     },
@@ -443,9 +443,9 @@
       "maxBalance": "10^10 centi-EUR",
       "messaging": 511.96530159116816,
       "messageToSelf": 89.32106278700076,
-      "connectDelay": 190.81400000000002,
+      "connectDelay": 196.3326,
       "connectSuccess": 1,
-      "msgDelay": 44.34849319999999,
+      "msgDelay": 47.302279492,
       "msgSuccess": 1,
       "connectors": [
         {
@@ -472,7 +472,7 @@
       "precision": 10,
       "scale": 2,
       "balances": {
-        "connectorland": "3.68"
+        "connectorland": "3.69"
       },
       "rate": 1
     },
@@ -482,9 +482,9 @@
       "maxBalance": "10^10 centi-USD",
       "messaging": 1342.50549504529,
       "messageToSelf": 291.9152568397341,
-      "connectDelay": 1135.7620000000002,
+      "connectDelay": 1139.4858000000002,
       "connectSuccess": 1,
-      "msgDelay": 269.1743675,
+      "msgDelay": 268.76123767499996,
       "msgSuccess": 1,
       "connectors": [
         {
@@ -521,9 +521,9 @@
       "maxBalance": "10^10 centi-MMK",
       "messaging": 3439.4015252000136,
       "messageToSelf": 802.7782742345942,
-      "connectDelay": 3589.1040000000007,
+      "connectDelay": 3588.8936000000003,
       "connectSuccess": 1,
-      "msgDelay": 824.2354488999999,
+      "msgDelay": 825.7107136089999,
       "msgSuccess": 1,
       "connectors": [
         {
@@ -560,9 +560,9 @@
       "maxBalance": "10^10 centi-KRW",
       "messaging": 4246.468671521511,
       "messageToSelf": 989.7998589530154,
-      "connectDelay": 4117.728999999999,
+      "connectDelay": 4133.156099999999,
       "connectSuccess": 1,
-      "msgDelay": 945.2896034000001,
+      "msgDelay": 950.7345787540002,
       "msgSuccess": 1,
       "connectors": [
         {
@@ -599,9 +599,9 @@
       "maxBalance": "10^19 nano-USD",
       "messaging": 1149.4853136045208,
       "messageToSelf": 138.23978921148884,
-      "connectDelay": 1156.301,
+      "connectDelay": 1103.3709,
       "connectSuccess": 1,
-      "msgDelay": 214.84541069999995,
+      "msgDelay": 224.99478266699998,
       "msgSuccess": 1,
       "connectors": [
         {
@@ -628,7 +628,7 @@
       "precision": 19,
       "scale": 9,
       "balances": {
-        "connectorland": "22.53"
+        "connectorland": "22.519999997"
       },
       "rate": 1.0737
     },
@@ -638,9 +638,9 @@
       "maxBalance": "10^10 micro-USD",
       "messaging": 1215.3921343552436,
       "messageToSelf": 222.9497056454423,
-      "connectDelay": 1020.1360000000001,
+      "connectDelay": 1019.7224,
       "connectSuccess": 1,
-      "msgDelay": 216.12195280000006,
+      "msgDelay": 230.19878176800003,
       "msgSuccess": 1,
       "connectors": [
         {
@@ -667,7 +667,7 @@
       "precision": 10,
       "scale": 6,
       "balances": {
-        "connectorland": "28.922322"
+        "connectorland": "28.952322"
       },
       "rate": 1.0737
     },
@@ -677,9 +677,9 @@
       "maxBalance": "10^10 centi-USD",
       "messaging": 947.2967520028768,
       "messageToSelf": 268.92073547936826,
-      "connectDelay": 810.6980000000001,
+      "connectDelay": 798.3282000000002,
       "connectSuccess": 1,
-      "msgDelay": 151.33357890000002,
+      "msgDelay": 150.00022101000002,
       "msgSuccess": 1,
       "connectors": [
         {
@@ -706,7 +706,7 @@
       "precision": 10,
       "scale": 2,
       "balances": {
-        "connectorland": "7.38"
+        "connectorland": "7.37"
       },
       "rate": 1.0737
     },
@@ -746,9 +746,9 @@
       "maxBalance": "10^16 (10^-8)-EUR",
       "messaging": 453.44399289092365,
       "messageToSelf": 148.20425903405163,
-      "connectDelay": 240.046,
+      "connectDelay": 245.14139999999998,
       "connectSuccess": 1,
-      "msgDelay": 39.074375599999996,
+      "msgDelay": 38.710244235999994,
       "msgSuccess": 1,
       "connectors": [
         {
@@ -775,7 +775,7 @@
       "precision": 16,
       "scale": 8,
       "balances": {
-        "connectorland": "8.39571834"
+        "connectorland": "8.38571833"
       },
       "rate": 1
     },
@@ -792,9 +792,9 @@
       "maxBalance": "10^19 nano-EUR",
       "messaging": 417.8232175643375,
       "messageToSelf": 169.4078448586377,
-      "connectDelay": 175.29098,
+      "connectDelay": 175.661882,
       "connectSuccess": 1,
-      "msgDelay": 32.74076578077,
+      "msgDelay": 34.0900202824237,
       "msgSuccess": 1,
       "connectors": [
         {
@@ -825,7 +825,7 @@
       "precision": 19,
       "scale": 9,
       "balances": {
-        "connectorland": "9.491778353"
+        "connectorland": "9.491778351"
       },
       "rate": 1
     },
@@ -835,9 +835,9 @@
       "maxBalance": "10^10 centi-USD",
       "messaging": 728.8575218322388,
       "messageToSelf": 165.18076251049885,
-      "connectDelay": 350.661,
+      "connectDelay": 357.3949,
       "connectSuccess": 1,
-      "msgDelay": 80.22455709999997,
+      "msgDelay": 75.81189125099998,
       "msgSuccess": 1,
       "connectors": [
         {
@@ -864,7 +864,7 @@
       "precision": 10,
       "scale": 2,
       "balances": {
-        "connectorland": "0.34"
+        "connectorland": "0.3"
       },
       "rate": 1.0737
     },
@@ -874,9 +874,9 @@
       "maxBalance": "10^10 centi-USD",
       "messaging": 1424.9607753974178,
       "messageToSelf": 311.22479951667344,
-      "connectDelay": 1312.2710000000002,
+      "connectDelay": 1331.5439000000001,
       "connectSuccess": 1,
-      "msgDelay": 315.7981818,
+      "msgDelay": 319.83652725800005,
       "msgSuccess": 1,
       "connectors": [
         {
@@ -920,9 +920,9 @@
       "maxBalance": "10^10 centi-USD",
       "messaging": 1571.536846814104,
       "messageToSelf": 388.88962824651855,
-      "connectDelay": 1417.837,
+      "connectDelay": 1423.0533,
       "connectSuccess": 1,
-      "msgDelay": 326.72605379999993,
+      "msgDelay": 328.66810357799994,
       "msgSuccess": 1,
       "connectors": [
         {
@@ -959,9 +959,9 @@
       "maxBalance": "10^10 centi-USD",
       "messaging": 1473.189598549483,
       "messageToSelf": 325.3764943177516,
-      "connectDelay": 1329.856,
+      "connectDelay": 1337.5704,
       "connectSuccess": 1,
-      "msgDelay": 309.1675958,
+      "msgDelay": 312.28575259800004,
       "msgSuccess": 1,
       "connectors": [
         {
@@ -998,9 +998,9 @@
       "maxBalance": "10^10 centi-EUR",
       "messaging": 845.7284157136083,
       "messageToSelf": 273.94681074905134,
-      "connectDelay": 447.41979999999995,
+      "connectDelay": 452.17782,
       "connectSuccess": 1,
-      "msgDelay": 97.48494709582,
+      "msgDelay": 98.16280714761419,
       "msgSuccess": 1,
       "connectors": [
         {
@@ -1027,7 +1027,7 @@
       "precision": 10,
       "scale": 2,
       "balances": {
-        "connectorland": "8.88"
+        "connectorland": "8.87"
       },
       "rate": 1
     },
@@ -1037,9 +1037,9 @@
       "maxBalance": "10^10 centi-USD",
       "messaging": 272.2820560644667,
       "messageToSelf": 78.56866533091738,
-      "connectDelay": 172.661,
+      "connectDelay": 173.69490000000002,
       "connectSuccess": 1,
-      "msgDelay": 37.72424310000001,
+      "msgDelay": 38.59663691100001,
       "msgSuccess": 1,
       "connectors": [
         {
@@ -1076,9 +1076,9 @@
       "maxBalance": "10^10 centi-USD",
       "messaging": 2196.62096485227,
       "messageToSelf": 485.92000423387873,
-      "connectDelay": 2071.6549999999997,
+      "connectDelay": 2073.6894999999995,
       "connectSuccess": 1,
-      "msgDelay": 489.890179,
+      "msgDelay": 492.34104499000006,
       "msgSuccess": 1,
       "connectors": [
         {
@@ -1515,114 +1515,287 @@
     }
   },
   "routes": {
-    "lu.eur.michiel.": {
-      "micmic": {
-        "lu.eur.michiel-eur.": {
+    "eu.eur.pineapplesheep.": {
+      "us.usd.red.": {
+        "micmic": {
           "transferSuccess": 1,
-          "transferDelay": 91.67,
-          "transferFeePerc": 0.8099999999999999
+          "transferDelay": 1978,
+          "transferFeePerc": 115
         }
       },
-      "connector": {
-        "us.usd.hexdivision.": {
+      "lu.eur.michiel.": {
+        "micmic": {
+          "transferSuccess": 0
+        }
+      }
+    },
+    "de.eur.blue.": {
+      "eu.eur.pineapplesheep.": {
+        "micmic": {
+          "transferSuccess": 1,
+          "transferDelay": 1436,
+          "transferFeePerc": 100
+        }
+      },
+      "us.usd.cygnus.": {
+        "micmic": {
+          "transferSuccess": 1,
+          "transferDelay": 2094,
+          "transferFeePerc": 115
+        }
+      },
+      "us.usd.jonhvb.": {
+        "micmic": {
+          "transferSuccess": 1,
+          "transferDelay": 3293,
+          "transferFeePerc": 115
+        }
+      },
+      "us.usd.nexus.": {
+        "micmic": {
+          "transferSuccess": 0
+        }
+      },
+      "lu.eur.michiel.": {
+        "micmic": {
+          "transferSuccess": 0
+        }
+      },
+      "us.usd.ggizi.": {
+        "micmic": {
+          "transferSuccess": 0
+        }
+      },
+      "us.usd.cornelius.": {
+        "micmic": {
           "transferSuccess": 0
         }
       }
     },
     "us.usd.nexus.": {
-      "micmic": {
-        "us.usd.cornelius.": {
+      "eu.eur.pineapplesheep.": {
+        "micmic": {
           "transferSuccess": 1,
-          "transferDelay": 1820,
+          "transferDelay": 1577,
+          "transferFeePerc": -7
+        }
+      },
+      "de.eur.blue.": {
+        "micmic": {
+          "transferSuccess": 1,
+          "transferDelay": 2520,
+          "transferFeePerc": -7
+        }
+      },
+      "lu.eur.michiel-eur.": {
+        "micmic": {
+          "transferSuccess": 1,
+          "transferDelay": 2107,
+          "transferFeePerc": -7
+        }
+      },
+      "us.usd.best-ilp.": {
+        "micmic": {
+          "transferSuccess": 1,
+          "transferDelay": 7188,
           "transferFeePerc": 0
         }
-      }
-    },
-    "de.eur.blue.": {
-      "micmic": {
-        "eu.eur.pineapplesheep.": {
-          "transferSuccess": 1,
-          "transferDelay": 1864,
-          "transferFeePerc": 100
+      },
+      "us.usd.red.": {
+        "micmic": {
+          "transferSuccess": 0
         }
-      }
-    },
-    "us.usd.red.": {
-      "micmic": {
-        "de.eur.blue.": {
-          "transferSuccess": 1,
-          "transferDelay": 2466,
-          "transferFeePerc": 86
+      },
+      "lu.eur.michiel.": {
+        "micmic": {
+          "transferSuccess": 0
         }
-      }
-    },
-    "lu.eur.hive.": {
-      "micmic": {
-        "lu.eur.michiel.": {
-          "transferSuccess": 1,
-          "transferDelay": 1715,
-          "transferFeePerc": 0
-        }
-      }
-    },
-    "us.usd.jonhvb.": {
-      "micmic": {
-        "lu.eur.michiel-eur.": {
-          "transferSuccess": 1,
-          "transferDelay": 515,
-          "transferFeePerc": 86
+      },
+      "us.usd.ggizi.": {
+        "micmic": {
+          "transferSuccess": 0
         }
       }
     },
     "lu.eur.michiel-eur.": {
-      "micmic": {
-        "us.usd.nexus.": {
+      "eu.eur.pineapplesheep.": {
+        "micmic": {
           "transferSuccess": 1,
-          "transferDelay": 998,
+          "transferDelay": 916,
+          "transferFeePerc": 100
+        }
+      },
+      "us.usd.nexus.": {
+        "micmic": {
+          "transferSuccess": 1,
+          "transferDelay": 683,
           "transferFeePerc": 115
+        }
+      },
+      "lu.eur.hive.": {
+        "micmic": {
+          "transferSuccess": 1,
+          "transferDelay": 486,
+          "transferFeePerc": 100
+        }
+      }
+    },
+    "us.usd.cornelius.": {
+      "us.usd.cygnus.": {
+        "micmic": {
+          "transferSuccess": 1,
+          "transferDelay": 1891,
+          "transferFeePerc": 0
+        }
+      },
+      "de.eur.blue.": {
+        "micmic": {
+          "transferSuccess": 1,
+          "transferDelay": 2823,
+          "transferFeePerc": -7
+        }
+      },
+      "us.usd.nexus.": {
+        "micmic": {
+          "transferSuccess": 0
+        }
+      },
+      "lu.eur.michiel.": {
+        "micmic": {
+          "transferSuccess": 0
+        }
+      },
+      "us.usd.jonhvb.": {
+        "micmic": {
+          "transferSuccess": 0
+        }
+      },
+      "us.usd.best-ilp.": {
+        "micmic": {
+          "transferSuccess": 0
+        }
+      },
+      "us.usd.ggizi.": {
+        "micmic": {
+          "transferSuccess": 0
+        }
+      },
+      "lu.eur.michiel-eur.": {
+        "micmic": {
+          "transferSuccess": 0
         }
       }
     },
     "us.usd.cygnus.": {
-      "micmic": {
-        "de.eur.blue.": {
+      "de.eur.blue.": {
+        "micmic": {
           "transferSuccess": 1,
-          "transferDelay": 2664,
+          "transferDelay": 2788,
           "transferFeePerc": 86
+        }
+      },
+      "us.usd.nexus.": {
+        "micmic": {
+          "transferSuccess": 0
+        }
+      },
+      "us.usd.cornelius.": {
+        "micmic": {
+          "transferSuccess": 0
+        }
+      },
+      "lu.eur.michiel-eur.": {
+        "micmic": {
+          "transferSuccess": 0
+        }
+      },
+      "us.usd.best-ilp.": {
+        "micmic": {
+          "transferSuccess": 0
+        }
+      },
+      "us.usd.ggizi.": {
+        "micmic": {
+          "transferSuccess": 0
         }
       }
     },
-    "eu.eur.pineapplesheep.": {
-      "micmic": {
-        "de.eur.blue.": {
+    "lu.eur.hive.": {
+      "us.usd.red.": {
+        "micmic": {
+          "transferSuccess": 1,
+          "transferDelay": 2805,
+          "transferFeePerc": 7
+        }
+      },
+      "us.usd.cornelius.": {
+        "micmic": {
+          "transferSuccess": 0
+        }
+      },
+      "us.usd.cygnus.": {
+        "micmic": {
+          "transferSuccess": 0
+        }
+      },
+      "us.usd.nexus.": {
+        "micmic": {
+          "transferSuccess": 0
+        }
+      },
+      "us.usd.jonhvb.": {
+        "micmic": {
+          "transferSuccess": 0
+        }
+      },
+      "us.usd.ggizi.": {
+        "micmic": {
+          "transferSuccess": 0
+        }
+      },
+      "lu.eur.michiel-eur.": {
+        "micmic": {
           "transferSuccess": 0
         }
       }
     },
     "mm.mmk.interledger.": {
-      "connector": {
-        "us.usd.usd.": {
+      "us.usd.usd.": {
+        "connector": {
           "transferSuccess": 0
         }
       }
     },
-    "us.usd.usd.": {
-      "connector": {
-        "mm.mmk.interledger.": {
+    "us.usd.red.": {
+      "us.usd.cygnus.": {
+        "micmic": {
+          "transferSuccess": 0
+        }
+      },
+      "us.usd.ggizi.": {
+        "micmic": {
+          "transferSuccess": 0
+        }
+      },
+      "us.usd.nexus.": {
+        "micmic": {
+          "transferSuccess": 0
+        }
+      },
+      "us.usd.best-ilp.": {
+        "micmic": {
+          "transferSuccess": 0
+        }
+      },
+      "us.usd.jonhvb.": {
+        "micmic": {
           "transferSuccess": 0
         }
       }
     },
-    "us.usd.cornelius.": {
-      "micmic": {
-        "de.eur.blue.": {
-          "transferSuccess": 0
-        }
-      }
-    },
-    "us.usd.best-ilp.": {
-      "micmic": {
-        "us.usd.ggizi.": {
+    "lu.eur.michiel.": {
+      "us.usd.hexdivision.": {
+        "connector": {
           "transferSuccess": 0
         }
       }
