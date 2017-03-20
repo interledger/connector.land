@@ -18,8 +18,8 @@
   * respond 'no' to all quote requests: 8 -> I will investigate route expiry
   * are down: 17 -> https://github.com/interledgerjs/ilp-kit/pull/249
 
-* No. of end-to-end routes: 115, of which:
-  * payments successful: 69
-  * connector lets source payment timeout: <=46
-  * connector rejects source payment: <=46
-  * outgoing_prepare event not received: <=46
+* No. of end-to-end routes: 124, of which:
+  * payments successful: 73
+  * connector lets source payment timeout: <=51
+  * connector rejects source payment: <=51
+  * outgoing_prepare event not received: <=51
