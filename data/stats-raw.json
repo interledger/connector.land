@@ -7,7 +7,12 @@
       "version": "<span style=\"color:green\">Compatible: ilp-kit v1.1.0</span>",
       "health": 1,
       "settlements": "<span style=\"color:green\"></span>",
-      "ping": 0
+      "ping": 0,
+      "protocolVersion": "Compatible: ilp-kit v1.1.0",
+      "publicKey": "0ZwLzlPLd2UWJPwYSz6RhOh3S-N-cdAhVqG62iqb6xI",
+      "ledgerUri": "https://red.ilpdemo.org/ledger",
+      "peersRpcUri": "https://red.ilpdemo.org/api/peers/rpc",
+      "settlementMethods": "https://red.ilpdemo.org/api/settlement_methods"
     },
     "blue.ilpdemo.org": {
       "hostname": "blue.ilpdemo.org",
@@ -16,7 +21,12 @@
       "version": "<span style=\"color:green\">Compatible: ilp-kit v1.1.0</span>",
       "health": 1,
       "settlements": "None",
-      "ping": 0
+      "ping": 0,
+      "protocolVersion": "Compatible: ilp-kit v1.1.0",
+      "publicKey": "ncGB5ESoRkBA8iLAvLAz9EdIH2zQCTBT6Di5XPj7qFc",
+      "ledgerUri": "https://blue.ilpdemo.org/ledger",
+      "peersRpcUri": "https://blue.ilpdemo.org/api/peers/rpc",
+      "settlementMethods": "https://blue.ilpdemo.org/api/settlement_methods"
     },
     "kes-ilp.abdishakur.com": {
       "hostname": "kes-ilp.abdishakur.com",
@@ -58,7 +68,12 @@
       "version": "<span style=\"color:green\">Compatible: ilp-kit v1.1.0</span>",
       "health": 1,
       "settlements": "<span style=\"color:green\">Cash</span>",
-      "ping": 1
+      "ping": 1,
+      "protocolVersion": "Compatible: ilp-kit v1.1.0",
+      "publicKey": "Y_luxphkAy6ddYzuXb9lXxS60zg5tHjrPh8zz_BfwEA",
+      "ledgerUri": "https://pineapplesheep.ilp.rocks/ledger",
+      "peersRpcUri": "https://pineapplesheep.ilp.rocks/api/peers/rpc",
+      "settlementMethods": "https://pineapplesheep.ilp.rocks/api/settlement_methods"
     },
     "usd.interledger.network": {
       "hostname": "usd.interledger.network",
@@ -67,7 +82,12 @@
       "version": "<span style=\"color:green\">Compatible: ilp-kit v1.1.0</span>",
       "health": 1,
       "settlements": "<span style=\"color:green\">Paypal</span>",
-      "ping": 1
+      "ping": 1,
+      "protocolVersion": "Compatible: ilp-kit v1.1.0",
+      "publicKey": "RaDX8ZREv6KSi55fqCQb4cE-631PaWZaiNdAOnAFXHg",
+      "ledgerUri": "https://usd.interledger.network/ledger",
+      "peersRpcUri": "https://usd.interledger.network/api/peers/rpc",
+      "settlementMethods": "https://usd.interledger.network/api/settlement_methods"
     },
     "mmk.interledger.network": {
       "hostname": "mmk.interledger.network",
@@ -76,15 +96,24 @@
       "version": "<span style=\"color:green\">Compatible: ilp-kit v1.1.0</span>",
       "health": 1,
       "settlements": "<span style=\"color:green\">Paypal</span>",
-      "ping": 1
+      "ping": 1,
+      "protocolVersion": "Compatible: ilp-kit v1.1.0",
+      "publicKey": "7xQdezla-uEd45IpRiDcfIhCCnmdAlrFNKfm4JshSUE",
+      "ledgerUri": "https://mmk.interledger.network/ledger",
+      "peersRpcUri": "https://mmk.interledger.network/api/peers/rpc",
+      "settlementMethods": "https://mmk.interledger.network/api/settlement_methods"
     },
     "interledger.kr": {
       "hostname": "interledger.kr",
       "owner": "mspark",
       "prefix": "kr.krw.interledgerkorea.",
-      "health": 0.9908648275251637,
+      "health": 1,
       "settlements": "None",
-      "ping": 0
+      "ping": 0,
+      "publicKey": "LEU5tplTJLu_dQQvjw_1E6P-T_NKUC3b8rSFtL1hZDY",
+      "ledgerUri": "https://interledger.kr/ledger",
+      "peersRpcUri": "https://interledger.kr/api/peers/rpc",
+      "settlementMethods": "https://interledger.kr/api/settlement_methods"
     },
     "nexus.justmoon.com": {
       "hostname": "nexus.justmoon.com",
@@ -93,7 +122,12 @@
       "version": "<span style=\"color:green\">Compatible: ilp-kit v1.1.0</span>",
       "health": 1,
       "settlements": "None",
-      "ping": 1
+      "ping": 1,
+      "protocolVersion": "Compatible: ilp-kit v1.1.0",
+      "publicKey": "1W78wTNgWniBxOGyzLSVFJ0HvyPbCTVy57ohGzyhwC8",
+      "ledgerUri": "https://nexus.justmoon.com/ledger",
+      "peersRpcUri": "https://nexus.justmoon.com/api/peers/rpc",
+      "settlementMethods": "https://nexus.justmoon.com/api/settlement_methods"
     },
     "gordon.mearnag.org": {
       "hostname": "gordon.mearnag.org",
@@ -120,7 +154,12 @@
       "version": "<span style=\"color:green\">Compatible: ilp-kit v1.1.0</span>",
       "health": 1,
       "settlements": "<span style=\"color:green\">Hokuto no Ken</span>",
-      "ping": 1
+      "ping": 1,
+      "protocolVersion": "Compatible: ilp-kit v1.1.0",
+      "publicKey": "KRixgcBCBdyQln7IBYiopjuNO78QSFtXgOwP1sbsCSk",
+      "ledgerUri": "https://cornelius.sharafian.com/ledger",
+      "peersRpcUri": "https://cornelius.sharafian.com/api/peers/rpc",
+      "settlementMethods": "https://cornelius.sharafian.com/api/settlement_methods"
     },
     "cygnus.vahehovhannisyan.com": {
       "hostname": "cygnus.vahehovhannisyan.com",
@@ -129,7 +168,12 @@
       "version": "<span style=\"color:green\">Compatible: ilp-kit v1.1.0</span>",
       "health": 1,
       "settlements": "None",
-      "ping": 1
+      "ping": 1,
+      "protocolVersion": "Compatible: ilp-kit v1.1.0",
+      "publicKey": "gqI9E_7v9XaUX95I51D6i8miDHl1Fx0Dd_WZRR9fcgI",
+      "ledgerUri": "https://cygnus.vahehovhannisyan.com/ledger",
+      "peersRpcUri": "https://cygnus.vahehovhannisyan.com/api/peers/rpc",
+      "settlementMethods": "https://cygnus.vahehovhannisyan.com/api/settlement_methods"
     },
     "grifiti.web-payments.net": {
       "hostname": "grifiti.web-payments.net",
@@ -137,16 +181,24 @@
       "prefix": "us.usd.grifiti.",
       "health": 1,
       "settlements": "HTTP <span style=\"color:red\">404</span> response",
-      "ping": 1
+      "ping": 1,
+      "publicKey": "zLXW9HH-KfhrFAI-qlL1PKEibluYTAUEWVsM__qfUVI",
+      "ledgerUri": "https://grifiti.web-payments.net/ledger",
+      "peersRpcUri": "https://grifiti.web-payments.net/api/peers/rpc"
     },
     "hive.dennisappelt.com": {
       "hostname": "hive.dennisappelt.com",
       "owner": "dennis",
       "prefix": "lu.eur.hive.",
       "version": "<span style=\"color:green\">Compatible: ilp-kit v1.1.0</span>",
-      "health": 0.9909561792499121,
+      "health": 1,
       "settlements": "<span style=\"color:green\">Cash, Just click here. We call it even.</span>",
-      "ping": 1
+      "ping": 1,
+      "protocolVersion": "Compatible: ilp-kit v1.1.0",
+      "publicKey": "MrH7ZQqiu48JEHjqE_BsE-PaMxUs8yvR0VSA8I8ZwQ8",
+      "ledgerUri": "https://hive.dennisappelt.com/ledger",
+      "peersRpcUri": "https://hive.dennisappelt.com/api/peers/rpc",
+      "settlementMethods": "https://hive.dennisappelt.com/api/settlement_methods"
     },
     "payment.am": {
       "hostname": "payment.am",
@@ -162,9 +214,14 @@
       "owner": "michiel",
       "prefix": "lu.eur.michiel.",
       "version": "<span style=\"color:green\">Compatible: ilp-kit v1.1.0</span>",
-      "health": 0.9909561792499121,
+      "health": 1,
       "settlements": "<span style=\"color:green\">Cash</span>",
-      "ping": 1
+      "ping": 1,
+      "protocolVersion": "Compatible: ilp-kit v1.1.0",
+      "publicKey": "kT_qSqJwuoC-aSYsek39bx9RpaVDlDUAOnIe4i-IH0Y",
+      "ledgerUri": "https://ilp-kit.michielbdejong.com/ledger",
+      "peersRpcUri": "https://ilp-kit.michielbdejong.com/api/peers/rpc",
+      "settlementMethods": "https://ilp-kit.michielbdejong.com/api/settlement_methods"
     },
     "john.jpvbs.com": {
       "hostname": "john.jpvbs.com",
@@ -173,7 +230,12 @@
       "version": "<span style=\"color:green\">Compatible: ilp-kit v1.1.0</span>",
       "health": 1,
       "settlements": "<span style=\"color:green\">Orange Juice</span>",
-      "ping": 1
+      "ping": 1,
+      "protocolVersion": "Compatible: ilp-kit v1.1.0",
+      "publicKey": "UQ77rQvVHSaWn7ZpUZRyQfgIC_OWsM1G8e25zvlJ3io",
+      "ledgerUri": "https://john.jpvbs.com/ledger",
+      "peersRpcUri": "https://john.jpvbs.com/api/peers/rpc",
+      "settlementMethods": "https://john.jpvbs.com/api/settlement_methods"
     },
     "best-ilp.herokuapp.com": {
       "hostname": "best-ilp.herokuapp.com",
@@ -181,7 +243,11 @@
       "prefix": "us.usd.best-ilp.",
       "health": 1,
       "settlements": "None",
-      "ping": 0
+      "ping": 0,
+      "publicKey": "D3AgeUlt4b0Ron-BYFQA_mqZeJ8QnzzHxnjr0Uuq0EM",
+      "ledgerUri": "https://best-ilp.herokuapp.com/ledger",
+      "peersRpcUri": "https://best-ilp.herokuapp.com/api/peers/rpc",
+      "settlementMethods": "https://best-ilp.herokuapp.com/api/settlement_methods"
     },
     "someledger.herokuapp.com": {
       "hostname": "someledger.herokuapp.com",
@@ -195,7 +261,7 @@
       "hostname": "michiel-is-not-available.herokuapp.com",
       "owner": "admin",
       "version": "<span style=\"color:red\">WebFinger error</span>",
-      "health": 0.009043820750088045,
+      "health": 0,
       "settlements": "HTTP <span style=\"color:red\">503</span> response",
       "ping": 0
     },
@@ -205,7 +271,11 @@
       "prefix": "ca.usd.royalcrypto.",
       "health": 1,
       "settlements": "None",
-      "ping": 1
+      "ping": 1,
+      "publicKey": "M0YuU5hNUZ1F8fNOxVpUyS_EhiMyhvD3P7bQzDA60Cw",
+      "ledgerUri": "https://royalcrypto.com/ledger",
+      "peersRpcUri": "https://royalcrypto.com/api/peers/rpc",
+      "settlementMethods": "https://royalcrypto.com/api/settlement_methods"
     },
     "ggizi.herokuapp.com": {
       "hostname": "ggizi.herokuapp.com",
@@ -213,7 +283,11 @@
       "prefix": "us.usd.ggizi.",
       "health": 1,
       "settlements": "<span style=\"color:green\"></span>",
-      "ping": 0
+      "ping": 0,
+      "publicKey": "uHovjn7L1a2Yij5CUxcQQ44ebZsKNOl-d7yKRwFqG2I",
+      "ledgerUri": "https://ggizi.herokuapp.com/ledger",
+      "peersRpcUri": "https://ggizi.herokuapp.com/api/peers/rpc",
+      "settlementMethods": "https://ggizi.herokuapp.com/api/settlement_methods"
     },
     "michiel-eur.herokuapp.com": {
       "hostname": "michiel-eur.herokuapp.com",
@@ -222,7 +296,12 @@
       "version": "<span style=\"color:green\">Compatible: ilp-kit v1.1.0</span>",
       "health": 1,
       "settlements": "None",
-      "ping": 0
+      "ping": 0,
+      "protocolVersion": "Compatible: ilp-kit v1.1.0",
+      "publicKey": "gtx3jAceC0n7dQYzXHXqa1kq9pBXYW9nOE1o3A1zTzE",
+      "ledgerUri": "https://michiel-eur.herokuapp.com/ledger",
+      "peersRpcUri": "https://michiel-eur.herokuapp.com/api/peers/rpc",
+      "settlementMethods": "https://michiel-eur.herokuapp.com/api/settlement_methods"
     },
     "ilp.hexdivision.com": {
       "hostname": "ilp.hexdivision.com",
@@ -231,7 +310,12 @@
       "version": "<span style=\"color:green\">Compatible: ilp-kit v1.1.0</span>",
       "health": 1,
       "settlements": "None",
-      "ping": 1
+      "ping": 1,
+      "protocolVersion": "Compatible: ilp-kit v1.1.0",
+      "publicKey": "IyevnQk57WidU5gYpglpmi8he5xPZL_FE6Pk1fCQUBQ",
+      "ledgerUri": "https://ilp.hexdivision.com/ledger",
+      "peersRpcUri": "https://ilp.hexdivision.com/api/peers/rpc",
+      "settlementMethods": "https://ilp.hexdivision.com/api/settlement_methods"
     },
     "ilpkit-gce.fluid.money": {
       "hostname": "ilpkit-gce.fluid.money",
@@ -240,7 +324,12 @@
       "version": "<span style=\"color:green\">Compatible: ilp-kit v1.1.0</span>",
       "health": 1,
       "settlements": "<span style=\"color:green\">Cash</span>",
-      "ping": 1
+      "ping": 1,
+      "protocolVersion": "Compatible: ilp-kit v1.1.0",
+      "publicKey": "Znxdzaz2bQvgy3nJcq81JvYV-dOjMn3xBXx9qQQ0Xl4",
+      "ledgerUri": "https://ilpkit-gce.fluid.money/ledger",
+      "peersRpcUri": "https://ilpkit-gce.fluid.money/api/peers/rpc",
+      "settlementMethods": "https://ilpkit-gce.fluid.money/api/settlement_methods"
     },
     "za.zar.ilp.hopebailie.com": {
       "hostname": "za.zar.ilp.hopebailie.com",
@@ -270,7 +359,31 @@
       "connectDelay": 2162.93,
       "connectSuccess": 1,
       "msgDelay": 547.25616,
-      "msgSuccess": 1
+      "msgSuccess": 1,
+      "connectors": [
+        {
+          "id": "https://red.ilpdemo.org/ledger/accounts/connie",
+          "name": "connie"
+        }
+      ],
+      "currency_code": "USD",
+      "currency_symbol": "$",
+      "ilp_prefix": "us.usd.red.",
+      "condition_sign_public_key": "OWwcKepF/fAhVaaxRNUqoJ9Zqpd8j66DORbCFvNP5GY=",
+      "urls": {
+        "health": "https://red.ilpdemo.org/ledger/health",
+        "transfer": "https://red.ilpdemo.org/ledger/transfers/:id",
+        "transfer_fulfillment": "https://red.ilpdemo.org/ledger/transfers/:id/fulfillment",
+        "transfer_rejection": "https://red.ilpdemo.org/ledger/transfers/:id/rejection",
+        "transfer_state": "https://red.ilpdemo.org/ledger/transfers/:id/state",
+        "accounts": "https://red.ilpdemo.org/ledger/accounts",
+        "account": "https://red.ilpdemo.org/ledger/accounts/:name",
+        "auth_token": "https://red.ilpdemo.org/ledger/auth_token",
+        "websocket": "wss://red.ilpdemo.org/ledger/websocket",
+        "message": "https://red.ilpdemo.org/ledger/messages"
+      },
+      "precision": 10,
+      "scale": 2
     },
     "de.eur.blue.": {
       "hostname": "blue.ilpdemo.org",
@@ -281,7 +394,31 @@
       "connectDelay": 2321.52,
       "connectSuccess": 1,
       "msgDelay": 526.16625,
-      "msgSuccess": 1
+      "msgSuccess": 1,
+      "connectors": [
+        {
+          "id": "https://blue.ilpdemo.org/ledger/accounts/connie",
+          "name": "connie"
+        }
+      ],
+      "currency_code": "EUR",
+      "currency_symbol": "€",
+      "ilp_prefix": "de.eur.blue.",
+      "condition_sign_public_key": "iqHxWeIDaiRPuEG9mAyuFkmFPK91HKSpEbdYX8o5yVA=",
+      "urls": {
+        "health": "https://blue.ilpdemo.org/ledger/health",
+        "transfer": "https://blue.ilpdemo.org/ledger/transfers/:id",
+        "transfer_fulfillment": "https://blue.ilpdemo.org/ledger/transfers/:id/fulfillment",
+        "transfer_rejection": "https://blue.ilpdemo.org/ledger/transfers/:id/rejection",
+        "transfer_state": "https://blue.ilpdemo.org/ledger/transfers/:id/state",
+        "accounts": "https://blue.ilpdemo.org/ledger/accounts",
+        "account": "https://blue.ilpdemo.org/ledger/accounts/:name",
+        "auth_token": "https://blue.ilpdemo.org/ledger/auth_token",
+        "websocket": "wss://blue.ilpdemo.org/ledger/websocket",
+        "message": "https://blue.ilpdemo.org/ledger/messages"
+      },
+      "precision": 10,
+      "scale": 2
     },
     "undefined": {
       "hostname": "michiel-is-not-available.herokuapp.com"
@@ -300,7 +437,31 @@
       "connectDelay": 188.46,
       "connectSuccess": 1,
       "msgDelay": 46.91171999999999,
-      "msgSuccess": 1
+      "msgSuccess": 1,
+      "connectors": [
+        {
+          "id": "https://pineapplesheep.ilp.rocks/ledger/accounts/pineapplesheep",
+          "name": "pineapplesheep"
+        }
+      ],
+      "currency_code": "EUR",
+      "currency_symbol": "€",
+      "ilp_prefix": "eu.eur.pineapplesheep.",
+      "condition_sign_public_key": "FCZGix8EUW46dAGoIrmQVQbOx970BBxIt5IW52jqV9w=",
+      "urls": {
+        "health": "https://pineapplesheep.ilp.rocks/ledger/health",
+        "transfer": "https://pineapplesheep.ilp.rocks/ledger/transfers/:id",
+        "transfer_fulfillment": "https://pineapplesheep.ilp.rocks/ledger/transfers/:id/fulfillment",
+        "transfer_rejection": "https://pineapplesheep.ilp.rocks/ledger/transfers/:id/rejection",
+        "transfer_state": "https://pineapplesheep.ilp.rocks/ledger/transfers/:id/state",
+        "accounts": "https://pineapplesheep.ilp.rocks/ledger/accounts",
+        "account": "https://pineapplesheep.ilp.rocks/ledger/accounts/:name",
+        "auth_token": "https://pineapplesheep.ilp.rocks/ledger/auth_token",
+        "websocket": "wss://pineapplesheep.ilp.rocks/ledger/websocket",
+        "message": "https://pineapplesheep.ilp.rocks/ledger/messages"
+      },
+      "precision": 10,
+      "scale": 2
     },
     "us.usd.usd.": {
       "hostname": "usd.interledger.network",
@@ -311,7 +472,31 @@
       "connectDelay": 1134.18,
       "connectSuccess": 1,
       "msgDelay": 269.69675,
-      "msgSuccess": 1
+      "msgSuccess": 1,
+      "connectors": [
+        {
+          "id": "https://usd.interledger.network/ledger/accounts/connector",
+          "name": "connector"
+        }
+      ],
+      "currency_code": "USD",
+      "currency_symbol": "$",
+      "ilp_prefix": "us.usd.usd.",
+      "condition_sign_public_key": "sMWWg1JJ3s9MYBCWLjmz6aN/qG9QODEG8EhhDYE2G3Y=",
+      "urls": {
+        "health": "https://usd.interledger.network/ledger/health",
+        "transfer": "https://usd.interledger.network/ledger/transfers/:id",
+        "transfer_fulfillment": "https://usd.interledger.network/ledger/transfers/:id/fulfillment",
+        "transfer_rejection": "https://usd.interledger.network/ledger/transfers/:id/rejection",
+        "transfer_state": "https://usd.interledger.network/ledger/transfers/:id/state",
+        "accounts": "https://usd.interledger.network/ledger/accounts",
+        "account": "https://usd.interledger.network/ledger/accounts/:name",
+        "auth_token": "https://usd.interledger.network/ledger/auth_token",
+        "websocket": "wss://usd.interledger.network/ledger/websocket",
+        "message": "https://usd.interledger.network/ledger/messages"
+      },
+      "precision": 10,
+      "scale": 2
     },
     "mm.mmk.interledger.": {
       "hostname": "mmk.interledger.network",
@@ -322,7 +507,31 @@
       "connectDelay": 3591.5600000000004,
       "connectSuccess": 1,
       "msgDelay": 826.9696899999999,
-      "msgSuccess": 1
+      "msgSuccess": 1,
+      "connectors": [
+        {
+          "id": "https://mmk.interledger.network/ledger/accounts/connector",
+          "name": "connector"
+        }
+      ],
+      "currency_code": "MMK",
+      "currency_symbol": "MMK",
+      "ilp_prefix": "mm.mmk.interledger.",
+      "condition_sign_public_key": "waX50KfMXvC3ND9Uw/X4ULL61iDkTfwf9ZISt4eKm0I=",
+      "urls": {
+        "health": "https://mmk.interledger.network/ledger/health",
+        "transfer": "https://mmk.interledger.network/ledger/transfers/:id",
+        "transfer_fulfillment": "https://mmk.interledger.network/ledger/transfers/:id/fulfillment",
+        "transfer_rejection": "https://mmk.interledger.network/ledger/transfers/:id/rejection",
+        "transfer_state": "https://mmk.interledger.network/ledger/transfers/:id/state",
+        "accounts": "https://mmk.interledger.network/ledger/accounts",
+        "account": "https://mmk.interledger.network/ledger/accounts/:name",
+        "auth_token": "https://mmk.interledger.network/ledger/auth_token",
+        "websocket": "wss://mmk.interledger.network/ledger/websocket",
+        "message": "https://mmk.interledger.network/ledger/messages"
+      },
+      "precision": 10,
+      "scale": 2
     },
     "kr.krw.interledgerkorea.": {
       "hostname": "interledger.kr",
@@ -333,7 +542,31 @@
       "connectDelay": 4111.8099999999995,
       "connectSuccess": 1,
       "msgDelay": 940.62914,
-      "msgSuccess": 1
+      "msgSuccess": 1,
+      "connectors": [
+        {
+          "id": "https://interledger.kr/ledger/accounts/connector",
+          "name": "connector"
+        }
+      ],
+      "currency_code": "KRW",
+      "currency_symbol": "₩",
+      "ilp_prefix": "kr.krw.interledgerkorea.",
+      "condition_sign_public_key": "xiYt5jRaCAKN0DGLcsFA76L3D+3sHT36s2uWXLhrnbw=",
+      "urls": {
+        "health": "https://interledger.kr/ledger/health",
+        "transfer": "https://interledger.kr/ledger/transfers/:id",
+        "transfer_fulfillment": "https://interledger.kr/ledger/transfers/:id/fulfillment",
+        "transfer_rejection": "https://interledger.kr/ledger/transfers/:id/rejection",
+        "transfer_state": "https://interledger.kr/ledger/transfers/:id/state",
+        "accounts": "https://interledger.kr/ledger/accounts",
+        "account": "https://interledger.kr/ledger/accounts/:name",
+        "auth_token": "https://interledger.kr/ledger/auth_token",
+        "websocket": "wss://interledger.kr/ledger/websocket",
+        "message": "https://interledger.kr/ledger/messages"
+      },
+      "precision": 10,
+      "scale": 2
     },
     "us.usd.nexus.": {
       "hostname": "nexus.justmoon.com",
@@ -344,7 +577,31 @@
       "connectDelay": 1218.8899999999999,
       "connectSuccess": 1,
       "msgDelay": 193.46347,
-      "msgSuccess": 1
+      "msgSuccess": 1,
+      "connectors": [
+        {
+          "id": "https://nexus.justmoon.com/ledger/accounts/stefan",
+          "name": "stefan"
+        }
+      ],
+      "currency_code": "USD",
+      "currency_symbol": "$",
+      "ilp_prefix": "us.usd.nexus.",
+      "condition_sign_public_key": "NLZ1AmrvjvgkobtWhftiGfEcWcOerhLn83zLN2mgg90=",
+      "urls": {
+        "health": "https://nexus.justmoon.com/ledger/health",
+        "transfer": "https://nexus.justmoon.com/ledger/transfers/:id",
+        "transfer_fulfillment": "https://nexus.justmoon.com/ledger/transfers/:id/fulfillment",
+        "transfer_rejection": "https://nexus.justmoon.com/ledger/transfers/:id/rejection",
+        "transfer_state": "https://nexus.justmoon.com/ledger/transfers/:id/state",
+        "accounts": "https://nexus.justmoon.com/ledger/accounts",
+        "account": "https://nexus.justmoon.com/ledger/accounts/:name",
+        "auth_token": "https://nexus.justmoon.com/ledger/auth_token",
+        "websocket": "wss://nexus.justmoon.com/ledger/websocket",
+        "message": "https://nexus.justmoon.com/ledger/messages"
+      },
+      "precision": 19,
+      "scale": 9
     },
     "us.usd.cornelius.": {
       "hostname": "cornelius.sharafian.com",
@@ -355,7 +612,31 @@
       "connectDelay": 1028.04,
       "connectSuccess": 1,
       "msgDelay": 219.80488000000005,
-      "msgSuccess": 1
+      "msgSuccess": 1,
+      "connectors": [
+        {
+          "id": "https://cornelius.sharafian.com/ledger/accounts/sharafian",
+          "name": "sharafian"
+        }
+      ],
+      "currency_code": "USD",
+      "currency_symbol": "$",
+      "ilp_prefix": "us.usd.cornelius.",
+      "condition_sign_public_key": "g4c3125rbdtKS/iIt5RkJYWwjwnPIlCTvXUzVjIbB9k=",
+      "urls": {
+        "health": "https://cornelius.sharafian.com/ledger/health",
+        "transfer": "https://cornelius.sharafian.com/ledger/transfers/:id",
+        "transfer_fulfillment": "https://cornelius.sharafian.com/ledger/transfers/:id/fulfillment",
+        "transfer_rejection": "https://cornelius.sharafian.com/ledger/transfers/:id/rejection",
+        "transfer_state": "https://cornelius.sharafian.com/ledger/transfers/:id/state",
+        "accounts": "https://cornelius.sharafian.com/ledger/accounts",
+        "account": "https://cornelius.sharafian.com/ledger/accounts/:name",
+        "auth_token": "https://cornelius.sharafian.com/ledger/auth_token",
+        "websocket": "wss://cornelius.sharafian.com/ledger/websocket",
+        "message": "https://cornelius.sharafian.com/ledger/messages"
+      },
+      "precision": 10,
+      "scale": 6
     },
     "us.usd.cygnus.": {
       "hostname": "cygnus.vahehovhannisyan.com",
@@ -366,13 +647,61 @@
       "connectDelay": 828.22,
       "connectSuccess": 1,
       "msgDelay": 153.94269,
-      "msgSuccess": 1
+      "msgSuccess": 1,
+      "connectors": [
+        {
+          "id": "https://cygnus.vahehovhannisyan.com/ledger/accounts/vahe",
+          "name": "vahe"
+        }
+      ],
+      "currency_code": "USD",
+      "currency_symbol": "$",
+      "ilp_prefix": "us.usd.cygnus.",
+      "condition_sign_public_key": "eMvc0AvBziXZXp3oBVmIbdGgR9Cb7931fKyq5eL5SQo=",
+      "urls": {
+        "health": "https://cygnus.vahehovhannisyan.com/ledger/health",
+        "transfer": "https://cygnus.vahehovhannisyan.com/ledger/transfers/:id",
+        "transfer_fulfillment": "https://cygnus.vahehovhannisyan.com/ledger/transfers/:id/fulfillment",
+        "transfer_rejection": "https://cygnus.vahehovhannisyan.com/ledger/transfers/:id/rejection",
+        "transfer_state": "https://cygnus.vahehovhannisyan.com/ledger/transfers/:id/state",
+        "accounts": "https://cygnus.vahehovhannisyan.com/ledger/accounts",
+        "account": "https://cygnus.vahehovhannisyan.com/ledger/accounts/:name",
+        "auth_token": "https://cygnus.vahehovhannisyan.com/ledger/auth_token",
+        "websocket": "wss://cygnus.vahehovhannisyan.com/ledger/websocket",
+        "message": "https://cygnus.vahehovhannisyan.com/ledger/messages"
+      },
+      "precision": 10,
+      "scale": 2
     },
     "us.usd.grifiti.": {
       "hostname": "grifiti.web-payments.net",
       "prefix": "us.usd.grifiti.",
       "maxBalance": "10^10 centi-USD",
-      "messaging": "no data"
+      "messaging": "no data",
+      "connectors": [
+        {
+          "id": "https://grifiti.web-payments.net/ledger/accounts/pkrey",
+          "name": "pkrey"
+        }
+      ],
+      "currency_code": "USD",
+      "currency_symbol": "$",
+      "ilp_prefix": "us.usd.grifiti.",
+      "condition_sign_public_key": "Wa5ZHs8MpRvs0pkH+nRUlOiQonfIJ6NOAuBjp2tRJOA=",
+      "urls": {
+        "health": "https://grifiti.web-payments.net/ledger/health",
+        "transfer": "https://grifiti.web-payments.net/ledger/transfers/:id",
+        "transfer_fulfillment": "https://grifiti.web-payments.net/ledger/transfers/:id/fulfillment",
+        "transfer_rejection": "https://grifiti.web-payments.net/ledger/transfers/:id/rejection",
+        "transfer_state": "https://grifiti.web-payments.net/ledger/transfers/:id/state",
+        "accounts": "https://grifiti.web-payments.net/ledger/accounts",
+        "account": "https://grifiti.web-payments.net/ledger/accounts/:name",
+        "auth_token": "https://grifiti.web-payments.net/ledger/auth_token",
+        "websocket": "wss://grifiti.web-payments.net/ledger/websocket",
+        "message": "https://grifiti.web-payments.net/ledger/messages"
+      },
+      "precision": 10,
+      "scale": 2
     },
     "lu.eur.hive.": {
       "hostname": "hive.dennisappelt.com",
@@ -383,7 +712,31 @@
       "connectDelay": 243.94,
       "connectSuccess": 1,
       "msgDelay": 39.69676,
-      "msgSuccess": 1
+      "msgSuccess": 1,
+      "connectors": [
+        {
+          "id": "https://hive.dennisappelt.com/ledger/accounts/dennis",
+          "name": "dennis"
+        }
+      ],
+      "currency_code": "EUR",
+      "currency_symbol": null,
+      "ilp_prefix": "lu.eur.hive.",
+      "condition_sign_public_key": "s8HuOJZ87koP2BNMcMr4caXmjMf631Wsk/W8rUpOZK4=",
+      "urls": {
+        "health": "https://hive.dennisappelt.com/ledger/health",
+        "transfer": "https://hive.dennisappelt.com/ledger/transfers/:id",
+        "transfer_fulfillment": "https://hive.dennisappelt.com/ledger/transfers/:id/fulfillment",
+        "transfer_rejection": "https://hive.dennisappelt.com/ledger/transfers/:id/rejection",
+        "transfer_state": "https://hive.dennisappelt.com/ledger/transfers/:id/state",
+        "accounts": "https://hive.dennisappelt.com/ledger/accounts",
+        "account": "https://hive.dennisappelt.com/ledger/accounts/:name",
+        "auth_token": "https://hive.dennisappelt.com/ledger/auth_token",
+        "websocket": "wss://hive.dennisappelt.com/ledger/websocket",
+        "message": "https://hive.dennisappelt.com/ledger/messages"
+      },
+      "precision": 16,
+      "scale": 8
     },
     "am.amd.payment.": {
       "hostname": "payment.am",
@@ -398,10 +751,42 @@
       "maxBalance": "10^19 nano-EUR",
       "messaging": 417.8232175643375,
       "messageToSelf": 169.4078448586377,
-      "connectDelay": 180.62,
+      "connectDelay": 176.458,
       "connectSuccess": 1,
-      "msgDelay": 34.56397,
-      "msgSuccess": 1
+      "msgDelay": 33.546815699999996,
+      "msgSuccess": 1,
+      "connectors": [
+        {
+          "id": "https://ilp-kit.michielbdejong.com/ledger/accounts/connector",
+          "name": "connector"
+        },
+        {
+          "id": "https://ilp-kit.michielbdejong.com/ledger/accounts/micmic",
+          "name": "micmic"
+        }
+      ],
+      "currency_code": "EUR",
+      "currency_symbol": "€",
+      "ilp_prefix": "lu.eur.michiel.",
+      "condition_sign_public_key": "0hBKDYT4Q53WE3oPUYdvvJ3hLC/9rp8exQQn+08yDiA=",
+      "urls": {
+        "health": "https://ilp-kit.michielbdejong.com/ledger/health",
+        "transfer": "https://ilp-kit.michielbdejong.com/ledger/transfers/:id",
+        "transfer_fulfillment": "https://ilp-kit.michielbdejong.com/ledger/transfers/:id/fulfillment",
+        "transfer_rejection": "https://ilp-kit.michielbdejong.com/ledger/transfers/:id/rejection",
+        "transfer_state": "https://ilp-kit.michielbdejong.com/ledger/transfers/:id/state",
+        "accounts": "https://ilp-kit.michielbdejong.com/ledger/accounts",
+        "account": "https://ilp-kit.michielbdejong.com/ledger/accounts/:name",
+        "auth_token": "https://ilp-kit.michielbdejong.com/ledger/auth_token",
+        "websocket": "wss://ilp-kit.michielbdejong.com/ledger/websocket",
+        "message": "https://ilp-kit.michielbdejong.com/ledger/messages"
+      },
+      "precision": 19,
+      "scale": 9,
+      "balances": {
+        "connectorland": "9.511778355"
+      },
+      "rate": 1
     },
     "us.usd.jonhvb.": {
       "hostname": "john.jpvbs.com",
@@ -412,7 +797,31 @@
       "connectDelay": 351.29,
       "connectSuccess": 1,
       "msgDelay": 79.62290999999998,
-      "msgSuccess": 1
+      "msgSuccess": 1,
+      "connectors": [
+        {
+          "id": "https://john.jpvbs.com/ledger/accounts/connector",
+          "name": "connector"
+        }
+      ],
+      "currency_code": "USD",
+      "currency_symbol": "$",
+      "ilp_prefix": "us.usd.jonhvb.",
+      "condition_sign_public_key": "EHK1sgWe5yGqunXg9oVwPt28QFnO04d19PZkFJP0v28=",
+      "urls": {
+        "health": "https://john.jpvbs.com/ledger/health",
+        "transfer": "https://john.jpvbs.com/ledger/transfers/:id",
+        "transfer_fulfillment": "https://john.jpvbs.com/ledger/transfers/:id/fulfillment",
+        "transfer_rejection": "https://john.jpvbs.com/ledger/transfers/:id/rejection",
+        "transfer_state": "https://john.jpvbs.com/ledger/transfers/:id/state",
+        "accounts": "https://john.jpvbs.com/ledger/accounts",
+        "account": "https://john.jpvbs.com/ledger/accounts/:name",
+        "auth_token": "https://john.jpvbs.com/ledger/auth_token",
+        "websocket": "wss://john.jpvbs.com/ledger/websocket",
+        "message": "https://john.jpvbs.com/ledger/messages"
+      },
+      "precision": 10,
+      "scale": 2
     },
     "us.usd.best-ilp.": {
       "hostname": "best-ilp.herokuapp.com",
@@ -423,7 +832,31 @@
       "connectDelay": 1304.19,
       "connectSuccess": 1,
       "msgDelay": 314.35578000000004,
-      "msgSuccess": 1
+      "msgSuccess": 1,
+      "connectors": [
+        {
+          "id": "https://best-ilp.herokuapp.com/ledger/accounts/conct",
+          "name": "conct"
+        }
+      ],
+      "currency_code": "USD",
+      "currency_symbol": "$",
+      "ilp_prefix": "us.usd.best-ilp.",
+      "condition_sign_public_key": "FJ/x/aw8BFBHVGx478hC8hkJmC7SgVR9NH3/GyZ8Mp0=",
+      "urls": {
+        "health": "https://best-ilp.herokuapp.com/ledger/health",
+        "transfer": "https://best-ilp.herokuapp.com/ledger/transfers/:id",
+        "transfer_fulfillment": "https://best-ilp.herokuapp.com/ledger/transfers/:id/fulfillment",
+        "transfer_rejection": "https://best-ilp.herokuapp.com/ledger/transfers/:id/rejection",
+        "transfer_state": "https://best-ilp.herokuapp.com/ledger/transfers/:id/state",
+        "accounts": "https://best-ilp.herokuapp.com/ledger/accounts",
+        "account": "https://best-ilp.herokuapp.com/ledger/accounts/:name",
+        "auth_token": "https://best-ilp.herokuapp.com/ledger/auth_token",
+        "websocket": "wss://best-ilp.herokuapp.com/ledger/websocket",
+        "message": "https://best-ilp.herokuapp.com/ledger/messages"
+      },
+      "precision": 10,
+      "scale": 2
     },
     "us.usd.michiel-is-not-available.": {
       "hostname": "michiel-is-not-available.herokuapp.com",
@@ -441,7 +874,31 @@
       "connectDelay": 1414.93,
       "connectSuccess": 1,
       "msgDelay": 325.84698,
-      "msgSuccess": 1
+      "msgSuccess": 1,
+      "connectors": [
+        {
+          "id": "https://royalcrypto.com/ledger/accounts/connector",
+          "name": "connector"
+        }
+      ],
+      "currency_code": "USD",
+      "currency_symbol": "$",
+      "ilp_prefix": "ca.usd.royalcrypto.",
+      "condition_sign_public_key": "X3kwqZFymrFnUo+x9U6FWmsWK1lg8dVaP8Gclwdq6KI=",
+      "urls": {
+        "health": "https://royalcrypto.com/ledger/health",
+        "transfer": "https://royalcrypto.com/ledger/transfers/:id",
+        "transfer_fulfillment": "https://royalcrypto.com/ledger/transfers/:id/fulfillment",
+        "transfer_rejection": "https://royalcrypto.com/ledger/transfers/:id/rejection",
+        "transfer_state": "https://royalcrypto.com/ledger/transfers/:id/state",
+        "accounts": "https://royalcrypto.com/ledger/accounts",
+        "account": "https://royalcrypto.com/ledger/accounts/:name",
+        "auth_token": "https://royalcrypto.com/ledger/auth_token",
+        "websocket": "wss://royalcrypto.com/ledger/websocket",
+        "message": "https://royalcrypto.com/ledger/messages"
+      },
+      "precision": 10,
+      "scale": 2
     },
     "us.usd.ggizi.": {
       "hostname": "ggizi.herokuapp.com",
@@ -452,7 +909,31 @@
       "connectDelay": 1327.84,
       "connectSuccess": 1,
       "msgDelay": 310.14518000000004,
-      "msgSuccess": 1
+      "msgSuccess": 1,
+      "connectors": [
+        {
+          "id": "https://ggizi.herokuapp.com/ledger/accounts/connector",
+          "name": "connector"
+        }
+      ],
+      "currency_code": "USD",
+      "currency_symbol": "$",
+      "ilp_prefix": "us.usd.ggizi.",
+      "condition_sign_public_key": "8/UZGOG0CHkiMtb5nLbaWg9QHsD+2eGksEF/ceilBNE=",
+      "urls": {
+        "health": "https://ggizi.herokuapp.com/ledger/health",
+        "transfer": "https://ggizi.herokuapp.com/ledger/transfers/:id",
+        "transfer_fulfillment": "https://ggizi.herokuapp.com/ledger/transfers/:id/fulfillment",
+        "transfer_rejection": "https://ggizi.herokuapp.com/ledger/transfers/:id/rejection",
+        "transfer_state": "https://ggizi.herokuapp.com/ledger/transfers/:id/state",
+        "accounts": "https://ggizi.herokuapp.com/ledger/accounts",
+        "account": "https://ggizi.herokuapp.com/ledger/accounts/:name",
+        "auth_token": "https://ggizi.herokuapp.com/ledger/auth_token",
+        "websocket": "wss://ggizi.herokuapp.com/ledger/websocket",
+        "message": "https://ggizi.herokuapp.com/ledger/messages"
+      },
+      "precision": 10,
+      "scale": 2
     },
     "lu.eur.michiel-eur.": {
       "hostname": "michiel-eur.herokuapp.com",
@@ -460,10 +941,38 @@
       "maxBalance": "10^10 centi-EUR",
       "messaging": 845.7284157136083,
       "messageToSelf": 273.94681074905134,
-      "connectDelay": 448.2,
+      "connectDelay": 448.5799999999999,
       "connectSuccess": 1,
-      "msgDelay": 93.18702,
-      "msgSuccess": 1
+      "msgDelay": 94.5214862,
+      "msgSuccess": 1,
+      "connectors": [
+        {
+          "id": "https://michiel-eur.herokuapp.com/ledger/accounts/micmic",
+          "name": "micmic"
+        }
+      ],
+      "currency_code": "EUR",
+      "currency_symbol": "€",
+      "ilp_prefix": "lu.eur.michiel-eur.",
+      "condition_sign_public_key": "I+qBkITqIlWVtfKK158wz6SeYsUCPns9R5AKuKSnH5Y=",
+      "urls": {
+        "health": "https://michiel-eur.herokuapp.com/ledger/health",
+        "transfer": "https://michiel-eur.herokuapp.com/ledger/transfers/:id",
+        "transfer_fulfillment": "https://michiel-eur.herokuapp.com/ledger/transfers/:id/fulfillment",
+        "transfer_rejection": "https://michiel-eur.herokuapp.com/ledger/transfers/:id/rejection",
+        "transfer_state": "https://michiel-eur.herokuapp.com/ledger/transfers/:id/state",
+        "accounts": "https://michiel-eur.herokuapp.com/ledger/accounts",
+        "account": "https://michiel-eur.herokuapp.com/ledger/accounts/:name",
+        "auth_token": "https://michiel-eur.herokuapp.com/ledger/auth_token",
+        "websocket": "wss://michiel-eur.herokuapp.com/ledger/websocket",
+        "message": "https://michiel-eur.herokuapp.com/ledger/messages"
+      },
+      "precision": 10,
+      "scale": 2,
+      "balances": {
+        "connectorland": "8.86"
+      },
+      "rate": 1
     },
     "us.usd.hexdivision.": {
       "hostname": "ilp.hexdivision.com",
@@ -474,7 +983,31 @@
       "connectDelay": 170.29,
       "connectSuccess": 1,
       "msgDelay": 38.94351,
-      "msgSuccess": 1
+      "msgSuccess": 1,
+      "connectors": [
+        {
+          "id": "https://ilp.hexdivision.com/ledger/accounts/connector",
+          "name": "connector"
+        }
+      ],
+      "currency_code": "USD",
+      "currency_symbol": "$",
+      "ilp_prefix": "us.usd.hexdivision.",
+      "condition_sign_public_key": "kVex8nxyO1ttmmqjoED/zp/samNddy+/XmIx2fqr80U=",
+      "urls": {
+        "health": "https://ilp.hexdivision.com/ledger/health",
+        "transfer": "https://ilp.hexdivision.com/ledger/transfers/:id",
+        "transfer_fulfillment": "https://ilp.hexdivision.com/ledger/transfers/:id/fulfillment",
+        "transfer_rejection": "https://ilp.hexdivision.com/ledger/transfers/:id/rejection",
+        "transfer_state": "https://ilp.hexdivision.com/ledger/transfers/:id/state",
+        "accounts": "https://ilp.hexdivision.com/ledger/accounts",
+        "account": "https://ilp.hexdivision.com/ledger/accounts/:name",
+        "auth_token": "https://ilp.hexdivision.com/ledger/auth_token",
+        "websocket": "wss://ilp.hexdivision.com/ledger/websocket",
+        "message": "https://ilp.hexdivision.com/ledger/messages"
+      },
+      "precision": 10,
+      "scale": 2
     },
     "us.usd.ilpkit-gce.": {
       "hostname": "ilpkit-gce.fluid.money",
@@ -485,7 +1018,31 @@
       "connectDelay": 2062.95,
       "connectSuccess": 1,
       "msgDelay": 488.3459000000001,
-      "msgSuccess": 1
+      "msgSuccess": 1,
+      "connectors": [
+        {
+          "id": "https://ilpkit-gce.fluid.money/ledger/accounts/connector",
+          "name": "connector"
+        }
+      ],
+      "currency_code": "USD",
+      "currency_symbol": "$",
+      "ilp_prefix": "us.usd.ilpkit-gce.",
+      "condition_sign_public_key": "fiEhFm/wHWETqwDeZfRXHeHOc9aJVQwdqButUirbWWM=",
+      "urls": {
+        "health": "https://ilpkit-gce.fluid.money/ledger/health",
+        "transfer": "https://ilpkit-gce.fluid.money/ledger/transfers/:id",
+        "transfer_fulfillment": "https://ilpkit-gce.fluid.money/ledger/transfers/:id/fulfillment",
+        "transfer_rejection": "https://ilpkit-gce.fluid.money/ledger/transfers/:id/rejection",
+        "transfer_state": "https://ilpkit-gce.fluid.money/ledger/transfers/:id/state",
+        "accounts": "https://ilpkit-gce.fluid.money/ledger/accounts",
+        "account": "https://ilpkit-gce.fluid.money/ledger/accounts/:name",
+        "auth_token": "https://ilpkit-gce.fluid.money/ledger/auth_token",
+        "websocket": "wss://ilpkit-gce.fluid.money/ledger/websocket",
+        "message": "https://ilpkit-gce.fluid.money/ledger/messages"
+      },
+      "precision": 10,
+      "scale": 2
     }
   },
   "connectors": {
@@ -889,6 +1446,17 @@
         "us.usd.ggizi.": "<span style=\"color:red\">fail</span>",
         "de.eur.blue.": "<span style=\"color:red\">fail</span>",
         "us.usd.red.": "<span style=\"color:red\">fail</span>"
+      }
+    }
+  },
+  "routes": {
+    "lu.eur.michiel.": {
+      "micmic": {
+        "lu.eur.michiel-eur.": {
+          "transferSuccess": 1,
+          "transferDelay": 1,
+          "transferFeePerc": 1
+        }
       }
     }
   }
