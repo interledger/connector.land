@@ -17,5 +17,10 @@
     "routeless": 8,
     "down": 17,
     "total": 32
+  },
+  "numRoutes": {
+    "success": 1,
+    "down": 0,
+    "total": 1
   }
 }

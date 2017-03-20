@@ -65,4 +65,23 @@ for (var i in stats.connectors) {
     numConnectors.down++;
   }
 }
-fs.writeFileSync('../data/report.json', JSON.stringify({ numHosts, numLedgers, numConnectors }, null, 2));
+
+var numRoutes = {
+  success: 0,
+  down: 0,
+  total: 0,
+};
+for (var i in stats.routes) {
+  for (var j in stats.routes[i]) {
+    for (var k in stats.routes[i][j]) {
+      numRoutes.total++;
+console.log(stats.routes[i][j][k], i, j, k);
+      if (stats.routes[i][j][k].transferSuccess > .9) {
+        numRoutes.success++;
+      } else {
+        numRoutes.down++;
+      }
+    }
+  }
+}
+fs.writeFileSync('../data/report.json', JSON.stringify({ numHosts, numLedgers, numConnectors, numRoutes }, null, 2));

@@ -356,9 +356,9 @@
       "maxBalance": "10^10 centi-USD",
       "messaging": 2806.5713899841808,
       "messageToSelf": 669.4989225055264,
-      "connectDelay": 2162.93,
+      "connectDelay": 2176.6369999999997,
       "connectSuccess": 1,
-      "msgDelay": 547.25616,
+      "msgDelay": 536.8074896,
       "msgSuccess": 1,
       "connectors": [
         {
@@ -383,7 +383,11 @@
         "message": "https://red.ilpdemo.org/ledger/messages"
       },
       "precision": 10,
-      "scale": 2
+      "scale": 2,
+      "balances": {
+        "connectorland": "999.41"
+      },
+      "rate": 1.0737
     },
     "de.eur.blue.": {
       "hostname": "blue.ilpdemo.org",
@@ -391,9 +395,9 @@
       "maxBalance": "10^10 centi-EUR",
       "messaging": 2732.011435105417,
       "messageToSelf": 532.8754798349627,
-      "connectDelay": 2321.52,
+      "connectDelay": 2306.068,
       "connectSuccess": 1,
-      "msgDelay": 526.16625,
+      "msgDelay": 548.0046625,
       "msgSuccess": 1,
       "connectors": [
         {
@@ -418,10 +422,15 @@
         "message": "https://blue.ilpdemo.org/ledger/messages"
       },
       "precision": 10,
-      "scale": 2
+      "scale": 2,
+      "balances": {
+        "connectorland": "999.54"
+      },
+      "rate": 1
     },
     "undefined": {
-      "hostname": "michiel-is-not-available.herokuapp.com"
+      "hostname": "michiel-is-not-available.herokuapp.com",
+      "msgSuccess": 0
     },
     "<span style=\"color:red\">?</span>": {
       "hostname": "coins.paleorbglow.com",
@@ -434,9 +443,9 @@
       "maxBalance": "10^10 centi-EUR",
       "messaging": 511.96530159116816,
       "messageToSelf": 89.32106278700076,
-      "connectDelay": 188.46,
+      "connectDelay": 190.81400000000002,
       "connectSuccess": 1,
-      "msgDelay": 46.91171999999999,
+      "msgDelay": 44.34849319999999,
       "msgSuccess": 1,
       "connectors": [
         {
@@ -461,7 +470,11 @@
         "message": "https://pineapplesheep.ilp.rocks/ledger/messages"
       },
       "precision": 10,
-      "scale": 2
+      "scale": 2,
+      "balances": {
+        "connectorland": "3.68"
+      },
+      "rate": 1
     },
     "us.usd.usd.": {
       "hostname": "usd.interledger.network",
@@ -469,9 +482,9 @@
       "maxBalance": "10^10 centi-USD",
       "messaging": 1342.50549504529,
       "messageToSelf": 291.9152568397341,
-      "connectDelay": 1134.18,
+      "connectDelay": 1135.7620000000002,
       "connectSuccess": 1,
-      "msgDelay": 269.69675,
+      "msgDelay": 269.1743675,
       "msgSuccess": 1,
       "connectors": [
         {
@@ -496,7 +509,11 @@
         "message": "https://usd.interledger.network/ledger/messages"
       },
       "precision": 10,
-      "scale": 2
+      "scale": 2,
+      "balances": {
+        "connectorland": "5"
+      },
+      "rate": 1.0737
     },
     "mm.mmk.interledger.": {
       "hostname": "mmk.interledger.network",
@@ -504,9 +521,9 @@
       "maxBalance": "10^10 centi-MMK",
       "messaging": 3439.4015252000136,
       "messageToSelf": 802.7782742345942,
-      "connectDelay": 3591.5600000000004,
+      "connectDelay": 3589.1040000000007,
       "connectSuccess": 1,
-      "msgDelay": 826.9696899999999,
+      "msgDelay": 824.2354488999999,
       "msgSuccess": 1,
       "connectors": [
         {
@@ -531,7 +548,11 @@
         "message": "https://mmk.interledger.network/ledger/messages"
       },
       "precision": 10,
-      "scale": 2
+      "scale": 2,
+      "balances": {
+        "connectorland": "5000"
+      },
+      "rate": 1
     },
     "kr.krw.interledgerkorea.": {
       "hostname": "interledger.kr",
@@ -539,9 +560,9 @@
       "maxBalance": "10^10 centi-KRW",
       "messaging": 4246.468671521511,
       "messageToSelf": 989.7998589530154,
-      "connectDelay": 4111.8099999999995,
+      "connectDelay": 4117.728999999999,
       "connectSuccess": 1,
-      "msgDelay": 940.62914,
+      "msgDelay": 945.2896034000001,
       "msgSuccess": 1,
       "connectors": [
         {
@@ -566,7 +587,11 @@
         "message": "https://interledger.kr/ledger/messages"
       },
       "precision": 10,
-      "scale": 2
+      "scale": 2,
+      "balances": {
+        "connectorland": "0"
+      },
+      "rate": 1213.2
     },
     "us.usd.nexus.": {
       "hostname": "nexus.justmoon.com",
@@ -574,9 +599,9 @@
       "maxBalance": "10^19 nano-USD",
       "messaging": 1149.4853136045208,
       "messageToSelf": 138.23978921148884,
-      "connectDelay": 1218.8899999999999,
+      "connectDelay": 1156.301,
       "connectSuccess": 1,
-      "msgDelay": 193.46347,
+      "msgDelay": 214.84541069999995,
       "msgSuccess": 1,
       "connectors": [
         {
@@ -601,7 +626,11 @@
         "message": "https://nexus.justmoon.com/ledger/messages"
       },
       "precision": 19,
-      "scale": 9
+      "scale": 9,
+      "balances": {
+        "connectorland": "22.53"
+      },
+      "rate": 1.0737
     },
     "us.usd.cornelius.": {
       "hostname": "cornelius.sharafian.com",
@@ -609,9 +638,9 @@
       "maxBalance": "10^10 micro-USD",
       "messaging": 1215.3921343552436,
       "messageToSelf": 222.9497056454423,
-      "connectDelay": 1028.04,
+      "connectDelay": 1020.1360000000001,
       "connectSuccess": 1,
-      "msgDelay": 219.80488000000005,
+      "msgDelay": 216.12195280000006,
       "msgSuccess": 1,
       "connectors": [
         {
@@ -636,7 +665,11 @@
         "message": "https://cornelius.sharafian.com/ledger/messages"
       },
       "precision": 10,
-      "scale": 6
+      "scale": 6,
+      "balances": {
+        "connectorland": "28.922322"
+      },
+      "rate": 1.0737
     },
     "us.usd.cygnus.": {
       "hostname": "cygnus.vahehovhannisyan.com",
@@ -644,9 +677,9 @@
       "maxBalance": "10^10 centi-USD",
       "messaging": 947.2967520028768,
       "messageToSelf": 268.92073547936826,
-      "connectDelay": 828.22,
+      "connectDelay": 810.6980000000001,
       "connectSuccess": 1,
-      "msgDelay": 153.94269,
+      "msgDelay": 151.33357890000002,
       "msgSuccess": 1,
       "connectors": [
         {
@@ -671,7 +704,11 @@
         "message": "https://cygnus.vahehovhannisyan.com/ledger/messages"
       },
       "precision": 10,
-      "scale": 2
+      "scale": 2,
+      "balances": {
+        "connectorland": "7.38"
+      },
+      "rate": 1.0737
     },
     "us.usd.grifiti.": {
       "hostname": "grifiti.web-payments.net",
@@ -709,9 +746,9 @@
       "maxBalance": "10^16 (10^-8)-EUR",
       "messaging": 453.44399289092365,
       "messageToSelf": 148.20425903405163,
-      "connectDelay": 243.94,
+      "connectDelay": 240.046,
       "connectSuccess": 1,
-      "msgDelay": 39.69676,
+      "msgDelay": 39.074375599999996,
       "msgSuccess": 1,
       "connectors": [
         {
@@ -736,7 +773,11 @@
         "message": "https://hive.dennisappelt.com/ledger/messages"
       },
       "precision": 16,
-      "scale": 8
+      "scale": 8,
+      "balances": {
+        "connectorland": "8.39571834"
+      },
+      "rate": 1
     },
     "am.amd.payment.": {
       "hostname": "payment.am",
@@ -751,9 +792,9 @@
       "maxBalance": "10^19 nano-EUR",
       "messaging": 417.8232175643375,
       "messageToSelf": 169.4078448586377,
-      "connectDelay": 176.458,
+      "connectDelay": 175.29098,
       "connectSuccess": 1,
-      "msgDelay": 33.546815699999996,
+      "msgDelay": 32.74076578077,
       "msgSuccess": 1,
       "connectors": [
         {
@@ -784,7 +825,7 @@
       "precision": 19,
       "scale": 9,
       "balances": {
-        "connectorland": "9.511778355"
+        "connectorland": "9.491778353"
       },
       "rate": 1
     },
@@ -794,9 +835,9 @@
       "maxBalance": "10^10 centi-USD",
       "messaging": 728.8575218322388,
       "messageToSelf": 165.18076251049885,
-      "connectDelay": 351.29,
+      "connectDelay": 350.661,
       "connectSuccess": 1,
-      "msgDelay": 79.62290999999998,
+      "msgDelay": 80.22455709999997,
       "msgSuccess": 1,
       "connectors": [
         {
@@ -821,7 +862,11 @@
         "message": "https://john.jpvbs.com/ledger/messages"
       },
       "precision": 10,
-      "scale": 2
+      "scale": 2,
+      "balances": {
+        "connectorland": "0.34"
+      },
+      "rate": 1.0737
     },
     "us.usd.best-ilp.": {
       "hostname": "best-ilp.herokuapp.com",
@@ -829,9 +874,9 @@
       "maxBalance": "10^10 centi-USD",
       "messaging": 1424.9607753974178,
       "messageToSelf": 311.22479951667344,
-      "connectDelay": 1304.19,
+      "connectDelay": 1312.2710000000002,
       "connectSuccess": 1,
-      "msgDelay": 314.35578000000004,
+      "msgDelay": 315.7981818,
       "msgSuccess": 1,
       "connectors": [
         {
@@ -856,7 +901,11 @@
         "message": "https://best-ilp.herokuapp.com/ledger/messages"
       },
       "precision": 10,
-      "scale": 2
+      "scale": 2,
+      "balances": {
+        "connectorland": "0.14"
+      },
+      "rate": 1.0737
     },
     "us.usd.michiel-is-not-available.": {
       "hostname": "michiel-is-not-available.herokuapp.com",
@@ -871,9 +920,9 @@
       "maxBalance": "10^10 centi-USD",
       "messaging": 1571.536846814104,
       "messageToSelf": 388.88962824651855,
-      "connectDelay": 1414.93,
+      "connectDelay": 1417.837,
       "connectSuccess": 1,
-      "msgDelay": 325.84698,
+      "msgDelay": 326.72605379999993,
       "msgSuccess": 1,
       "connectors": [
         {
@@ -898,7 +947,11 @@
         "message": "https://royalcrypto.com/ledger/messages"
       },
       "precision": 10,
-      "scale": 2
+      "scale": 2,
+      "balances": {
+        "connectorland": "0"
+      },
+      "rate": 1.0737
     },
     "us.usd.ggizi.": {
       "hostname": "ggizi.herokuapp.com",
@@ -906,9 +959,9 @@
       "maxBalance": "10^10 centi-USD",
       "messaging": 1473.189598549483,
       "messageToSelf": 325.3764943177516,
-      "connectDelay": 1327.84,
+      "connectDelay": 1329.856,
       "connectSuccess": 1,
-      "msgDelay": 310.14518000000004,
+      "msgDelay": 309.1675958,
       "msgSuccess": 1,
       "connectors": [
         {
@@ -933,7 +986,11 @@
         "message": "https://ggizi.herokuapp.com/ledger/messages"
       },
       "precision": 10,
-      "scale": 2
+      "scale": 2,
+      "balances": {
+        "connectorland": "11.72"
+      },
+      "rate": 1.0737
     },
     "lu.eur.michiel-eur.": {
       "hostname": "michiel-eur.herokuapp.com",
@@ -941,9 +998,9 @@
       "maxBalance": "10^10 centi-EUR",
       "messaging": 845.7284157136083,
       "messageToSelf": 273.94681074905134,
-      "connectDelay": 448.5799999999999,
+      "connectDelay": 447.41979999999995,
       "connectSuccess": 1,
-      "msgDelay": 94.5214862,
+      "msgDelay": 97.48494709582,
       "msgSuccess": 1,
       "connectors": [
         {
@@ -970,7 +1027,7 @@
       "precision": 10,
       "scale": 2,
       "balances": {
-        "connectorland": "8.86"
+        "connectorland": "8.88"
       },
       "rate": 1
     },
@@ -980,9 +1037,9 @@
       "maxBalance": "10^10 centi-USD",
       "messaging": 272.2820560644667,
       "messageToSelf": 78.56866533091738,
-      "connectDelay": 170.29,
+      "connectDelay": 172.661,
       "connectSuccess": 1,
-      "msgDelay": 38.94351,
+      "msgDelay": 37.72424310000001,
       "msgSuccess": 1,
       "connectors": [
         {
@@ -1007,7 +1064,11 @@
         "message": "https://ilp.hexdivision.com/ledger/messages"
       },
       "precision": 10,
-      "scale": 2
+      "scale": 2,
+      "balances": {
+        "connectorland": "0"
+      },
+      "rate": 1.0737
     },
     "us.usd.ilpkit-gce.": {
       "hostname": "ilpkit-gce.fluid.money",
@@ -1015,9 +1076,9 @@
       "maxBalance": "10^10 centi-USD",
       "messaging": 2196.62096485227,
       "messageToSelf": 485.92000423387873,
-      "connectDelay": 2062.95,
+      "connectDelay": 2071.6549999999997,
       "connectSuccess": 1,
-      "msgDelay": 488.3459000000001,
+      "msgDelay": 489.890179,
       "msgSuccess": 1,
       "connectors": [
         {
@@ -1042,7 +1103,11 @@
         "message": "https://ilpkit-gce.fluid.money/ledger/messages"
       },
       "precision": 10,
-      "scale": 2
+      "scale": 2,
+      "balances": {
+        "connectorland": "0"
+      },
+      "rate": 1.0737
     }
   },
   "connectors": {
@@ -1454,8 +1519,111 @@
       "micmic": {
         "lu.eur.michiel-eur.": {
           "transferSuccess": 1,
-          "transferDelay": 1,
-          "transferFeePerc": 1
+          "transferDelay": 91.67,
+          "transferFeePerc": 0.8099999999999999
+        }
+      },
+      "connector": {
+        "us.usd.hexdivision.": {
+          "transferSuccess": 0
+        }
+      }
+    },
+    "us.usd.nexus.": {
+      "micmic": {
+        "us.usd.cornelius.": {
+          "transferSuccess": 1,
+          "transferDelay": 1820,
+          "transferFeePerc": 0
+        }
+      }
+    },
+    "de.eur.blue.": {
+      "micmic": {
+        "eu.eur.pineapplesheep.": {
+          "transferSuccess": 1,
+          "transferDelay": 1864,
+          "transferFeePerc": 100
+        }
+      }
+    },
+    "us.usd.red.": {
+      "micmic": {
+        "de.eur.blue.": {
+          "transferSuccess": 1,
+          "transferDelay": 2466,
+          "transferFeePerc": 86
+        }
+      }
+    },
+    "lu.eur.hive.": {
+      "micmic": {
+        "lu.eur.michiel.": {
+          "transferSuccess": 1,
+          "transferDelay": 1715,
+          "transferFeePerc": 0
+        }
+      }
+    },
+    "us.usd.jonhvb.": {
+      "micmic": {
+        "lu.eur.michiel-eur.": {
+          "transferSuccess": 1,
+          "transferDelay": 515,
+          "transferFeePerc": 86
+        }
+      }
+    },
+    "lu.eur.michiel-eur.": {
+      "micmic": {
+        "us.usd.nexus.": {
+          "transferSuccess": 1,
+          "transferDelay": 998,
+          "transferFeePerc": 115
+        }
+      }
+    },
+    "us.usd.cygnus.": {
+      "micmic": {
+        "de.eur.blue.": {
+          "transferSuccess": 1,
+          "transferDelay": 2664,
+          "transferFeePerc": 86
+        }
+      }
+    },
+    "eu.eur.pineapplesheep.": {
+      "micmic": {
+        "de.eur.blue.": {
+          "transferSuccess": 0
+        }
+      }
+    },
+    "mm.mmk.interledger.": {
+      "connector": {
+        "us.usd.usd.": {
+          "transferSuccess": 0
+        }
+      }
+    },
+    "us.usd.usd.": {
+      "connector": {
+        "mm.mmk.interledger.": {
+          "transferSuccess": 0
+        }
+      }
+    },
+    "us.usd.cornelius.": {
+      "micmic": {
+        "de.eur.blue.": {
+          "transferSuccess": 0
+        }
+      }
+    },
+    "us.usd.best-ilp.": {
+      "micmic": {
+        "us.usd.ggizi.": {
+          "transferSuccess": 0
         }
       }
     }
