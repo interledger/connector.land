@@ -169,7 +169,7 @@ return getCurrencyRates().then(() => {
       ],
       rows: hostRows.map(line =>
         `<tr><td><a href="https://${line.hostname}">${line.hostname}</a></td>` +
-            `<td>${line.version}</td>` +
+            (typeof line.protocolVersion === 'string' ? `<td style=\"color:green\">${line.protocolVersion}</td>` : `<td style=\"color:red\">WebFinger error</td>`) +
             `<td>${line.prefix}</td>` +
             `<td>${(typeof stats.ledgers[line.prefix] === 'object' ? stats.ledgers[line.prefix].maxBalance : '?')}</td>` +
             `<td>${(typeof stats.ledgers[line.prefix] === 'object' ? stats.ledgers[line.prefix].messaging : '?')}</td>` +
