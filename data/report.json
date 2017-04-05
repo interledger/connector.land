@@ -6,10 +6,10 @@
     "total": 30
   },
   "numLedgers": {
-    "fast": 6,
+    "fast": 7,
     "medium": 7,
     "slow": 5,
-    "down": 5,
+    "down": 4,
     "total": 23
   },
   "numConnectors": {
@@ -19,8 +19,8 @@
     "total": 32
   },
   "numRoutes": {
-    "success": 37,
-    "down": 89,
-    "total": 126
+    "success": 41,
+    "down": 100,
+    "total": 141
   }
 }
