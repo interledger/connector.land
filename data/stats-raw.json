@@ -69,7 +69,7 @@
       "health": 1,
       "settlements": "<span style=\"color:green\">Cash</span>",
       "ping": 1,
-      "protocolVersion": "Compatible: ilp-kit v1.1.0",
+      "protocolVersion": "Compatible: ilp-kit v1.2.0",
       "publicKey": "Y_luxphkAy6ddYzuXb9lXxS60zg5tHjrPh8zz_BfwEA",
       "ledgerUri": "https://pineapplesheep.ilp.rocks/ledger",
       "peersRpcUri": "https://pineapplesheep.ilp.rocks/api/peers/rpc",
@@ -368,9 +368,9 @@
       "maxBalance": "10^10 centi-USD",
       "messaging": 2806.5713899841808,
       "messageToSelf": 669.4989225055264,
-      "connectDelay": 2498.452761672318,
+      "connectDelay": 2889.1789409043085,
       "connectSuccess": 1,
-      "msgDelay": 557.8754549325316,
+      "msgDelay": 577.0153792107342,
       "msgSuccess": 1,
       "connectors": [
         {
@@ -399,7 +399,7 @@
       "balances": {
         "connectorland": "993.57"
       },
-      "rate": 1.0651,
+      "rate": 1.0678,
       "version": "five-bells@20"
     },
     "de.eur.blue.": {
@@ -408,9 +408,9 @@
       "maxBalance": "10^10 centi-EUR",
       "messaging": 2732.011435105417,
       "messageToSelf": 532.8754798349627,
-      "connectDelay": 2490.3990549210803,
+      "connectDelay": 2704.464552331682,
       "connectSuccess": 1,
-      "msgDelay": 576.3122816661005,
+      "msgDelay": 799.6939650316601,
       "msgSuccess": 1,
       "connectors": [
         {
@@ -457,9 +457,9 @@
       "maxBalance": "10^10 centi-EUR",
       "messaging": 511.96530159116816,
       "messageToSelf": 89.32106278700076,
-      "connectDelay": 220.31603177253345,
+      "connectDelay": 220.7876439171042,
       "connectSuccess": 1,
-      "msgDelay": 43.044687586405125,
+      "msgDelay": 32.3649002659875,
       "msgSuccess": 1,
       "connectors": [
         {
@@ -486,7 +486,7 @@
       "precision": 10,
       "scale": 2,
       "balances": {
-        "connectorland": "0.11"
+        "connectorland": "0.48"
       },
       "rate": 1
     },
@@ -496,9 +496,9 @@
       "maxBalance": "10^10 centi-USD",
       "messaging": 1342.50549504529,
       "messageToSelf": 291.9152568397341,
-      "connectDelay": 1213.3189651260582,
+      "connectDelay": 1187.425574131002,
       "connectSuccess": 1,
-      "msgDelay": 277.88095198538304,
+      "msgDelay": 272.96202088631827,
       "msgSuccess": 1,
       "connectors": [
         {
@@ -527,7 +527,7 @@
       "balances": {
         "connectorland": "5"
       },
-      "rate": 1.0651
+      "rate": 1.0678
     },
     "mm.mmk.interledger.": {
       "hostname": "mmk.interledger.network",
@@ -535,9 +535,9 @@
       "maxBalance": "10^10 centi-MMK",
       "messaging": 3439.4015252000136,
       "messageToSelf": 802.7782742345942,
-      "connectDelay": 2555.4978225302248,
+      "connectDelay": 2545.3740673729567,
       "connectSuccess": 1,
-      "msgDelay": 586.3639862774306,
+      "msgDelay": 589.3554077790603,
       "msgSuccess": 1,
       "connectors": [
         {
@@ -574,9 +574,9 @@
       "maxBalance": "10^10 centi-KRW",
       "messaging": 4246.468671521511,
       "messageToSelf": 989.7998589530154,
-      "connectDelay": 4220.077971999745,
+      "connectDelay": 4239.3376331657655,
       "connectSuccess": 1,
-      "msgDelay": 970.7305804004745,
+      "msgDelay": 984.2763006316798,
       "msgSuccess": 1,
       "connectors": [
         {
@@ -605,7 +605,7 @@
       "balances": {
         "connectorland": "10000"
       },
-      "rate": 1198.1,
+      "rate": 1202.7,
       "version": "five-bells@20"
     },
     "us.usd.nexus.": {
@@ -614,9 +614,9 @@
       "maxBalance": "10^19 nano-USD",
       "messaging": 1149.4853136045208,
       "messageToSelf": 138.23978921148884,
-      "connectDelay": 1113.5859169030305,
+      "connectDelay": 1078.406186738377,
       "connectSuccess": 1,
-      "msgDelay": 196.85720822863726,
+      "msgDelay": 231.0102219956119,
       "msgSuccess": 1,
       "connectors": [
         {
@@ -643,9 +643,9 @@
       "precision": 19,
       "scale": 9,
       "balances": {
-        "connectorland": "24.259999841"
+        "connectorland": "24.219999798"
       },
-      "rate": 1.0651
+      "rate": 1.0678
     },
     "us.usd.cornelius.": {
       "hostname": "cornelius.sharafian.com",
@@ -653,9 +653,9 @@
       "maxBalance": "10^10 micro-USD",
       "messaging": 1215.3921343552436,
       "messageToSelf": 222.9497056454423,
-      "connectDelay": 1330.2960043714395,
+      "connectDelay": 1334.7599388732463,
       "connectSuccess": 1,
-      "msgDelay": 281.7980503403197,
+      "msgDelay": 253.4556024336216,
       "msgSuccess": 1,
       "connectors": [
         {
@@ -682,9 +682,9 @@
       "precision": 10,
       "scale": 6,
       "balances": {
-        "connectorland": "31.192184"
+        "connectorland": "31.162142"
       },
-      "rate": 1.0651
+      "rate": 1.0678
     },
     "us.usd.cygnus.": {
       "hostname": "cygnus.vahehovhannisyan.com",
@@ -692,9 +692,9 @@
       "maxBalance": "10^10 centi-USD",
       "messaging": 947.2967520028768,
       "messageToSelf": 268.92073547936826,
-      "connectDelay": 850.5708816950512,
+      "connectDelay": 947.2055316450098,
       "connectSuccess": 1,
-      "msgDelay": 175.01408177203388,
+      "msgDelay": 193.17880981658237,
       "msgSuccess": 1,
       "connectors": [
         {
@@ -721,9 +721,9 @@
       "precision": 10,
       "scale": 2,
       "balances": {
-        "connectorland": "10.33"
+        "connectorland": "9.91"
       },
-      "rate": 1.0651
+      "rate": 1.0678
     },
     "us.usd.grifiti.": {
       "hostname": "grifiti.web-payments.net",
@@ -761,9 +761,9 @@
       "maxBalance": "10^16 (10^-8)-EUR",
       "messaging": 453.44399289092365,
       "messageToSelf": 148.20425903405163,
-      "connectDelay": 263.93894590479147,
+      "connectDelay": 268.97415191552943,
       "connectSuccess": 1,
-      "msgDelay": 48.22052845462791,
+      "msgDelay": 40.88397483934357,
       "msgSuccess": 1,
       "connectors": [
         {
@@ -790,7 +790,7 @@
       "precision": 16,
       "scale": 8,
       "balances": {
-        "connectorland": "10.36571622"
+        "connectorland": "10.27571584"
       },
       "rate": 1
     },
@@ -850,9 +850,9 @@
       "maxBalance": "10^10 centi-USD",
       "messaging": 728.8575218322388,
       "messageToSelf": 165.18076251049885,
-      "connectDelay": 390.45739987631976,
+      "connectDelay": 402.4519196429041,
       "connectSuccess": 1,
-      "msgDelay": 71.44568404662617,
+      "msgDelay": 74.44979288974936,
       "msgSuccess": 1,
       "connectors": [
         {
@@ -879,9 +879,9 @@
       "precision": 10,
       "scale": 2,
       "balances": {
-        "connectorland": "0.07"
+        "connectorland": "0.08"
       },
-      "rate": 1.0651
+      "rate": 1.0678
     },
     "us.usd.best-ilp.": {
       "hostname": "best-ilp.herokuapp.com",
@@ -889,9 +889,9 @@
       "maxBalance": "10^10 centi-USD",
       "messaging": 1424.9607753974178,
       "messageToSelf": 311.22479951667344,
-      "connectDelay": 1373.3333336514354,
+      "connectDelay": 1447.6501456521473,
       "connectSuccess": 1,
-      "msgDelay": 353.14110797379425,
+      "msgDelay": 346.3362593346097,
       "msgSuccess": 1,
       "connectors": [
         {
@@ -918,9 +918,9 @@
       "precision": 10,
       "scale": 2,
       "balances": {
-        "connectorland": "1.31"
+        "connectorland": "1.15"
       },
-      "rate": 1.0651
+      "rate": 1.0678
     },
     "us.usd.michiel-is-not-available.": {
       "hostname": "michiel-is-not-available.herokuapp.com",
@@ -956,14 +956,14 @@
       },
       "precision": 10,
       "scale": 20,
-      "connectDelay": 637.4,
+      "connectDelay": 579.8201586600001,
       "connectSuccess": 1,
       "balances": {
-        "connectorland": "11.7937494238"
+        "connectorland": "11.6637494238"
       },
-      "msgDelay": 94.00399999999999,
+      "msgDelay": 104.74833967088678,
       "msgSuccess": 1,
-      "rate": 1.0651
+      "rate": 1.0678
     },
     "ca.usd.royalcrypto.": {
       "hostname": "royalcrypto.com",
@@ -971,9 +971,9 @@
       "maxBalance": "10^10 centi-USD",
       "messaging": 1571.536846814104,
       "messageToSelf": 388.88962824651855,
-      "connectDelay": 1475.9187807605704,
+      "connectDelay": 1799.8282246895603,
       "connectSuccess": 1,
-      "msgDelay": 336.9279484106634,
+      "msgDelay": 466.45220826933144,
       "msgSuccess": 1,
       "connectors": [
         {
@@ -1002,7 +1002,7 @@
       "balances": {
         "connectorland": "0"
       },
-      "rate": 1.0651
+      "rate": 1.0678
     },
     "us.usd.ggizi.": {
       "hostname": "ggizi.herokuapp.com",
@@ -1010,9 +1010,9 @@
       "maxBalance": "10^10 centi-USD",
       "messaging": 1473.189598549483,
       "messageToSelf": 325.3764943177516,
-      "connectDelay": 1379.8135680115133,
+      "connectDelay": 1384.5423790578457,
       "connectSuccess": 1,
-      "msgDelay": 329.83715970363437,
+      "msgDelay": 314.58971014200375,
       "msgSuccess": 1,
       "connectors": [
         {
@@ -1041,7 +1041,7 @@
       "balances": {
         "connectorland": "11.72"
       },
-      "rate": 1.0651
+      "rate": 1.0678
     },
     "lu.eur.michiel-eur.": {
       "hostname": "michiel-eur.herokuapp.com",
@@ -1088,9 +1088,9 @@
       "maxBalance": "10^10 centi-USD",
       "messaging": 272.2820560644667,
       "messageToSelf": 78.56866533091738,
-      "connectDelay": 183.1177837311858,
+      "connectDelay": 188.41550189349658,
       "connectSuccess": 1,
-      "msgDelay": 39.208062550937846,
+      "msgDelay": 29.451811724571495,
       "msgSuccess": 1,
       "connectors": [
         {
@@ -1119,7 +1119,7 @@
       "balances": {
         "connectorland": "0"
       },
-      "rate": 1.0651
+      "rate": 1.0678
     },
     "us.usd.ilpkit-gce.": {
       "hostname": "ilpkit-gce.fluid.money",
@@ -1127,9 +1127,9 @@
       "maxBalance": "10^10 centi-USD",
       "messaging": 2196.62096485227,
       "messageToSelf": 485.92000423387873,
-      "connectDelay": 2122.3521387341234,
+      "connectDelay": 2295.045750164901,
       "connectSuccess": 1,
-      "msgDelay": 491.4551973390165,
+      "msgDelay": 714.0719784612405,
       "msgSuccess": 1,
       "connectors": [
         {
@@ -1158,7 +1158,7 @@
       "balances": {
         "connectorland": "0"
       },
-      "rate": 1.0651
+      "rate": 1.0678
     }
   },
   "connectors": {
@@ -1569,7 +1569,7 @@
     "eu.eur.pineapplesheep.": {
       "us.usd.red.": {
         "micmic": {
-          "transferSuccess": 0.8099999883583833,
+          "transferSuccess": 0.728999989522545,
           "transferDelay": 1471.0388652052113,
           "transferFeePerc": 115.31301840022786
         }
@@ -1583,16 +1583,16 @@
       },
       "us.usd.nexus.": {
         "micmic": {
-          "transferSuccess": 0.10415540477579761,
-          "transferDelay": 782.3402889768261,
-          "transferFeePerc": 115.53322818300335
+          "transferSuccess": 0.19373986429821785,
+          "transferDelay": 810.1062600791435,
+          "transferFeePerc": 115.27990536470301
         }
       },
       "us.usd.cornelius.": {
         "micmic": {
-          "transferSuccess": 0.10457943203715833,
-          "transferDelay": 776.0591585870392,
-          "transferFeePerc": 115.47123207545039
+          "transferSuccess": 0.19412148883344252,
+          "transferDelay": 818.3532427283352,
+          "transferFeePerc": 115.22410886790536
         }
       },
       "lu.eur.hive.": {
@@ -1604,9 +1604,9 @@
       },
       "us.usd.cygnus.": {
         "micmic": {
-          "transferSuccess": 0.10511420256174804,
-          "transferDelay": 730.9952266256362,
-          "transferFeePerc": 115.51469798111482
+          "transferSuccess": 0.19460278230557324,
+          "transferDelay": 736.2957039630726,
+          "transferFeePerc": 115.26322818300335
         }
       },
       "us.usd.jonhvb.": {
@@ -1632,13 +1632,18 @@
       },
       "de.eur.blue.": {
         "micmic": {
-          "transferSuccess": 0.8097499410994569,
+          "transferSuccess": 0.7287749469895112,
           "transferDelay": 1399.8424587092957,
           "transferFeePerc": 100
         }
       },
       "us.usd.ggizi.": {
         "micmic": {
+          "transferSuccess": 0
+        }
+      },
+      "us.usd.hexdivision.": {
+        "pineapplesheep": {
           "transferSuccess": 0
         }
       }
@@ -1723,14 +1728,14 @@
     "us.usd.nexus.": {
       "eu.eur.pineapplesheep.": {
         "micmic": {
-          "transferSuccess": 0.9189999999999999,
-          "transferDelay": 592.650224889313,
-          "transferFeePerc": -6.81
+          "transferSuccess": 0.49269895110000006,
+          "transferDelay": 573.7852024003816,
+          "transferFeePerc": -6.728999999999999
         }
       },
       "de.eur.blue.": {
         "micmic": {
-          "transferSuccess": 0.700734152882115,
+          "transferSuccess": 0.33515897304764164,
           "transferDelay": 1659.6581383571588,
           "transferFeePerc": -7
         }
@@ -1744,14 +1749,14 @@
       },
       "us.usd.best-ilp.": {
         "micmic": {
-          "transferSuccess": 0.5111715853809999,
-          "transferDelay": 3210.8666493708997,
+          "transferSuccess": 0.7661948846558178,
+          "transferDelay": 2360.8399590074887,
           "transferFeePerc": 0
         }
       },
       "us.usd.red.": {
         "micmic": {
-          "transferSuccess": 0.6503641637506028,
+          "transferSuccess": 0.3110671633930057,
           "transferDelay": 1532.2888856553427,
           "transferFeePerc": 0
         }
@@ -1770,36 +1775,36 @@
       },
       "us.usd.cornelius.": {
         "micmic": {
-          "transferSuccess": 0.9337510963810001,
-          "transferDelay": 1064.8779611712532,
+          "transferSuccess": 0.9683133547706335,
+          "transferDelay": 1128.2344330065307,
           "transferFeePerc": 0
         }
       },
       "lu.eur.hive.": {
         "micmic": {
-          "transferSuccess": 0.9442035032023501,
-          "transferDelay": 561.9415441714743,
-          "transferFeePerc": -6.81
+          "transferSuccess": 0.9733127085508244,
+          "transferDelay": 557.1281123584293,
+          "transferFeePerc": -6.387420489000001
         }
       },
       "us.usd.cygnus.": {
         "micmic": {
-          "transferSuccess": 0.8470422858004305,
-          "transferDelay": 914.3561287853652,
+          "transferSuccess": 0.9268407994672596,
+          "transferDelay": 936.7049992940407,
           "transferFeePerc": 0
         }
       },
       "us.usd.jonhvb.": {
         "micmic": {
           "transferSuccess": 1,
-          "transferDelay": 670.9808054312103,
+          "transferDelay": 695.9629559972511,
           "transferFeePerc": 0
         }
       },
       "us.usd.michiel-is-not-available.": {
         "micmic": {
           "transferSuccess": 1,
-          "transferDelay": 711.1,
+          "transferDelay": 840.9917011000001,
           "transferFeePerc": 0
         }
       }
@@ -1885,21 +1890,21 @@
       "us.usd.cygnus.": {
         "micmic": {
           "transferSuccess": 1,
-          "transferDelay": 1039.4060320021777,
+          "transferDelay": 1009.8892729479423,
           "transferFeePerc": 0
         }
       },
       "de.eur.blue.": {
         "micmic": {
-          "transferSuccess": 0.6605615956136491,
+          "transferSuccess": 0.3159445634410619,
           "transferDelay": 1959.7516358490998,
           "transferFeePerc": -7
         }
       },
       "us.usd.nexus.": {
         "micmic": {
-          "transferSuccess": 0.849905364703001,
-          "transferDelay": 631.7747343899345,
+          "transferSuccess": 0.9282102012308149,
+          "transferDelay": 637.9458237570291,
           "transferFeePerc": 0
         }
       },
@@ -1912,15 +1917,15 @@
       },
       "us.usd.jonhvb.": {
         "micmic": {
-          "transferSuccess": 0.8649148282327008,
-          "transferDelay": 695.2275828026407,
+          "transferSuccess": 0.9353891811077334,
+          "transferDelay": 694.4836407489963,
           "transferFeePerc": 0
         }
       },
       "us.usd.best-ilp.": {
         "micmic": {
-          "transferSuccess": 0.427325853703001,
-          "transferDelay": 1359.4577517218,
+          "transferSuccess": 0.6450917311159989,
+          "transferDelay": 1559.973062032785,
           "transferFeePerc": 0
         }
       },
@@ -1938,29 +1943,29 @@
       },
       "eu.eur.pineapplesheep.": {
         "micmic": {
-          "transferSuccess": 1,
-          "transferDelay": 520.4272511283965,
-          "transferFeePerc": -6.81
+          "transferSuccess": 0.5314409999999999,
+          "transferDelay": 512.4845260155569,
+          "transferFeePerc": -6.728999999999999
         }
       },
       "lu.eur.hive.": {
         "micmic": {
-          "transferSuccess": 0.9380038924470557,
-          "transferDelay": 570.2244538789189,
-          "transferFeePerc": -6.81
+          "transferSuccess": 0.9703474539453604,
+          "transferDelay": 545.4081174944798,
+          "transferFeePerc": -6.387420489000001
         }
       },
       "us.usd.red.": {
         "micmic": {
-          "transferSuccess": 0.5979092571500564,
+          "transferSuccess": 0.28597814417617473,
           "transferDelay": 1515.476076989958,
           "transferFeePerc": 0
         }
       },
       "us.usd.michiel-is-not-available.": {
         "micmic": {
-          "transferSuccess": 0.1,
-          "transferDelay": 640,
+          "transferSuccess": 0.47953279000000004,
+          "transferDelay": 720.372848,
           "transferFeePerc": 0
         }
       }
@@ -1968,22 +1973,22 @@
     "us.usd.cygnus.": {
       "de.eur.blue.": {
         "micmic": {
-          "transferSuccess": 0.7411154360522841,
+          "transferSuccess": 0.3544732156059558,
           "transferDelay": 1828.2126234263458,
           "transferFeePerc": 85.31381059609
         }
       },
       "us.usd.nexus.": {
         "micmic": {
-          "transferSuccess": 0.783914828232701,
-          "transferDelay": 630.001752228866,
+          "transferSuccess": 0.8851634802308148,
+          "transferDelay": 656.0829062062609,
           "transferFeePerc": 100
         }
       },
       "us.usd.cornelius.": {
         "micmic": {
-          "transferSuccess": 0.8300469842227006,
-          "transferDelay": 793.2221195478592,
+          "transferSuccess": 0.9187119994080664,
+          "transferDelay": 807.6835740911704,
           "transferFeePerc": 100
         }
       },
@@ -1996,8 +2001,8 @@
       },
       "us.usd.best-ilp.": {
         "micmic": {
-          "transferSuccess": 0.40746747322270077,
-          "transferDelay": 1370.4475838485,
+          "transferSuccess": 0.7165935292932508,
+          "transferDelay": 1567.0620636672274,
           "transferFeePerc": 100
         }
       },
@@ -2008,23 +2013,23 @@
       },
       "eu.eur.pineapplesheep.": {
         "micmic": {
-          "transferSuccess": 0.9569532789999998,
-          "transferDelay": 414.8554170744681,
-          "transferFeePerc": 85.83630201888516
+          "transferSuccess": 0.510851886790535,
+          "transferDelay": 415.1698753670213,
+          "transferFeePerc": 86.05267181699665
         }
       },
       "us.usd.red.": {
         "micmic": {
-          "transferSuccess": 0.7154614543023501,
+          "transferSuccess": 0.3422029956623057,
           "transferDelay": 1541.3708039722649,
           "transferFeePerc": 100
         }
       },
       "lu.eur.hive.": {
         "micmic": {
-          "transferSuccess": 0.9442035032023501,
-          "transferDelay": 513.2399365690934,
-          "transferFeePerc": 85.85689113209465
+          "transferSuccess": 0.9703474539453604,
+          "transferDelay": 536.3045941302156,
+          "transferFeePerc": 86.5171640801315
         }
       },
       "lu.eur.michiel.": {
@@ -2037,7 +2042,7 @@
       "us.usd.jonhvb.": {
         "micmic": {
           "transferSuccess": 1,
-          "transferDelay": 653.2419249729282,
+          "transferDelay": 646.7070144645842,
           "transferFeePerc": 100
         }
       },
@@ -2049,7 +2054,7 @@
       "us.usd.michiel-is-not-available.": {
         "micmic": {
           "transferSuccess": 1,
-          "transferDelay": 709,
+          "transferDelay": 691.2439400000001,
           "transferFeePerc": 100
         }
       }
@@ -2057,37 +2062,37 @@
     "lu.eur.hive.": {
       "us.usd.red.": {
         "micmic": {
-          "transferSuccess": 0.7366533681647331,
+          "transferSuccess": 0.35233902236775044,
           "transferDelay": 1460.4989031317177,
           "transferFeePerc": 7.771847957552306
         }
       },
       "us.usd.cornelius.": {
         "micmic": {
-          "transferSuccess": 0.3833037436535477,
-          "transferDelay": 834.9030795945243,
-          "transferFeePerc": 7.555813417167101
+          "transferSuccess": 0.5953855862110926,
+          "transferDelay": 796.6770105219673,
+          "transferFeePerc": 7.364669183003334
         }
       },
       "us.usd.cygnus.": {
         "micmic": {
-          "transferSuccess": 0.42554407655863696,
-          "transferDelay": 592.1667238500039,
-          "transferFeePerc": 7.523108867905352
+          "transferSuccess": 0.7252395126313587,
+          "transferDelay": 603.9562878006129,
+          "transferFeePerc": 7.250201349881638
         }
       },
       "us.usd.nexus.": {
         "micmic": {
-          "transferSuccess": 0.36464757296650446,
-          "transferDelay": 694.3537280283857,
-          "transferFeePerc": 7.58123207545039
+          "transferSuccess": 0.6248307453609911,
+          "transferDelay": 818.3828728634815,
+          "transferFeePerc": 7.343211728232701
         }
       },
       "us.usd.jonhvb.": {
         "micmic": {
-          "transferSuccess": 0.9797244404095548,
-          "transferDelay": 532.9172139128436,
-          "transferFeePerc": 7.631068444950069
+          "transferSuccess": 0.9903022627021247,
+          "transferDelay": 543.7609780711501,
+          "transferFeePerc": 7.301838080907439
         }
       },
       "us.usd.ggizi.": {
@@ -2104,14 +2109,14 @@
       },
       "eu.eur.pineapplesheep.": {
         "micmic": {
-          "transferSuccess": 1,
-          "transferDelay": 322.0445570251669,
+          "transferSuccess": 0.5314409999999999,
+          "transferDelay": 322.1401013226502,
           "transferFeePerc": 0
         }
       },
       "de.eur.blue.": {
         "micmic": {
-          "transferSuccess": 0.8099999999999999,
+          "transferSuccess": 0.3874204889999999,
           "transferDelay": 1435.1874485749854,
           "transferFeePerc": 0
         }
@@ -2125,9 +2130,9 @@
       },
       "us.usd.best-ilp.": {
         "micmic": {
-          "transferSuccess": 0.24740062180491612,
-          "transferDelay": 1289.654574,
-          "transferFeePerc": 7.278559
+          "transferSuccess": 0.45003405046736383,
+          "transferDelay": 1320.34160940126,
+          "transferFeePerc": 7.16448630391
         }
       },
       "us.usd.hexdivision.": {
@@ -2138,7 +2143,7 @@
       "us.usd.michiel-is-not-available.": {
         "micmic": {
           "transferSuccess": 1,
-          "transferDelay": 712.8,
+          "transferDelay": 628.0179488,
           "transferFeePerc": 7
         }
       }
@@ -2315,29 +2320,29 @@
     "us.usd.jonhvb.": {
       "eu.eur.pineapplesheep.": {
         "micmic": {
-          "transferSuccess": 0.9565340943355741,
-          "transferDelay": 384.26102164135426,
-          "transferFeePerc": 85.43710128697245
+          "transferSuccess": 0.5106513920650126,
+          "transferDelay": 398.0349194772188,
+          "transferFeePerc": 85.6933911582752
         }
       },
       "us.usd.red.": {
         "micmic": {
-          "transferSuccess": 0.8099934914246774,
+          "transferSuccess": 0.3874173759685998,
           "transferDelay": 1511.1147568906072,
           "transferFeePerc": 100
         }
       },
       "de.eur.blue.": {
         "micmic": {
-          "transferSuccess": 0.8034023918195585,
+          "transferSuccess": 0.38426487345988014,
           "transferDelay": 1497.9465198169603,
           "transferFeePerc": 85.19636268544113
         }
       },
       "us.usd.cornelius.": {
         "micmic": {
-          "transferSuccess": 0.5733391409130401,
-          "transferDelay": 1024.9066452225447,
+          "transferSuccess": 0.7732549263859669,
+          "transferDelay": 1140.9761164437145,
           "transferFeePerc": 100
         }
       },
@@ -2371,15 +2376,15 @@
       },
       "us.usd.nexus.": {
         "micmic": {
-          "transferSuccess": 0.4322036181628155,
-          "transferDelay": 782.6810616055002,
+          "transferSuccess": 0.6982497230400648,
+          "transferDelay": 966.1356220606882,
           "transferFeePerc": 100
         }
       },
       "us.usd.cygnus.": {
         "micmic": {
-          "transferSuccess": 0.6464457823260944,
-          "transferDelay": 844.525375585167,
+          "transferSuccess": 0.7912297700057356,
+          "transferDelay": 892.2926490292855,
           "transferFeePerc": 100
         }
       },
@@ -2387,48 +2392,53 @@
         "micmic": {
           "transferSuccess": 0
         }
+      },
+      "us.usd.hexdivision.": {
+        "connector": {
+          "transferSuccess": 0
+        }
       }
     },
     "us.usd.best-ilp.": {
       "eu.eur.pineapplesheep.": {
         "micmic": {
-          "transferSuccess": 0.9612579510999998,
-          "transferDelay": 706.6676962519999,
-          "transferFeePerc": 85.957420489
+          "transferSuccess": 0.5129107981114814,
+          "transferDelay": 713.0009266267999,
+          "transferFeePerc": 86.1616784401
         }
       },
       "us.usd.red.": {
         "micmic": {
-          "transferSuccess": 0.6659794889999999,
+          "transferSuccess": 0.31853592505228395,
           "transferDelay": 1673.9685000000002,
           "transferFeePerc": 100
         }
       },
       "de.eur.blue.": {
         "micmic": {
-          "transferSuccess": 0.584979489,
+          "transferSuccess": 0.2797938761522841,
           "transferDelay": 1763.5670000000005,
           "transferFeePerc": 85.729
         }
       },
       "us.usd.nexus.": {
         "micmic": {
-          "transferSuccess": 0.9,
-          "transferDelay": 967.1585162900001,
+          "transferSuccess": 0.83439,
+          "transferDelay": 1188.71155837541,
           "transferFeePerc": 100
         }
       },
       "us.usd.cornelius.": {
         "micmic": {
-          "transferSuccess": 0.9,
-          "transferDelay": 1215.0341230000001,
+          "transferSuccess": 0.9270999999999999,
+          "transferDelay": 1314.304875667,
           "transferFeePerc": 100
         }
       },
       "us.usd.jonhvb.": {
         "micmic": {
-          "transferSuccess": 1,
-          "transferDelay": 982.741,
+          "transferSuccess": 0.9,
+          "transferDelay": 1075.9476397810001,
           "transferFeePerc": 100
         }
       },
@@ -2453,8 +2463,8 @@
       },
       "us.usd.cygnus.": {
         "micmic": {
-          "transferSuccess": 1,
-          "transferDelay": 1058.1290000000001,
+          "transferSuccess": 0.9,
+          "transferDelay": 1069.9161000000001,
           "transferFeePerc": 100
         }
       },
@@ -2466,58 +2476,63 @@
       "us.usd.michiel-is-not-available.": {
         "micmic": {
           "transferSuccess": 1,
-          "transferDelay": 1074,
+          "transferDelay": 1238.6520160000002,
           "transferFeePerc": 100
+        }
+      },
+      "us.usd.hexdivision.": {
+        "conct": {
+          "transferSuccess": 0
         }
       }
     },
     "us.usd.michiel-is-not-available.": {
       "eu.eur.pineapplesheep.": {
         "micmic": {
-          "transferSuccess": 1,
-          "transferDelay": 390.5,
+          "transferSuccess": 0.5314409999999999,
+          "transferDelay": 389.75,
           "transferFeePerc": -6
         }
       },
       "us.usd.nexus.": {
         "micmic": {
           "transferSuccess": 1,
-          "transferDelay": 845.2,
+          "transferDelay": 961.6623209800002,
           "transferFeePerc": 0
         }
       },
       "us.usd.cornelius.": {
         "micmic": {
           "transferSuccess": 1,
-          "transferDelay": 916.8,
+          "transferDelay": 893.3131797999998,
           "transferFeePerc": 0
         }
       },
       "us.usd.cygnus.": {
         "micmic": {
           "transferSuccess": 1,
-          "transferDelay": 888.3,
+          "transferDelay": 927.89317147,
           "transferFeePerc": 0
         }
       },
       "lu.eur.hive.": {
         "micmic": {
-          "transferSuccess": 1,
-          "transferDelay": 510.7,
+          "transferSuccess": 0.9270999999999999,
+          "transferDelay": 549.6389997,
           "transferFeePerc": -6
         }
       },
       "us.usd.jonhvb.": {
         "micmic": {
           "transferSuccess": 1,
-          "transferDelay": 498.4,
+          "transferDelay": 612.34687836,
           "transferFeePerc": 0
         }
       },
       "us.usd.best-ilp.": {
         "micmic": {
           "transferSuccess": 1,
-          "transferDelay": 1214.5,
+          "transferDelay": 1345.97105125,
           "transferFeePerc": 0
         }
       },
