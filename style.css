@@ -474,14 +474,14 @@ table:not(.user-sorted) tbody  tr:not(.rank-1):hover {
   background: #f2f2f2;
 }
 
-table:not(.user-sorted) tr:not(.rank-1):not(:last-child) td {
-  border-bottom: 1px solid #f2f2f2;
+table:not(.user-sorted) tr:not(.rank-1) td {
+  border-top: 1px solid #f2f2f2;
 }
 
-table:not(.user-sorted) tr.rank-1 + tr:not(.rank-1) td,
+/*table:not(.user-sorted) tr.rank-1 + tr:not(.rank-1) td,
 table:not(.user-sorted) tr.rank-2 + tr:not(.rank-2) td {
   border-top: 30px solid #fafafa;
-}
+}*/
 
 
 /* custom elements */
