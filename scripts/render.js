@@ -152,7 +152,8 @@ var hostRows = Object.keys(stats.hosts).sort(function(keyA, keyB) {
   };
 
   var versionA = judgeVersion[a.protocolVersion]
-  var versionB = judgeVersion[a.protocolVersion]
+  var versionB = judgeVersion[b.protocolVersion]
+  // console.log({ keyA, keyB, a: a.protocolVersion, b: b.protocolVersion, versionA, versionB })
   if (typeof versionA === 'undefined') return 1; // B is better
   if (typeof versionB === 'undefined') return -1;// A is better
   if (versionA < versionB) return 1; // B is better
