@@ -1,0 +1,26 @@
+{
+  "name": "connector.land",
+  "version": "1.1.0",
+  "description": "The server running on https://connector.land",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "echo \"Please run pm2 start pm2.config.js\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/interledger/connector.land.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/interledger/connector.land/issues"
+  },
+  "homepage": "https://github.com/interledger/connector.land#readme",
+  "dependencies": {
+    "ilp-node": ">=2.2.1",
+    "koa": "^2.2.0",
+    "koa-static": "^3.0.0",
+    "request": "^2.34.0",
+    "request-promise-native": "^1.0.4"
+  }
+}
