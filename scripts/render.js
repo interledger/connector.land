@@ -134,6 +134,31 @@ console.log('fee', price, baseValue, percentage(paidExtra / baseValue));
 var hostRows = Object.keys(stats.hosts).sort(function(keyA, keyB) {
   var a = stats.hosts[keyA];
   var b = stats.hosts[keyB];
+
+  var judgeVersion = {
+    'Compatible: ilp-kit v2.3.1': 13,
+    'Compatible: ilp-kit v2.3.0': 12,
+    'Compatible: ilp-kit v2.2.1': 11,
+    'Compatible: ilp-kit v2.2.0': 10,
+    'Compatible: ilp-kit v2.1.1': 9,
+    'Compatible: ilp-kit v2.1.0': 8,
+    'Compatible: ilp-kit v2.0.1': 7,
+    'Compatible: ilp-kit v2.0.0': 6,       //  3 May 2017
+    'Compatible: ilp-kit v2.0.0-alpha': 5, // 19 Apr 2017 (dev-team internal release)
+    'Compatible: ilp-kit v1.2.1': 4,       //  5 Apr 2017
+    'Compatible: ilp-kit v1.2.0': 3,       // 22 Mar 2017
+    'Compatible: ilp-kit v1.1.0': 2,       //  4 Feb 2017
+    'Compatible: ilp-kit v1.0.0': 1,       // 19 Nov 2016
+  };
+
+  var versionA = judgeVersion[a.protocolVersion]
+  var versionB = judgeVersion[b.protocolVersion]
+  // console.log({ keyA, keyB, a: a.protocolVersion, b: b.protocolVersion, versionA, versionB })
+  if (typeof versionA === 'undefined') return 1; // B is better
+  if (typeof versionB === 'undefined') return -1;// A is better
+  if (versionA < versionB) return 1; // B is better
+  if (versionA > versionB) return -1;// A is better
+
   var delayA = (typeof a.messaging === 'number' ? a.messaging : 1000000);
   var delayB = (typeof b.messaging === 'number' ? b.messaging : 1000000);
   if (delayA < delayB) { return -1; }

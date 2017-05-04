@@ -69,7 +69,7 @@
       "health": 1,
       "settlements": "<span style=\"color:green\">Cash</span>",
       "ping": 1,
-      "protocolVersion": "Compatible: ilp-kit v1.2.0",
+      "protocolVersion": "Compatible: ilp-kit v2.0.0-alpha",
       "publicKey": "Y_luxphkAy6ddYzuXb9lXxS60zg5tHjrPh8zz_BfwEA",
       "ledgerUri": "https://pineapplesheep.ilp.rocks/ledger",
       "peersRpcUri": "https://pineapplesheep.ilp.rocks/api/peers/rpc",
@@ -83,7 +83,7 @@
       "health": 1,
       "settlements": "<span style=\"color:green\">Paypal</span>",
       "ping": 1,
-      "protocolVersion": "Compatible: ilp-kit v1.1.0",
+      "protocolVersion": "Compatible: ilp-kit v2.0.0-alpha",
       "publicKey": "RaDX8ZREv6KSi55fqCQb4cE-631PaWZaiNdAOnAFXHg",
       "ledgerUri": "https://usd.interledger.network/ledger",
       "peersRpcUri": "https://usd.interledger.network/api/peers/rpc",
@@ -94,7 +94,7 @@
       "owner": "nyeinminn",
       "prefix": "mm.mmk.interledger.",
       "version": "<span style=\"color:green\">Compatible: ilp-kit v1.1.0</span>",
-      "health": 1,
+      "health": 0,
       "settlements": "<span style=\"color:green\">Paypal</span>",
       "ping": 1,
       "protocolVersion": "Compatible: ilp-kit v1.1.0",
@@ -170,7 +170,7 @@
       "health": 1,
       "settlements": "None",
       "ping": 1,
-      "protocolVersion": "Compatible: ilp-kit v1.2.0",
+      "protocolVersion": "Compatible: ilp-kit v2.0.0-alpha",
       "publicKey": "gqI9E_7v9XaUX95I51D6i8miDHl1Fx0Dd_WZRR9fcgI",
       "ledgerUri": "https://cygnus.vahehovhannisyan.com/ledger",
       "peersRpcUri": "https://cygnus.vahehovhannisyan.com/api/peers/rpc",
@@ -194,7 +194,7 @@
       "owner": "dennis",
       "prefix": "lu.eur.hive.",
       "version": "<span style=\"color:green\">Compatible: ilp-kit v1.1.0</span>",
-      "health": 1,
+      "health": 0,
       "settlements": "<span style=\"color:green\">Cash, Just click here. We call it even.</span>",
       "ping": 1,
       "protocolVersion": "Compatible: ilp-kit v2.0.0-alpha",
@@ -220,7 +220,7 @@
       "health": 1,
       "settlements": "<span style=\"color:green\">Cash</span>",
       "ping": 1,
-      "protocolVersion": "Compatible: ilp-kit v2.0.0-alpha",
+      "protocolVersion": "Compatible: ilp-kit v2.0.0",
       "publicKey": "Sk0gGc3mz9_Ci2eLTTBPfuMdgFEW3hRj0QTRvWFZBEQ",
       "ledgerUri": "https://ilp-kit.michielbdejong.com/ledger",
       "peersRpcUri": "https://ilp-kit.michielbdejong.com/api/peers/rpc",
@@ -231,7 +231,7 @@
       "owner": "",
       "prefix": "us.usd.jonhvb.",
       "version": "<span style=\"color:green\">Compatible: ilp-kit v1.1.0</span>",
-      "health": 1,
+      "health": 0,
       "settlements": "<span style=\"color:green\">Orange Juice</span>",
       "ping": 1,
       "protocolVersion": "Compatible: ilp-kit v1.2.1",
@@ -290,7 +290,7 @@
       "hostname": "ggizi.herokuapp.com",
       "owner": "",
       "prefix": "us.usd.ggizi.",
-      "health": 1,
+      "health": 0,
       "settlements": "<span style=\"color:green\"></span>",
       "ping": 0,
       "publicKey": "uHovjn7L1a2Yij5CUxcQQ44ebZsKNOl-d7yKRwFqG2I",
@@ -370,9 +370,9 @@
       "maxBalance": "10^10 centi-USD",
       "messaging": 2806.5713899841808,
       "messageToSelf": 669.4989225055264,
-      "connectDelay": 2518.4750920054908,
+      "connectDelay": 2531.6270280890813,
       "connectSuccess": 1,
-      "msgDelay": 601.1861692007683,
+      "msgDelay": 584.9141503955738,
       "msgSuccess": 1,
       "connectors": [
         {
@@ -401,7 +401,7 @@
       "balances": {
         "connectorland": "993.57"
       },
-      "rate": 1.0745,
+      "rate": 1.0919,
       "version": "five-bells@20"
     },
     "de.eur.blue.": {
@@ -410,9 +410,9 @@
       "maxBalance": "10^10 centi-EUR",
       "messaging": 2732.011435105417,
       "messageToSelf": 532.8754798349627,
-      "connectDelay": 2546.096556148493,
+      "connectDelay": 2522.4885329292247,
       "connectSuccess": 1,
-      "msgDelay": 605.6583178956419,
+      "msgDelay": 590.2975287447581,
       "msgSuccess": 1,
       "connectors": [
         {
@@ -459,9 +459,9 @@
       "maxBalance": "10^10 centi-EUR",
       "messaging": 511.96530159116816,
       "messageToSelf": 89.32106278700076,
-      "connectDelay": 202.29548058392916,
+      "connectDelay": 205.5110549645736,
       "connectSuccess": 1,
-      "msgDelay": 35.98773221634225,
+      "msgDelay": 43.16687778338735,
       "msgSuccess": 1,
       "connectors": [
         {
@@ -485,12 +485,13 @@
         "websocket": "wss://pineapplesheep.ilp.rocks/ledger/websocket",
         "message": "https://pineapplesheep.ilp.rocks/ledger/messages"
       },
-      "precision": 10,
-      "scale": 2,
+      "precision": 19,
+      "scale": 9,
       "balances": {
         "connectorland": "0.13"
       },
-      "rate": 1
+      "rate": 1,
+      "version": "five-bells@20"
     },
     "us.usd.usd.": {
       "hostname": "usd.interledger.network",
@@ -498,9 +499,9 @@
       "maxBalance": "10^10 centi-USD",
       "messaging": 1342.50549504529,
       "messageToSelf": 291.9152568397341,
-      "connectDelay": 1227.8560859905003,
+      "connectDelay": 1214.832514272832,
       "connectSuccess": 1,
-      "msgDelay": 287.58509202211525,
+      "msgDelay": 283.94288868371495,
       "msgSuccess": 1,
       "connectors": [
         {
@@ -524,12 +525,13 @@
         "websocket": "wss://usd.interledger.network/ledger/websocket",
         "message": "https://usd.interledger.network/ledger/messages"
       },
-      "precision": 10,
-      "scale": 2,
+      "precision": 19,
+      "scale": 9,
       "balances": {
         "connectorland": "5"
       },
-      "rate": 1.0745
+      "rate": 1.0919,
+      "version": "five-bells@20"
     },
     "mm.mmk.interledger.": {
       "hostname": "mmk.interledger.network",
@@ -537,9 +539,9 @@
       "maxBalance": "10^10 centi-MMK",
       "messaging": 3439.4015252000136,
       "messageToSelf": 802.7782742345942,
-      "connectDelay": 2609.9429564106995,
+      "connectDelay": 2538.2415983535284,
       "connectSuccess": 1,
-      "msgDelay": 614.0168379618685,
+      "msgDelay": 592.2015503087276,
       "msgSuccess": 1,
       "connectors": [
         {
@@ -576,9 +578,9 @@
       "maxBalance": "10^10 centi-KRW",
       "messaging": 4246.468671521511,
       "messageToSelf": 989.7998589530154,
-      "connectDelay": 4202.634470682496,
+      "connectDelay": 4191.763696004544,
       "connectSuccess": 1,
-      "msgDelay": 976.7554810852071,
+      "msgDelay": 970.7618131357256,
       "msgSuccess": 1,
       "connectors": [
         {
@@ -607,7 +609,7 @@
       "balances": {
         "connectorland": "10000"
       },
-      "rate": 1220.9,
+      "rate": 1235.5,
       "version": "five-bells@20"
     },
     "us.usd.nexus.": {
@@ -616,9 +618,9 @@
       "maxBalance": "10^19 nano-USD",
       "messaging": 1149.4853136045208,
       "messageToSelf": 138.23978921148884,
-      "connectDelay": 1202.2881515332244,
+      "connectDelay": 1187.1890624677208,
       "connectSuccess": 1,
-      "msgDelay": 238.51016407071194,
+      "msgDelay": 211.87674910390325,
       "msgSuccess": 1,
       "connectors": [
         {
@@ -647,7 +649,7 @@
       "balances": {
         "connectorland": "24.343999775"
       },
-      "rate": 1.063,
+      "rate": 1.0745,
       "version": "five-bells@20"
     },
     "us.usd.cornelius.": {
@@ -656,9 +658,9 @@
       "maxBalance": "10^10 micro-USD",
       "messaging": 1215.3921343552436,
       "messageToSelf": 222.9497056454423,
-      "connectDelay": 1169.5121825168073,
+      "connectDelay": 1139.0591367789852,
       "connectSuccess": 1,
-      "msgDelay": 248.01799767227448,
+      "msgDelay": 272.5607393497562,
       "msgSuccess": 1,
       "connectors": [
         {
@@ -687,7 +689,7 @@
       "balances": {
         "connectorland": "31.271129"
       },
-      "rate": 1.0745,
+      "rate": 1.0919,
       "version": "five-bells@20"
     },
     "us.usd.cygnus.": {
@@ -696,9 +698,9 @@
       "maxBalance": "10^10 centi-USD",
       "messaging": 947.2967520028768,
       "messageToSelf": 268.92073547936826,
-      "connectDelay": 841.5394862880185,
+      "connectDelay": 777.4538009345127,
       "connectSuccess": 1,
-      "msgDelay": 166.76381004904297,
+      "msgDelay": 158.49048018344692,
       "msgSuccess": 1,
       "connectors": [
         {
@@ -722,12 +724,13 @@
         "websocket": "wss://cygnus.vahehovhannisyan.com/ledger/websocket",
         "message": "https://cygnus.vahehovhannisyan.com/ledger/messages"
       },
-      "precision": 10,
-      "scale": 2,
+      "precision": 19,
+      "scale": 9,
       "balances": {
         "connectorland": "11.41"
       },
-      "rate": 1.0745
+      "rate": 1.0919,
+      "version": "five-bells@20"
     },
     "us.usd.grifiti.": {
       "hostname": "grifiti.web-payments.net",
@@ -766,9 +769,9 @@
       "maxBalance": "10^16 (10^-8)-EUR",
       "messaging": 453.44399289092365,
       "messageToSelf": 148.20425903405163,
-      "connectDelay": 246.83345512381612,
-      "connectSuccess": 0.40608517176729925,
-      "msgDelay": 44.99250930139071,
+      "connectDelay": 260.1203068753345,
+      "connectSuccess": 0.9999703161617978,
+      "msgDelay": 47.2341732309326,
       "msgSuccess": 1,
       "connectors": [
         {
@@ -856,9 +859,9 @@
       "maxBalance": "10^10 centi-USD",
       "messaging": 728.8575218322388,
       "messageToSelf": 165.18076251049885,
-      "connectDelay": 409.1897716809183,
+      "connectDelay": 429.40997313825267,
       "connectSuccess": 1,
-      "msgDelay": 75.58857495683941,
+      "msgDelay": 71.75519837727907,
       "msgSuccess": 1,
       "connectors": [
         {
@@ -882,12 +885,13 @@
         "websocket": "wss://john.jpvbs.com/ledger/websocket",
         "message": "https://john.jpvbs.com/ledger/messages"
       },
-      "precision": 10,
-      "scale": 2,
+      "precision": 19,
+      "scale": 9,
       "balances": {
         "connectorland": "0.03"
       },
-      "rate": 1.0745
+      "rate": 1.0919,
+      "version": "five-bells@20"
     },
     "us.usd.best-ilp.": {
       "hostname": "best-ilp.herokuapp.com",
@@ -895,9 +899,9 @@
       "maxBalance": "10^10 centi-USD",
       "messaging": 1424.9607753974178,
       "messageToSelf": 311.22479951667344,
-      "connectDelay": 1378.5389957175444,
+      "connectDelay": 1353.3514401067155,
       "connectSuccess": 1,
-      "msgDelay": 323.30325680632893,
+      "msgDelay": 310.9685479326732,
       "msgSuccess": 1,
       "connectors": [
         {
@@ -926,7 +930,7 @@
       "balances": {
         "connectorland": "0.92"
       },
-      "rate": 1.0745
+      "rate": 1.0919
     },
     "us.usd.michiel-is-not-available.": {
       "hostname": "michiel-is-not-available.herokuapp.com",
@@ -962,14 +966,14 @@
       },
       "precision": 19,
       "scale": 20,
-      "connectDelay": 486.5615539404309,
+      "connectDelay": 508.85880339052574,
       "connectSuccess": 1,
       "balances": {
         "connectorland": "11.5517494238"
       },
-      "msgDelay": 106.1858321208326,
+      "msgDelay": 106.81785934911409,
       "msgSuccess": 1,
-      "rate": 1.0745,
+      "rate": 1.0919,
       "version": "five-bells@20"
     },
     "ca.usd.royalcrypto.": {
@@ -978,9 +982,9 @@
       "maxBalance": "10^10 centi-USD",
       "messaging": 1571.536846814104,
       "messageToSelf": 388.88962824651855,
-      "connectDelay": 1539.6312582967566,
+      "connectDelay": 1516.0383831492704,
       "connectSuccess": 1,
-      "msgDelay": 355.5229796467063,
+      "msgDelay": 351.80782577677815,
       "msgSuccess": 1,
       "connectors": [
         {
@@ -1009,7 +1013,7 @@
       "balances": {
         "connectorland": "0"
       },
-      "rate": 1.0745
+      "rate": 1.0919
     },
     "us.usd.ggizi.": {
       "hostname": "ggizi.herokuapp.com",
@@ -1017,9 +1021,9 @@
       "maxBalance": "10^10 centi-USD",
       "messaging": 1473.189598549483,
       "messageToSelf": 325.3764943177516,
-      "connectDelay": 1335.800485716728,
+      "connectDelay": 1327.8565854060403,
       "connectSuccess": 1,
-      "msgDelay": 311.77855290417585,
+      "msgDelay": 306.4257690323915,
       "msgSuccess": 1,
       "connectors": [
         {
@@ -1048,7 +1052,7 @@
       "balances": {
         "connectorland": "11.72"
       },
-      "rate": 1.0745
+      "rate": 1.0698
     },
     "lu.eur.michiel-eur.": {
       "hostname": "michiel-eur.herokuapp.com",
@@ -1095,9 +1099,9 @@
       "maxBalance": "10^10 centi-USD",
       "messaging": 272.2820560644667,
       "messageToSelf": 78.56866533091738,
-      "connectDelay": 174.88544495109912,
+      "connectDelay": 195.12567300060522,
       "connectSuccess": 1,
-      "msgDelay": 31.611057732111345,
+      "msgDelay": 38.79424572408566,
       "msgSuccess": 1,
       "connectors": [
         {
@@ -1126,7 +1130,7 @@
       "balances": {
         "connectorland": "0"
       },
-      "rate": 1.0745
+      "rate": 1.0919
     },
     "us.usd.ilpkit-gce.": {
       "hostname": "ilpkit-gce.fluid.money",
@@ -1134,9 +1138,9 @@
       "maxBalance": "10^10 centi-USD",
       "messaging": 2196.62096485227,
       "messageToSelf": 485.92000423387873,
-      "connectDelay": 2107.842306750511,
+      "connectDelay": 2057.814537697571,
       "connectSuccess": 1,
-      "msgDelay": 486.41203155918845,
+      "msgDelay": 479.38794563873836,
       "msgSuccess": 1,
       "connectors": [
         {
@@ -1165,7 +1169,7 @@
       "balances": {
         "connectorland": "0"
       },
-      "rate": 1.0745
+      "rate": 1.0919
     }
   },
   "connectors": {
@@ -2569,6 +2573,13 @@
       },
       "us.usd.ggizi.": {
         "micmic": {
+          "transferSuccess": 0
+        }
+      }
+    },
+    "us.usd.ggizi.": {
+      "us.usd.best-ilp.": {
+        "connector": {
           "transferSuccess": 0
         }
       }
