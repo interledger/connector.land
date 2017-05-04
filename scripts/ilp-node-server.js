@@ -51,6 +51,7 @@ var stats = fs.readFileSync('../data/stats.json');
 
 var peeringStats = {
   hosts: {},
+  routes: {},
   quotes: []
 } 
 
@@ -182,9 +183,9 @@ function postToPeer(host, postDataFn, cb) {
       });
       res.on('end', () => {
         console.log(`POST to ${host} resulted in ${res.statusCode}`);
-        //if (res.statusCode === 401) {
+        if (res.statusCode === 401) {
           console.log(`curl --header "Authorization: ${options.headers.Authorization}" -iX POST https://${host}${options.path.split('&').join('\\&')}`);
-        //}
+        }
         cb(null, str);
       });
     });
@@ -240,7 +241,7 @@ function postRoute(host, ledger, subledger) {
       data: {
         new_routes: [ {
           source_ledger: ledger,
-          destination_ledger: `g.dns.land.connector.${subledger}.`,
+          destination_ledger: `g.dns.land.connector.${subledger}`,
           points: [
             [1e-12,0],
             [100000000000000000, 11009463495575220000]
@@ -276,15 +277,22 @@ function handleRpc(params, bodyObj) {
 
       switch(bodyObj[0].data.method) {
       case 'broadcast_routes':
-        console.log('new routes!', bodyObj[0].data.data.new_routes);
-        postRoute(host, params.prefix, `via.${host.split('.').reverse().join('.')}`)
-        postRoute(host, params.prefix, `spsp`)
+        console.log('new routes!', bodyObj[0].data.data.new_routes.map(route => JSON.stringify(route)));
+        postRoute(host, params.prefix, `via.${host.split('.').reverse().join('.')}.`)
+        postRoute(host, params.prefix, `spsp.`)
         var newRoutes = bodyObj[0].data.data.new_routes;
         for (var i=0; i<newRoutes.length; i++) {
           if (newRoutes[i].destination_ledger = `g.dns.land.connector.via.${host.split('.').reverse().join('.')}.`) {
             console.log('ALARM!', params, JSON.stringify(bodyObj, null, 2));
-        //    process.exit(1);
+            //process.exit(1);
           }
+          console.log('got route', host, params.prefix, newRoutes[i].destination_ledger);
+          if (typeof peeringStats.routes[host] === 'undefined') {
+            peeringStats.routes[host] = {};
+          }
+          peeringStats.routes[host][newRoutes[i].destination_ledger] = true;
+          console.log(JSON.stringify(peeringStats.routes, null, 2));
+          console.log(`getting quote via ${host} to ${newRoutes[i].destination_ledger}`)
           getQuote(host, newRoutes[i].destination_ledger);
         }
         break;
@@ -311,6 +319,7 @@ function handleRpc(params, bodyObj) {
 //3|ilp-node |       "id": "25ae6938-47ae-482f-be8f-23f0fa12f601"
 //3|ilp-node |     }
 //3|ilp-node |   }
+        console.log('responding to quote request', bodyObj[0].data)
         const quoteResponse = Object.assign({}, bodyObj[0].data)
         quoteResponse.method = 'quote_response'
         quoteResponse.destination_amount = quoteResponse.data.data.source_amount
@@ -393,16 +402,23 @@ http.createServer(function(req, res) {
 }).listen(6000);
 
 // try to guess hostnames of hosts that peer with us
-[
+var peers = [
 
   
   'ilp-kit.michielbdejong.com',
-//  'hive.dennisappelt.com',
-//  'cornelius.sharafian.com',
+  'hive.dennisappelt.com',
+  'cornelius.sharafian.com',
 //  'pineapplesheep.ilp.rocks',
 //  'grifiti.web-payments.net',
-].map(host => {
+];
+
+peers.map(host => {
   getTokens(host, function(err, ledger, peerPublicKey) {
-    postRoute(host, ledger, `initial.${ledger}`);
+    var subledger = `initial.${ledger}`;
+    postRoute(host, ledger, subledger);
+    setInterval(() => {
+      console.log('getQuote', host, ledger + subledger);
+      getQuote(host, ledger + subledger);
+    }, 10000);
   });
 });
