@@ -169,6 +169,11 @@ html:not(.is-touch) .hero h1 a.em:hover {
   color: #fff;
 }
 
+.about input {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
 /* show/hide about section */
 
 .about {

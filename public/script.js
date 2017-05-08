@@ -7,15 +7,15 @@ var config = {
 
   // JSON endpoint to fetch data from
 
-  dataUrl: 'https://stats.connector.land/',
+  dataUrl: '/stats' + window.location.search,
 
 
   // Column order to display
 
   columnOrder: {
-    hosts: 'prefix url version balance methods owner delay uptime health'.split(' '),
-    ledgers: 'prefix url balance methods real delay uptime'.split(' '),
-    connectors: 'address delay'.split(' '),
+    hosts: 'hostname version lastDownTime health latency'.split(' '),
+    ledgers: 'comingbacksoon'.split(' '),
+    connectors: 'comingbacksoon'.split(' '),
   },
 
 
@@ -25,30 +25,19 @@ var config = {
   columnNames: {
 
     hosts: {
-      url: 'ILP Kit URL',
+      hostname: 'ILP Kit URL',
       version: 'ILP Kit Version',
-      prefix: 'Ledger Prefix',
-      balance: 'Max Balance',
-      delay: 'Message Delay',
-      owner: 'Owner',
-      methods: 'Settlement Methods',
-      health: 'Health',
-      uptime: 'Uptime'
+      lastDownTime: 'Up since (hours)',
+      health: 'Up %',
+      latency: 'HTTP Roundtrip Time (ms)',
     },
 
     ledgers: {
-      prefix: 'Ledger Prefix',
-      balance: 'Max Balance',
-      delay: 'Message Delay',
-      uptime: 'Uptime',
-      url: 'Web Interface',
-      methods: 'Settlement Methods',
-      real: 'Real Money?'
+      comingbacksoon: 'Coming back soon!'
     },
 
     connectors: {
-      address: 'ILP address',
-      delay: 'Quote<br>Delay'
+      comingbacksoon: 'Coming back soon!'
     }
 
   }
@@ -157,14 +146,14 @@ var config = {
 
     // Prepare the data
 
-    var str = xhr.responseText
+    var json = xhr.responseText
 
-    var json = parseHtml(str)
-    // console.log(json)
-
-    var data = JSON.parse(json)
+    var stats = JSON.parse(json)
+    data = {}
+    for (var tab in stats) {
+      data[tab] =  Object.keys(stats[tab]).map(i => stats[tab][i])
+    }
     formatData(data)
-    // console.log(data)
 
 
     // Add html tables to page
@@ -232,84 +221,47 @@ var config = {
 
 function formatData(obj){
 
-  $.map(obj, function(table, key){
+  $.map(obj, function(rows, key){
 
 
     // Filter out empty rows
-
-    table.rows = table.rows.filter(function(v){ return v !== '' })
-
-
-    // Add any missing column headers
-
-    table.headers.map(function(name, i){
-      if (config.columnOrder[key][i]) return
-      var slug = name.replace(/ /g, '-')
-      config.columnNames[key][slug] = name
-      config.columnOrder[key].push(slug)
-    })
-
-
-    // Convert row array into key:val object
-
-    var columnIndex = Object.keys(config.columnNames[key])
-
-    var rows = obj[key] = table.rows.map(function(cols){
-      var obj = {}
-      cols.map(function(val, i){
-        var col = columnIndex[i]
-        obj[col] = val
-      })
-      return obj
-    })
-
-
-    // Set node rank
-
-    $.each(rows, function(i, v){
-      v.rank =
-        key == 'hosts' ? (
-          /error/i.test(v.version) || /response/i.test(v.methods) ? 2 : // 3 :
-          v.uptime !== '100%' || v.health !== '100%' ? 2 :
-          1 ) :
-        key == 'ledgers' ? (
-          /response/i.test(v.methods) ? 2 : // 3 :
-          v.uptime == '0%' ? 2 :
-          1 ) :
-        key == 'connectors' ? (
-          Object.keys(v).filter(function(k){ return !!v[k] }).length == 2 ? 2 : // 3 :
-          Object.keys(v).filter(function(k){ return v[k] !== 'n/a' && v[k] !== 'fail' }).length == 2 ? 2 :
-          1 ) : 0
-    })
-
-
+    rows = rows.filter(function(v){ return v !== '' })
 
     // Sort data
 
     rows.sort(
-      firstBy('rank')
-      .thenBy('health', -1)
-      .thenBy('uptime', -1)
-      .thenBy('version', -1)
-      .thenBy('delay') )
-
+      firstBy(v => (v.version === 'Compatible: ilp-kit v2.0.0' ? 0 : 1))
+      .thenBy('lastDownTime')
+      .thenBy('health', -1))
 
     // Format values
 
     $.each(rows, function(i, row){
       $.each(row, function(k, v){
-
         // Format text
+          // Round latency integers
 
-          // Round delay integers
+          if (k == 'latency') v = Math.round(v)
 
-          if (k == 'delay') v = Math.round(v)
+          // Add % where needed
 
-          // Add %, ms where needed
+          if (k == 'health') v = Math.round(100 * v) + '%'
 
-          if (k == 'delay') v = v + 'ms'
-
-          if (k == 'uptime') v = v.replace(/(?=[^%]$)/, '%')
+          if (k == 'lastDownTime') {
+            v = Math.round((new Date().getTime() - v) / 60000)
+            let measure = 'minute'
+            if (v > 1440) {
+              v = Math.round(v / 1440)
+              measure = 'day'
+            } else if (v > 60) {
+              v = Math.round(v / 60)
+              measure = 'hour'
+            }
+            if (v !== 1) {
+              measure += 's'
+            }
+            v += ' ' + measure
+          }
 
           // Strip extra text from ILP version
 
@@ -327,7 +279,7 @@ function formatData(obj){
 
           // Links
 
-          if (k == 'url') v = '<a href="https://' + v + '/" target="_blank">' + v + '</a>'
+          if (k == 'hostname') v = '<a href="https://' + v + '/" target="_blank">' + v + '</a>'
 
           // Errors, fail, n/a
 
@@ -336,46 +288,8 @@ function formatData(obj){
           else if (v == 'fail' || v == 'n/a' || v == 'no data') v = '<span class="na">' + v + '</span>'
 
         row[k] = v
-
       })
     })
-
-
+    obj[key] = rows
   })
-
-}
-
-
-// Convert html strings from server response into raw data
-
-function parseHtml(str){
-
-  return str
-
-    // Split html table cells into array of values
-
-    .replace(/"<tr>(.+?)<\/tr>"/g, '[ "$1" ]')
-    .replace(/<\/t[dh]>,?<t[dh].*?>/g, '", "')
-
-    // Strip any other html tags left
-
-    .replace(/<.+?>/g, '')
-
-    // Normalize types
-
-      // Convert to proper empty values
-      .replace(/"undefined"|"\?"/g, '""')
-
-      // Round percentages up to two decimal points
-      //.replace(/"(\d+(?:\.\d{1,2})?)\d*%"/g, '"$1%"')
-
-      // Convert numbers to integers
-      .replace(/"(\d+(?:.\d+)?)"/g, '$1')
-
-    // Format values
-
-      .replace(/\\n\(fee for sending one cent\)/g, '')
-      .replace(/, Just click here. W/g, '')
-
-
 }
