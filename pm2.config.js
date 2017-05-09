@@ -14,6 +14,7 @@ module.exports = {
         STATS_FILE: 'data/stats.json',
         CREDS_FILE: 'data/creds.json',
         PUBLIC_FOLDER: 'public/',
+        HOSTNAME: 'connector.land',
         PROBE_INTERVAL: 10000,
         PORT: 6000
       }
