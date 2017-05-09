@@ -230,9 +230,9 @@ function formatData(obj){
     // Sort data
 
     rows.sort(
-      firstBy(v => (v.version === 'Compatible: ilp-kit v2.0.0' ? 0 : 1))
-      .thenBy('lastDownTime')
-      .thenBy('health', -1))
+      firstBy(v => (v.version === 'Compatible: ilp-kit v2.0.0' || v.version === 'Compatible: ilp-kit v2.0.1' ? 0 : 1))
+      .thenBy(v => Math.round(10 * v.health), -1)
+      .thenBy('latency'))
 
     // Format values
 
