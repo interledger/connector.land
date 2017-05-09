@@ -13,7 +13,7 @@ var config = {
   // Column order to display
 
   columnOrder: {
-    hosts: 'hostname version lastDownTime health latency'.split(' '),
+    hosts: 'hostname version lastDownTime health latency balance limit'.split(' '),
     ledgers: 'comingbacksoon'.split(' '),
     connectors: 'comingbacksoon'.split(' '),
   },
@@ -25,11 +25,13 @@ var config = {
   columnNames: {
 
     hosts: {
-      hostname: 'ILP Kit URL',
-      version: 'ILP Kit Version',
+      hostname: 'Host URL',
+      version: 'Software Version',
       lastDownTime: 'Up since (hours)',
       health: 'Up %',
       latency: 'HTTP Roundtrip Time (ms)',
+      balance: 'Balance',
+      limit: 'Limit',
     },
 
     ledgers: {
@@ -230,7 +232,7 @@ function formatData(obj){
     // Sort data
 
     rows.sort(
-      firstBy(v => (v.version === 'Compatible: ilp-kit v2.0.0' || v.version === 'Compatible: ilp-kit v2.0.1' ? 0 : 1))
+      firstBy(v => (v.version === 'Compatible: ilp-kit v2.0.2' ? 0 : (v.version === 'Compatible: ilp-kit v2.0.0' || v.version === 'Compatible: ilp-kit v2.0.1' ? 0.5 : 1)))
       .thenBy(v => Math.round(10 * v.health), -1)
       .thenBy('latency'))
 
@@ -242,6 +244,8 @@ function formatData(obj){
           // Round latency integers
 
           if (k == 'latency') v = Math.round(v)
+
+          if ((k == 'balance' || k == 'limit') && (v.length > 20)) v = 'Unknown'
 
           // Add % where needed
 
@@ -265,7 +269,7 @@ function formatData(obj){
 
           // Strip extra text from ILP version
 
-          if (k == 'version') v = v.replace(/Compatible: ilp-kit /, '')
+          if (k == 'version') v = v.replace(/Compatible: /, '')
 
         // Add HTML (for styling)
 

@@ -17,11 +17,18 @@ app.use(async function(ctx, next) {
   switch(ctx.path) {
   case '/.well-known/webfinger': ctx.body = await ilpNode.handleWebFinger(ctx.query.resource, '/spsp')
     break
-  case '/rpc': ctx.body = await ilpNode.handleRpc(ctx.query, ctx.body)
+  case '/rpc':
+    let str = ''
+    await new Promise(resolve => {
+      ctx.req.on('data', chunk => str += chunk)
+      ctx.req.on('end', resolve)
+    })
+    ctx.body = await ilpNode.handleRpc(ctx.query, JSON.parse(str))
     break
   case '/spsp': ctx.body = await ilpNode.handleSpsp()
     break
   case '/stats':
+    await ilpNode.ensureReady()
     if (typeof ctx.query.test === 'string') {
       await ilpNode.testHost(ctx.query.test)
     }

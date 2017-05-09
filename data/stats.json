@@ -2,49 +2,61 @@
   "hosts": {
     "red.ilpdemo.org": {
       "hostname": "red.ilpdemo.org",
-      "version": "Compatible: ilp-kit v2.0.0-alpha",
-      "health": 0.9914017854981951,
+      "version": "Compatible: ilp-kit v2.0.2",
+      "health": 0.993181299600532,
       "ledgerUri": "https://red.ilpdemo.org/ledger",
       "peersRpcUri": "https://red.ilpdemo.org/api/peers/rpc",
       "settlementMethodsUri": "https://red.ilpdemo.org/api/settlement_methods",
-      "lastDownTime": 1494253420626,
-      "latency": 656.6028088518125
+      "lastDownTime": 1495105930057,
+      "latency": 651.5017080153389,
+      "pubKey": "0ZwLzlPLd2UWJPwYSz6RhOh3S-N-cdAhVqG62iqb6xI",
+      "limit": "Unauthorized",
+      "balance": "Unauthorized"
     },
     "blue.ilpdemo.org": {
-      "lastDownTime": 1494251014731,
+      "lastDownTime": 1495105904303,
       "hostname": "blue.ilpdemo.org",
-      "version": "Compatible: ilp-kit v2.0.0-alpha",
-      "health": 1,
+      "version": "Compatible: ilp-kit v2.0.2",
+      "health": 0.9999906959040072,
       "ledgerUri": "https://blue.ilpdemo.org/ledger",
       "peersRpcUri": "https://blue.ilpdemo.org/api/peers/rpc",
       "settlementMethodsUri": "https://blue.ilpdemo.org/api/settlement_methods",
-      "latency": 640.3579270315361
+      "latency": 638.5701861733779,
+      "pubKey": "ncGB5ESoRkBA8iLAvLAz9EdIH2zQCTBT6Di5XPj7qFc",
+      "limit": "Unauthorized",
+      "balance": "Unauthorized"
     },
     "pineapplesheep.ilp.rocks": {
-      "lastDownTime": 1494251014731,
+      "lastDownTime": 1495127639820,
       "hostname": "pineapplesheep.ilp.rocks",
-      "version": "Compatible: ilp-kit v2.0.1",
-      "health": 1,
+      "version": "Compatible: ilp-kit v2.0.2",
+      "health": 0.9998003357351595,
       "ledgerUri": "https://pineapplesheep.ilp.rocks/ledger",
       "peersRpcUri": "https://pineapplesheep.ilp.rocks/api/peers/rpc",
       "settlementMethodsUri": "https://pineapplesheep.ilp.rocks/api/settlement_methods",
-      "latency": 70.91942661541049
+      "latency": 73.49815761486761,
+      "pubKey": "Y_luxphkAy6ddYzuXb9lXxS60zg5tHjrPh8zz_BfwEA",
+      "limit": "[{\"ledger\":\"peer.QUfdb.usd.9.\",\"from\":\"peer.QUfdb.usd.9.8Zq10b79NO7RGHgfrX4lCXPbhVXL3Gt63SVLRH-BvR0\",\"to\":\"peer.QUfdb.usd.9.Y_luxphkAy6ddYzuXb9lXxS60zg5tHjrPh8zz_BfwEA\"}]",
+      "balance": "[{\"ledger\":\"peer.QUfdb.usd.9.\",\"from\":\"peer.QUfdb.usd.9.8Zq10b79NO7RGHgfrX4lCXPbhVXL3Gt63SVLRH-BvR0\",\"to\":\"peer.QUfdb.usd.9.Y_luxphkAy6ddYzuXb9lXxS60zg5tHjrPh8zz_BfwEA\"}]"
     },
     "usd.interledger.network": {
-      "lastDownTime": 1494251014731,
+      "lastDownTime": 1495105870897,
       "hostname": "usd.interledger.network",
       "version": "Compatible: ilp-kit v2.0.0-alpha",
-      "health": 1,
+      "health": 0.9999906962761654,
       "ledgerUri": "https://usd.interledger.network/ledger",
       "peersRpcUri": "https://usd.interledger.network/api/peers/rpc",
       "settlementMethodsUri": "https://usd.interledger.network/api/settlement_methods",
-      "latency": 361.94822957974355
+      "latency": 351.64524752585226,
+      "pubKey": "RaDX8ZREv6KSi55fqCQb4cE-631PaWZaiNdAOnAFXHg",
+      "limit": "[{\"ledger\":\"peer.hm3wS.usd.9.\",\"from\":\"peer.hm3wS.usd.9.8Zq10b79NO7RGHgfrX4lCXPbhVXL3Gt63SVLRH-BvR0\",\"to\":\"peer.hm3wS.usd.9.RaDX8ZREv6KSi55fqCQb4cE-631PaWZaiNdAOnAFXHg\"}]",
+      "balance": "[{\"ledger\":\"peer.hm3wS.usd.9.\",\"from\":\"peer.hm3wS.usd.9.8Zq10b79NO7RGHgfrX4lCXPbhVXL3Gt63SVLRH-BvR0\",\"to\":\"peer.hm3wS.usd.9.RaDX8ZREv6KSi55fqCQb4cE-631PaWZaiNdAOnAFXHg\"}]"
     },
     "interledger.kr": {
       "hostname": "interledger.kr",
-      "lastDownTime": 1494258057506,
+      "lastDownTime": 1495182118754,
       "version": "Compatible: ilp-kit v2.0.0-alpha",
-      "health": 0.45204365026647564,
+      "health": 0.3577976408259666,
       "ledgerUri": "https://interledger.kr/ledger",
       "peersRpcUri": "https://interledger.kr/api/peers/rpc",
       "settlementMethodsUri": "https://interledger.kr/api/settlement_methods"
@@ -57,46 +69,62 @@
       "ledgerUri": "https://cornelius.sharafian.com/ledger",
       "peersRpcUri": "https://cornelius.sharafian.com/api/peers/rpc",
       "settlementMethodsUri": "https://cornelius.sharafian.com/api/settlement_methods",
-      "latency": 363.47437136605515
+      "latency": 78.08717701258067,
+      "pubKey": "KRixgcBCBdyQln7IBYiopjuNO78QSFtXgOwP1sbsCSk",
+      "limit": "[{\"ledger\":\"peer.Q-Nlc.usd.9.\",\"from\":\"peer.Q-Nlc.usd.9.8Zq10b79NO7RGHgfrX4lCXPbhVXL3Gt63SVLRH-BvR0\",\"to\":\"peer.Q-Nlc.usd.9.KRixgcBCBdyQln7IBYiopjuNO78QSFtXgOwP1sbsCSk\"}]",
+      "balance": "[{\"ledger\":\"peer.Q-Nlc.usd.9.\",\"from\":\"peer.Q-Nlc.usd.9.8Zq10b79NO7RGHgfrX4lCXPbhVXL3Gt63SVLRH-BvR0\",\"to\":\"peer.Q-Nlc.usd.9.KRixgcBCBdyQln7IBYiopjuNO78QSFtXgOwP1sbsCSk\"}]"
     },
     "cygnus.vahehovhannisyan.com": {
       "hostname": "cygnus.vahehovhannisyan.com",
-      "lastDownTime": 1494251014731,
-      "version": "Compatible: ilp-kit v2.0.0-alpha",
-      "health": 1,
+      "lastDownTime": 1495105868506,
+      "version": "Compatible: ilp-kit v2.0.1",
+      "health": 0.9999906960900882,
       "ledgerUri": "https://cygnus.vahehovhannisyan.com/ledger",
       "peersRpcUri": "https://cygnus.vahehovhannisyan.com/api/peers/rpc",
       "settlementMethodsUri": "https://cygnus.vahehovhannisyan.com/api/settlement_methods",
-      "latency": 229.59071858193496
+      "latency": 229.4302545606308,
+      "pubKey": "gqI9E_7v9XaUX95I51D6i8miDHl1Fx0Dd_WZRR9fcgI",
+      "limit": "[{\"ledger\":\"peer.fkYhM.usd.9.\",\"from\":\"peer.fkYhM.usd.9.8Zq10b79NO7RGHgfrX4lCXPbhVXL3Gt63SVLRH-BvR0\",\"to\":\"peer.fkYhM.usd.9.gqI9E_7v9XaUX95I51D6i8miDHl1Fx0Dd_WZRR9fcgI\"}]",
+      "balance": "[{\"ledger\":\"peer.fkYhM.usd.9.\",\"from\":\"peer.fkYhM.usd.9.8Zq10b79NO7RGHgfrX4lCXPbhVXL3Gt63SVLRH-BvR0\",\"to\":\"peer.fkYhM.usd.9.gqI9E_7v9XaUX95I51D6i8miDHl1Fx0Dd_WZRR9fcgI\"}]"
     },
     "grifiti.web-payments.net": {
       "hostname": "grifiti.web-payments.net",
-      "version": "Compatible: ilp-kit v2.0.0-alpha",
-      "health": 1,
-      "lastDownTime": 1494251014731,
+      "version": "Compatible: ilp-kit v2.0.2",
+      "health": 0.9963227534483092,
+      "lastDownTime": 1495169182911,
       "ledgerUri": "https://grifiti.web-payments.net/ledger",
       "peersRpcUri": "https://grifiti.web-payments.net/api/peers/rpc",
       "settlementMethodsUri": "https://grifiti.web-payments.net/api/settlement_methods",
-      "latency": 358.1885018896891
+      "latency": 377.33010343985677,
+      "pubKey": "lpNd7n6iAOWTHVLvG0GxrVC1xuGTjnyQA5cHlqg01gI",
+      "limit": "[{\"ledger\":\"peer.P5g00.usd.9.\",\"from\":\"peer.P5g00.usd.9.8Zq10b79NO7RGHgfrX4lCXPbhVXL3Gt63SVLRH-BvR0\",\"to\":\"peer.P5g00.usd.9.lpNd7n6iAOWTHVLvG0GxrVC1xuGTjnyQA5cHlqg01gI\"}]",
+      "balance": "[{\"ledger\":\"peer.P5g00.usd.9.\",\"from\":\"peer.P5g00.usd.9.8Zq10b79NO7RGHgfrX4lCXPbhVXL3Gt63SVLRH-BvR0\",\"to\":\"peer.P5g00.usd.9.lpNd7n6iAOWTHVLvG0GxrVC1xuGTjnyQA5cHlqg01gI\"}]"
     },
     "hive.dennisappelt.com": {
       "hostname": "hive.dennisappelt.com",
-      "version": "Compatible: ilp-kit v2.0.0",
-      "health": 0.45204365026647564,
+      "version": "Compatible: ilp-kit v2.0.2",
+      "health": 0.5625768286936,
       "ledgerUri": "https://hive.dennisappelt.com/ledger",
       "peersRpcUri": "https://hive.dennisappelt.com/api/peers/rpc",
-      "lastDownTime": 1494258056424,
-      "settlementMethodsUri": "https://hive.dennisappelt.com/api/settlement_methods"
+      "lastDownTime": 1495123649574,
+      "settlementMethodsUri": "https://hive.dennisappelt.com/api/settlement_methods",
+      "latency": 68.69197454055538,
+      "pubKey": "MrH7ZQqiu48JEHjqE_BsE-PaMxUs8yvR0VSA8I8ZwQ8",
+      "limit": "[{\"ledger\":\"peer.csVX4.usd.9.\",\"from\":\"peer.csVX4.usd.9.8Zq10b79NO7RGHgfrX4lCXPbhVXL3Gt63SVLRH-BvR0\",\"to\":\"peer.csVX4.usd.9.MrH7ZQqiu48JEHjqE_BsE-PaMxUs8yvR0VSA8I8ZwQ8\"}]",
+      "balance": "[{\"ledger\":\"peer.csVX4.usd.9.\",\"from\":\"peer.csVX4.usd.9.8Zq10b79NO7RGHgfrX4lCXPbhVXL3Gt63SVLRH-BvR0\",\"to\":\"peer.csVX4.usd.9.MrH7ZQqiu48JEHjqE_BsE-PaMxUs8yvR0VSA8I8ZwQ8\"}]"
     },
     "ilp-kit.michielbdejong.com": {
       "hostname": "ilp-kit.michielbdejong.com",
-      "version": "Compatible: ilp-kit v2.0.0",
-      "health": 0.9905407331640861,
+      "version": "Compatible: ilp-kit v2.0.2",
+      "health": 0.9229297931376946,
       "ledgerUri": "https://ilp-kit.michielbdejong.com/ledger",
       "peersRpcUri": "https://ilp-kit.michielbdejong.com/api/peers/rpc",
-      "lastDownTime": 1494252963146,
+      "lastDownTime": 1495054995794,
       "settlementMethodsUri": "https://ilp-kit.michielbdejong.com/api/settlement_methods",
-      "latency": 74.98807052822231
+      "latency": 79.11664801771138,
+      "pubKey": "Sk0gGc3mz9_Ci2eLTTBPfuMdgFEW3hRj0QTRvWFZBEQ",
+      "limit": "10000000000",
+      "balance": "0"
     },
     "best-ilp.herokuapp.com": {
       "hostname": "best-ilp.herokuapp.com",
@@ -106,36 +134,45 @@
       "peersRpcUri": "https://best-ilp.herokuapp.com/api/peers/rpc",
       "lastDownTime": 1494251014731,
       "settlementMethodsUri": "https://best-ilp.herokuapp.com/api/settlement_methods",
-      "latency": 437.27131474865433
+      "latency": 420.3612690212885,
+      "pubKey": "D3AgeUlt4b0Ron-BYFQA_mqZeJ8QnzzHxnjr0Uuq0EM",
+      "limit": "",
+      "balance": ""
     },
     "michiel-is-not-available.herokuapp.com": {
       "hostname": "michiel-is-not-available.herokuapp.com",
-      "version": "Compatible: ilp-kit v2.0.0-alpha",
-      "health": 1,
+      "version": "Compatible: ilp-kit v2.0.1",
+      "health": 0.99997418710071,
       "ledgerUri": "https://michiel-is-not-available.herokuapp.com/ledger",
       "peersRpcUri": "https://michiel-is-not-available.herokuapp.com/api/peers/rpc",
-      "lastDownTime": 1494251014731,
+      "lastDownTime": 1495105861455,
       "settlementMethodsUri": "https://michiel-is-not-available.herokuapp.com/api/settlement_methods",
-      "latency": 165.15922302600467
+      "latency": 167.33180619498893,
+      "pubKey": "mAnGASctQQjhVXE-EYUEG4ip3UXJKVx659KfoaBMUBw",
+      "limit": "Unauthorized",
+      "balance": "Unauthorized"
     },
     "royalcrypto.com": {
       "hostname": "royalcrypto.com",
-      "health": 1,
+      "health": 0.7936115606171034,
       "ledgerUri": "https://royalcrypto.com/ledger",
       "peersRpcUri": "https://royalcrypto.com/api/peers/rpc",
-      "lastDownTime": 1494251014731,
+      "lastDownTime": 1495182014753,
       "settlementMethodsUri": "https://royalcrypto.com/api/settlement_methods",
       "latency": 400.6090851077626
     },
     "ilp.hexdivision.com": {
       "hostname": "ilp.hexdivision.com",
       "version": "Compatible: ilp-kit v1.1.0",
-      "health": 1,
+      "health": 0.9999818533520104,
       "ledgerUri": "https://ilp.hexdivision.com/ledger",
-      "lastDownTime": 1494251014731,
+      "lastDownTime": 1495105904828,
       "peersRpcUri": "https://ilp.hexdivision.com/api/peers/rpc",
       "settlementMethodsUri": "https://ilp.hexdivision.com/api/settlement_methods",
-      "latency": 69.54994843309888
+      "latency": 71.25229950889738,
+      "pubKey": "IyevnQk57WidU5gYpglpmi8he5xPZL_FE6Pk1fCQUBQ",
+      "limit": "no plugin with prefix \"peer.1-STO.usd.9.\"",
+      "balance": "no plugin with prefix \"peer.1-STO.usd.9.\""
     },
     "ilpkit-gce.fluid.money": {
       "hostname": "ilpkit-gce.fluid.money",
@@ -145,19 +182,101 @@
       "ledgerUri": "https://ilpkit-gce.fluid.money/ledger",
       "peersRpcUri": "https://ilpkit-gce.fluid.money/api/peers/rpc",
       "settlementMethodsUri": "https://ilpkit-gce.fluid.money/api/settlement_methods",
-      "latency": 559.4265111386444
+      "latency": 553.9859578032813,
+      "pubKey": "Znxdzaz2bQvgy3nJcq81JvYV-dOjMn3xBXx9qQQ0Xl4",
+      "limit": "no plugin with prefix \"peer.mVdid.usd.9.\"",
+      "balance": "no plugin with prefix \"peer.mVdid.usd.9.\""
     },
     "za.zar.ilp.hopebailie.com": {
       "hostname": "za.zar.ilp.hopebailie.com",
       "version": "Compatible: ilp-kit v1.2.0",
-      "health": 1,
-      "lastDownTime": 1494251014731,
+      "health": 0.7936115606171034,
+      "lastDownTime": 1495182014753,
       "ledgerUri": "https://za.zar.ilp.hopebailie.com/ledger",
       "peersRpcUri": "https://za.zar.ilp.hopebailie.com/api/peers/rpc",
       "settlementMethodsUri": "https://za.zar.ilp.hopebailie.com/api/settlement_methods",
       "latency": 82.9057323405888
+    },
+    "red.unicurn.com": {
+      "hostname": "red.unicurn.com",
+      "version": "Compatible: ilp-node v2.2.3",
+      "health": 0.9953322738464172,
+      "latency": 125.11093180122045,
+      "lastDownTime": 1494950013467,
+      "pubKey": "FNn71-3yjJVqcAhdc5IKEbfRlrcmjtXO0XNfL8l1s0A",
+      "limit": "Not Found",
+      "balance": "Not Found"
+    },
+    "blue.unicurn.com": {
+      "hostname": "blue.unicurn.com",
+      "version": "Compatible: ilp-kit v2.0.0",
+      "health": 0.7910364969148778,
+      "latency": 90.9996,
+      "lastDownTime": 1495182117807
+    },
+    "nexus.justmoon.com": {
+      "hostname": "nexus.justmoon.com",
+      "version": "Compatible: ilp-kit v2.0.1",
+      "health": 0.9999906960900882,
+      "latency": 438.1782632909836,
+      "lastDownTime": 1495105887798,
+      "ledgerUri": "https://nexus.justmoon.com/ledger",
+      "peersRpcUri": "https://nexus.justmoon.com/api/peers/rpc",
+      "settlementMethodsUri": "https://nexus.justmoon.com/api/settlement_methods",
+      "pubKey": "1W78wTNgWniBxOGyzLSVFJ0HvyPbCTVy57ohGzyhwC8",
+      "limit": "[{\"ledger\":\"peer.d4ZsT.usd.9.\",\"from\":\"peer.d4ZsT.usd.9.8Zq10b79NO7RGHgfrX4lCXPbhVXL3Gt63SVLRH-BvR0\",\"to\":\"peer.d4ZsT.usd.9.1W78wTNgWniBxOGyzLSVFJ0HvyPbCTVy57ohGzyhwC8\"}]",
+      "balance": "[{\"ledger\":\"peer.d4ZsT.usd.9.\",\"from\":\"peer.d4ZsT.usd.9.8Zq10b79NO7RGHgfrX4lCXPbhVXL3Gt63SVLRH-BvR0\",\"to\":\"peer.d4ZsT.usd.9.1W78wTNgWniBxOGyzLSVFJ0HvyPbCTVy57ohGzyhwC8\"}]"
     }
   },
-  "ledgers": {},
+  "ledgers": {
+    "peer.a1Mg_.usd.9.": {
+      "hostname": "ilp-kit.michielbdejong.com"
+    },
+    "peer.QUfdb.usd.9.": {
+      "hostname": "pineapplesheep.ilp.rocks"
+    },
+    "peer.1-STO.usd.9.": {
+      "hostname": "ilp.hexdivision.com"
+    },
+    "peer.csVX4.usd.9.": {
+      "hostname": "hive.dennisappelt.com"
+    },
+    "peer.TfQGQ.usd.9.": {
+      "hostname": "red.unicurn.com"
+    },
+    "peer.Q-Nlc.usd.9.": {
+      "hostname": "cornelius.sharafian.com"
+    },
+    "peer.Z8TcE.usd.9.": {
+      "hostname": "connector.land"
+    },
+    "peer.YgjsQ.usd.9.": {
+      "hostname": "michiel-is-not-available.herokuapp.com"
+    },
+    "peer.fkYhM.usd.9.": {
+      "hostname": "cygnus.vahehovhannisyan.com"
+    },
+    "peer.hm3wS.usd.9.": {
+      "hostname": "usd.interledger.network"
+    },
+    "peer.d4ZsT.usd.9.": {
+      "hostname": "nexus.justmoon.com"
+    },
+    "peer.LMokH.usd.9.": {
+      "hostname": "best-ilp.herokuapp.com"
+    },
+    "peer.mVdid.usd.9.": {
+      "hostname": "ilpkit-gce.fluid.money"
+    },
+    "peer.P5g00.usd.9.": {
+      "hostname": "grifiti.web-payments.net"
+    },
+    "peer.Tvs7l.usd.9.": {
+      "hostname": "blue.ilpdemo.org"
+    },
+    "peer.VjfbO.usd.9.": {
+      "hostname": "red.ilpdemo.org"
+    }
+  },
   "connectors": {}
 }
