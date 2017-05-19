@@ -14,8 +14,8 @@ var config = {
 
   columnOrder: {
     hosts: 'hostname version lastDownTime health latency balance limit'.split(' '),
-    ledgers: 'comingbacksoon'.split(' '),
-    connectors: 'comingbacksoon'.split(' '),
+    ledgers: 'ledgerName routes'.split(' '),
+    connectors: 'comingbacksoon'.split(' ')
   },
 
 
@@ -31,11 +31,12 @@ var config = {
       health: 'Up %',
       latency: 'HTTP Roundtrip Time (ms)',
       balance: 'Balance',
-      limit: 'Limit',
+      limit: 'Limit'
     },
 
     ledgers: {
-      comingbacksoon: 'Coming back soon!'
+      ledgerName: 'Ledger Name',
+      routes: 'Reachable via'
     },
 
     connectors: {
@@ -152,6 +153,10 @@ var config = {
 
     var stats = JSON.parse(json)
     data = {}
+    peerHostMap = {}
+    for (var ledger in stats.ledgers) {
+      peerHostMap[ledger] = stats.ledgers[ledger].hostname
+    }
     for (var tab in stats) {
       data[tab] =  Object.keys(stats[tab]).map(i => stats[tab][i])
     }
@@ -229,6 +234,10 @@ function formatData(obj){
     // Filter out empty rows
     rows = rows.filter(function(v){ return v !== '' })
 
+    if (key === 'ledgers') {
+      rows = rows.filter(function(v){ return typeof v.ledgerName === 'string' })
+    }
+
     // Sort data
 
     rows.sort(
@@ -246,6 +255,7 @@ function formatData(obj){
           if (k == 'latency') v = Math.round(v)
 
           if ((k == 'balance' || k == 'limit') && (v.length > 20)) v = 'Unknown'
+          if ((k == 'balance' || k == 'limit') && (!isNaN(parseInt(v)))) v = (parseInt(v)/Math.pow(10, 11))*100 + ' USD'
 
           // Add % where needed
 
@@ -267,6 +277,12 @@ function formatData(obj){
             v += ' ' + measure
           }
 
+          // routes list
+          if (k == 'routes') v = Object.keys(v).map(ledgerName => {
+            console.log('looking up', ledgerName, peerHostMap)
+            return peerHostMap[ledgerName] || ledgerName
+          }).join(', ')
+
           // Strip extra text from ILP version
 
           if (k == 'version') v = v.replace(/Compatible: /, '')
@@ -275,7 +291,7 @@ function formatData(obj){
 
           // Emphasis
 
-          if (k == 'prefix' || k == 'address') v = v.replace(/([^.]+\.[^.]+\.)([^.]+)/, '$1<em>$2</em>')
+          if (k == 'ledgerName' || k == 'address') v = v.replace(/([^.]+\.[^.]+\.)([^.]+)/, '$1<em>$2</em>')
 
           // Small text
 
@@ -294,6 +310,7 @@ function formatData(obj){
         row[k] = v
       })
     })
+
     obj[key] = rows
   })
 }

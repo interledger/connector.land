@@ -54,9 +54,9 @@
     },
     "interledger.kr": {
       "hostname": "interledger.kr",
-      "lastDownTime": 1495182118754,
+      "lastDownTime": 1495189969629,
       "version": "Compatible: ilp-kit v2.0.0-alpha",
-      "health": 0.3577976408259666,
+      "health": 0.3550389631473792,
       "ledgerUri": "https://interledger.kr/ledger",
       "peersRpcUri": "https://interledger.kr/api/peers/rpc",
       "settlementMethodsUri": "https://interledger.kr/api/settlement_methods"
@@ -71,8 +71,8 @@
       "settlementMethodsUri": "https://cornelius.sharafian.com/api/settlement_methods",
       "latency": 78.08717701258067,
       "pubKey": "KRixgcBCBdyQln7IBYiopjuNO78QSFtXgOwP1sbsCSk",
-      "limit": "[{\"ledger\":\"peer.Q-Nlc.usd.9.\",\"from\":\"peer.Q-Nlc.usd.9.8Zq10b79NO7RGHgfrX4lCXPbhVXL3Gt63SVLRH-BvR0\",\"to\":\"peer.Q-Nlc.usd.9.KRixgcBCBdyQln7IBYiopjuNO78QSFtXgOwP1sbsCSk\"}]",
-      "balance": "[{\"ledger\":\"peer.Q-Nlc.usd.9.\",\"from\":\"peer.Q-Nlc.usd.9.8Zq10b79NO7RGHgfrX4lCXPbhVXL3Gt63SVLRH-BvR0\",\"to\":\"peer.Q-Nlc.usd.9.KRixgcBCBdyQln7IBYiopjuNO78QSFtXgOwP1sbsCSk\"}]"
+      "limit": "1000000000",
+      "balance": "0"
     },
     "cygnus.vahehovhannisyan.com": {
       "hostname": "cygnus.vahehovhannisyan.com",
@@ -110,8 +110,8 @@
       "settlementMethodsUri": "https://hive.dennisappelt.com/api/settlement_methods",
       "latency": 68.69197454055538,
       "pubKey": "MrH7ZQqiu48JEHjqE_BsE-PaMxUs8yvR0VSA8I8ZwQ8",
-      "limit": "[{\"ledger\":\"peer.csVX4.usd.9.\",\"from\":\"peer.csVX4.usd.9.8Zq10b79NO7RGHgfrX4lCXPbhVXL3Gt63SVLRH-BvR0\",\"to\":\"peer.csVX4.usd.9.MrH7ZQqiu48JEHjqE_BsE-PaMxUs8yvR0VSA8I8ZwQ8\"}]",
-      "balance": "[{\"ledger\":\"peer.csVX4.usd.9.\",\"from\":\"peer.csVX4.usd.9.8Zq10b79NO7RGHgfrX4lCXPbhVXL3Gt63SVLRH-BvR0\",\"to\":\"peer.csVX4.usd.9.MrH7ZQqiu48JEHjqE_BsE-PaMxUs8yvR0VSA8I8ZwQ8\"}]"
+      "limit": "1000000000",
+      "balance": "0"
     },
     "ilp-kit.michielbdejong.com": {
       "hostname": "ilp-kit.michielbdejong.com",
@@ -149,15 +149,15 @@
       "settlementMethodsUri": "https://michiel-is-not-available.herokuapp.com/api/settlement_methods",
       "latency": 167.33180619498893,
       "pubKey": "mAnGASctQQjhVXE-EYUEG4ip3UXJKVx659KfoaBMUBw",
-      "limit": "Unauthorized",
-      "balance": "Unauthorized"
+      "limit": "",
+      "balance": ""
     },
     "royalcrypto.com": {
       "hostname": "royalcrypto.com",
-      "health": 0.7936115606171034,
+      "health": 0.7885092132987205,
       "ledgerUri": "https://royalcrypto.com/ledger",
       "peersRpcUri": "https://royalcrypto.com/api/peers/rpc",
-      "lastDownTime": 1495182014753,
+      "lastDownTime": 1495189965992,
       "settlementMethodsUri": "https://royalcrypto.com/api/settlement_methods",
       "latency": 400.6090851077626
     },
@@ -190,8 +190,8 @@
     "za.zar.ilp.hopebailie.com": {
       "hostname": "za.zar.ilp.hopebailie.com",
       "version": "Compatible: ilp-kit v1.2.0",
-      "health": 0.7936115606171034,
-      "lastDownTime": 1495182014753,
+      "health": 0.7885092132987205,
+      "lastDownTime": 1495189965989,
       "ledgerUri": "https://za.zar.ilp.hopebailie.com/ledger",
       "peersRpcUri": "https://za.zar.ilp.hopebailie.com/api/peers/rpc",
       "settlementMethodsUri": "https://za.zar.ilp.hopebailie.com/api/settlement_methods",
@@ -210,9 +210,9 @@
     "blue.unicurn.com": {
       "hostname": "blue.unicurn.com",
       "version": "Compatible: ilp-kit v2.0.0",
-      "health": 0.7910364969148778,
-      "latency": 90.9996,
-      "lastDownTime": 1495182117807
+      "health": 0.7870552425514665,
+      "latency": 90.86358368229232,
+      "lastDownTime": 1495187746005
     },
     "nexus.justmoon.com": {
       "hostname": "nexus.justmoon.com",
@@ -276,6 +276,377 @@
     },
     "peer.VjfbO.usd.9.": {
       "hostname": "red.ilpdemo.org"
+    },
+    "us.usd.michiel-is-not-available.": {
+      "routes": {
+        "peer.YgjsQ.usd.9.": [
+          [
+            1.002004008016032e-31,
+            0
+          ],
+          [
+            100000000000000000,
+            9.98e+27
+          ]
+        ],
+        "peer.a1Mg_.usd.9.": [
+          [
+            1.002004008016032e-9,
+            0
+          ],
+          [
+            100000000000000000,
+            9.96004e+27
+          ]
+        ]
+      },
+      "ledgerName": "us.usd.michiel-is-not-available."
+    },
+    "us.usd.grifiti.": {
+      "routes": {
+        "peer.a1Mg_.usd.9.": [
+          [
+            5.25510122142353e-9,
+            0
+          ],
+          [
+            8.63220319991533e-9,
+            3.3437210207687375e-9
+          ],
+          [
+            1.2839668653997372e-8,
+            7.50959779102114e-9
+          ],
+          [
+            0.0010287909870760317,
+            0.0010186167014735528
+          ],
+          [
+            0.001030852788383557,
+            0.0010206581229101953
+          ],
+          [
+            0.001030853807508328,
+            0.0010206591319614293
+          ],
+          [
+            0.0010329196271107528,
+            0.0010227045319741435
+          ],
+          [
+            0.001032920648277858,
+            0.0010227055430475243
+          ],
+          [
+            100000000000000000,
+            99011550200862770
+          ]
+        ]
+      },
+      "ledgerName": "us.usd.grifiti."
+    },
+    "eu.eur.pineapplesheep.": {
+      "routes": {
+        "peer.a1Mg_.usd.9.": [
+          [
+            3.3507262827675644e-9,
+            0
+          ],
+          [
+            8.863981858747035e-9,
+            4.9246657667336185e-9
+          ],
+          [
+            9.896889667356239e-9,
+            5.847301341150263e-9
+          ],
+          [
+            0.0010308508706148992,
+            0.0009207952401183269
+          ],
+          [
+            0.001032917705498871,
+            0.0009226414217179853
+          ],
+          [
+            9257144.232382106,
+            8268860.5073107965
+          ],
+          [
+            100000000000000000,
+            89324097148511280
+          ]
+        ]
+      },
+      "ledgerName": "eu.eur.pineapplesheep."
+    },
+    "us.usd.cygnus.": {
+      "routes": {
+        "peer.a1Mg_.usd.9.": [
+          [
+            6.267108412486881e-9,
+            0
+          ],
+          [
+            7.281143674073405e-9,
+            1.0020040080160316e-9
+          ],
+          [
+            1.4061955167741797e-8,
+            7.702363010943227e-9
+          ],
+          [
+            1.591546494352795e-8,
+            9.533881395549368e-9
+          ],
+          [
+            1.725963992546341e-8,
+            1.0862108105601783e-8
+          ],
+          [
+            0.0010287909870760317,
+            0.0010165784680706057
+          ],
+          [
+            0.001030853807508328,
+            0.0010186168136975065
+          ],
+          [
+            0.001032920648277858,
+            0.0010206591319614296
+          ],
+          [
+            100000000000000000,
+            98813527100461040
+          ]
+        ]
+      },
+      "ledgerName": "us.usd.cygnus."
+    },
+    "us.usd.cornelius.": {
+      "routes": {
+        "peer.a1Mg_.usd.9.": [
+          [
+            0.0010267249795955402,
+            0
+          ],
+          [
+            0.0010287836597322843,
+            2.0050983967935352e-9
+          ],
+          [
+            0.001029815423447683,
+            3.010008161399996e-9
+          ],
+          [
+            0.0010329152798733753,
+            6.02918391313936e-9
+          ],
+          [
+            0.00103302589056316,
+            6.136915713139323e-9
+          ],
+          [
+            100000000000000000,
+            97397277071152.3
+          ]
+        ],
+        "peer.csVX4.usd.9.": [
+          [
+            0.0010257764757770648,
+            0
+          ],
+          [
+            100000000000000000,
+            97487231557192.92
+          ]
+        ],
+        "peer.Q-Nlc.usd.9.": [
+          [
+            0.001,
+            0
+          ],
+          [
+            0.001005022337454175,
+            5.022337454174989e-9
+          ],
+          [
+            0.0010080474530428248,
+            8.047453042824784e-9
+          ],
+          [
+            0.0010111900547474773,
+            1.1190054747477282e-8
+          ],
+          [
+            0.001014233840112835,
+            1.4233840112834982e-8
+          ],
+          [
+            0.0010152490496515589,
+            1.5249049651558855e-8
+          ],
+          [
+            0.0010183050467814476,
+            1.8305046781447566e-8
+          ],
+          [
+            98764570616393810,
+            98764570616393.81
+          ],
+          [
+            99061755884045940,
+            99061755884045.94
+          ],
+          [
+            100000000000000000,
+            100000000000000
+          ]
+        ],
+        "peer.YgjsQ.usd.9.": [
+          [
+            0.001028783546688918,
+            0
+          ],
+          [
+            0.0010308463524371584,
+            2.0050983967935352e-9
+          ],
+          [
+            0.0010318801838153134,
+            3.010008161399996e-9
+          ],
+          [
+            0.0010349862523781313,
+            6.02918391313936e-9
+          ],
+          [
+            0.0010350970847326252,
+            6.136915713139323e-9
+          ],
+          [
+            100000000000000000,
+            97202482517009.98
+          ]
+        ]
+      },
+      "ledgerName": "us.usd.cornelius."
+    },
+    "nl.jpy.michiel.": {
+      "routes": {
+        "peer.a1Mg_.usd.9.": [
+          [
+            8.924273799963331e-12,
+            0
+          ],
+          [
+            100000000000000000,
+            11205393541423047000
+          ]
+        ],
+        "peer.YgjsQ.usd.9.": [
+          [
+            1.0109461661322277e-9,
+            0
+          ],
+          [
+            100000000000000000,
+            11182982754340200000
+          ]
+        ]
+      },
+      "ledgerName": "nl.jpy.michiel."
+    },
+    "lu.eur.hive.": {
+      "routes": {
+        "peer.a1Mg_.usd.9.": [
+          [
+            1.1284189733529246e-7,
+            0
+          ],
+          [
+            1.1675674542192958e-7,
+            3.5039105291827324e-10
+          ],
+          [
+            1.1778346817031757e-7,
+            4.422859251844015e-10
+          ],
+          [
+            1.1810865318107706e-7,
+            4.71390992811977e-10
+          ],
+          [
+            1.194594954987606e-7,
+            5.922955723882146e-10
+          ],
+          [
+            1.2048930768370344e-7,
+            6.844669588136197e-10
+          ],
+          [
+            1.2172894391230318e-7,
+            7.954182483048611e-10
+          ],
+          [
+            0.0010299339138867304,
+            0.00009217218184365207
+          ],
+          [
+            100000000000000000,
+            8950310335522172
+          ]
+        ],
+        "peer.csVX4.usd.9.": [
+          [
+            1.1162487462387162e-7,
+            0
+          ],
+          [
+            1.1553611035900447e-7,
+            3.5039105291827194e-10
+          ],
+          [
+            1.1656188571853281e-7,
+            4.4228592518440133e-10
+          ],
+          [
+            1.1688165742510843e-7,
+            4.70932918755782e-10
+          ],
+          [
+            1.1790743278463676e-7,
+            5.628277910219103e-10
+          ],
+          [
+            1.1811643432585644e-7,
+            5.815513543785484e-10
+          ],
+          [
+            1.1914220968538478e-7,
+            6.734462266446778e-10
+          ],
+          [
+            0.0010258945017380039,
+            0.00009189554571235418
+          ],
+          [
+            100000000000000000,
+            8958576691526642
+          ]
+        ],
+        "peer.YgjsQ.usd.9.": [
+          [
+            1.1407003741011267e-7,
+            0
+          ],
+          [
+            100000000000000000,
+            8932409714851127
+          ]
+        ]
+      },
+      "ledgerName": "lu.eur.hive."
     }
   },
   "connectors": {}
