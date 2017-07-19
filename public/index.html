@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0, maximum-scale=1">
 
   <title>Connector.Land</title>
-  <meta name="description" content="Statistics for hosts, ledgers, and connectors on the Interledger">
+  <meta name="description" content="Statistics for hosts, ledgers, and routes on the Interledger">
   <link rel="icon" href="logo.png">
 
 
@@ -14,33 +14,15 @@
     Styles
   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/6.0.0/normalize.css">
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/milligram/1.3.0/milligram.css">
+  <link rel="stylesheet" href="vendor/normalize.css">
+  <link rel="stylesheet" href="vendor/milligram.css">
   <link rel="stylesheet" href="style.css">
 
-  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+  <script src="vendor/webfont.js"></script>
   <script>WebFont.load({ google: { families: ['Montserrat', 'Lato', 'Source Sans Pro'] } })</script>
 
 </head>
 <body>
-
-
-
-<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-  Message for legacy browsers (IE <= 10)
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-
-<script>
-  if (/MSIE (6|7|8|9|10)\b/i.test(navigator.userAgent))
-    document.write('\
-      <div class="ui-legacy">\
-        <p>You are using an outdated browser.\
-        <br>Please <a href="https://www.google.com/chrome/browser/" target="_blank">upgrade</a> to improve your experience.</p>\
-        <p class="small" onclick="this.parentNode.style.display=\'none\'">I get it, <a>take me to the site</a>.</p>\
-      </div>')
-</script>
-
-
 
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -55,7 +37,7 @@
 
     <a href="./"><img alt="Interledger" class="logo" src="logo.png"></a>
 
-    <h1>Statistics for <a href="#/hosts">hosts</a>, <a href="#/ledgers">ledgers</a>, and <a href="#/connectors">connectors</a> on the <a href="https://interledger.org/" class="em">Interledger</a></h1>
+    <h1>Statistics for <a href="#/hosts">hosts</a>, <a href="#/ledgers">ledgers</a>, and <a href="#/routes">routes</a> on the <a href="https://interledger.org/" class="em">Interledger</a></h1>
 
     <a class="toggle">What is this?</a>
 
@@ -72,7 +54,7 @@
 
       <h3>What is this?</span></h3>
 
-      <p>This website lists hosts, ledgers, and connectors, that together make up the <a href="https://interledger.org/">Interledger</a>.</p>
+      <p>This website lists hosts, ledgers, and routes, that together make up the <a href="https://interledger.org/">Interledger</a>.</p>
 
       <p>Connectors connect two or more ledgers, similar to how Internet Switches link two or more computers.</p>
 
@@ -125,7 +107,7 @@
 <nav>
   <a href="#/hosts">Hosts</a>
   <a href="#/ledgers">Ledgers</a>
-  <a href="#/connectors">Connectors</a>
+  <a href="#/routes">Routes</a>
 </nav>
 
 
@@ -137,10 +119,10 @@
   Scripts
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 
-<script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/sortable/0.8.0/js/sortable.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.2/jquery.scrollTo.min.js"></script>
-<script src="//cdn.rawgit.com/Teun/thenBy.js/248eb629/thenBy.min.js"></script>
+<script src="vendor/jquery-3.2.1.min.js"></script>
+<script src="vendor/sortable.js"></script>
+<script src="vendor/jquery.scrollTo.min.js"></script>
+<script src="vendor/thenBy.min.js"></script>
 <script src="script.js"></script>
 
 

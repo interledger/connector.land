@@ -13,9 +13,9 @@ var config = {
   // Column order to display
 
   columnOrder: {
-    hosts: 'hostname version lastDownTime health latency balance limit'.split(' '),
-    ledgers: 'ledgerName routes'.split(' '),
-    connectors: 'comingbacksoon'.split(' ')
+    hosts: 'title version lastDownTime health latency balance limit'.split(' '),
+    ledgers: 'ledgerName routes network'.split(' '),
+    routes: 'comingsoon'.split(' ')
   },
 
 
@@ -25,7 +25,7 @@ var config = {
   columnNames: {
 
     hosts: {
-      hostname: 'Host URL',
+      title: 'Host Title',
       version: 'Software Version',
       lastDownTime: 'Up since (hours)',
       health: 'Up %',
@@ -36,11 +36,12 @@ var config = {
 
     ledgers: {
       ledgerName: 'Ledger Name',
-      routes: 'Reachable via'
+      routes: 'Reachable via',
+      network: 'Network'
     },
 
-    connectors: {
-      comingbacksoon: 'Coming back soon!'
+    routes: {
+      comingsoon: 'Coming soon!'
     }
 
   }
@@ -155,6 +156,7 @@ var config = {
     data = {}
     peerHostMap = {}
     for (var ledger in stats.ledgers) {
+      stats.ledgers[ledger].network = (ledger.startsWith('test.') ? 'TEST' : 'live')
       peerHostMap[ledger] = stats.ledgers[ledger].hostname
     }
     for (var tab in stats) {
@@ -232,7 +234,12 @@ function formatData(obj){
 
 
     // Filter out empty rows
-    rows = rows.filter(function(v){ return v !== '' })
+    rows = rows.filter(function(v){
+      if (v == '') { return false }
+      if (v.title === undefined && v.ledgerName === undefined) { return false }
+      if (typeof v.ledgerName === 'string' && v.ledgerName.startsWith('g.dns.land.connector.')) { return false }
+      return true
+    })
 
     if (key === 'ledgers') {
       rows = rows.filter(function(v){ return typeof v.ledgerName === 'string' })
@@ -241,7 +248,7 @@ function formatData(obj){
     // Sort data
 
     rows.sort(
-      firstBy(v => (v.version === 'Compatible: ilp-kit v2.0.2' ? 0 : (v.version === 'Compatible: ilp-kit v2.0.0' || v.version === 'Compatible: ilp-kit v2.0.1' ? 0.5 : 1)))
+      firstBy(v => (v.version === 'Compatible: ilp-kit v3.0.0-alpha2' ? 0 : (v.version === 'Compatible: ilp-kit v2.0.1' || v.version === 'Compatible: ilp-kit v2.0.2' ? 0.5 : 1)))
       .thenBy(v => Math.round(10 * v.health), -1)
       .thenBy('latency'))
 
@@ -278,10 +285,13 @@ function formatData(obj){
           }
 
           // routes list
-          if (k == 'routes') v = Object.keys(v).map(ledgerName => {
-            console.log('looking up', ledgerName, peerHostMap)
-            return peerHostMap[ledgerName] || ledgerName
-          }).join(', ')
+          if (k == 'routes') {
+            console.log('found the routes!', v)
+            v = Object.keys(v).map(ledgerName => {
+              console.log('looking up', ledgerName, peerHostMap)
+              return peerHostMap[ledgerName] || ledgerName
+            }).join(', ')
+          }
 
           // Strip extra text from ILP version
 
@@ -299,7 +309,7 @@ function formatData(obj){
 
           // Links
 
-          if (k == 'hostname') v = '<a href="https://' + v + '/" target="_blank">' + v + '</a>'
+          // if (k == 'hostname') v = '<a href="https://' + v + '/" target="_blank">' + v + '</a>'
 
           // Errors, fail, n/a
 
