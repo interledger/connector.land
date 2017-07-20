@@ -422,7 +422,7 @@ td.col-address {
   text-align: right;
 }
 
-table.connectors tr > :nth-child(n+3) {
+table.routes tr > :nth-child(n+3) {
   text-align: left;
 }
 
@@ -431,17 +431,17 @@ table.connectors tr > :nth-child(n+3) {
   table.hosts .col-version,
   table.ledgers .col-balance,
   table.ledgers .col-delay,
-  table.connectors .col-delay + * {
+  table.routes .col-delay + * {
     padding-left: 130px;
   }
 }
 
-table.connectors th:nth-child(n+3) div {
+table.routes th:nth-child(n+3) div {
   padding-top: 5em;
   width: 2em;
 }
 
-table.connectors th:nth-child(n+3) div span {
+table.routes th:nth-child(n+3) div span {
   display: block;
   width: 9em;
   white-space: nowrap;
