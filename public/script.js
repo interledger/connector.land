@@ -15,7 +15,8 @@ var config = {
   columnOrder: {
     hosts: 'title version lastDownTime health latency balance limit'.split(' '),
     ledgers: 'ledgerName routes network'.split(' '),
-    routes: 'comingsoon'.split(' ')
+    routes: 'comingsoon'.split(' '),
+    connectors: 'address network'.split(' ')
   },
 
 
@@ -42,6 +43,11 @@ var config = {
 
     routes: {
       comingsoon: 'Coming soon!'
+    },
+
+    connectors: {
+      address: 'Address',
+      network: 'Network'
     }
 
   }
@@ -96,8 +102,10 @@ var config = {
         nav = $('nav'),
         links = $('a', nav)
 
+    console.log('sections: ', sections)
+
     function scrollToSection(id){
-      root.stop().scrollTo(sections.filter('[data-id="'+id+'"]'), { duration: 1000, interrupt: true, easing: 'easeInOutQuart' })
+      root.scrollTop(sections.filter('[data-id="'+id+'"]'), { duration: 1000, interrupt: true, easing: 'easeInOutQuart' })
     }
 
     function highlightSectionLink(id){
@@ -107,10 +115,14 @@ var config = {
 
     // Go to section on url change
 
-    activateSectionFromUrl()
-    $(window).on('hashchange', activateSectionFromUrl)
+    // activateSectionFromUrl()
+    // window.on('hashchange', activateSectionFromUrl)
+    window.onhashchange = activateSectionFromUrl()
     function activateSectionFromUrl(){
+      console.log('hash changed')
+      console.log('location hash: ', location.hash)
       var id = location.hash.slice(2) || sections.first().attr('data-id')
+      console.log(id)
       if (!id) return
       root.disableScrollDetection = true
       setTimeout(function(){ root.disableScrollDetection = false }, 1000)
@@ -137,86 +149,162 @@ var config = {
     // Scroll down to content on nav click
 
     $('a[href^="#"]').click(function(){
-      $(window).scrollTo(nav, { duration: 1000, easing: 'easeInOutQuart', interrupt: true })
+      $('html, body').animate({ scrollTop: $('nav').offset().top }, 1000)
+      $('section.content').animate({ scrollLeft: $('div[data-id="ledgers"]').offset().left }, 2000)
     })
 
   }
 
+$.get('/routing', function(res, e, xhr) {
+  var json = xhr.responseText
+  var connectors = JSON.parse(json)
+  console.log('connectors: ', connectors)
+  $.post('/pingRoutes', {routes: connectors}, function(routeStatus) {
+    console.log('testPing: ', routeStatus)
+    var connectorHtmlArray = ['<div class="section" data-id="connectors">\
+          <table class="connectors">\
+            <thead>\
+              <tr>\
+                <th class="col-connectoraddress">\
+                  <div>\
+                    <span>Connector Address</span>\
+                  </div>\
+                </th>\
+                <th class="col-connectoraddress">\
+                  <div>\
+                    <span>Live</span>\
+                  </div>\
+                </th>\
+              </tr>\
+            </thead>\
+            <tbody>\
+      ']
 
-// Fetch and display the content
+    $.map(routeStatus, function (route) {
+      connectorHtmlArray.push('    \
+        <tr class="rank-undefined">\
+          <td class="col-connectoraddress">\
+          ' + route.route + '\
+          </td>\
+          <td class="col-connectorlive">\
+          ' + route.live + '\
+          </td>\
+        </tr>\
+        ')
+    })
 
-  $.get(config.dataUrl, function(res, e, xhr){
+    connectorHtmlArray.push('\
+          </tbody>\
+        </tbody>\
+      </div>')
 
-
-    // Prepare the data
-
-    var json = xhr.responseText
-
-    var stats = JSON.parse(json)
-    data = {}
-    peerHostMap = {}
-    for (var ledger in stats.ledgers) {
-      stats.ledgers[ledger].network = (ledger.startsWith('test.') ? 'TEST' : 'live')
-      peerHostMap[ledger] = stats.ledgers[ledger].hostname
-    }
-    for (var tab in stats) {
-      data[tab] =  Object.keys(stats[tab]).map(i => stats[tab][i])
-    }
-    formatData(data)
-
-
-    // Add html tables to page
+    connectorHtml = connectorHtmlArray.join('')
 
     var root = $('.content')
 
-    var html = $.map(config.columnOrder, function(cols, key){
-      return '                  \
-        <div class="section" data-id="' + key + '">  \
-          <table class="' + key + '"> \
-            <thead>             \
-              <tr>              \
-                ' + cols.map(function(val){ return '<th class="col-' + val + '"><div><span>' + config.columnNames[key][val] + '</span></div></th>' }).join('') + '\
-              </tr>             \
-            </thead>            \
-            <tbody>             \
-              ' + data[key].map(function(row){ return ' \
-                <tr class="rank-' + row.rank + '">      \
-                  ' + cols.map(function(key){
-                    return '\
-                      <td class="col-' + key + '">  \
-                        ' + (row[key] || '') + '    \
-                      </td>                         \
-                  ' }).join('') + '\
-                </tr>           \
-              ' }).join('') + ' \
-            </tbody>            \
-          </table>              \
-        </div>                  \
-      '
-    }).join('')
-
-    $(html).appendTo(root)
-
+    $(connectorHtml).appendTo(root)
     $('html').addClass('content-ready')
 
     nav(root)
+    console.log('test html: ', connectorHtml)
+  })
+  
+})
+
+
+
+// Fetch and display the content
+
+  // $.get('http://localhost:6001/stats', function(res, e, xhr){
+
+
+  //   // Prepare the data
+
+  //   var json = xhr.responseText
+
+  //   var stats = JSON.parse(json)
+  //   console.log('stats: ', stats)
+  //   data = {}
+  //   peerHostMap = {}
+  //   for (var ledger in stats.ledgers) {
+  //     stats.ledgers[ledger].network = (ledger.startsWith('test.') ? 'TEST' : 'live')
+  //     peerHostMap[ledger] = stats.ledgers[ledger].hostname
+  //   }
+  //   for (var tab in stats) {
+  //     data[tab] =  Object.keys(stats[tab]).map(i => stats[tab][i])
+  //   }
+  //   formatData(data)
+  //   console.log('data: ', data)
+
+  //   console.log('stats: ', stats)
+
+  //   // Add html tables to page
+
+  //   var root = $('.content')
+
+  //   var html = $.map(config.columnOrder, function(cols, key){
+  //     console.log('cols: ', cols)
+  //     console.log('key: ', key)
+  //     console.log('data key: ', data[key])
+  //     if (data[key]) {
+  //       console.log('appending data key: ', data[key])
+  //       return '                  \
+  //         <div class="section" data-id="' + key + '">  \
+  //           <table class="' + key + '"> \
+  //             <thead>             \
+  //               <tr>              \
+  //                 ' + cols.map(function(val){ return '<th class="col-' + val + '"><div><span>' + config.columnNames[key][val] + '</span></div></th>' }).join('') + '\
+  //               </tr>             \
+  //             </thead>            \
+  //             <tbody>             \
+  //               ' + data[key].map(function(row){ return ' \
+  //                 <tr class="rank-' + row.rank + '">      \
+  //                   ' + cols.map(function(key){
+  //                     return '\
+  //                       <td class="col-' + key + '">  \
+  //                         ' + (row[key] || '') + '    \
+  //                       </td>                         \
+  //                   ' }).join('') + '\
+  //                 </tr>           \
+  //               ' }).join('') + ' \
+  //             </tbody>            \
+  //           </table>              \
+  //         </div>                  \
+  //       '
+  //     } else {
+  //       return ''
+  //     }
+  //   }).join('')
+
+  //   const testfetch = fetch('http://localhost:6001/routing', {
+  //     method: 'GET'
+  //   })
+  //   console.log('testFetch: ', testfetch)
+
+  //   $(html).appendTo(root)
+
+  //   $('html').addClass('content-ready')
+
+  //   nav(root)
 
 
     // Sortable table
 
-    Sortable.typesObject.numeric.match = function(v){
-      return v.match(/^\S?\d[\d.]+\S*$/)
-    }
+    // console.log('Sortable: ', Sortable.numeric)
 
-    $('table')
-      .on('click', 'th', function(){
-        $(this).closest('table').addClass('user-sorted')
-      })
-      .each(function(){
-        Sortable.initTable(this)
-      })
+    // Sortable.typesObject.numeric.match = function(v){
+    //   return v.match(/^\S?\d[\d.]+\S*$/)
+    // }
 
-  })
+    // $('table')
+    //   .on('click', 'th', function(){
+    //     $(this).closest('table').addClass('user-sorted')
+    //   })
+    //   .each(function(){
+    //     Sortable.initTable(this)
+    //   })
+
+  // })
 
 
 
@@ -224,7 +312,6 @@ var config = {
 ///////////////////////////////////////////////////////////////////////////////
 // Data crunching
 ///////////////////////////////////////////////////////////////////////////////
-
 
 // Format raw data into workable data structure
 
@@ -244,6 +331,8 @@ function formatData(obj){
     if (key === 'ledgers') {
       rows = rows.filter(function(v){ return typeof v.ledgerName === 'string' })
     }
+
+    console.log('filtered rows: ', rows)
 
     // Sort data
 

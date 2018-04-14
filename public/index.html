@@ -14,11 +14,16 @@
     Styles
   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 
-  <link rel="stylesheet" href="vendor/normalize.css">
+  <!--<link rel="stylesheet" href="vendor/normalize.css">
   <link rel="stylesheet" href="vendor/milligram.css">
   <link rel="stylesheet" href="style.css">
 
-  <script src="vendor/webfont.js"></script>
+  <script src="vendor/webfont.js"></script>-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.0/normalize.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.3.0/milligram.css">
+  <link rel="stylesheet" href="style.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.js"></script>
   <script>WebFont.load({ google: { families: ['Montserrat', 'Lato', 'Source Sans Pro'] } })</script>
 
 </head>
@@ -37,7 +42,7 @@
 
     <a href="./"><img alt="Interledger" class="logo" src="logo.png"></a>
 
-    <h1>Statistics for <a href="#/hosts">hosts</a>, <a href="#/ledgers">ledgers</a>, and <a href="#/routes">routes</a> on the <a href="https://interledger.org/" class="em">Interledger</a></h1>
+    <h1>Statistics for <a href="#/connectors">connectors</a> on the <a href="https://interledger.org/" class="em">Interledger</a></h1>
 
     <a class="toggle">What is this?</a>
 
@@ -54,9 +59,9 @@
 
       <h3>What is this?</span></h3>
 
-      <p>This website lists hosts, ledgers, and routes, that together make up the <a href="https://interledger.org/">Interledger</a>.</p>
+      <p>This website lists the connectors that make up <a href="https://interledger.org/">Interledger</a>.</p>
 
-      <p>Connectors connect two or more ledgers, similar to how Internet Switches link two or more computers.</p>
+      <p>A connector connects to one or more other connectors in a similar manner to how Internet Switches link two or more computers.</p>
 
       <p>The role of hosts is to announce a ledger's API version, announce settlement methods which the ledger administrator will accept, and presents a human-readable interface where users can create a ledger account.</p>
 
@@ -65,7 +70,7 @@
 
     <div class="col">
 
-      <h3>How it works?</h3>
+      <h3>How does it work?</h3>
 
       <p>The scripts used for diagnostics currently rely on the following npm packages: 1) <a href="https://www.npmjs.com/package/ilp">ilp</a>@8.2.2, which determines: quote_request message sent to connectors, quote_response message expected from connectors, ILP-related data attached to source payments; 2) <a href="https://www.npmjs.com/package/ilp-plugin-bells">ilp-plugin-bells</a>@10.2.6, which determines: API requests made to ledgers, behavior expected from ledgers.</p>
 
@@ -87,12 +92,12 @@
       <p>Take into account that most connectors on connector.land are running software that still changes often, and most maintainers will take their connector and/or ledger into (extended) maintenance mode without warning and probably without refunds, so it's probably wise to avoid putting more money onto any ledgers than you are willing to lose.</p>
 
 
-      <h3>Add your node</h3>
+      <!-- <h3>Add your node</h3>
 
       <p>This is a list of known nodes as submitted by the people running them; most people use <a href="https://github.com/interledgerjs/ilp-kit">ilp-kit</a> to power their ledgers and connectors.
-      You can add your ILP node through this form:</p>
+      You can add your ILP node through this form:</p> -->
 
-      <form> <input name="test" placeholder="ilp-kit.example.com"> <input type="submit" value="Test"></form>
+      <!-- <form> <input name="test" placeholder="ilp-kit.example.com"> <input type="submit" value="Test"></form> -->
 
     </div>
 
@@ -105,9 +110,10 @@
 
 
 <nav>
-  <a href="#/hosts">Hosts</a>
+  <a href="#/connectors">Connectors</a>
+  <!-- <a href="#/hosts">Hosts</a>
   <a href="#/ledgers">Ledgers</a>
-  <a href="#/routes">Routes</a>
+  <a href="#/routes">Routes</a> -->
 </nav>
 
 
@@ -119,12 +125,18 @@
   Scripts
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 
-<script src="vendor/jquery-3.2.1.min.js"></script>
+<!-- <script src="vendor/jquery-3.2.1.min.js"></script> 
 <script src="vendor/sortable.js"></script>
 <script src="vendor/jquery.scrollTo.min.js"></script>
 <script src="vendor/thenBy.min.js"></script>
+<script src="script.js"></script> -->
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/sortablejs@1.6.1/Sortable.min.js"></script>
+<script src="vendor/thenBy.min.js"></script>
 <script src="script.js"></script>
-
 
 </body>
 </html>

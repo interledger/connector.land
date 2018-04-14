@@ -17,11 +17,22 @@
   },
   "homepage": "https://github.com/interledger/connector.land#readme",
   "dependencies": {
-    "ilp-node": "michielbdejong/ilp-node#mj-debug",
-    "koa": "^2.2.0",
+    "crypto": "^1.0.1",
+    "ilp-packet": "^2.2.0",
+    "ilp-plugin": "^3.1.0",
+    "ilp-protocol-ildcp": "^1.0.0",
+    "koa": "^2.5.0",
+    "koa-bodyparser": "^4.2.0",
+    "koa-router": "^7.4.0",
     "koa-static": "^3.0.0",
+    "koa-views": "^6.1.4",
     "mkdirp": "^0.5.1",
+    "node-fetch": "^2.1.2",
+    "oer-utils": "^2.0.1",
+    "path": "^0.12.7",
+    "reduct": "^3.2.0",
     "request": "^2.34.0",
-    "request-promise-native": "^1.0.4"
+    "request-promise-native": "^1.0.4",
+    "underscore": "^1.8.3"
   }
 }
