@@ -11,7 +11,9 @@ class Ping {
   }
 
   async init () {
+    console.log('connecting ping')
     await this.plugin.connect()
+    console.log('ping connected.')
 
     this.plugin.registerDataHandler(data => {
       const { executionCondition } = IlpPacket.deserializeIlpPrepare(data)
@@ -30,6 +32,7 @@ class Ping {
   }
 
   async ping (destination) {
+    console.log('PINGING DESTINATION: ', destination)
     const fulfillment = crypto.randomBytes(32)
     const condition = crypto.createHash('sha256').update(fulfillment).digest()
     const { clientAddress } = await ILDCP.fetch(this.plugin.sendData.bind(this.plugin))
@@ -52,9 +55,12 @@ class Ping {
 
     const parsedPacket = IlpPacket.deserializeIlpPacket(result)
     if (parsedPacket.type !== IlpPacket.Type.TYPE_ILP_FULFILL) {
+      console.log('parsedPacket: ', parsedPacket)
       throw new Error('Error sending ping. code=' + parsedPacket.data.code +
         ' message=' + parsedPacket.data.message)
-    }    
+    }
+
+    console.log('parsedPacket: ', parsedPacket)
   }
 }
 

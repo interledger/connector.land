@@ -63,8 +63,6 @@
 
       <p>A connector connects to one or more other connectors in a similar manner to how Internet Switches link two or more computers.</p>
 
-      <p>The role of hosts is to announce a ledger's API version, announce settlement methods which the ledger administrator will accept, and presents a human-readable interface where users can create a ledger account.</p>
-
     </div>
 
 
@@ -72,13 +70,17 @@
 
       <h3>How does it work?</h3>
 
-      <p>The scripts used for diagnostics currently rely on the following npm packages: 1) <a href="https://www.npmjs.com/package/ilp">ilp</a>@8.2.2, which determines: quote_request message sent to connectors, quote_response message expected from connectors, ILP-related data attached to source payments; 2) <a href="https://www.npmjs.com/package/ilp-plugin-bells">ilp-plugin-bells</a>@10.2.6, which determines: API requests made to ledgers, behavior expected from ledgers.</p>
+      <!-- <p>The scripts used for diagnostics currently rely on the following npm packages: 1) <a href="https://www.npmjs.com/package/ilp">ilp</a>@8.2.2, which determines: quote_request message sent to connectors, quote_response message expected from connectors, ILP-related data attached to source payments; 2) <a href="https://www.npmjs.com/package/ilp-plugin-bells">ilp-plugin-bells</a>@10.2.6, which determines: API requests made to ledgers, behavior expected from ledgers.</p>
 
       <p>This pretty much means that ledgers need to behave like <a href="https://github.com/interledgerjs/five-bells-ledger/tree/v19.4.2">FiveBellsLedger, version 19</a>, and connectors need to behave like <a href="https://github.com/interledgerjs/ilp-connector/tree/v13.1.4">ilp-connector, version 13</a>. Support for FiveBellsLedger version 20, and for ilp-connector versions 14, 15, and 16 are planned.</p>
 
-      <p>Apart from interacting with ledgers by sending messages, sending transfers, and fulfilling transfers, and interacting with connectors by requesting quotes and testing if they forward multi-hop payments as expected, the diagnostic scripts will do WebFinger lookups, assuming hosts are compatible with <a href="https://github.com/interledgerjs/ilp-kit">ilp-kit</a> version 1.</p>
+      <p>Apart from interacting with ledgers by sending messages, sending transfers, and fulfilling transfers, and interacting with connectors by requesting quotes and testing if they forward multi-hop payments as expected, the diagnostic scripts will do WebFinger lookups, assuming hosts are compatible with <a href="https://github.com/interledgerjs/ilp-kit">ilp-kit</a> version 1.</p> -->
 
-      <p>This website and the scripts that generate the data displayed here are <a href="https://github.com/interledger/connector.land">open source</a>.</p>
+      <p>Connector.land acts as a child connector below a couple significant tier-1 connectors. As a result, it is able to acquire the routing information from those connectors for a large portion of the network. This is purely for information-gathering. Interledger uses valley-free routing, so it doesn't participate in the network in the sense that it does not forward any packets being routed through the tier-1 connectors.</p>
+
+      <p>Connector.land checks the addresses by establishing a connection with the destination address using <a href="https://github.com/interledgerjs/ilp-plugin">ilp-plugin</a> and sending a test packet to the address with a condition, expecting to receive a fulfillment. When this occurs, the target connector is considered live and is listed as such here.</p>
+
+      <p>This website and the scripts that generate the data displayed here are <a href="https://github.com/interledger/connector.land" target="_blank">open source</a>.</p>
 
     </div>
 

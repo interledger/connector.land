@@ -33,9 +33,7 @@ class App {
 
     console.log('listening on 6001')
     await this.index.init(this.router)
-    console.log('initializing router')
-    console.log(this.index.init)
-    console.log(this.router)
+    console.log('router initialized.')
   }
 }
 

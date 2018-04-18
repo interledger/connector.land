@@ -8,10 +8,11 @@ class mainController {
   }
 
   async init (router) {
+    console.log('initializing ping')
     await this.ping.init()
+    console.log('ping initialized')
 
     router.get('/', async ctx => {
-      console.log('getting index')
       await ctx.render('../public/index')
     })
     router.get('/routing', async ctx => {
@@ -34,9 +35,11 @@ class mainController {
         try {
           await this.ping.ping(routes[destination])
           result.push({route: routes[destination], live: 'Yes'})
+          console.log('updated result: ', result)
         } catch (err) {
           console.log(err)
           result.push({route: routes[destination], live: 'No', error: err})
+          console.log('updated result: ', result)
         }
       }
 
