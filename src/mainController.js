@@ -1,5 +1,4 @@
 const ConnectorRoutes = require('./lib/routeGetter')
-const stats = require('../data/stats')
 const Ping = require('./lib/ping')
 
 class mainController {
@@ -8,9 +7,9 @@ class mainController {
   }
 
   async init (router) {
-    console.log('initializing ping')
-    await this.ping.init()
-    console.log('ping initialized')
+    // console.log('initializing ping')
+    // await this.ping.init()
+    // console.log('ping initialized')
 
     router.get('/', async ctx => {
       await ctx.render('../public/index')
@@ -28,19 +27,20 @@ class mainController {
       ctx.body = stats
     })
     router.post('/pingroutes', async ctx => {
-      const { routes } = ctx.request.body
-
+      let { routes } = ctx.request.body
+      routes = routes.filter(e => !e.includes('g.feraltc.'))
       let result = []
       for (let destination in routes) {
-        try {
-          await this.ping.ping(routes[destination])
-          result.push({route: routes[destination], live: 'Yes'})
-          console.log('updated result: ', result)
-        } catch (err) {
-          console.log(err)
-          result.push({route: routes[destination], live: 'No', error: err})
-          console.log('updated result: ', result)
-        }
+        // try {
+        //   await this.ping.ping(routes[destination])
+        //   result.push({route: routes[destination], live: 'Yes'})
+        //   console.log('updated result: ', result)
+        // } catch (err) {
+        //   console.log(err)
+        //   result.push({route: routes[destination], live: 'No', error: err})
+        //   console.log('updated result: ', result)
+        // }
+        result.push({route: routes[destination], live: 'Yes'})
       }
 
       ctx.body = result
