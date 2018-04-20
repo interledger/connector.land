@@ -27,8 +27,8 @@ class mainController {
       ctx.body = stats
     })
     router.post('/pingroutes', async ctx => {
-      const { routes } = ctx.request.body
-
+      let { routes } = ctx.request.body
+      routes = routes.filter(e => !e.includes('g.feraltc.'))
       let result = []
       for (let destination in routes) {
         try {
