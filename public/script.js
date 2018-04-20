@@ -5,17 +5,9 @@
 
 var config = {
 
-  // JSON endpoint to fetch data from
-
-  dataUrl: '/stats' + window.location.search,
-
-
   // Column order to display
 
   columnOrder: {
-    hosts: 'title version lastDownTime health latency balance limit'.split(' '),
-    ledgers: 'ledgerName routes network'.split(' '),
-    routes: 'comingsoon'.split(' '),
     connectors: 'address network'.split(' ')
   },
 
@@ -24,32 +16,10 @@ var config = {
   // (in the order it arrives from the server)
 
   columnNames: {
-
-    hosts: {
-      title: 'Host Title',
-      version: 'Software Version',
-      lastDownTime: 'Up since (hours)',
-      health: 'Up %',
-      latency: 'HTTP Roundtrip Time (ms)',
-      balance: 'Balance',
-      limit: 'Limit'
-    },
-
-    ledgers: {
-      ledgerName: 'Ledger Name',
-      routes: 'Reachable via',
-      network: 'Network'
-    },
-
-    routes: {
-      comingsoon: 'Coming soon!'
-    },
-
     connectors: {
       address: 'Address',
       network: 'Network'
     }
-
   }
 
 }
@@ -102,8 +72,6 @@ var config = {
         nav = $('nav'),
         links = $('a', nav)
 
-    console.log('sections: ', sections)
-
     function scrollToSection(id){
       root.scrollTop(sections.filter('[data-id="'+id+'"]'), { duration: 1000, interrupt: true, easing: 'easeInOutQuart' })
     }
@@ -119,10 +87,7 @@ var config = {
     // window.on('hashchange', activateSectionFromUrl)
     window.onhashchange = activateSectionFromUrl()
     function activateSectionFromUrl(){
-      console.log('hash changed')
-      console.log('location hash: ', location.hash)
       var id = location.hash.slice(2) || sections.first().attr('data-id')
-      console.log(id)
       if (!id) return
       root.disableScrollDetection = true
       setTimeout(function(){ root.disableScrollDetection = false }, 1000)
@@ -150,7 +115,6 @@ var config = {
 
     $('a[href^="#"]').click(function(){
       $('html, body').animate({ scrollTop: $('nav').offset().top }, 1000)
-      $('section.content').animate({ scrollLeft: $('div[data-id="ledgers"]').offset().left }, 2000)
     })
 
   }
@@ -158,9 +122,7 @@ var config = {
 $.get('/routing', function(res, e, xhr) {
   var json = xhr.responseText
   var connectors = JSON.parse(json)
-  console.log('connectors: ', connectors)
   $.post('/pingRoutes', {routes: connectors}, function(routeStatus) {
-    console.log('testPing: ', routeStatus)
     var connectorHtmlArray = ['<div class="section" data-id="connectors">\
           <table class="connectors">\
             <thead>\
@@ -206,210 +168,7 @@ $.get('/routing', function(res, e, xhr) {
     $('html').addClass('content-ready')
 
     nav(root)
-    console.log('test html: ', connectorHtml)
   })
   
 })
 
-
-
-// Fetch and display the content
-
-  // $.get('http://localhost:6001/stats', function(res, e, xhr){
-
-
-  //   // Prepare the data
-
-  //   var json = xhr.responseText
-
-  //   var stats = JSON.parse(json)
-  //   console.log('stats: ', stats)
-  //   data = {}
-  //   peerHostMap = {}
-  //   for (var ledger in stats.ledgers) {
-  //     stats.ledgers[ledger].network = (ledger.startsWith('test.') ? 'TEST' : 'live')
-  //     peerHostMap[ledger] = stats.ledgers[ledger].hostname
-  //   }
-  //   for (var tab in stats) {
-  //     data[tab] =  Object.keys(stats[tab]).map(i => stats[tab][i])
-  //   }
-  //   formatData(data)
-  //   console.log('data: ', data)
-
-  //   console.log('stats: ', stats)
-
-  //   // Add html tables to page
-
-  //   var root = $('.content')
-
-  //   var html = $.map(config.columnOrder, function(cols, key){
-  //     console.log('cols: ', cols)
-  //     console.log('key: ', key)
-  //     console.log('data key: ', data[key])
-  //     if (data[key]) {
-  //       console.log('appending data key: ', data[key])
-  //       return '                  \
-  //         <div class="section" data-id="' + key + '">  \
-  //           <table class="' + key + '"> \
-  //             <thead>             \
-  //               <tr>              \
-  //                 ' + cols.map(function(val){ return '<th class="col-' + val + '"><div><span>' + config.columnNames[key][val] + '</span></div></th>' }).join('') + '\
-  //               </tr>             \
-  //             </thead>            \
-  //             <tbody>             \
-  //               ' + data[key].map(function(row){ return ' \
-  //                 <tr class="rank-' + row.rank + '">      \
-  //                   ' + cols.map(function(key){
-  //                     return '\
-  //                       <td class="col-' + key + '">  \
-  //                         ' + (row[key] || '') + '    \
-  //                       </td>                         \
-  //                   ' }).join('') + '\
-  //                 </tr>           \
-  //               ' }).join('') + ' \
-  //             </tbody>            \
-  //           </table>              \
-  //         </div>                  \
-  //       '
-  //     } else {
-  //       return ''
-  //     }
-  //   }).join('')
-
-  //   const testfetch = fetch('http://localhost:6001/routing', {
-  //     method: 'GET'
-  //   })
-  //   console.log('testFetch: ', testfetch)
-
-  //   $(html).appendTo(root)
-
-  //   $('html').addClass('content-ready')
-
-  //   nav(root)
-
-
-    // Sortable table
-
-    // console.log('Sortable: ', Sortable.numeric)
-
-    // Sortable.typesObject.numeric.match = function(v){
-    //   return v.match(/^\S?\d[\d.]+\S*$/)
-    // }
-
-    // $('table')
-    //   .on('click', 'th', function(){
-    //     $(this).closest('table').addClass('user-sorted')
-    //   })
-    //   .each(function(){
-    //     Sortable.initTable(this)
-    //   })
-
-  // })
-
-
-
-
-///////////////////////////////////////////////////////////////////////////////
-// Data crunching
-///////////////////////////////////////////////////////////////////////////////
-
-// Format raw data into workable data structure
-
-function formatData(obj){
-
-  $.map(obj, function(rows, key){
-
-
-    // Filter out empty rows
-    rows = rows.filter(function(v){
-      if (v == '') { return false }
-      if (v.title === undefined && v.ledgerName === undefined) { return false }
-      if (typeof v.ledgerName === 'string' && v.ledgerName.startsWith('g.dns.land.connector.')) { return false }
-      return true
-    })
-
-    if (key === 'ledgers') {
-      rows = rows.filter(function(v){ return typeof v.ledgerName === 'string' })
-    }
-
-    console.log('filtered rows: ', rows)
-
-    // Sort data
-
-    rows.sort(
-      firstBy(v => (v.version === 'Compatible: ilp-kit v3.0.0-alpha2' ? 0 : (v.version === 'Compatible: ilp-kit v2.0.1' || v.version === 'Compatible: ilp-kit v2.0.2' ? 0.5 : 1)))
-      .thenBy(v => Math.round(10 * v.health), -1)
-      .thenBy('latency'))
-
-    // Format values
-
-    $.each(rows, function(i, row){
-      $.each(row, function(k, v){
-        // Format text
-          // Round latency integers
-
-          if (k == 'latency') v = Math.round(v)
-
-          if ((k == 'balance' || k == 'limit') && (v.length > 20)) v = 'Unknown'
-          if ((k == 'balance' || k == 'limit') && (!isNaN(parseInt(v)))) v = (parseInt(v)/Math.pow(10, 11))*100 + ' USD'
-
-          // Add % where needed
-
-          if (k == 'health') v = Math.round(100 * v) + '%'
-
-          if (k == 'lastDownTime') {
-            v = Math.round((new Date().getTime() - v) / 60000)
-            let measure = 'minute'
-            if (v > 1440) {
-              v = Math.round(v / 1440)
-              measure = 'day'
-            } else if (v > 60) {
-              v = Math.round(v / 60)
-              measure = 'hour'
-            }
-            if (v !== 1) {
-              measure += 's'
-            }
-            v += ' ' + measure
-          }
-
-          // routes list
-          if (k == 'routes') {
-            console.log('found the routes!', v)
-            v = Object.keys(v).map(ledgerName => {
-              console.log('looking up', ledgerName, peerHostMap)
-              return peerHostMap[ledgerName] || ledgerName
-            }).join(', ')
-          }
-
-          // Strip extra text from ILP version
-
-          if (k == 'version') v = v.replace(/Compatible: /, '')
-
-        // Add HTML (for styling)
-
-          // Emphasis
-
-          if (k == 'ledgerName' || k == 'address') v = v.replace(/([^.]+\.[^.]+\.)([^.]+)/, '$1<em>$2</em>')
-
-          // Small text
-
-          if (typeof v == 'string') v = v.replace(/(\.\d+%|%$|ms$|^v(?=\d))/, '<small>$1</small>')
-
-          // Links
-
-          // if (k == 'hostname') v = '<a href="https://' + v + '/" target="_blank">' + v + '</a>'
-
-          // Errors, fail, n/a
-
-          if (/error|response/i.test(v) || (/uptime|health/.test(k) && /\b0\b/.test(v))) v = '<span class="err">' + v + '</span>'
-
-          else if (v == 'fail' || v == 'n/a' || v == 'no data') v = '<span class="na">' + v + '</span>'
-
-        row[k] = v
-      })
-    })
-
-    obj[key] = rows
-  })
-}
