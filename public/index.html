@@ -59,9 +59,11 @@
 
       <h3>What is this?</span></h3>
 
-      <p>This website lists the connectors that make up <a href="https://interledger.org/">Interledger</a>.</p>
+      <p>This website lists the connectors that make up <a href="https://interledger.org/" target="_blank">Interledger</a>.</p>
 
       <p>A connector connects to one or more other connectors in a similar manner to how Internet Switches link two or more computers.</p>
+
+      <p>To learn more about joining the ILP Network, follow our <a href="https://medium.com/interledger-blog" target="_blank">Medium Blog</a>, where you can find a number of tutorials that will show you ways to connect to the ILP network.</p>
 
     </div>
 
@@ -70,15 +72,9 @@
 
       <h3>How does it work?</h3>
 
-      <!-- <p>The scripts used for diagnostics currently rely on the following npm packages: 1) <a href="https://www.npmjs.com/package/ilp">ilp</a>@8.2.2, which determines: quote_request message sent to connectors, quote_response message expected from connectors, ILP-related data attached to source payments; 2) <a href="https://www.npmjs.com/package/ilp-plugin-bells">ilp-plugin-bells</a>@10.2.6, which determines: API requests made to ledgers, behavior expected from ledgers.</p>
+      <p>Connector.land acquires data by pulling data from a particular tier-1 connector on the network. This connector receives routing information from its peers among the other tier-1 connectors, which are in turn receiving routing information from their client connectors. This broadcasting of routing information propagates up from the deepest connectors on the network to their parents, creating a network topology that this site displays.</p>
 
-      <p>This pretty much means that ledgers need to behave like <a href="https://github.com/interledgerjs/five-bells-ledger/tree/v19.4.2">FiveBellsLedger, version 19</a>, and connectors need to behave like <a href="https://github.com/interledgerjs/ilp-connector/tree/v13.1.4">ilp-connector, version 13</a>. Support for FiveBellsLedger version 20, and for ilp-connector versions 14, 15, and 16 are planned.</p>
-
-      <p>Apart from interacting with ledgers by sending messages, sending transfers, and fulfilling transfers, and interacting with connectors by requesting quotes and testing if they forward multi-hop payments as expected, the diagnostic scripts will do WebFinger lookups, assuming hosts are compatible with <a href="https://github.com/interledgerjs/ilp-kit">ilp-kit</a> version 1.</p> -->
-
-      <p>Connector.land acts as a child connector below a couple significant tier-1 connectors. As a result, it is able to acquire the routing information from those connectors for a large portion of the network. This is purely for information-gathering. Interledger uses valley-free routing, so it doesn't participate in the network in the sense that it does not forward any packets being routed through the tier-1 connectors.</p>
-
-      <p>Connector.land checks the addresses by establishing a connection with the destination address using <a href="https://github.com/interledgerjs/ilp-plugin">ilp-plugin</a> and sending a test packet to the address with a condition, expecting to receive a fulfillment. When this occurs, the target connector is considered live and is listed as such here.</p>
+      <p>Connector.land checks the addresses by establishing a connection with the destination address using <a href="https://github.com/interledgerjs/ilp-plugin">ilp-plugin</a> and sending a test packet to the address with a condition, expecting to receive a fulfillment. When the fulfillment is received, the target connector is considered live and is listed as such here.</p>
 
       <p>This website and the scripts that generate the data displayed here are <a href="https://github.com/interledger/connector.land" target="_blank">open source</a>.</p>
 
@@ -89,17 +85,11 @@
 
       <h3>Tips for connectors</h3>
 
-      <p>To make your connector score well on connector.land, try to set low fees, high ledger scale, peer with all the other connectors, and ask them to peer with you. It will probably also help for your connector to have accounts (preferably funded ones) on other ledgers, instead of just on your own local ledger.</p>
+      <!-- <p>To make your connector score well on connector.land, try to set low fees, high ledger scale, peer with all the other connectors, and ask them to peer with you. It will probably also help for your connector to have accounts (preferably funded ones) on other ledgers, instead of just on your own local ledger.</p> -->
 
-      <p>Take into account that most connectors on connector.land are running software that still changes often, and most maintainers will take their connector and/or ledger into (extended) maintenance mode without warning and probably without refunds, so it's probably wise to avoid putting more money onto any ledgers than you are willing to lose.</p>
+      <p>If you wish to deploy your own connector, you may follow the tutorial found at the <a href="https://github.com/interledgerjs/tf-connector">tf-connector</a> repository at the Interledgerjs organization. If you get in touch with someone who owns a tier 1 connector, you can peer with each other and lauch a tier 1 yourself. Otherwise, launch a tier 2 and establish a parent relationship with any of the connectors you see here.</p>
 
-
-      <!-- <h3>Add your node</h3>
-
-      <p>This is a list of known nodes as submitted by the people running them; most people use <a href="https://github.com/interledgerjs/ilp-kit">ilp-kit</a> to power their ledgers and connectors.
-      You can add your ILP node through this form:</p> -->
-
-      <!-- <form> <input name="test" placeholder="ilp-kit.example.com"> <input type="submit" value="Test"></form> -->
+      <p>Take into account that most connectors on connector.land are running software that still changes often, and most maintainers will take their connector into (extended) maintenance mode without warning and probably without refunds, so it's probably wise to avoid putting more money onto any connectors than you are willing to lose.</p>
 
     </div>
 
