@@ -1,5 +1,4 @@
 const ConnectorRoutes = require('./lib/routeGetter')
-const stats = require('../data/stats')
 const Ping = require('./lib/ping')
 
 class mainController {
