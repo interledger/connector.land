@@ -44,6 +44,17 @@ class mainController {
 
       ctx.body = result
     })
+
+    router.post('/pingroute', async ctx => {
+      let destination = ctx.request.body.destination
+      try {
+        await this.ping.ping(destination)
+        ctx.body = {route: destination, live: 'Yes'}
+      } catch (err) {
+        console.error(err)
+        ctx.body = {route: destination, live: 'No', error: err}
+      }
+    })
   }
 }
 

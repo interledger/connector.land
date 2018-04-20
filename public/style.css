@@ -301,11 +301,16 @@ nav,
 
 html:not(.content-ready) nav,
 html:not(.content-ready) .content,
+html:not(.content-ready) .content-pinging,
 html.content-ready .content-loading  {
   opacity: 0;
 }
 
-.content-loading {
+html.content-pinged .content-pinging {
+  opacity: 0;
+}
+
+.content-loading, .content-pinging {
   font-family: montserrat;
   text-transform: uppercase;
   letter-spacing: .8em;
@@ -320,6 +325,10 @@ html.content-ready .content-loading  {
 }
 
 html:not(.content-ready) .content-loading {
+  animation: loading .5s infinite linear alternate;
+}
+
+html:not(.content-pinged) .content-pinging {
   animation: loading .5s infinite linear alternate;
 }
 
@@ -522,6 +531,9 @@ td .na {
   color: #ccc;
 }
 
+.connector-row {
+/*  transition: .15s;*/
+}
 
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *

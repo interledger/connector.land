@@ -122,53 +122,111 @@ var config = {
 $.get('/routing', function(res, e, xhr) {
   var json = xhr.responseText
   var connectors = JSON.parse(json)
-  $.post('/pingRoutes', {routes: connectors}, function(routeStatus) {
-    var connectorHtmlArray = ['<div class="section" data-id="connectors">\
-          <table class="connectors">\
-            <thead>\
-              <tr>\
-                <th class="col-connectoraddress">\
-                  <div>\
-                    <span>Connector Address</span>\
-                  </div>\
-                </th>\
-                <th class="col-connectoraddress">\
-                  <div>\
-                    <span>Live</span>\
-                  </div>\
-                </th>\
-              </tr>\
-            </thead>\
-            <tbody>\
-      ']
+  // var connectorHtmlArray = ['<div class="section" data-id="connectors">\
+  //     <table class="connectors">\
+  //       <thead>\
+  //         <tr>\
+  //           <th class="col-connectoraddress">\
+  //             <div>\
+  //               <span>Connector Address</span>\
+  //             </div>\
+  //           </th>\
+  //           <th class="col-connectoraddress">\
+  //             <div>\
+  //               <span>Live</span>\
+  //             </div>\
+  //           </th>\
+  //         </tr>\
+  //       </thead>\
+  //       <tbody id="connector-data-table">\
+  // ']
+  // connectorHtmlArray.push('\
+  //       </tbody>\
+  //     </tbody>\
+  //   </div>')
 
-    $.map(routeStatus, function (route) {
-      connectorHtmlArray.push('    \
-        <tr class="rank-undefined">\
+  // connectorHtml = connectorHtmlArray.join('')
+  var root = $('.content')
+  //$(connectorHtml).appendTo(root)
+  connectors = connectors.filter(e => !e.includes('g.feraltc.'))
+
+  let index = 0
+  for (route in connectors) {
+    const destination = connectors[route]
+    $.post('/pingroute', {destination: destination}, function(routeStatus) {
+      const newHtml = '\
+        <tr class="rank-undefined connector-row" id="row_'+index+'">\
           <td class="col-connectoraddress">\
-          ' + route.route + '\
+            ' + routeStatus.route + '\
           </td>\
           <td class="col-connectorlive">\
-          ' + route.live + '\
+          ' + routeStatus.live + '\
           </td>\
         </tr>\
-        ')
+      '
+
+      $(newHtml).appendTo('#connector-data-table')
+      // $('#row_' + index).fadeIn(3000)
+      index++
+      if (index === connectors.length -1 ) {
+        console.log('pinged last connector')
+        $('html').addClass('content-pinged')
+      }
     })
+  }
+  
+  $('html').addClass('content-ready')
 
-    connectorHtmlArray.push('\
-          </tbody>\
-        </tbody>\
-      </div>')
+  nav(root)
 
-    connectorHtml = connectorHtmlArray.join('')
+  // console.log('html array: ', connectorHtmlArray)
+  // $.post('/pingRoutes', {routes: connectors}, function(routeStatus) {
+  //   var connectorHtmlArray = ['<div class="section" data-id="connectors">\
+  //         <table class="connectors">\
+  //           <thead>\
+  //             <tr>\
+  //               <th class="col-connectoraddress">\
+  //                 <div>\
+  //                   <span>Connector Address</span>\
+  //                 </div>\
+  //               </th>\
+  //               <th class="col-connectoraddress">\
+  //                 <div>\
+  //                   <span>Live</span>\
+  //                 </div>\
+  //               </th>\
+  //             </tr>\
+  //           </thead>\
+  //           <tbody>\
+  //     ']
 
-    var root = $('.content')
+  //   $.map(routeStatus, function (route) {
+  //     connectorHtmlArray.push('    \
+  //       <tr class="rank-undefined">\
+  //         <td class="col-connectoraddress">\
+  //         ' + route.route + '\
+  //         </td>\
+  //         <td class="col-connectorlive">\
+  //         ' + route.live + '\
+  //         </td>\
+  //       </tr>\
+  //       ')
+  //   })
 
-    $(connectorHtml).appendTo(root)
-    $('html').addClass('content-ready')
+    // connectorHtmlArray.push('\
+    //       </tbody>\
+    //     </tbody>\
+    //   </div>')
 
-    nav(root)
-  })
+  //   connectorHtml = connectorHtmlArray.join('')
+
+  //   var root = $('.content')
+
+  //   $(connectorHtml).appendTo(root)
+  //   $('html').addClass('content-ready')
+
+  //   nav(root)
+  // })
   
 })
 

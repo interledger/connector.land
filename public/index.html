@@ -100,7 +100,6 @@
 
 <div class="content-loading">Loading...</div>
 
-
 <nav>
   <a href="#/connectors">Connectors</a>
   <!-- <a href="#/hosts">Hosts</a>
@@ -108,8 +107,29 @@
   <a href="#/routes">Routes</a> -->
 </nav>
 
-
-<section class="content"></section>
+<div class="content-pinging">Pinging Connectors...</div>
+<section class="content">
+  <div class="section" data-id="connectors">  
+    <table class="connectors">  
+      <thead> 
+        <tr>  
+          <th class="col-connectoraddress"> 
+            <div> 
+              <span>Connector Address</span>  
+            </div>  
+          </th> 
+          <th class="col-connectoraddress"> 
+            <div> 
+              <span>Live</span> 
+            </div>  
+          </th> 
+        </tr>
+      </thead>
+      <tbody id="connector-data-table">
+      </tbody>
+    </table>
+  </div>
+</section>
 
 
 
