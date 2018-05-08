@@ -4,8 +4,7 @@ To run the koa server:
 
 ```sh
 npm install
-node src/index.js data/stats.json data/creds.json public/ 8600
+node src/index.js
 ```
 
-And then proxy port 8600 to https port 443 using for instance nginx + lestencrypt.
-This will serve the https://connector.land website, as well as a partially functional ILP node with which nodes in the open ILP network can peer.
+connector.land requires a live connector from which to acquire routing data. Currently it does SSH port forwarding on some of the exposed Admin APIs of a Tier 1 Connector.
