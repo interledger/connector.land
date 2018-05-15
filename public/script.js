@@ -166,7 +166,6 @@ $.get('/routing', function(res, e, xhr) {
       '
 
       $(newHtml).appendTo('#connector-data-table')
-      // $('#row_' + index).fadeIn(3000)
       index++
       if (index === connectors.length -1 ) {
         console.log('pinged last connector')
@@ -178,55 +177,5 @@ $.get('/routing', function(res, e, xhr) {
   $('html').addClass('content-ready')
 
   nav(root)
-
-  // console.log('html array: ', connectorHtmlArray)
-  // $.post('/pingRoutes', {routes: connectors}, function(routeStatus) {
-  //   var connectorHtmlArray = ['<div class="section" data-id="connectors">\
-  //         <table class="connectors">\
-  //           <thead>\
-  //             <tr>\
-  //               <th class="col-connectoraddress">\
-  //                 <div>\
-  //                   <span>Connector Address</span>\
-  //                 </div>\
-  //               </th>\
-  //               <th class="col-connectoraddress">\
-  //                 <div>\
-  //                   <span>Live</span>\
-  //                 </div>\
-  //               </th>\
-  //             </tr>\
-  //           </thead>\
-  //           <tbody>\
-  //     ']
-
-  //   $.map(routeStatus, function (route) {
-  //     connectorHtmlArray.push('    \
-  //       <tr class="rank-undefined">\
-  //         <td class="col-connectoraddress">\
-  //         ' + route.route + '\
-  //         </td>\
-  //         <td class="col-connectorlive">\
-  //         ' + route.live + '\
-  //         </td>\
-  //       </tr>\
-  //       ')
-  //   })
-
-    // connectorHtmlArray.push('\
-    //       </tbody>\
-    //     </tbody>\
-    //   </div>')
-
-  //   connectorHtml = connectorHtmlArray.join('')
-
-  //   var root = $('.content')
-
-  //   $(connectorHtml).appendTo(root)
-  //   $('html').addClass('content-ready')
-
-  //   nav(root)
-  // })
-  
 })
 

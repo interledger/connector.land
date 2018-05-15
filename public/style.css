@@ -292,21 +292,22 @@ nav a.active {
 }
 
 /* loading animation */
+.content-pinging {
+  margin-bottom: 10px;
+}
 
 nav,
 .content,
-.content-loading {
+.content-loading,
+.content-pinging {
   transition: opacity 1s;
 }
 
 html:not(.content-ready) nav,
 html:not(.content-ready) .content,
 html:not(.content-ready) .content-pinging,
+html.content-pinged .content-pinging,
 html.content-ready .content-loading  {
-  opacity: 0;
-}
-
-html.content-pinged .content-pinging {
   opacity: 0;
 }
 
@@ -325,12 +326,9 @@ html.content-pinged .content-pinging {
 }
 
 html:not(.content-ready) .content-loading {
-  animation: loading .5s infinite linear alternate;
+  animation: loading .5s infinite linear alternate;`
 }
 
-html:not(.content-pinged) .content-pinging {
-  animation: loading .5s infinite linear alternate;
-}
 
 @keyframes loading {
   0% { opacity: .2 }

@@ -1,5 +1,6 @@
 const ConnectorRoutes = require('./lib/routeGetter')
 const Ping = require('./lib/ping')
+const fs = require('fs-extra')
 
 class mainController {
   constructor (deps) {
@@ -54,6 +55,49 @@ class mainController {
         console.error(err)
         ctx.body = {route: destination, live: 'No', error: err}
       }
+    })
+
+    router.get('/actions/graph', async ctx => {
+      const { localRoutingTable } = await ConnectorRoutes.getRoutingTable()
+
+      const mapTree = {
+        name: 'connector.land',
+        contents: {}
+      }
+
+      for (const dest of Object.keys(localRoutingTable)) {
+        if (dest.includes('g.feraltc.')) continue
+        const pathStr =  localRoutingTable[dest].path
+        const path = pathStr ? pathStr.split(' ') : [ dest ]
+
+        let root = mapTree
+        for (const hop of path) {
+          if (!root.contents[hop]) {
+            root.contents[hop] = { name: hop, contents: {} }
+          }
+
+          root = root.contents[hop]
+        }
+      }
+
+      function mapTreeToListTree (root) {
+        return {
+          name: root.name,
+          contents: Object.values(root.contents).map(mapTreeToListTree)
+        }
+      }
+
+      ctx.body = mapTreeToListTree(mapTree)
+    })
+
+    router.get('/graph.js', async ctx => {
+      ctx.set('content-type', 'text/javascript')
+      ctx.body = await fs.readFile(path.resolve(__dirname, '../public/graph.js'))
+    })
+
+    router.get('/graphStyle.css', async ctx => {
+      ctx.set('content-type', 'text/css')
+      ctx.body = await fs.readFile(path.resolve(__dirname, '../public/graphStyle.css'))
     })
   }
 }

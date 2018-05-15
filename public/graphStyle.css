@@ -1,0 +1,15 @@
+g.node {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+circle.node-dot {
+    fill: #495057;
+    stroke: rgba(0,0,0,0);
+    stroke-width: 1px;
+}
+
+path.link {
+    fill: none;
+    stroke: #ddd;
+}
