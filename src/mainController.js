@@ -55,6 +55,11 @@ class mainController {
         ctx.body = {route: destination, live: 'No', error: err}
       }
     })
+
+    router.get('/coil/register.html', async ctx => {
+      ctx.set('content-type', 'text/html')
+      ctx.body = fs.readFileStream(__dirname, '../public/coil/register.html')
+    })
   }
 }
 
